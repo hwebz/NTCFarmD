@@ -1,0 +1,87 @@
+@using System.Globalization
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.DeliveryAssurance.DeliveryAssuranceListViewModel
+
+<!-- START MAIN CONTENT -->
+
+@using (Html.BeginForm("MultiApprove", "DeliveryAssurancePage", FormMethod.Post, new { id = "multiApproveForm", name = "multiApproveForm", @class = "author-inform-form", enctype = "multipart/form-data" }))
+{
+    <div class="lm__block">
+        <h3>@Html.Translate("/lantBruk/leveransForsakran/forApproval")</h3>
+        <p>@Html.Translate("/lantBruk/leveransForsakran/approvalMustBeDone")</p>
+        <div class="lm__table-wrapper">
+            <table class="responsive-table no-width">
+                <thead>
+                    <tr>
+                        <th class="header-desktop-only">@Html.Translate("/lantBruk/leveransForsakran/approve")</th>
+                        <th class="header-desktop-only">@Html.Translate("/lantBruk/leveransForsakran/deliveryAssurance")</th>
+                        <th>@Html.Translate("/lantBruk/leveransForsakran/itemName")</th>
+                        <th class="collapsed-row">@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryDate")</th>
+                        <th class="collapsed-row">@Html.Translate("/lantBruk/leveransForsakran/overview/farmCollection")</th>
+                        @if (Model.IsInternal)
+                        {
+                            <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/delete")</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.ListOfNotConfirmed != null && Model.ListOfNotConfirmed.Any())
+                {
+                    var i = 0;
+                    foreach (var rowItem in Model.ListOfNotConfirmed)
+                    {
+                            <tr>
+                                <td>
+                                    <div class="lm__checkbox lm__tick">
+                                        <input type="checkbox" class="cbxApproveDelAss" name="deliveryAssurances[@i].IONumber" value="@rowItem.DeliveryAssurance.IONumber" />
+                                        <label></label>
+                                    </div>
+                                    <input type="hidden" name="deliveryAssurances[@i].LineNumber" value="@rowItem.DeliveryAssurance.LineNumber" />
+                                </td>
+                                <td>
+                                    <a href=@rowItem.ApproveDeliveryAssuranceUrl>
+                                        @rowItem.DeliveryAssurance.IONumber.ToString(CultureInfo.InvariantCulture)
+                                    </a>
+                                </td>
+                                <td>
+                                    @rowItem.DeliveryAssurance.Item
+                                <input type="hidden" name="deliveryAssurances[@i].Item" value="@rowItem.DeliveryAssurance.Item" />
+                            </td>
+                            <td class="collapsed-row">
+                                @string.Format("{0:yyyy-MM-dd}", rowItem.DeliveryAssurance.DeliveryDate)
+                                <input type="hidden" name="deliveryAssurances[@i].DeliveryDate" value="@rowItem.DeliveryAssurance.DeliveryDate" />
+                            </td>
+                            <td class="collapsed-row">
+                                @rowItem.Gardshamtning
+                                <input type="hidden" name="deliveryAssurances[@i].Gardshamtning" value="@rowItem.DeliveryAssurance.Gardshamtning" />
+
+                            </td>
+                            @if (Model.IsInternal)
+                            {
+                                <td class="share-row collapsed-row">
+                                    <a href="javascript:void(0)" class="lm__inline-delete-btn" onclick="DeliveryAssuranceModule.deleteDeliveryAssurance(this, '#NotConfirmedCount', '@rowItem.DeliveryAssurance.IONumber', @rowItem.DeliveryAssurance.LineNumber)">
+
+                                    </a>
+                                </td>
+                            }
+                        </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+                <tfoot style="display: none;">
+                    <tr>
+                        <td colspan="5">
+                            Totalt: <span id="NotConfirmedCount">@Model.NotConfirmedCount</span> rader
+                            @*@string.Format(Html.Translate("/lantBruk/leveransForsakran/numberOfRows"), Model.NotConfirmedCount)*@
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    if (Model.ListOfNotConfirmed != null && Model.ListOfNotConfirmed.Any())
+    {
+        <input type="submit" id="btnApprove" class="lm__form-btn disabled" value="@Html.Translate("/lantBruk/leveransForsakran/approveSelected")" />
+    }
+}

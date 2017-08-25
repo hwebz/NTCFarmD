@@ -1,0 +1,134 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.ViewModels.Pages.MyProfile;
+@model ProfilePageViewModel
+
+<style>
+    div.error {
+        color: #e37222;
+        outline-color: #c99d66;
+        border-style: none !important;
+    }
+</style>
+<script type="text/javascript">
+    $(function() {
+        $("#edit-profile-form").validate({
+            errorElement: 'div',
+            errorClass: "error",
+            rules: {
+                FirstName: "required",
+                LastName: "required",
+                Mobilephone: {
+                    required: true,
+                    mobileSE: true
+                },
+                Telephone: {
+                    phoneSE: true
+                },
+                Email: {
+                    required: true,
+                    email: true
+                },
+                Zip: {
+                    zipCode: true
+                }
+            },
+
+            messages: {
+                FirstName: window["validationMessage"].firstName.required,
+                LastName: window["validationMessage"].lastName.required,
+                Mobilephone: {
+                    required: window["validationMessage"].mobileSE.required,
+                    mobileSE: window["validationMessage"].mobileSE.valid
+                },
+                Telephone: {
+                    phoneSE: window["validationMessage"].phoneSE.valid
+                },
+                Email: {
+                    required: window["validationMessage"].email.required,
+                    email: window["validationMessage"].email.valid
+                },
+                Zip: {
+                    zipCode: window["validationMessage"].zipCode.valid
+                }
+            },
+            highlight: function(element, errorClass) {
+                $(element).addClass(errorClass);
+            }
+        });
+    });
+</script>
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till Mitt konto
+                </a>
+
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block redigera-block">
+                    <div class="lm__block-box no-padding-bottom">
+                        <h1 class="lm__page-title" @Html.EditAttributes(x => x.CurrentPage.Heading)>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    </div>
+                    <form class="author-inform-form" id="edit-profile-form" action="." method="post">
+                        <div class="author-inform-form__input no-padding-top">
+                            <div class="author-inform-form__column author-inform-form__column-large">
+                                <label for="FirstName">Förnamn*</label>
+                                <input type="text" id="FirstName" name="FirstName" class="fornamn" placeholder="Förnamn" value="@(Model.ProfileViewModel.FirstName ?? string.Empty)"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-large">
+                                <label for="LastName">Efternamn*</label>
+                                <input type="text" id="LastName" name="LastName" class="efternamn" placeholder="Efternamn" value="@(Model.ProfileViewModel.LastName ?? string.Empty)"/>
+                            </div>
+                        </div>
+
+                        <div class="author-inform-form__input">
+                            <div class="author-inform-form__column author-inform-form__column-large">
+                                <label for="Telephone">Telefon </label>
+                                <input type="text" id="Telephone" name="Telephone" placeholder="+46 123 456" class="telefonnummer" value="@(Model.ProfileViewModel.Telephone ?? string.Empty)"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-large">
+                                <label for="Mobilephone">Mobil*</label>
+                                <input type="text" id="Mobilephone" name="Mobilephone" placeholder="+46 123 456 789" class="mobil" value="@(Model.ProfileViewModel.Mobilephone ?? string.Empty)"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-large">
+                                <label for="Email">E-post*</label>
+                                <input type="email" id="Email" name="Email" placeholder="lars.karlsson@mail.com" value="@(Model.ProfileViewModel.Email ?? string.Empty)" class="epost"/>
+                            </div>
+                        </div>
+                        <div class="author-inform-form__input">
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="Street">Gatuadress</label>
+                                <input type="text" id="Street" name="Street" placeholder="Lantvägen 102" class="gatuadress"
+                                       value="@(Model.ProfileViewModel.Street ?? string.Empty)"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-custom-2">
+                                <label for="Zip">Postnummer</label>
+                                <input type="text" id="Zip" name="Zip" class="postnummer" placeholder="123 45"
+                                       value="@(Model.ProfileViewModel.Zip ?? string.Empty)"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="City">Ort</label>
+                                <input type="text" id="City" name="City" class="ort" placeholder="Ystad"
+                                       value="@(Model.ProfileViewModel.City ?? string.Empty)"/>
+                            </div>
+                        </div>
+                        <div class="author-inform-form__input align-right-text block-button-on-mobile two-buttons">
+                            <a class="lm__form-btn left-button" target="_self" href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)">Avbryt</a>
+                            <input type="submit" class="lm__form-btn reverse-state" value="Uppdatera"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>

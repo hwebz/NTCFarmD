@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="svenska" id="sv">
+    <common>
+      <validations>
+        <contactblock>
+          <telephonenumberinvalid>
+            Fältet måste vara giltigt telefonnummer
+          </telephonenumberinvalid>
+        </contactblock>
+      </validations>
+    </common>
+  </language>
+</languages>

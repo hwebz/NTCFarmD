@@ -1,0 +1,16 @@
+﻿@model Gro.Core.ContentTypes.Blocks.ContactBlock
+
+@*static view: ekonomi-start-page.html*@
+<div class="lm__block kundtjanst-block">
+    <div class="lm__block-header">
+        <h1>@Html.PropertyFor(x => x.Heading)</h1>
+    </div>
+    <section class="lm__news">
+        <article class="lm__news-item xhtml-content">
+            @Html.PropertyFor(x => x.Description)
+            <h3 class="phone_number">@Html.PropertyFor(x => x.TelephoneNumber)</h3>
+            <p>@Html.PropertyFor(x => x.OpeningHours, new { tag = "LineBreaked" })</p>
+        </article>
+    </section>
+    <a class="lm__more-link" href="@Url.ContentUrl(Model.LinkToContactPage)"  @Html.EditAttributes(x=>x.LinkToContactPage)>@Model.LinkToContactPageText</a>
+</div>

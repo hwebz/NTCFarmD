@@ -1,0 +1,105 @@
+@using System.Globalization
+@using EPiServer.Editor
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.DeliveryAssurance.DeliveryAssuranceListViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block lm__mina-avtal has-separator no-margin">
+                    <div class="u-1/1 lm__blue-btn-block">
+                        <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                        <p>@Html.Raw(Model.CurrentPage.Introduction)</p>
+                        @if (Model.IsShowCreateNewLink)
+                        {
+                            <a href="@Model.CreateNewUrl" class="lm__blue-btn">
+                                +&nbsp;&nbsp;@Html.Translate("/lantBruk/leveransForsakran/createDeliveryAssuranceButton")
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="lm__block lm__mina-avtal has-separator no-margin deliveryTableContainer" id="ListOfNotConfirmed">
+                    <div class="loader-wrapper" style="display: none;">
+                        <div class="loader"></div>
+                    </div>
+                    @Html.Partial("Partial/ListOfNotConfirmed", Model)
+                </div>
+
+                <div class="lm__block lm__mina-avtal has-separator no-margin deliveryTableContainer" id="ListOfConfirmed">
+                    <div class="loader-wrapper" style="display: none;">
+                        <div class="loader"></div>
+                    </div>
+                    @Html.Partial("Partial/ListOfConfirmed", Model)
+                </div>
+
+                <div class="lm__block lm__mina-avtal has-separator no-margin deliveryTableContainer" id="ListOfDelivered">
+                    @Html.Partial("Partial/ListOfDelivered", Model)
+                </div>
+            </div>
+
+            <!-- Modal for change delivery assurance not available  -->
+            <div class="lm__modal__wrapper hidden" id="changeNotAvailable">
+                <div class="mask"></div>
+                <div class="lm__wide-modal">
+                    <h3 class="lm__wide-modal__title">@Model.CurrentPage.ChangeNotAvailableHeader</h3>
+                    <p>@Html.PropertyFor(x=>x.CurrentPage.ChangeNotAvailable)</p>
+                    <div class="lm__wide-modal__close-btn">
+                        <a href=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for showing error or information after event -->
+            <div class="lm__modal__wrapper hidden" id="informationDialog">
+                <div class="mask"></div>
+                <div class="lm__wide-modal">
+                    <h3 class="lm__wide-modal__title" id="dialogTitle"></h3>
+                    <p id="dialogContent"></p>
+                    <div class="lm__wide-modal__close-btn">
+                        <a href=""></a>
+                    </div>
+                </div>
+            </div>
+
+            @if (!PageEditing.PageIsInEditMode && TempData["NotLoggedIn"] != null && (bool)TempData["NotLoggedIn"])
+            {
+                <div class="lm__modal__wrapper" id="errorDialog">
+                    <div class="mask"></div>
+                    <div class="lm__wide-modal">
+                        <h3 class="lm__wide-modal__title">@Html.Translate("/lantBruk/leveransForsakran/errorMessages/error")</h3>
+                        <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                            @Html.Translate("/lantBruk/leveransForsakran/errorMessages/notLoggedIn")
+                        </div>
+                        <div class="lm__wide-modal__close-btn">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <!-- Modal for delete delivery assurance -->
+            <div id="confirmDelete" class="lm__modal__wrapper hidden">
+                <div class="mask"></div>
+                <div class="lm__wide-modal author-inform-form">
+                    <h3 class="lm__wide-modal__title">@Model.CurrentPage.RemoveDeliveryAssuranceConfirmText</h3>
+                    <div class="lm__wide-modal__close-btn">
+                        <a href=""></a>
+                    </div>
+                    <div class="author-inform-form__input lm__wide-modal__action-btn">
+                        <button id="btnNo" class="author-inform-form__btn">Nej</button>
+                        <button id="btnYes" class="author-inform-form__btn">Ja</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>

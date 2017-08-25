@@ -1,0 +1,62 @@
+﻿@using System.Text;
+@using EPiServer.Web.Mvc.Html;
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.PriceGraph.PriceGraphPageViewModel
+
+@{
+    var label = "Date," + string.Join(",", Model.GraphDisplay.Legends);
+
+    var dataBuilder = new StringBuilder();
+    foreach (var dataRow in Model.GraphDisplay.Data)
+    {
+        dataBuilder.Append(dataRow.Date.ToString("yyyyMMdd") + ",");
+        dataBuilder.Append(string.Join(",", dataRow.Values));
+        dataBuilder.AppendLine();
+    }
+
+    var data = dataBuilder.ToString();
+    var selectedValue = @Model.PeriodOptions.FirstOrDefault(x => x.Value == (int)ViewData["SelectedPeriod"]);
+    var selectedText = selectedValue.Equals(null) ? string.Empty : selectedValue.Key;
+}
+
+<section class="lm__contents no-overflow">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__chart">
+                    <h1 @Html.EditAttributes(p => p.CurrentPage.Heading)>@Model.CurrentPage.Heading</h1>
+                    <div class="lm__chart-section">
+                        <div id="lm__chart-dygraphs" data-rowdata="@data" data-title="@Model.CurrentPage.GraphTitle"></div>
+                        <div id="lm__chart-status" data-label="@label"></div>
+                    </div>
+
+                    <div class="author-inform-form__column author-inform-form__column-half ">
+                        <span>Välj period</span>
+                        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                            <ul id="selectMonthPeriod" class="lm__form-dropdown type-3">
+                                <li class="showcase">
+                                    <a href="#">@selectedText</a>
+                                    <ul class="dropdown">
+                                        @foreach (var pair in Model.PeriodOptions)
+                                        {
+                                            <li data-value="@pair.Value"><a href="#">@pair.Key</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+            </div>
+            <div class="layout__item u-1/1-tablet u-1/3-desktop">
+                @if (Model != null && Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>

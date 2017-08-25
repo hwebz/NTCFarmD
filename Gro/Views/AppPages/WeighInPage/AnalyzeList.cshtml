@@ -1,0 +1,38 @@
+﻿@using Gro.Core.DataModels.WeighInDtos;
+@model AnalyzeList[]
+<div>
+    <div class="modal-header-title">
+        <h3>@Html.Translate("/lantBruk/weighIn/analyze/header")</h3>
+    </div>
+    <div class="modal-content" data-role="page">
+        <div id="table-data">
+            <div style="text-align:left">
+                <div class="bold">Invägning, kundnummer: @ViewData["customerNumber"]</div>
+                <div class="analyzeDate">@Html.Raw(ViewData["date"])</div>
+                <div class="bold">Analys, leveransnummer: <span class="deliveryNumber">@ViewData["deliveryNumber"]</span></div>
+                <div class="weighInSort">@Html.Raw(ViewData["sort"])</div>
+            </div>
+
+            <p class="table-caption">Välj kolumner som skall visas</p>
+            <div class="lm__table-wrapper full-width-table">
+                <table border="0" class="">
+                    <thead>
+                        <tr>
+                            <th scope="col">@Html.Translate("/lantBruk/weighIn/analyze/name") </th>
+                            <th scope="col">@Html.Translate("/lantBruk/weighIn/analyze/value") </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Description</td>
+                                <td>@item.Keyvalue</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

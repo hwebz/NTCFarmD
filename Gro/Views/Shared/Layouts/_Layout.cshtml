@@ -1,0 +1,58 @@
+﻿@model Gro.ViewModels.IPageViewModel<EPiServer.Core.PageData>
+@using EPiServer.Framework.Web
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Globalization
+
+<!doctype html>
+<html lang="@ContentLanguage.PreferredCulture.Name">
+<head prefix="og: http://ogp.me/ns#">
+    @Html.Partial("_GoogleTagManagerHeader", Model)
+    <title>@(Model.CurrentPage.Name + " " + Model.Settings.SiteName)</title>
+    <link rel="shortcut icon" type="image/png"
+          href="http://lantmannen.com/siteassets/images/99-framework/favicon/lm-icon.png?w=32&h=32&format=png" />
+    @Html.Partial("_MetaData")
+    @Html.Partial("_CSS")
+    @if (!IsSectionDefined("JavaScriptContent"))
+    {
+        Html.RenderPartial("_Javascripts");
+    }
+    else
+    {
+        @RenderSection("JavaScriptContent")
+    }
+
+    @Html.RequiredClientResources(RenderingTags.Header)
+</head>
+<body>
+    @Html.Partial("_GoogleTagManagerBody", Model)
+    @*Making the EPiServer menu visible and updating properties correctly while in editmode*@
+    @Html.RenderEPiServerQuickNavigator()
+    @Html.FullRefreshPropertiesMetaData()
+
+    @if (!IsSectionDefined("Header"))
+    {
+        Html.RenderPartial("_HeaderInternal", Model);
+    }
+    else
+    {
+        @RenderSection("Header")
+    }
+
+    <main class="main-content container" role="main">
+        @RenderBody()
+    </main>
+
+    @if (!IsSectionDefined("Footer"))
+    {
+        @Html.Partial("_FooterInternal", Model)
+    }
+    else
+    {
+        @RenderSection("Footer")
+    }
+
+    @RenderSection("AdditionalJavascriptContent", false)
+
+    @*@Html.RequiredClientResources(RenderingTags.Footer)*@
+</body>
+</html>

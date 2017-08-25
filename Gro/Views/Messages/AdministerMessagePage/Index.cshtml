@@ -1,0 +1,50 @@
+﻿@using Gro.Business.Messages
+@using Gro.Helpers
+@using Gro.Core.ContentTypes.Pages.Messages
+@model Gro.ViewModels.IPageViewModel<AdministerMessagePage>
+
+<section class="lm__contents">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.4.1/ui/trumbowyg.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.4.1/trumbowyg.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.4.1/langs/sv.min.js"></script>
+
+    <script type="text/javascript">
+        var svLang = jQuery.trumbowyg.langs.sv || {};
+        svLang.removeformat = "Ta bort formatering";
+        svLang.undo = "Ångra";
+    </script>
+
+    <div class="wrapper">
+
+        <div class="layout__item u-1/1" id="mainlist-backbutton" style="display:none;">
+            <a href="#" class="lm__back-link small-distance-bottom">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Till Administrera meddelanden
+            </a>
+        </div>
+
+        <div class="lm__block lm__administrera-meddelanden-wrapper">
+            <input type="hidden" value="@MessageSetting.GetPageSizeForAdminPage()" id="administer_pagesize" />
+            <input type="hidden" id="empty-category-message" value="@MessageSetting.GetMessageForEmptyCategory()" />
+            <div id="free-message-header" hidden class="xhtml-content">
+                @Html.PropertyFor(m => m.CurrentPage.FreeMessageHeader)
+            </div>
+            <div id="standard-message-header" hidden class="xhtml-content">
+                @Html.PropertyFor(m => m.CurrentPage.StandardMessageHeader)
+            </div>
+            <div class="layout  layout--large">
+                <div id="administer-message-app" style="min-width: 50%; min-height: 600px; font-size: 16px;"> </div>
+
+                @if (Html.IsDebug())
+                {
+                    <script type="text/javascript" src="~/Static/dist/scripts/administerMessage.js"></script>
+                }
+                else
+                {
+                    <script type="text/javascript" src="~/Static/dist/scripts/administerMessage.production.js"></script>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>

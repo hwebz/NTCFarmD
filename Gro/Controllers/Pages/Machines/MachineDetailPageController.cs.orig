@@ -1,0 +1,201 @@
+﻿using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using EPiServer.Core;
+using Gro.Business.Services.News;
+using Gro.Business.Services.Users;
+using Gro.Core.ContentTypes.Pages.MachinePages;
+using Gro.Core.DataModels.Machine;
+using Gro.Core.Interfaces;
+using Gro.Helpers;
+using Gro.Infrastructure.Data;
+using Gro.ViewModels.Pages.Machines;
+<<<<<<< HEAD
+=======
+using EPiServer.ServiceLocation;
+using EPiServer.Web.Hosting;
+using EPiServer.Web.Mvc.Html;
+using Gro.Constants;
+>>>>>>> d3bac31... DEV-1629 Machine, change image and document and xml handling for new directory in production
+
+namespace Gro.Controllers.Pages.Machines
+{
+    public class MachineDetailPageController : SiteControllerBase<MachineDetailPage>
+    {
+        private const string Machine_W = "Maskin_w";
+
+        private readonly MediaConfig _mediaConfig;
+        private readonly IMachineRepository _machineRepository;
+        private readonly IUsersManagementService _usersManagementService;
+        private readonly IFileRepository _fileRepository;
+        private readonly IOrganizationUserRepository _orgUserRepo;
+        private readonly IGroContentDataService _groContentDataService;
+
+        public MachineDetailPageController(IMachineRepository machineRepository,
+            IOrganizationUserRepository orgUserRepo,
+            IUsersManagementService usersManagementService,
+            IFileRepository fileRepository,
+            MediaConfig mediaConfig,
+            IGroContentDataService groContentDataService)
+        {
+            _orgUserRepo = orgUserRepo;
+            _machineRepository = machineRepository;
+            _usersManagementService = usersManagementService;
+            _fileRepository = fileRepository;
+            _mediaConfig = mediaConfig;
+            _groContentDataService = groContentDataService;
+        }
+        public async Task<ActionResult> Index(MachineDetailPage currentPage, string maid)
+        {
+            var siteUser = _usersManagementService.GetSiteUser(HttpContext);
+            if (siteUser == null)
+            {
+                return View("~/Views/Machine/MachineDetail/Index.cshtml", new MachineDetailPageViewModel(currentPage) { Machine = new Machine() });
+            }
+
+            var organization = _usersManagementService.GetActiveCustomer(HttpContext);
+            if (organization == null)
+            {
+                return View("~/Views/Machine/MachineDetail/Index.cshtml", new MachineDetailPageViewModel(currentPage) { Machine = new Machine() });
+            }
+
+            var userRoles = await _orgUserRepo.GetUserCustomerRolesAsync(siteUser.UserName, organization.CustomerNo);
+
+            var machine = await _machineRepository.GetDetailMachineById(maid);
+
+            var model = new MachineDetailPageViewModel(currentPage)
+            {
+                Machine = machine ?? new Machine(),
+                IsHasMachine_WRight = userRoles?.Any(r => r.RoleName.Equals(Machine_W)) ?? false
+            };
+
+            var machineOwnerPic = await _machineRepository.GetMachinePicUrl(organization.CustomerId, maid);
+
+            var machineImage = model.Machine.Images != null && model.Machine.Images.Count > 0
+                ? $"{model.Machine.Images[0].Id}.jpg"
+                : string.Empty;
+
+            var categoryImage = _machineRepository.GetMachineCategoryImage(model.Machine.Group.Id);
+
+            model.IsHasMachineOwnerPicture = !string.IsNullOrEmpty(machineOwnerPic?.PictureUrl);
+
+            //model.Machine.ImageUrl = machineOwnerPic != null ? machineOwnerPic.PictureUrl :
+            //                        !string.IsNullOrEmpty(machineImage) ?
+            //                         $"/{_mediaConfig.GlobalAssets}/{_mediaConfig.MachineFolder}/Images/{machineImage}" : categoryImage;
+            model.Machine.ImageUrl = machineOwnerPic != null ? machineOwnerPic.PictureUrl :
+                                  !string.IsNullOrEmpty(machineImage) ?
+                                   MachineHelper.GetVirtualPath(VirtualPathConfig.ImageFolder, machineImage) : categoryImage;
+
+            foreach (var doc in model.Machine.Documents)
+            {
+                if (string.IsNullOrEmpty(doc.Url))
+                {
+                    var fileExtentsion = Path.GetExtension(doc.FileName);
+                    var fullNameWithExtension = $"{doc.Id}{fileExtentsion}";
+                    doc.Url = MachineHelper.GetVirtualPath(VirtualPathConfig.DocumentsFolder, fullNameWithExtension);
+                    //doc.Url = $"/{_mediaConfig.GlobalAssets}/{_mediaConfig.MachineFolder}/Documents/{doc.Id}{Path.GetExtension(doc.FileName)}";
+                }
+            }
+
+            return View("~/Views/Machine/MachineDetail/Index.cshtml", model);
+        }
+
+        private string GetVppPathForImg(string imageName)
+        {
+            VirtualPathNonUnifiedProvider vpp = System.Web.Hosting.HostingEnvironment.VirtualPathProvider as VirtualPathNonUnifiedProvider;
+            if (vpp == null)
+            {
+                return string.Empty;
+            }
+            var vppRoot = vpp.VirtualPathRoot;
+            var imgVirtualPath = $"{vppRoot} {VirtualPathConfig.ImageFolder} {imageName}";
+            return vpp.FileExists(imgVirtualPath) ? imgVirtualPath : string.Empty;
+        }
+
+        [Route("api/machine/machine-upload-avatar")]
+        [HttpPost]
+        public async Task<JsonResult> UpdateMachinePicture(string machineId)
+        {
+            var siteUser = _usersManagementService.GetSiteUser(HttpContext);
+            if (siteUser != null && HttpContext.Request.Files.AllKeys.Any())
+            {
+                // Get the uploaded image from the Files collection
+                var httpPostedFile = Request.Files[_mediaConfig.HttpPostedFileKey];
+
+                if (httpPostedFile != null && httpPostedFile.IsImage())
+                {
+                    var organization = _usersManagementService.GetActiveCustomer(HttpContext);
+
+                    if (organization != null)
+                    {
+                        var fileExtension = Path.GetExtension(httpPostedFile.FileName);
+                        var machineOwnerPic = await _machineRepository.GetMachinePicUrl(organization.CustomerId, machineId);
+                        if (machineOwnerPic != null)
+                        {
+                            await _machineRepository.DeleteMachinePicUrl(machineOwnerPic.Id);
+                            await _fileRepository.DeleteAsync(machineOwnerPic.PictureUrl);
+                        }
+
+                        var url = await _fileRepository.SaveAsync(httpPostedFile.InputStream, fileExtension, _mediaConfig.MachineFolder, SiteUser.UserName);
+                        if (url != null)
+                        {
+                            var result = await _machineRepository.CreateMachinePicUrl(organization.CustomerId, machineId, url);
+                            if (result)
+                            {
+                                return Json(new { success = true });
+                            }
+                        }
+                    }
+                }
+            }
+
+            return Json(new { success = false });
+        }
+
+        [Route("api/machine/machine-delete-avatar")]
+        [HttpPost]
+        public async Task<JsonResult> DeleteMachinePicture(string machineId)
+        {
+            var siteUser = _usersManagementService.GetSiteUser(HttpContext);
+            var organization = _usersManagementService.GetActiveCustomer(HttpContext);
+            if (siteUser != null && organization != null)
+            {
+                var machinePic = await _machineRepository.GetMachinePicUrl(organization.CustomerId, machineId);
+                if (machinePic != null)
+                {
+                    await _fileRepository.DeleteAsync(machinePic.PictureUrl);
+                    var result = await _machineRepository.DeleteMachinePicUrl(machinePic.Id);
+                    if (result)
+                    {
+                        var machine = await _machineRepository.GetDetailMachineById(machineId) ?? new Machine();
+                        var machineImage = machine.Images != null && machine.Images.Count > 0 ? $"{machine.Images[0].Id}.jpg" : string.Empty;
+                        var categoryImage = _machineRepository.GetMachineCategoryImage(machine.Group.Id);
+                        var machineImageUrl = !string.IsNullOrEmpty(machineImage) ? $"/{_mediaConfig.GlobalAssets}/{_mediaConfig.MachineFolder}/Images/{machineImage}" : categoryImage;
+                        return Json(new { success = true, imageUrl = machineImageUrl });
+                    }
+                }
+            }
+
+            return Json(new { success = false });
+        }
+
+        [HttpPost]
+        [CustomerRole("Maskin_w")]
+        public async Task<ActionResult> RemoveMachineById(MachineDetailPage currentPage, string machineId)
+        {
+            var result = await _machineRepository.RemoveMachine(machineId);
+            if (result)
+            {
+                var machineListUrl = MachineHelper.GetMachineListUrl(_groContentDataService, HttpContext);
+                if (!string.IsNullOrEmpty(machineListUrl))
+                {
+                    return Redirect(machineListUrl);
+                }
+                return RedirectToAction("Index", new { node = ContentReference.StartPage });
+            }
+            TempData["DeleteFailed"] = "True";
+            return RedirectToAction("Index", new { node = currentPage.ContentLink, maid = machineId });
+        }
+    }
+}

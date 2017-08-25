@@ -1,0 +1,261 @@
+﻿@using Gro.Constants;
+@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+
+@model Gro.ViewModels.Pages.SearchTransport.SearchTransportPageView
+
+<!-- START MAIN CONTENT -->
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__mina-avtal has-separator">
+                    <h1 class="lm__page-title">Sök transport</h1>
+                    <!-- Search criteria -->
+                    @using (Html.BeginForm("Index", "SearchTransport", FormMethod.Post, new { @id = "form-search-transport", enctype = "multipart/form-data" }))
+                    {
+                        <div class="layout layout--small">
+                            @if (!Html.ViewData.ModelState.IsValid)
+                            {
+                                <div class="lm__message-closable">
+                                    <p class="message">
+                                        @Html.ValidationSummary(false, string.Empty)
+                                    </p>
+                                    <a class="close-btn" href="#"><i class="fa fa-times"></i></a>
+                                </div>
+                            }
+
+                            <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                <span>Sök utifrån</span>
+                                <div class="u-1/1  width-25 lm__element-margin-top">
+                                    <ul class="lm__form-dropdown type-3">
+                                        <li class="showcase" id="search-transport-type" data-value="@Model.SearchInfo.Category">
+                                            <input type="hidden" name="Category" value="@Model.SearchInfo.Category" />
+                                            <a href="#">@Model.ListCategory.First(x => x.Value == Model.SearchInfo.Category).Value</a>
+                                            <ul class="dropdown">
+                                                @foreach (var category in Model.ListCategory)
+                                                {
+                                                    <li data-value="@category.Key"><a href="#">@category.Value</a></li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                <span class="blank-header"></span>
+                                <div class="u-1/1  float-element lm__element-margin-top">
+                                    <input type="text" name="SearchText" class="seller-input width-100 no-margin" placeholder='@("Ange " + Model.ListCategory.First(x => x.Value == Model.SearchInfo.Category).Value)' value="@Model.SearchInfo.SearchText">
+                                </div>
+                            </div>
+                            <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                <span>Datum från</span>
+                                <div class="datepicker-container @(Model.SearchInfo.IsDisableDateTime ? "disabled" : string.Empty) lm__element-margin-top">
+                                    <input type="text" name="FromDate" class="datepicker-blank-default calculate_deliveryDate no-margin" @(Model.SearchInfo.IsDisableDateTime ? "disabled" : string.Empty) value="@Model.SearchInfo.FromDate">
+                                </div>
+                            </div>
+
+                            <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                <span>Datum till</span>
+                                <div class="datepicker-container @(Model.SearchInfo.IsDisableDateTime ? "disabled" : string.Empty) lm__element-margin-top dash-connector">
+                                    <input type="text" name="ToDate" class="datepicker-blank-default calculate_deliveryDate no-margin" @(Model.SearchInfo.IsDisableDateTime ? "disabled" : string.Empty) value="@Model.SearchInfo.ToDate">
+                                </div>
+                            </div>
+
+                            <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                <span class="blank-header"></span>
+                                <div class="u-1/1 float-element lm__element-margin-top">
+                                    <input type="submit" class="lm__form-btn reverse-state no-margin width-100" value="Sök">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- END Search criteria -->
+                <div class=@(Model != null && (Model.ListTransport.Count > 0 || Model.ListOrder.Count > 0) ? "lm__mina-avtal" : string.Empty)>
+                    @if (Model != null && Model.ListTransport.Count > 0)
+                    {
+                        <p class="table-caption">Välj kolumner som skall visas</p>
+                        <div class="lm__table-wrapper lm__row-margin has-separator">
+                            <table border="0" class="tablesaw table-transport" data-tablesaw-mode="columntoggle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist">SändningsID</th>
+                                        <th scope="col" data-tablesaw-priority="1">Status</th>
+                                        <th scope="col" data-tablesaw-priority="2">Lastbil</th>
+                                        <th scope="col" data-tablesaw-priority="3">Plan. Avgång</th>
+                                        <th scope="col" data-tablesaw-priority="4">Tel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.ListTransport)
+                                    {
+                                        <tr>
+                                            <td><a class="showAnalyze" data-value="@SearchTransportCatogories.ShipmentId" href="#">@item.ShipmentIdMX</a></td>
+                                            <td>@Html.Translate("/logiwebb/status/" + (!string.IsNullOrEmpty(item.Status) ? item.Status.RemoveAllSpaces().RemoveDiacritics() : "StatusSaknas"))</td>
+                                            <td><a class="showAnalyze" data-value="@SearchTransportCatogories.Carrier" href="#">@item.Carrier</a></td>
+                                            <td>@string.Format("{0: yyyy-MM-dd}", item.PlanedDepartureDate)</td>
+                                            <td>@item.PhoneNumber</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+
+
+                    @if (Model != null && Model.ListOrder.Count > 0)
+                    {
+                        <p class="table-caption">Välj kolumner som skall visas</p>
+                        <div class="lm__table-wrapper lm__row-margin has-separator">
+                            <table border="0" data-role="table" class="tablesaw ui-responsive lm__nested-table table-transport" data-tablesaw-mode="columntoggle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist">Ordernr</th>
+                                        <th scope="col" data-tablesaw-priority="1">Rad</th>
+                                        <th scope="col" data-tablesaw-priority="2">Artikel</th>
+                                        <th scope="col" data-tablesaw-priority="3">Lager</th>
+                                        <th scope="col" data-tablesaw-priority="4">Best kvant</th>
+                                        <th scope="col" data-tablesaw-priority="5">Lev kvant</th>
+                                        <th scope="col" data-tablesaw-priority="6">Status</th>
+                                        <th scope="col" data-tablesaw-priority="7">Info</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (var i = 0; i < Model.ListOrder.Count; i++)
+                                    {
+                                        <tr class="lm__parent-row  @(i%2 != 0 ? "lm__parent-row--even" : "lm__parent-row--odd")">
+                                            <td><a class="showAnalyze" data-value="@SearchTransportCatogories.Ordernummer" href="#">@Model.ListOrder[i].OrderNumber</a></td>
+                                            <td>@Model.ListOrder[i].OrderRow</td>
+                                            <td>@Model.ListOrder[i].Item</td>
+                                            <td>@Model.ListOrder[i].Warehouse</td>
+                                            <td>@Model.ListOrder[i].OrderedQty</td>
+                                            <td>@Model.ListOrder[i].DeliveredQty</td>
+                                            <td>@Html.Translate("/logiwebb/status/" + (!string.IsNullOrEmpty(Model.ListOrder[i].Status) ? Model.ListOrder[i].Status.RemoveAllSpaces().RemoveDiacritics() : "StatusSaknas"))</td>
+                                            <td>
+                                                <div class="expand-info expand-icon-plus"></div>
+                                            </td>
+
+                                        </tr>
+                                        <tr class="lm__collapse-row">
+                                            <td colspan="8" class="padding-1/16-side">
+                                                <table class="no-margin">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <strong>Kund: </strong>
+                                                                @{
+                                                                    if (Model.IsInternal)
+                                                                    {
+                                                                        <a class="showAnalyze search-customerNr" data-value="@SearchTransportCatogories.CustomerNumber" data-customerNr="@Model.ListOrder[i].CustomerNo" href="#">
+                                                                            @Model.ListOrder[i].Customer
+                                                                        </a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Model.ListOrder[i].Customer
+                                                                    }
+                                                                }
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Plan.Ankomst: </strong>@string.Format("{0: yyyy-MM-dd}", Model.ListOrder[i].PlannedArrival)</td>
+                                                        </tr>
+                                                        @if (Model.ListOrder[i].NoOfAnnouncements > 0)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <strong>Avisering: </strong>
+                                                                    <a class="showAnalyze showDialog" href="#">Aviserad</a>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                        <tr @(Model.ListOrder[i].IsSchenkerDelivery && !string.IsNullOrWhiteSpace(Model.ListOrder[i].WaybillNumber) ? "" : "hidden")>
+                                                            <td>
+                                                                <strong>Tracking: </strong>
+                                                                @if (Model.ListOrder[i].IsSchenkerDelivery && !string.IsNullOrWhiteSpace(Model.ListOrder[i].WaybillNumber))
+                                                                {
+                                                                    <a href="@Model.UrlTrackSchenker.Replace("{referenceNumber}", Model.ListOrder[i].WaybillNumber)">@Model.ListOrder[i].WaybillNumber</a>
+                                                                }
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <strong>Levererad: </strong>
+                                                                @(Model.ListOrder[i].Delivered.HasValue && Model.ListOrder[i].Delivered.Value > new DateTime(1930, 1, 1) ? Model.ListOrder[i].Delivered.Value.ToString("yyyy-MM-dd HH:mm") : string.Empty)
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                                                    }
+                                    <tr class="lm__summary-row">
+                                        <td colspan="1" class="no-padding-row">
+                                            <table class="no-margin">
+                                                <thead>
+                                                    <tr><th>Summa:</th></tr>
+                                                </thead>
+                                            </table>
+                                        </td>
+                                        <td colspan="1" class="no-padding-row"></td>
+                                        <td colspan="1" class="no-padding-row"></td>
+                                        <td colspan="1" class="no-padding-row"></td>
+                                        <td colspan="1" class="no-padding-row">
+                                            <table class="no-margin">
+                                                <tbody>
+                                                    <tr><td>@Model.TotalBestKvant</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td colspan="3" class="no-padding-row">
+                                            <table class="no-margin">
+                                                <tbody>
+                                                    <tr><td>@Model.TotalLevKvant</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                                                                    }
+
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model != null && Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+                @Html.PropertyFor(x => x.CurrentPage.RightContent)
+            </div>
+            <!-- Modal container -->
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <!-- Modal inform with close button at top right -->
+                <div class="lm__information-modal__wrapper hidden" id="modal-dialog-table">
+                    <div class="mask"></div>
+                    <div class="lm__information-modal u-1/1">
+                        <div class="lm__table-wrapper">
+                            <table border="0" class="tblAnnoncements tablesaw" data-tablesaw-mode="columntoggle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist">Avisering skickad</th>
+                                        <th scope="col" data-tablesaw-priority="1">Text</th>
+                                        <th scope="col" data-tablesaw-priority="2">Till</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal container -->
+        </div>
+    </div>
+</section>
+<!-- END OF MAIN CONTENT OF WEBPAGE -->

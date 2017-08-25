@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SiloItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accessibility" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiloItem" nillable="true" type="tns:SiloItem" />
+  <xs:complexType name="ArrayOfSiloItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SiloItem" nillable="true" type="tns:SiloItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSiloItem" nillable="true" type="tns:ArrayOfSiloItem" />
+  <xs:complexType name="CustomerDeliveryAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomerBaseAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Directions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Silos" nillable="true" type="tns:ArrayOfSiloItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerDeliveryAddress" nillable="true" type="tns:CustomerDeliveryAddress" />
+  <xs:complexType name="CustomerBaseAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaxNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerBaseAddress" nillable="true" type="tns:CustomerBaseAddress" />
+  <xs:complexType name="CustomerInvoiceAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomerBaseAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerInvoiceAddress" nillable="true" type="tns:CustomerInvoiceAddress" />
+  <xs:complexType name="ArrayOfCustomerDeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerDeliveryAddress" nillable="true" type="tns:CustomerDeliveryAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerDeliveryAddress" nillable="true" type="tns:ArrayOfCustomerDeliveryAddress" />
+</xs:schema>

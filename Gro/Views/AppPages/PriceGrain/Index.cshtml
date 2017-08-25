@@ -1,0 +1,67 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.PriceGrain.PriceGrainPageViewModel
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="loader-wrapper" id="loader" style="display: none">
+            <div class="loader"></div>
+        </div>
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block lm__mina-avtal has-separator no-margin">
+                    <div class="layout  layout--large">
+                        <div class="layout__item u-1/1">
+                            <h1 class="lm__page-title">@(string.IsNullOrWhiteSpace(Model.CurrentPage.Heading) ? "Spannmålspriser" : Model.CurrentPage.Heading)</h1>
+                            @Html.PropertyFor(x => x.CurrentPage.Information)
+                        </div>
+                    </div>
+                </div>
+                <div class="lm__block lm__mina-avtal ">
+                    <div class="lm__block has-separator no-margin">
+                        <div class="layout  layout--large">
+                            <div class="layout__item u-1/1 u-1/1-tablet u-1/3-desktop author-inform-form__column">
+                                <span>Välj prisområde:</span>
+                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                    @if (Model.PriceAreaList != null && Model.PriceAreaList.Count > 0)
+                                    {
+                                        <ul class="lm__form-dropdown type-3">
+                                            <li class="showcase" id="price-area-list" data-value="@Model.PriceAreaList[0].PriceAreaId">
+                                                <a href="#">@Model.PriceAreaList[0].PriceAreaName</a>
+                                                <ul class="dropdown">
+                                                    @foreach (var item in Model.PriceAreaList)
+                                                    {
+                                                        <li data-value="@item.PriceAreaId"><a href="#">@item.PriceAreaName</a></li>
+                                                    }
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    }
+                                </div>
+                            </div>
+                            <div class="layout__item u-1/1 lm__row-margin">
+                                <div class="lm__table-wrapper" id="price-period-result">
+                                    @if (Model.PricePeriodFirst != null && Model.PricePeriodFirst.Count > 0)
+                                    {
+                                        @Html.Partial("~/Views/AppPages/PriceGrain/_TablePricePeriodsResult.cshtml", Model.PricePeriodFirst)
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__block ">
+                    </div>
+                </div>
+
+            </div>
+            <div class="layout__item u-1/1-tablet u-1/3-desktop">
+                @if (Model != null && Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+                @Html.PropertyFor(x => x.CurrentPage.RightContent)
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END OF MAIN CONTENT OF WEBPAGE -->
+

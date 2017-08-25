@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sci.lantmannen.com/LMMA_MAS_C4.ws:GetMachineByRegNumber" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" name="LMMA_MAS_C4_GetMachineByRegNumber" targetNamespace="http://sci.lantmannen.com/LMMA_MAS_C4.ws:GetMachineByRegNumber" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sci.lantmannen.com/LMMA_MAS_C4.ws:GetMachineByRegNumber">
+      <xsd:element name="GetMachineByRegNumber" type="tns:GetMachineByRegNumber" />
+      <xsd:element name="GetMachineByRegNumberResponse" type="tns:GetMachineByRegNumberResponse" />
+      <xsd:complexType name="GetMachineByRegNumber">
+        <xsd:sequence>
+          <xsd:element name="REGNO" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetMachineByRegNumberResponse">
+        <xsd:sequence>
+          <xsd:element name="oneMachineOut" nillable="true" type="tns:dt_singularMachineOut" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="dt_singularMachineOut">
+        <xsd:sequence>
+          <xsd:element name="component" nillable="true" type="tns:component" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="component">
+        <xsd:sequence>
+          <xsd:element name="componentAttributes" nillable="true" type="tns:dt_ComponentAttributes" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="image" nillable="true" type="tns:dt_ImageAttributes" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="document" nillable="true" type="tns:dt_DocumentAttributes" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="video" nillable="true" type="tns:dt_VideoAttributes" />
+        </xsd:sequence>
+        <xsd:attribute name="type" type="xsd:string" />
+        <xsd:attribute name="id" type="xsd:string" />
+        <xsd:attribute name="unique" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="dt_ComponentAttributes">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="MvxSABRAN" nillable="true" type="tns:MvxSABRAN" />
+          <xsd:element minOccurs="0" name="MvxSAMODC" nillable="true" type="tns:MvxSAMODC" />
+          <xsd:element minOccurs="0" name="MvxSAMODE" nillable="true" type="tns:MvxSAMODE" />
+          <xsd:element minOccurs="0" name="MvxSAMLYR" nillable="true" type="tns:MvxSAMLYR" />
+          <xsd:element minOccurs="0" name="MvxSAITGR" nillable="true" type="tns:MvxSAITGR" />
+          <xsd:element minOccurs="0" name="MvxSAINTY" nillable="true" type="tns:MvxSAINTY" />
+          <xsd:element minOccurs="0" name="MvxSAISTS" nillable="true" type="tns:MvxSAISTS" />
+          <xsd:element minOccurs="0" name="MvxSACUOW" nillable="true" type="tns:MvxSACUOW" />
+          <xsd:element minOccurs="0" name="MvxSADEDA" nillable="true" type="tns:MvxSADEDA" />
+          <xsd:element minOccurs="0" name="MvxSAGDT1" nillable="true" type="tns:MvxSAGDT1" />
+          <xsd:element minOccurs="0" name="CmIndividType" nillable="true" type="tns:CmIndividType" />
+          <xsd:element minOccurs="0" name="CmFromEPI" nillable="true" type="tns:CmFromEPI" />
+          <xsd:element minOccurs="0" name="MvxMMITNO" nillable="true" type="tns:MvxMMITNO" />
+          <xsd:element minOccurs="0" name="MvxSAREDA" nillable="true" type="tns:MvxSAREDA" />
+          <xsd:element minOccurs="0" name="MvxSAGDT2" nillable="true" type="tns:MvxSAGDT2" />
+          <xsd:element minOccurs="0" name="MvxSAINDA" nillable="true" type="tns:MvxSAINDA" />
+          <xsd:element minOccurs="0" name="MvxSADDAT" nillable="true" type="tns:MvxSADDAT" />
+          <xsd:element minOccurs="0" name="MvxSAREBE" nillable="true" type="tns:MvxSAREBE" />
+          <xsd:element minOccurs="0" name="MvxOKCUNM" nillable="true" type="tns:MvxOKCUNM" />
+          <xsd:element minOccurs="0" name="SysId" nillable="true" type="tns:SysId" />
+          <xsd:element minOccurs="0" name="SysUnique" nillable="true" type="tns:SysUnique" />
+          <xsd:element minOccurs="0" name="MvxSAINNO" nillable="true" type="tns:MvxSAINNO" />
+          <xsd:element minOccurs="0" name="MvxSASERI" nillable="true" type="tns:MvxSASERI" />
+          <xsd:element minOccurs="0" name="SysStatus" nillable="true" type="tns:SysStatus" />
+          <xsd:element minOccurs="0" name="M3MMITGR" nillable="true" type="tns:M3MMITGR" />
+          <xsd:element minOccurs="0" name="CmHeader" nillable="true" type="tns:CmHeader" />
+          <xsd:element minOccurs="0" name="CmSubHeader" nillable="true" type="tns:CmSubHeader" />
+          <xsd:element minOccurs="0" name="CmOE" nillable="true" type="tns:CmOE" />
+          <xsd:element minOccurs="0" name="CmModels" nillable="true" type="tns:CmModels" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MvxSABRAN">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="language" type="xsd:string" />
+        <xsd:attribute name="pos" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAMODC" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAMODE" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAMLYR" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAITGR" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAINTY" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAISTS" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSACUOW" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSADEDA" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAGDT1" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="CmIndividType" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="CmFromEPI" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxMMITNO" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAREDA" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAGDT2" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAINDA" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSADDAT" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAREBE" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxOKCUNM" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="SysId" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="SysUnique" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSAINNO" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MvxSASERI" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="SysStatus" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="M3MMITGR" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="CmHeader" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="CmSubHeader" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="CmOE" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="CmModels" mixed="true">
+        <xsd:attribute name="smdid" type="xsd:string" />
+        <xsd:attribute name="smdkey" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="dt_ImageAttributes">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CmFilename" nillable="true" type="tns:CmFilename" />
+          <xsd:element minOccurs="0" name="CmName" nillable="true" type="tns:CmName" />
+          <xsd:element minOccurs="0" name="CmClassificatio" nillable="true" type="tns:CmClassificatio" />
+          <xsd:element minOccurs="0" name="CmImageType" nillable="true" type="tns:CmImageType" />
+          <xsd:element minOccurs="0" name="SysId" nillable="true" type="tns:SysId2" />
+          <xsd:element minOccurs="0" name="SysUnique" nillable="true" type="tns:SysUnique2" />
+          <xsd:element minOccurs="0" name="CmCategoryMaskin" nillable="true" type="tns:CmCategoryMaskin" />
+          <xsd:element minOccurs="0" name="SysStatus" nillable="true" type="tns:SysStatus2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CmFilename" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmName" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmClassificatio" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmImageType" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="SysId2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="SysUnique2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmCategoryMaskin" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="SysStatus2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="dt_DocumentAttributes">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SysId" nillable="true" type="tns:SysId3" />
+          <xsd:element minOccurs="0" name="CmName" nillable="true" type="tns:CmName2" />
+          <xsd:element minOccurs="0" name="CmFilename" nillable="true" type="tns:CmFilename2" />
+          <xsd:element minOccurs="0" name="CmDocCatM" nillable="true" type="tns:CmDocCatM" />
+          <xsd:element minOccurs="0" name="CmDescr" nillable="true" type="tns:CmDescr" />
+          <xsd:element minOccurs="0" name="CmUrl" nillable="true" type="tns:CmUrl" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SysId3" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmName2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmFilename2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmDocCatM" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmDescr" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmUrl" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="dt_VideoAttributes">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SysId" nillable="true" type="tns:SysId4" />
+          <xsd:element minOccurs="0" name="CmName" nillable="true" type="tns:CmName3" />
+          <xsd:element minOccurs="0" name="CmFilename" nillable="true" type="tns:CmFilename3" />
+          <xsd:element minOccurs="0" name="VidCatM" nillable="true" type="tns:VidCatM" />
+          <xsd:element minOccurs="0" name="CmDescr" nillable="true" type="tns:CmDescr2" />
+          <xsd:element minOccurs="0" name="CmUrl" nillable="true" type="tns:CmUrl2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SysId4" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmName3" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmFilename3" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="VidCatM" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmDescr2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="CmUrl2" mixed="true">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMachineByRegNumber_PortType_GetMachineByRegNumber">
+    <wsdl:part name="parameters" element="tns:GetMachineByRegNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineByRegNumber_PortType_GetMachineByRegNumberResponse">
+    <wsdl:part name="parameters" element="tns:GetMachineByRegNumberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GetMachineByRegNumber_PortType">
+    <wsdl:operation name="GetMachineByRegNumber">
+      <wsdl:input message="tns:GetMachineByRegNumber_PortType_GetMachineByRegNumber" />
+      <wsdl:output message="tns:GetMachineByRegNumber_PortType_GetMachineByRegNumberResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LMMA_MAS_C4_ws_GetMachineByRegNumber_Binder" type="tns:GetMachineByRegNumber_PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMachineByRegNumber">
+      <soap:operation soapAction="LMMA_MAS_C4_ws_GetMachineByRegNumber_Binder_GetMachineByRegNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LMMA_MAS_C4_GetMachineByRegNumber">
+    <wsdl:port name="LMMA_MAS_C4_GetMachineByRegNumbersoaphttp" binding="tns:LMMA_MAS_C4_ws_GetMachineByRegNumber_Binder">
+      <soap:address location="http://sr02371.work.lantmannen.lan:9955/ws/LMMA_MAS_C4_GetMachineByRegNumber/1" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,2456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SecurityService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Web.Security" />
+      <xs:element name="IsUserPasswordOutdated">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q1:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsUserPasswordOutdatedResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IsUserPasswordOutdatedResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WriteLoginEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="browser" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="success" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WriteLoginEventResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetTicketResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateTicketResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q2:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateUserResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveUserPictureURL">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userId" type="xs:int" />
+            <xs:element minOccurs="0" name="pictureURL" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveUserPictureURLResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SaveUserPictureURLResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveCustomerPictureURL">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:int" />
+            <xs:element minOccurs="0" name="pictureURL" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveCustomerPictureURLResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SaveCustomerPictureURLResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q3:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="GetUserResult" nillable="true" type="q4:ResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnlockUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q5:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnlockUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UnlockUserResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Ping">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateValid">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateValidResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetSalesRolesResult" nillable="true" type="q6:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersForCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersForCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetUsersForCustomerResult" nillable="true" type="q7:ArrayOfUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomersForUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q8:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomersForUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetCustomersForUserResult" nillable="true" type="q9:ArrayOfCustomerList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserCustomerProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userId" type="xs:int" />
+            <xs:element minOccurs="0" name="customerId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserCustomerProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetUserCustomerProfileResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProfileForUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:int" />
+            <xs:element minOccurs="0" name="userId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProfileForUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetProfileForUserResult" nillable="true" type="q10:ArrayOfUserProfile" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomerUsersByProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomerUsersByProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetCustomerUsersByProfileResult" nillable="true" type="q11:ArrayOfUserProfile" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProfiles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProfilesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetProfilesResult" nillable="true" type="q12:ArrayOfProfile" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProfileRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="profileId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProfileRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetProfileRolesResult" nillable="true" type="q13:ArrayOfProfileRole" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckSSNAgainstOrgNo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SSN" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckSSNAgainstOrgNoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckSSNAgainstOrgNoResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangePassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q14:RequestUser" />
+            <xs:element minOccurs="0" name="oldPwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="newPwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangePasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangePasswordResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="passwordQuestion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="passwordAnswer" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="isApproved" type="xs:boolean" />
+            <xs:element minOccurs="0" name="providerUserKey" nillable="true" type="xs:anyType" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="CreateUserResult" nillable="true" type="q15:ResponseUser" />
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Web.Security" minOccurs="0" name="status" type="q16:MembershipCreateStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q17:RequestUser" />
+            <xs:element minOccurs="0" name="deleteAllRelatedData" type="xs:boolean" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteUserResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q18:ArrayOfResponseUser" />
+            <xs:element minOccurs="0" name="totalRecords" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNumberOfUsersOnline">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNumberOfUsersOnlineResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetNumberOfUsersOnlineResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q19:RequestUser" />
+            <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetPasswordResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserNameByEmail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserNameByEmailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="GetUserNameByEmailResult" nillable="true" type="q20:ResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserNameByEmailAndCustomerNumber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserNameByEmailAndCustomerNumberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="GetUserNameByEmailAndCustomerNumberResult" nillable="true" type="q21:ResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUserByEmail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUserByEmailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="FindUserByEmailResult" nillable="true" type="q22:ResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUserByName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUserByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="FindUserByNameResult" nillable="true" type="q23:ResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResetPassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q24:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResetPasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ResetPasswordResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q25:RequestUserDeep" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateUserResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateFailureCount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q26:RequestUser" />
+            <xs:element minOccurs="0" name="failureType" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateFailureCountResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUsersByName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="usernameToMatch" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUsersByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="FindUsersByNameResult" nillable="true" type="q27:ArrayOfResponseUser" />
+            <xs:element minOccurs="0" name="totalRecords" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUsersByEmail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="emailToMatch" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUsersByEmailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="FindUsersByEmailResult" nillable="true" type="q28:ArrayOfResponseUser" />
+            <xs:element minOccurs="0" name="totalRecords" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUsersToRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q29:ArrayOfRequestUser" />
+            <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="rolenames" nillable="true" type="q30:ArrayOfstring" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUsersToRolesResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="role" nillable="true" type="q31:RequestRole" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="throwOnPopulatedRole" type="xs:boolean" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DeleteRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetAllRolesResult" nillable="true" type="q32:ArrayOfRole" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPrimaryRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPrimaryRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPrimaryRolesResult" nillable="true" type="q33:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNonPrimaryRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNonPrimaryRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetNonPrimaryRolesResult" nillable="true" type="q34:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRolesForUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q35:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRolesForUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetRolesForUserResult" nillable="true" type="q36:ArrayOfUserRole" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesRolesForCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesRolesForCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetSalesRolesForCustomerResult" nillable="true" type="q37:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersInRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersInRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="GetUsersInRoleResult" nillable="true" type="q38:ArrayOfResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsUserInRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q39:RequestUser" />
+            <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsUserInRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IsUserInRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveUsersFromRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="users" nillable="true" type="q40:ArrayOfRequestUser" />
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="rolenames" nillable="true" type="q41:ArrayOfUserRole" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveUsersFromRolesResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RoleExists">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="rolename" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RoleExistsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RoleExistsResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUsersInRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="roleName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usernameToMatch" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FindUsersInRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SecurityServiceInt" minOccurs="0" name="FindUsersInRoleResult" nillable="true" type="q42:ArrayOfResponseUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserRights">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q43:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserRightsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetUserRightsResult" nillable="true" type="q44:ArrayOfUserRights" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserSecurityProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserSecurityProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUserSecurityProfileResult" nillable="true" type="q45:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckPasswordGuid">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q46:RequestUser" />
+            <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckPasswordGuidResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckPasswordGuidResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPasswordGuid">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="user" nillable="true" type="q47:RequestUser" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPasswordGuidResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetPasswordGuidResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExistingCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="orgNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExistingCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetExistingCustomerResult" nillable="true" type="q48:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLuciaRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ssn" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLuciaRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="GetLuciaRoleResult" nillable="true" type="q49:Role" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="RequestUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KundNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RequestUser" nillable="true" type="tns:RequestUser" />
+      <xs:complexType name="ArrayOfUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+      <xs:complexType name="User">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLocketOut" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfilePicURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="User" nillable="true" type="tns:User" />
+      <xs:complexType name="ArrayOfCustomerList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerList" nillable="true" type="tns:CustomerList" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCustomerList" nillable="true" type="tns:ArrayOfCustomerList" />
+      <xs:complexType name="CustomerList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OwnerUserId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProfilePicURL" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CustomerList" nillable="true" type="tns:CustomerList" />
+      <xs:complexType name="ArrayOfUserProfile">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UserProfile" nillable="true" type="tns:UserProfile" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUserProfile" nillable="true" type="tns:ArrayOfUserProfile" />
+      <xs:complexType name="UserProfile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Profile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UserProfile" nillable="true" type="tns:UserProfile" />
+      <xs:complexType name="ArrayOfProfile">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Profile" nillable="true" type="tns:Profile" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProfile" nillable="true" type="tns:ArrayOfProfile" />
+      <xs:complexType name="Profile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Profile" nillable="true" type="tns:Profile" />
+      <xs:complexType name="ArrayOfProfileRole">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfileRole" nillable="true" type="tns:ProfileRole" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProfileRole" nillable="true" type="tns:ArrayOfProfileRole" />
+      <xs:complexType name="ProfileRole">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProfileDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfileHeadline" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleRights" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ProfileRole" nillable="true" type="tns:ProfileRole" />
+      <xs:complexType name="RequestUserDeep">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:RequestUser">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+              <xs:element minOccurs="0" name="IsLocketOut" type="xs:boolean" />
+              <xs:element minOccurs="0" name="IsSpmlSupplier" type="xs:boolean" />
+              <xs:element minOccurs="0" name="LastActivityDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="LastLockedOutDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="LastLoginDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="LastPasswordChangedDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="PassWordquestion" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="PasswordAnswer" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Personnr" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ProfilePicURL" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ProviderKey" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SurName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Typ" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="RequestUserDeep" nillable="true" type="tns:RequestUserDeep" />
+      <xs:complexType name="ArrayOfRequestUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestUser" nillable="true" type="tns:RequestUser" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRequestUser" nillable="true" type="tns:ArrayOfRequestUser" />
+      <xs:complexType name="RequestRole">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Behorighetsmask" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Beskrivning" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ForstaSida" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FrittFalt1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FrittFalt2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FrittFalt3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FrittFalt4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FrittFalt5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Roll" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RequestRole" nillable="true" type="tns:RequestRole" />
+      <xs:complexType name="ArrayOfRole">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRole" nillable="true" type="tns:ArrayOfRole" />
+      <xs:complexType name="Role">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdminRights" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RoleDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Role" nillable="true" type="tns:Role" />
+      <xs:complexType name="ArrayOfUserRole">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRole" nillable="true" type="tns:UserRole" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUserRole" nillable="true" type="tns:ArrayOfUserRole" />
+      <xs:complexType name="UserRole">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sysrole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="roleid" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UserRole" nillable="true" type="tns:UserRole" />
+      <xs:complexType name="ArrayOfUserRights">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRights" nillable="true" type="tns:UserRights" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUserRights" nillable="true" type="tns:ArrayOfUserRights" />
+      <xs:complexType name="UserRights">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RightsID" type="xs:int" />
+          <xs:element minOccurs="0" name="RightsName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UserRights" nillable="true" type="tns:UserRights" />
+      <xs:complexType name="Customer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsLM2Customer" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrganisationNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Customer" nillable="true" type="tns:Customer" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecurityServiceInt" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="SecurityExceptionInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SecurityExceptionInfo" nillable="true" type="tns:SecurityExceptionInfo" />
+      <xs:complexType name="ResponseUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLocketOut" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSpmlSupplier" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastActivityDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastLockedOutDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastLoginDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastLoginFrom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPasswordChangedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganisationNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassWordquestion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneMobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrimaryRole" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfilePicURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProviderKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Typ" type="xs:int" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZipAndCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dbUserId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResponseUser" nillable="true" type="tns:ResponseUser" />
+      <xs:complexType name="ArrayOfResponseUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseUser" nillable="true" type="tns:ResponseUser" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfResponseUser" nillable="true" type="tns:ArrayOfResponseUser" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xs:complexType name="ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringArrayOfstringty7Ep6D1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Key" nillable="true" type="xs:string" />
+                <xs:element name="Value" nillable="true" type="tns:ArrayOfstring" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Web.Security" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Web.Security" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="MembershipCreateStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success" />
+          <xs:enumeration value="InvalidUserName" />
+          <xs:enumeration value="InvalidPassword" />
+          <xs:enumeration value="InvalidQuestion" />
+          <xs:enumeration value="InvalidAnswer" />
+          <xs:enumeration value="InvalidEmail" />
+          <xs:enumeration value="DuplicateUserName" />
+          <xs:enumeration value="DuplicateEmail" />
+          <xs:enumeration value="UserRejected" />
+          <xs:enumeration value="InvalidProviderUserKey" />
+          <xs:enumeration value="DuplicateProviderUserKey" />
+          <xs:enumeration value="ProviderError" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="MembershipCreateStatus" nillable="true" type="tns:MembershipCreateStatus" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ISecurityService_IsUserPasswordOutdated_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserPasswordOutdated" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_IsUserPasswordOutdated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserPasswordOutdatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_WriteLoginEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:WriteLoginEvent" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_WriteLoginEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WriteLoginEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicket" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ValidateTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateTicket" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ValidateTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ValidateUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q1:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_SaveUserPictureURL_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserPictureURL" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_SaveUserPictureURL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserPictureURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_SaveCustomerPictureURL_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerPictureURL" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_SaveCustomerPictureURL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerPictureURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q2:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UnlockUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UnlockUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UnlockUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q3:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateValid_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateValid" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateValid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetSalesRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetSalesRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUsersForCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersForCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUsersForCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersForCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetCustomersForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersForUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetCustomersForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserCustomerProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserCustomerProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetProfileForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileForUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetProfileForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetCustomerUsersByProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerUsersByProfile" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetCustomerUsersByProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerUsersByProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfiles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetProfileRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetProfileRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CheckSSNAgainstOrgNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSSNAgainstOrgNo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CheckSSNAgainstOrgNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSSNAgainstOrgNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ChangePassword_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q4:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CreateUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q5:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_DeleteUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q6:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetAllUsers_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q7:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetNumberOfUsersOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfUsersOnline" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetNumberOfUsersOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfUsersOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetNumberOfUsersOnline_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q8:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPassword_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q9:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserNameByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserNameByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserNameByEmail_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q10:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserNameByEmailAndCustomerNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameByEmailAndCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserNameByEmailAndCustomerNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameByEmailAndCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserNameByEmailAndCustomerNumber_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q11:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUserByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUserByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUserByEmail_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q12:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserByName" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUserByName_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q13:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_ResetPassword_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q14:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q15:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateFailureCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFailureCount" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateFailureCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFailureCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_UpdateFailureCount_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q16:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByName" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersByName_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q17:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersByEmail_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q18:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_AddUsersToRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsersToRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_AddUsersToRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsersToRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_AddUsersToRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q19:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CreateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CreateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CreateRole_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q20:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_DeleteRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_DeleteRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_DeleteRole_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q21:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetAllRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q22:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPrimaryRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPrimaryRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPrimaryRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q23:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetNonPrimaryRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonPrimaryRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetNonPrimaryRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonPrimaryRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetNonPrimaryRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q24:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetRolesForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetRolesForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetRolesForUser_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q25:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetSalesRolesForCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesRolesForCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetSalesRolesForCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesRolesForCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetSalesRolesForCustomer_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q26:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUsersInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUsersInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUsersInRole_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q27:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_IsUserInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_IsUserInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_IsUserInRole_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q28:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_RemoveUsersFromRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUsersFromRoles" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_RemoveUsersFromRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUsersFromRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_RemoveUsersFromRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q29:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_RoleExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoleExists" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_RoleExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoleExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_RoleExists_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q30:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersInRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersInRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersInRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_FindUsersInRole_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q31:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRights" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserRights_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q32:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserSecurityProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSecurityProfile" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserSecurityProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSecurityProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetUserSecurityProfile_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q33:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CheckPasswordGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPasswordGuid" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CheckPasswordGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPasswordGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_CheckPasswordGuid_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q34:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPasswordGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordGuid" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPasswordGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetPasswordGuid_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q35:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetExistingCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetExistingCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetLuciaRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLuciaRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityService_GetLuciaRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLuciaRoleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISecurityService">
+    <wsdl:operation name="IsUserPasswordOutdated">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/IsUserPasswordOutdated" message="tns:ISecurityService_IsUserPasswordOutdated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/IsUserPasswordOutdatedResponse" message="tns:ISecurityService_IsUserPasswordOutdated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteLoginEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/WriteLoginEvent" message="tns:ISecurityService_WriteLoginEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/WriteLoginEventResponse" message="tns:ISecurityService_WriteLoginEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetTicket" message="tns:ISecurityService_GetTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetTicketResponse" message="tns:ISecurityService_GetTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/ValidateTicket" message="tns:ISecurityService_ValidateTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/ValidateTicketResponse" message="tns:ISecurityService_ValidateTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/ValidateUser" message="tns:ISecurityService_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/ValidateUserResponse" message="tns:ISecurityService_ValidateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/ValidateUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_ValidateUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserPictureURL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/SaveUserPictureURL" message="tns:ISecurityService_SaveUserPictureURL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/SaveUserPictureURLResponse" message="tns:ISecurityService_SaveUserPictureURL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerPictureURL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/SaveCustomerPictureURL" message="tns:ISecurityService_SaveCustomerPictureURL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/SaveCustomerPictureURLResponse" message="tns:ISecurityService_SaveCustomerPictureURL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUser" message="tns:ISecurityService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUserResponse" message="tns:ISecurityService_GetUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/UnlockUser" message="tns:ISecurityService_UnlockUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/UnlockUserResponse" message="tns:ISecurityService_UnlockUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/UnlockUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_UnlockUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/Ping" message="tns:ISecurityService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/PingResponse" message="tns:ISecurityService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateValid">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/UpdateValid" message="tns:ISecurityService_UpdateValid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/UpdateValidResponse" message="tns:ISecurityService_UpdateValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetSalesRoles" message="tns:ISecurityService_GetSalesRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetSalesRolesResponse" message="tns:ISecurityService_GetSalesRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersForCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUsersForCustomer" message="tns:ISecurityService_GetUsersForCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUsersForCustomerResponse" message="tns:ISecurityService_GetUsersForCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetCustomersForUser" message="tns:ISecurityService_GetCustomersForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetCustomersForUserResponse" message="tns:ISecurityService_GetCustomersForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCustomerProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUserCustomerProfile" message="tns:ISecurityService_GetUserCustomerProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUserCustomerProfileResponse" message="tns:ISecurityService_GetUserCustomerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetProfileForUser" message="tns:ISecurityService_GetProfileForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetProfileForUserResponse" message="tns:ISecurityService_GetProfileForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerUsersByProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetCustomerUsersByProfile" message="tns:ISecurityService_GetCustomerUsersByProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetCustomerUsersByProfileResponse" message="tns:ISecurityService_GetCustomerUsersByProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetProfiles" message="tns:ISecurityService_GetProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetProfilesResponse" message="tns:ISecurityService_GetProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetProfileRoles" message="tns:ISecurityService_GetProfileRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetProfileRolesResponse" message="tns:ISecurityService_GetProfileRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSSNAgainstOrgNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/CheckSSNAgainstOrgNo" message="tns:ISecurityService_CheckSSNAgainstOrgNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/CheckSSNAgainstOrgNoResponse" message="tns:ISecurityService_CheckSSNAgainstOrgNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/ChangePassword" message="tns:ISecurityService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/ChangePasswordResponse" message="tns:ISecurityService_ChangePassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/ChangePasswordSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_ChangePassword_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/CreateUser" message="tns:ISecurityService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/CreateUserResponse" message="tns:ISecurityService_CreateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/CreateUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_CreateUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/DeleteUser" message="tns:ISecurityService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/DeleteUserResponse" message="tns:ISecurityService_DeleteUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/DeleteUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_DeleteUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetAllUsers" message="tns:ISecurityService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetAllUsersResponse" message="tns:ISecurityService_GetAllUsers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetAllUsersSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetAllUsers_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfUsersOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetNumberOfUsersOnline" message="tns:ISecurityService_GetNumberOfUsersOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetNumberOfUsersOnlineResponse" message="tns:ISecurityService_GetNumberOfUsersOnline_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetNumberOfUsersOnlineSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetNumberOfUsersOnline_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetPassword" message="tns:ISecurityService_GetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetPasswordResponse" message="tns:ISecurityService_GetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetPasswordSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetPassword_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNameByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUserNameByEmail" message="tns:ISecurityService_GetUserNameByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUserNameByEmailResponse" message="tns:ISecurityService_GetUserNameByEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetUserNameByEmailSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetUserNameByEmail_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNameByEmailAndCustomerNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUserNameByEmailAndCustomerNumber" message="tns:ISecurityService_GetUserNameByEmailAndCustomerNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUserNameByEmailAndCustomerNumberResponse" message="tns:ISecurityService_GetUserNameByEmailAndCustomerNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetUserNameByEmailAndCustomerNumberSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetUserNameByEmailAndCustomerNumber_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/FindUserByEmail" message="tns:ISecurityService_FindUserByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/FindUserByEmailResponse" message="tns:ISecurityService_FindUserByEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/FindUserByEmailSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_FindUserByEmail_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/FindUserByName" message="tns:ISecurityService_FindUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/FindUserByNameResponse" message="tns:ISecurityService_FindUserByName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/FindUserByNameSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_FindUserByName_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/ResetPassword" message="tns:ISecurityService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/ResetPasswordResponse" message="tns:ISecurityService_ResetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/ResetPasswordSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_ResetPassword_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/UpdateUser" message="tns:ISecurityService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/UpdateUserResponse" message="tns:ISecurityService_UpdateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/UpdateUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_UpdateUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFailureCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/UpdateFailureCount" message="tns:ISecurityService_UpdateFailureCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/UpdateFailureCountResponse" message="tns:ISecurityService_UpdateFailureCount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/UpdateFailureCountSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_UpdateFailureCount_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/FindUsersByName" message="tns:ISecurityService_FindUsersByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/FindUsersByNameResponse" message="tns:ISecurityService_FindUsersByName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/FindUsersByNameSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_FindUsersByName_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/FindUsersByEmail" message="tns:ISecurityService_FindUsersByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/FindUsersByEmailResponse" message="tns:ISecurityService_FindUsersByEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/FindUsersByEmailSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_FindUsersByEmail_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersToRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/AddUsersToRoles" message="tns:ISecurityService_AddUsersToRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/AddUsersToRolesResponse" message="tns:ISecurityService_AddUsersToRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/AddUsersToRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_AddUsersToRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/CreateRole" message="tns:ISecurityService_CreateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/CreateRoleResponse" message="tns:ISecurityService_CreateRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/CreateRoleSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_CreateRole_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/DeleteRole" message="tns:ISecurityService_DeleteRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/DeleteRoleResponse" message="tns:ISecurityService_DeleteRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/DeleteRoleSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_DeleteRole_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetAllRoles" message="tns:ISecurityService_GetAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetAllRolesResponse" message="tns:ISecurityService_GetAllRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetAllRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetAllRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetPrimaryRoles" message="tns:ISecurityService_GetPrimaryRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetPrimaryRolesResponse" message="tns:ISecurityService_GetPrimaryRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetPrimaryRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetPrimaryRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNonPrimaryRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetNonPrimaryRoles" message="tns:ISecurityService_GetNonPrimaryRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetNonPrimaryRolesResponse" message="tns:ISecurityService_GetNonPrimaryRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetNonPrimaryRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetNonPrimaryRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetRolesForUser" message="tns:ISecurityService_GetRolesForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetRolesForUserResponse" message="tns:ISecurityService_GetRolesForUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetRolesForUserSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetRolesForUser_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesRolesForCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetSalesRolesForCustomer" message="tns:ISecurityService_GetSalesRolesForCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetSalesRolesForCustomerResponse" message="tns:ISecurityService_GetSalesRolesForCustomer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetSalesRolesForCustomerSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetSalesRolesForCustomer_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUsersInRole" message="tns:ISecurityService_GetUsersInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUsersInRoleResponse" message="tns:ISecurityService_GetUsersInRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetUsersInRoleSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetUsersInRole_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/IsUserInRole" message="tns:ISecurityService_IsUserInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/IsUserInRoleResponse" message="tns:ISecurityService_IsUserInRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/IsUserInRoleSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_IsUserInRole_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUsersFromRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/RemoveUsersFromRoles" message="tns:ISecurityService_RemoveUsersFromRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/RemoveUsersFromRolesResponse" message="tns:ISecurityService_RemoveUsersFromRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/RemoveUsersFromRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_RemoveUsersFromRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/RoleExists" message="tns:ISecurityService_RoleExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/RoleExistsResponse" message="tns:ISecurityService_RoleExists_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/RoleExistsSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_RoleExists_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/FindUsersInRole" message="tns:ISecurityService_FindUsersInRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/FindUsersInRoleResponse" message="tns:ISecurityService_FindUsersInRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/FindUsersInRoleSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_FindUsersInRole_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUserRights" message="tns:ISecurityService_GetUserRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUserRightsResponse" message="tns:ISecurityService_GetUserRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetUserRightsSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetUserRights_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSecurityProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetUserSecurityProfile" message="tns:ISecurityService_GetUserSecurityProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetUserSecurityProfileResponse" message="tns:ISecurityService_GetUserSecurityProfile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetUserSecurityProfileSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetUserSecurityProfile_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPasswordGuid">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/CheckPasswordGuid" message="tns:ISecurityService_CheckPasswordGuid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/CheckPasswordGuidResponse" message="tns:ISecurityService_CheckPasswordGuid_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/CheckPasswordGuidSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_CheckPasswordGuid_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordGuid">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetPasswordGuid" message="tns:ISecurityService_GetPasswordGuid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetPasswordGuidResponse" message="tns:ISecurityService_GetPasswordGuid_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityService/GetPasswordGuidSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ISecurityService_GetPasswordGuid_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetExistingCustomer" message="tns:ISecurityService_GetExistingCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetExistingCustomerResponse" message="tns:ISecurityService_GetExistingCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLuciaRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityService/GetLuciaRole" message="tns:ISecurityService_GetLuciaRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityService/GetLuciaRoleResponse" message="tns:ISecurityService_GetLuciaRole_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISecurityService" type="tns:ISecurityService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsUserPasswordOutdated">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/IsUserPasswordOutdated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteLoginEvent">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/WriteLoginEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicket">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateTicket">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/ValidateTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserPictureURL">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/SaveUserPictureURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerPictureURL">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/SaveCustomerPictureURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/UnlockUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateValid">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/UpdateValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetSalesRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersForCustomer">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUsersForCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersForUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetCustomersForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUserCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileForUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetProfileForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerUsersByProfile">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetCustomerUsersByProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetProfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetProfileRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSSNAgainstOrgNo">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/CheckSSNAgainstOrgNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfUsersOnline">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetNumberOfUsersOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNameByEmail">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUserNameByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNameByEmailAndCustomerNumber">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUserNameByEmailAndCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByEmail">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/FindUserByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByName">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/FindUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFailureCount">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/UpdateFailureCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByName">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/FindUsersByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/FindUsersByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddUsersToRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/AddUsersToRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/CreateRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/DeleteRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetPrimaryRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonPrimaryRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetNonPrimaryRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesForUser">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetRolesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesRolesForCustomer">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetSalesRolesForCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUsersInRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInRole">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/IsUserInRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUsersFromRoles">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/RemoveUsersFromRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RoleExists">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/RoleExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInRole">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/FindUsersInRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRights">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUserRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSecurityProfile">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetUserSecurityProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPasswordGuid">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/CheckPasswordGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordGuid">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetPasswordGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingCustomer">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetExistingCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLuciaRole">
+      <soap:operation soapAction="http://tempuri.org/ISecurityService/GetLuciaRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecurityService">
+    <wsdl:port name="BasicHttpBinding_ISecurityService" binding="tns:BasicHttpBinding_ISecurityService">
+      <soap:address location="http://sr02880/Farmday/SecurityServiceInt/SecurityServiceInt.SecurityService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Administrera meddelanden</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+<body>
+
+    <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+    <header class="lm__header">
+        <div class="lm__top-header">
+            <div class="wrapper">
+                <div class="layout  layout--small">
+                    <div class="layout__item u-1/3 u-1/2-laptop lm__logo">
+                        <a href="#"><img src="images/logo.png" alt="LM2 Logo" class="lm__logo-item"></a>
+                        <span class="lm__slogan">Verktyget för jordens entreprenörer</span>
+                    </div>
+                    <div class="layout__item u-2/3 u-1/2-laptop lm__utility">
+                        <nav class="lm__user-settings">
+                            <ul>
+                                <li class="lm__star"><a href="#"></a></li>
+                                <li class="lm__messages"><a href="#"><span class="lm__messages-count">2</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="lm__user-profile">
+                            <div class="user-info-wrapper">
+                                <a class="lm__user-info" href="#">
+                                    <h4 class="lm__user-id">32008145</h4>
+                                    <p class="lm__user-summary">Nilsson Lantbruk AB</p>
+                                </a>
+                                <div class="sub__user-profile">
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" checked />
+                                        <div class="user-id__label">
+                                            <h4>32008145</h4>
+                                            <p>Nilsson Lantbruk AB</p>
+                                        </div>
+                                    </div>
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" />
+                                        <div class="user-id__label">
+                                            <h4>3208007</h4>
+                                            <p>Karlssons Gård</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__user-avatar-wrapper">
+                                <a href="#" class="lm__user-avatar"><img src="images/user-avatar.jpg" alt="User Avatar"></a>
+                                <!--<div class="sub-settings">
+                                    <h3>Mina inställningar</h3>
+                                    <ul class="nav-bar">
+                                        <li><a href="#">Min profil</a></li>
+                                        <li><a href="#">Företaget</a></li>
+                                        <li><a href="#">Hantera användare</a></li>
+                                    </ul>
+                                    <a href="#" class="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i>Logga ut</a>
+                                </div>-->
+                                <div class="sub-settings-panel">
+                                    <div class="inform-panel">
+                                        <img src="images/user-avatar.jpg" alt="User Avatar">
+                                        <div class="inform-detail">
+                                            <h3>Lars Karlsson</h3>
+                                            <p>Administratör vid Nilsson lantbruk AB</p>
+                                        </div>
+                                        <a href="#" class="mitt-konto__btn">Mitt konto</a>
+                                    </div>
+                                    <div class="logout-btn__wrapper">
+                                        <a href="#" class="logout-btn">Logga ut</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lm__navigation-wrapper">
+            <div class="lm__navigation">
+                <div class="wrapper">
+                    <div class="layout  layout--small">
+                        <div class="layout__item u-1/1">
+                            <div class="lm__active-page">
+                                <nav class="lm__user-settings">
+                                    <ul>
+                                        <li class="lm__settings">
+                                            <a href="#"></a>
+                                            <nav class="lm_sub-settings">
+                                                <ul>
+                                                    <li class="spannmal"><a href="#">Spannmål</a></li>
+                                                    <li class="odling"><a href="#">Odling</a></li>
+                                                    <li class="foder"><a href="#">Foder</a></li>
+                                                    <li class="maskiner"><a href="#">Maskiner</a></li>
+                                                    <li class="ekonomi"><a href="#">Ekonomi</a></li>
+                                                    <div class="cleafix"></div>
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <h1 class="lm__page-title">Spannmål</h1>
+                            </div>
+                            <nav class="lm__main-navigation">
+                                <a class="lm_toggle-menu" href="#" alt="Humberger Icon">
+                                    <span class="text">Menu</span>
+                                    <span class="humb">
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li><a href="#">Sälja fysisk spannmål</a></li>
+                                    <li>
+                                        <a href="#">Lämna spannmål</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">Marknadsinformation</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blanketter</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End of header -->
+    <!-- END OF HEADER -->
+
+
+    <!-- START MAIN CONTENT -->
+    <section class="lm__contents">
+        <div class="wrapper">
+            <div class="layout  layout--large">
+                <div class="layout__item u-1/1">
+                    <h1 class="lm__page-title">Meddelandeinställningar Lantbruk & Maskin</h1>
+                </div>
+                <div class="layout__item u-1/1">
+                    <div class="lm__mina-avtal lm__administrera-meddelanden">
+
+                        <div class="lm__administrera-wrapper">
+                            <div class="administrera-introduction">
+                                <h1>Skicka styrt meddelande</h1>
+                                <p>Alla stjärnmärkta fält är obligatorsika och måste fyllas i för att meddelandet ska kunna skickas.</p>
+                                <h4>Meddelandetyp och mottagare</h4>
+                                <p>Val av meddelandetyp avgör vilka mottagarna av meddelandet i LM2 blir. Samtliga meddelandetyper skickas som LM2-meddelanden till samtliga användare inom LM2. Detta med undantag för meddelandetyper gällande prenummerationer av olika växtråd (Växtline, Vallbrev, Ekobrev, Utsädesodlarbrev, Fröodlarbrev) som endast skickas till prenumeranter av just dessa tjänster. Samtliga meddelanden skickas också som E-post och SMS till de användare som valt detta i sina meddelandeinställningar. </p>
+                            </div>
+
+                            <form class="lm__administrera-form" action="#" method="post">
+                                <div class="lm__administrera-form__input">
+                                    <h4>Välj typ av meddelande</h4>
+                                    <div class="meddelande-types">
+                                        <select class="lm__form-dropdown">
+                                            <option selected="selected" value="vaxtline">Växtline syd</option>
+                                            <option value="nyther">Nyther syd</option>
+                                        </select>
+                                    </div>
+                                    <p>Denna meddelandetyp skickas till de användare i LM2 som prenumerar på Växtline Syd. Meddelandet skickas också som E-post och SMS till de prenumeranter som valt detta i sina mededlandeisntällningar.</p>
+                                    <div class="meddelanden-accordion">
+                                        <a href="#" class="accordion-control">Lägg till mottagare</a>
+                                        <div class="accordion-content">
+                                            <p>Lägg till mottagare utanför LM2 genoma att lägga till en fil eller manuellt nedan.</p>
+                                            <h4>Välj mottagare från fil</h4>
+                                            <div class="file-upload-wrapper" data-back-btn-text="Mottagare från fil">
+                                                <input type="file" name="mottagare[]" class="file-upload-field" />
+                                            </div>
+
+                                            <h4>Lägg till E-postadresser manuellt</h4>
+                                            <textarea></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lm__administrera-form__input">
+                                    <h4>Avsändare - SMS</h4>
+                                    <p>Om du vill att mottagare av SMS-meddelande ska kunna svara kan du skriva in mobilnummer för detta i fältet nedan. Om fältet lämnas tomt visas namnet på företaget som avsändare.</p>
+                                    <input type="tel" name="phone_number" class="phone_number" value="+46712345678"/>
+                                </div>
+                                <div class="lm__administrera-form__input">
+                                    <h4>Skapa meddelande</h4>
+                                    <ul class="errors-list">
+                                        <li class="errors-list__header">Du måste se över</li>
+                                        <li>Välj meddelandeområde</li>
+                                        <li>Lägg till mottagare</li>
+                                        <li>Avsändare SMS-meddelande</li>
+                                        <li>Rubik</li>
+                                    </ul>
+                                    <div class="lm__administrera-form__column">
+                                        <label for="rubrik">Rubrik*</label>
+                                        <input type="text" name="rubrik" class="rubrik error" value="Skriv en rubrik"/>
+                                        <span class="error-item">Avsändarnumret är felaktig, korrigera detta.</span>
+                                    </div>
+                                    <div class="lm__administrera-form__column">
+                                        <label for="epost-meddelande">LM2 och E-postmeddelande*</label>
+                                        <textarea name="epost-meddelande" class="epost-meddelande"></textarea>
+
+                                        <div class="attachment-wrapper">
+                                            <div class="attachment-form">
+                                                <input type="file" name="attachments" id="attachments" multiple />
+                                            </div>
+                                            <ul class="attachment-files">
+                                                <li>file1.pdf<a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
+                                                <li>file2.pdf<a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
+                                                <li>file3.pdf<a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lm__administrera-form__column">
+                                        <label for="sms">SMS-meddelande (max 160 tecken)*</label>
+                                        <textarea name="sms" class="sms"></textarea>
+                                    </div>
+                                    <div class="lm__administrera-form__buttons">
+                                        <input type="reset" class="lm__administrera-form__btn" value="Avbryt"/>
+                                        <input type="submit" class="lm__administrera-form__btn" value="Skicka meddelande" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF MAIN CONTENT OF WEBPAGE -->
+
+    <!-- START FOOTER -->
+    <footer class="lm__footer">
+        <div class="wrapper">
+            <div class="layout layout--large">
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="lm__intro">
+                        <p>Lantmännen är ett lantbrukskooperativ och norra Eropas ledande aktör inom lantbruk, maskin, bionergi och livsmedel. Vi ägs av 27 000 svenska lantbrukare, har 10 000 anställda, verksamhet i ett 20-tal länder och omsätter 37 miljarder kronor.</p>
+                    </div>
+                </div>
+
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="layout layout--large">
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Kontakt</h3>
+                                <ul>
+                                    <li><a href="#">Lantmännen.ek.för</a></li>
+                                    <li><a href="#">Lantmännen Lantbruk</a></li>
+                                    <li><a href="#">Lantmännen Maskin</a></li>
+                                    <li><a href="#">Lantmännen Finans</a></li>
+                                    <li><a href="#">Växtråd</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                    <li><a href="#">Medlemsavdelningen</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Hjälp</h3>
+                                <ul>
+                                    <li><a href="#">Kundtjänst och support</a></li>
+                                    <li><a href="#">Vanliga frågor</a></li>
+                                </ul>
+                            </div>
+                            <div class="lm__more-info">
+                                <h3>Hitta säljare</h3>
+                                <ul>
+                                    <li><a href="#">Växtodling</a></li>
+                                    <li><a href="#">Maskin</a></li>
+                                    <li><a href="#">Nötfor</a></li>
+                                    <li><a href="#">Piggfor</a></li>
+                                    <li><a href="#">Pullfor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Anläggningar</h3>
+                                <ul>
+                                    <li><a href="#">Verkstäder och serviceställen</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="scripts/scripts.min.js"></script>
+</body>
+</html>

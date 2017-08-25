@@ -1,0 +1,25 @@
+﻿@using Gro.Business;
+@using Gro.Helpers;
+@*@model Gro.Core.ContentTypes.Blocks.ListBlock*@
+@model Gro.ViewModels.Blocks.ListBlockViewModel
+
+<div class="lm__more-info">
+    <h3>@Html.PropertyFor(x=>x.CurrentBlock.Heading)</h3>
+    <ul>
+        @{
+            var items = Model.LinkItems;
+        }
+        @foreach (var linkItem in items)
+        {
+            <li>
+                <a href="@linkItem.GetHref()" target="@linkItem.AsLinkItem().Target">
+                    @linkItem.AsLinkItem().Text
+                </a>
+                @if (linkItem.Type == GroLinkType.ExternalLink)
+                {
+                    <i class="fa fa-external-link-white" aria-hidden="true"></i>
+                }
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,227 @@
+﻿@model Gro.ViewModels.Pages.BookService.BookServicePilotenViewModel
+@using Gro.Constants
+
+@{
+    var machineDefined = "machine".Equals(ViewData["Reference"]);
+}
+
+<style>
+    input[readonly] {
+        background-color: lightgray;
+    }
+</style>
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="#" onclick="history.go(-1)" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>Tillbaka
+                </a>
+                <h1 class="lm__page-title">@Model.CurrentPage.Heading</h1>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <div class="lm__small-block-box relative-position has-separator">
+                        <h2 class="heading-title-2 no-margin">
+                            <div class="lm__meddelanden-favorite @((bool) ViewData["starred"] ? "marked" : "")"></div>
+                            @Model.City
+                            <i class="fa fa-info-circle modal-trigger" aria-hidden="true" style="cursor: pointer; transform: translateY(-5px)"
+                               data-trigger-modal="city-modal">
+                            </i>
+                        </h2>
+                    </div>
+                    <form method="post" action="." class="author-inform-form style-2" enctype="multipart/form-data">
+                        <input hidden type="hidden" name="OwnerEmail" value="@Model.OwnerEmail" />
+                        <input hidden type="hidden" name="PhoneNumber" value="@Model.PhoneNumber" />
+                        <input hidden type="hidden" name="City" value="@Model.City" />
+                        <input hidden type="hidden" name="BackLinkReference" id="BackLinkReference" value="@Request.UrlReferrer.ToString()" />
+                        <input hidden type="hidden" name="Reference" id="Reference" value="@ViewData["reference"]" />
+
+                        <div class="lm__block-box has-separator">
+
+                            @if (machineDefined)
+                            {
+                                <h2 class="heading-title-2">Maskininformation</h2>
+                            }
+                            else
+                            {
+                                <h2 class="heading-title-2">Maskin att boka service för</h2>
+                            }
+
+                            @if (!Html.ViewData.ModelState.IsValid)
+                            {
+                                @Html.ValidationSummary(false, string.Empty, new { @class = "errors-list" })
+                            }
+                            <div class="book-service__form">
+
+                                @if (machineDefined)
+                                {
+                                    <div>
+                                        <strong>Märke och modell:&nbsp;&nbsp;</strong>@Model.MachineModel
+                                        <input name="MachineModel" value="@Model.MachineModel" hidden />
+                                    </div>
+                                    <div>
+                                        <strong>Serienummer:</strong>&nbsp;&nbsp;@Model.MachineSerialNumber
+                                        <input name="MachineSerialNumber" value="@Model.MachineSerialNumber" hidden />
+                                    </div>
+                                    <div>
+                                        <strong>Reg.nr:</strong>&nbsp;&nbsp;@Model.MachineRegister
+                                        <input name="MachineRegister" value="@Model.MachineRegister" hidden />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="layout  layout--large">
+                                        <div class="layout__item  u-1/1  u-3/7-tablet">
+                                            <div class="author-inform-form__input author-inform-form__column author-inform-form__column-full no-padding">
+                                                <label for="model">Märke och modell</label>
+                                                <input type="text" name="MachineModel" class="model" id="model"
+                                                       value="@Model.MachineModel" />
+                                                <span class="error-item">@Html.ValidationMessage("BrandAndModel")</span>
+                                            </div>
+                                        </div>
+                                        <div class="layout__item  u-1/1  u-2/7-tablet">
+                                            <div class="author-inform-form__input author-inform-form__column author-inform-form__column-full no-padding">
+                                                <label for="serienummer">Serienummer</label>
+                                                <input type="text" name="MachineSerialNumber" class="serienummer" id="serienummer"
+                                                       value="@Model.MachineSerialNumber" />
+                                            </div>
+                                        </div>
+                                        <div class="layout__item  u-1/1  u-2/7-tablet">
+                                            <div class="author-inform-form__input author-inform-form__column author-inform-form__column-full no-padding">
+                                                <label for="regno">Reg.nr.</label>
+                                                <input type="text" name="MachineRegister" class="regno" id="regno"
+                                                       value="@Model.MachineRegister" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <br />
+
+                                <div class="layout  layout--large">
+                                    <div class="layout__item  u-1/1  u-5/7-tablet">
+                                        <p>När din verkstad får din förfrågan återkommer de med förslag på tider. Har du särskilda önskemål? Ange dem i Meddelande till verkstaden.</p>
+
+                                        <div class="author-inform-form__input author-inform-form__column author-inform-form__column-full no-padding clearfix">
+                                            <h2 class="heading-title-2">Meddelande till verkstaden</h2>
+                                            <textarea class="message" style="height: 200px; resize: both;" name="Message" id="message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lm__block-box has-separator">
+                            <div class="lm__gray-box">
+                                <div class="address-block compact">
+                                    <div class="address-sections">
+                                        <div class="lm__bold-title">
+                                            Du som bokar
+                                            <i class="fa fa-info-circle modal-trigger" aria-hidden="true" style="cursor: pointer; transform: translateY(-5px) scale(0.8)"
+                                               data-trigger-modal="info-modal">
+                                            </i>
+                                        </div>
+                                        <strong>@Model.Customer.CustomerNo</strong>&nbsp;&nbsp;@Model.Customer.CustomerName
+                                    </div>
+                                </div>
+                                <div class="address-block compact">
+                                    <div class="address-sections">
+                                        <div class="lm__bold-title">Namn</div>
+                                        @Model.UserName
+                                    </div>
+                                </div>
+                                <div class="address-block compact">
+                                    <div class="address-sections">
+                                        <div class="lm__bold-title">E-postadress för kontakt</div>
+                                        @if (!string.IsNullOrWhiteSpace(Model.OwnerEmail))
+                                        {
+                                            <div>@Model.OwnerEmail</div>
+                                        }
+                                        <div>@Model.UserEmail</div>
+                                    </div>
+                                </div>
+                                <div class="address-block multiple">
+                                    <div class="address-sections">
+                                        <div class="lm__bold-title">Telefonnummer</div>
+                                        @Model.PhoneNumber
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lm__block-box align-right-text">
+                            <div class="author-inform-form__input block-button-on-mobile">
+                                <a class="author-inform-form__btn left-button" onclick="javascript:history.back()">Avbryt</a>
+                                <input type="submit" class="author-inform-form__btn reverse-state" value="Skicka bokningsförfrågan" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.BannerContent, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="lm__information-modal__wrapper hidden" id="city-modal">
+    <div class="mask"></div>
+    <div class="lm__information-modal">
+        <div>
+            <h3 class="lm__information-modal__title">Vald verkstad</h3>
+            <p>Vill du boka på en annan verkstad? </p>
+            <p>Du byter vilken som är din verkstad genom att gå till Verkstäder och servicesställen, längst ner på sidan.</p>
+            <p> Där söker du fram den verkstad du vill ska vara din verkstad, och anger den som som favoritverkstad. </p>
+        </div>
+    </div>
+    <div class="lm__information-modal__close-btn">
+        <a style="cursor: pointer;"></a>
+    </div>
+</div>
+
+<div class="lm__information-modal__wrapper hidden" id="info-modal">
+    <div class="mask"></div>
+    <div class="lm__information-modal">
+        <div>
+            <h3 class="lm__information-modal__title">Du som bokar</h3>
+            <p>Den information som visas om dig är den LM<sup>2</sup> har om dig.</p>
+            <p>Vill du byta telefonnummer eller den e-postadress som verkstaden ska använda när de kontaktar dig?</p>
+            <p>Då behöver du ändra dina uppgifter i kontoinställningarna, som du når högst uppe till höger.</p>
+        </div>
+    </div>
+    <div class="lm__information-modal__close-btn">
+        <a style="cursor: pointer;"></a>
+    </div>
+</div>
+
+@if (!string.IsNullOrWhiteSpace((string)ViewData["error"]))
+{
+    <div class="lm__modal-alert" id="post-error" style="display: block">
+        <div class="lm__modal-dialog">
+            <div class="modal-content-inform">
+                <span class="alert-icon warning"></span>
+                <h3 class="success-header-title">Bokningsförfrågan kunde inte skickas</h3>
+                <p>Något gick fel när du försöke skicka din bokningsförfrågan. Vänligen försök igen.</p>
+                <div class="button-confirm align-right-text">
+                    <button class="success-confirm-inform">OK</button>
+                </div>
+                <div class="lm__information-modal__close-btn">
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(".modal-trigger").click(function (event) {
+        console.log(event.target.dataset);
+        var modalId = event.target.dataset.triggerModal;
+        $("#" + modalId).removeClass("hidden");
+    });
+</script>
+
+<input type="hidden" id="booking-service-send-faild" value="@ViewBag.SendFaild" />

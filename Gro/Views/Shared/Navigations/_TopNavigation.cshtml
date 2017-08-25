@@ -1,0 +1,31 @@
+﻿@using EPiServer.Core
+@model Gro.ViewModels.Navigation.TopNavigationModel
+
+<nav class="lm__user-settings">
+    <ul>
+        <li class="lm__settings">
+            <a style="cursor:pointer;"></a>
+            <nav class="lm_sub-settings">
+                <ul>
+                    @if (Model.ListServiceStartPageItems != null && Model.ListServiceStartPageItems.Any())
+                    {
+                        foreach (var item in Model.ListServiceStartPageItems)
+                        {
+                            <li class="@item.CssClass"><a href="@Url.ContentUrl(item.ContentLink)">@item.Text</a></li>
+                        }
+                    }
+                </ul>
+                <div class="cleafix"></div>
+            </nav>
+        </li>
+    </ul>
+</nav>
+
+@if (ContentReference.StartPage.Equals(Model.StartpageReference))
+{
+    <h1 class="lm__page-title no-dotted">@Model.StartPageText</h1>
+}
+else
+{
+    <a href="@Url.ContentUrl(Model.StartpageReference)"> <h1 class="lm__page-title no-dotted">@Model.StartPageText</h1></a>
+}

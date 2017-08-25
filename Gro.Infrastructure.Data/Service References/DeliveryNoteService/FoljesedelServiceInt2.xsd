@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FoljesedelServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FoljesedelServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfFoljesedelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FoljesedelResponse" nillable="true" type="tns:FoljesedelResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFoljesedelResponse" nillable="true" type="tns:ArrayOfFoljesedelResponse" />
+  <xs:complexType name="FoljesedelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivatedPDF" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ArticleNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveredQuantity" type="xs:double" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FabricDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FabricID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LoadingDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Lopnummer" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderedQuantity" type="xs:double" />
+      <xs:element minOccurs="0" name="RowNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="System" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FoljesedelResponse" nillable="true" type="tns:FoljesedelResponse" />
+  <xs:complexType name="ArrayOfFabricItemResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FabricItemResponse" nillable="true" type="tns:FabricItemResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFabricItemResponse" nillable="true" type="tns:ArrayOfFabricItemResponse" />
+  <xs:complexType name="FabricItemResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FabricId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FabricItemResponse" nillable="true" type="tns:FabricItemResponse" />
+  <xs:complexType name="ArrayOfBulkfoderLeveransResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BulkfoderLeveransResponse" nillable="true" type="tns:BulkfoderLeveransResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBulkfoderLeveransResponse" nillable="true" type="tns:ArrayOfBulkfoderLeveransResponse" />
+  <xs:complexType name="BulkfoderLeveransResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Adress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Adress3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Artikel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Batchnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Beh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Benamning" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Biltext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Brutto" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DatumKlar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatumTillv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatumUts" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fabriksnamn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fabrikssedelsnr" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Inforad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kula" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kundbehallare" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kundnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kundordernummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kvantitet" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Latitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Levadress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Levdag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lopnr" type="xs:double" />
+      <xs:element minOccurs="0" name="Mobiltelefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Namn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Netto" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Nr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnskadKvantitet" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Rad" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="ReceptNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceptVersion" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Regnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tara" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tillvord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UtlastadKvantitet" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Utlastningsdatum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UtlastningsdatumAngiven" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ver" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BulkfoderLeveransResponse" nillable="true" type="tns:BulkfoderLeveransResponse" />
+  <xs:complexType name="ArrayOfAnalysGruppResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalysGruppResponse" nillable="true" type="tns:AnalysGruppResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalysGruppResponse" nillable="true" type="tns:ArrayOfAnalysGruppResponse" />
+  <xs:complexType name="AnalysGruppResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Grupp" type="xs:short" />
+      <xs:element minOccurs="0" name="KolDelning" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="NamnVisa" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnalysGruppResponse" nillable="true" type="tns:AnalysGruppResponse" />
+</xs:schema>

@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://lantmannen.com/centralen/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://lantmannen.com/centralen/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://lantmannen.com/centralen/">
+      <s:element name="ServiceAlive">
+        <s:complexType />
+      </s:element>
+      <s:element name="ServiceAliveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceAliveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGHGvarde">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGHGvardeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGHGvardeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFreightValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFreightValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFreightValuesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAttributenumbersOnIO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAttributenumbersOnIOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAttributenumbersOnIOResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAttributenumbersToFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAttributenumbersToFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAttributenumbersToFlagResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerNotificationResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCustomerNotificationResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerAddressResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoneForAddressOnIO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="supplierNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZoneForAddressOnIOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getZoneForAddressOnIOResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerAddress_notExpired">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerAddress_notExpiredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerAddress_notExpiredResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerCodeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerMo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerMoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerMoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerTeam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCustomerTeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCustomerTeamResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCustomerAddressResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOcusma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOcusmaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOcusmaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerDiscount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="APIName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerDiscountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCustomerDiscountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCarrier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCarrierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCarrierResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKund_Boka">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKund_BokaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKund_BokaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ServiceAliveSoapIn">
+    <wsdl:part name="parameters" element="tns:ServiceAlive" />
+  </wsdl:message>
+  <wsdl:message name="ServiceAliveSoapOut">
+    <wsdl:part name="parameters" element="tns:ServiceAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomer" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGHGvardeSoapIn">
+    <wsdl:part name="parameters" element="tns:getGHGvarde" />
+  </wsdl:message>
+  <wsdl:message name="getGHGvardeSoapOut">
+    <wsdl:part name="parameters" element="tns:getGHGvardeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFreightValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:getFreightValues" />
+  </wsdl:message>
+  <wsdl:message name="getFreightValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:getFreightValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAttributenumbersOnIOSoapIn">
+    <wsdl:part name="parameters" element="tns:getAttributenumbersOnIO" />
+  </wsdl:message>
+  <wsdl:message name="getAttributenumbersOnIOSoapOut">
+    <wsdl:part name="parameters" element="tns:getAttributenumbersOnIOResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAttributenumbersToFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:getAttributenumbersToFlag" />
+  </wsdl:message>
+  <wsdl:message name="getAttributenumbersToFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:getAttributenumbersToFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerNotification" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomerNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCustomerNotification" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomerNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCustomerNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerAddress" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZoneForAddressOnIOSoapIn">
+    <wsdl:part name="parameters" element="tns:getZoneForAddressOnIO" />
+  </wsdl:message>
+  <wsdl:message name="getZoneForAddressOnIOSoapOut">
+    <wsdl:part name="parameters" element="tns:getZoneForAddressOnIOResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerAddress_notExpiredSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerAddress_notExpired" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerAddress_notExpiredSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerAddress_notExpiredResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerCode" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerMoSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerMo" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerMoSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerMoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerTeamSoapIn">
+    <wsdl:part name="parameters" element="tns:getCustomerTeam" />
+  </wsdl:message>
+  <wsdl:message name="getCustomerTeamSoapOut">
+    <wsdl:part name="parameters" element="tns:getCustomerTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomerAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCustomerAddress" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomerAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCustomerAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOcusmaSoapIn">
+    <wsdl:part name="parameters" element="tns:getOcusma" />
+  </wsdl:message>
+  <wsdl:message name="getOcusmaSoapOut">
+    <wsdl:part name="parameters" element="tns:getOcusmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomerDiscountSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCustomerDiscount" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomerDiscountSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCustomerDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCarrierSoapIn">
+    <wsdl:part name="parameters" element="tns:getCarrier" />
+  </wsdl:message>
+  <wsdl:message name="getCarrierSoapOut">
+    <wsdl:part name="parameters" element="tns:getCarrierResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKund_BokaSoapIn">
+    <wsdl:part name="parameters" element="tns:getKund_Boka" />
+  </wsdl:message>
+  <wsdl:message name="getKund_BokaSoapOut">
+    <wsdl:part name="parameters" element="tns:getKund_BokaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CustomerSoap">
+    <wsdl:operation name="ServiceAlive">
+      <wsdl:input message="tns:ServiceAliveSoapIn" />
+      <wsdl:output message="tns:ServiceAliveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomer">
+      <wsdl:input message="tns:getCustomerSoapIn" />
+      <wsdl:output message="tns:getCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGHGvarde">
+      <wsdl:input message="tns:getGHGvardeSoapIn" />
+      <wsdl:output message="tns:getGHGvardeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFreightValues">
+      <wsdl:input message="tns:getFreightValuesSoapIn" />
+      <wsdl:output message="tns:getFreightValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAttributenumbersOnIO">
+      <wsdl:input message="tns:getAttributenumbersOnIOSoapIn" />
+      <wsdl:output message="tns:getAttributenumbersOnIOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAttributenumbersToFlag">
+      <wsdl:input message="tns:getAttributenumbersToFlagSoapIn" />
+      <wsdl:output message="tns:getAttributenumbersToFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerNotification">
+      <wsdl:input message="tns:getCustomerNotificationSoapIn" />
+      <wsdl:output message="tns:getCustomerNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerNotification">
+      <wsdl:input message="tns:SetCustomerNotificationSoapIn" />
+      <wsdl:output message="tns:SetCustomerNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAddress">
+      <wsdl:input message="tns:getCustomerAddressSoapIn" />
+      <wsdl:output message="tns:getCustomerAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZoneForAddressOnIO">
+      <wsdl:input message="tns:getZoneForAddressOnIOSoapIn" />
+      <wsdl:output message="tns:getZoneForAddressOnIOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAddress_notExpired">
+      <wsdl:input message="tns:getCustomerAddress_notExpiredSoapIn" />
+      <wsdl:output message="tns:getCustomerAddress_notExpiredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerCode">
+      <wsdl:input message="tns:getCustomerCodeSoapIn" />
+      <wsdl:output message="tns:getCustomerCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerMo">
+      <wsdl:input message="tns:getCustomerMoSoapIn" />
+      <wsdl:output message="tns:getCustomerMoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerTeam">
+      <wsdl:input message="tns:getCustomerTeamSoapIn" />
+      <wsdl:output message="tns:getCustomerTeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerAddress">
+      <wsdl:input message="tns:SetCustomerAddressSoapIn" />
+      <wsdl:output message="tns:SetCustomerAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOcusma">
+      <wsdl:input message="tns:getOcusmaSoapIn" />
+      <wsdl:output message="tns:getOcusmaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerDiscount">
+      <wsdl:input message="tns:SetCustomerDiscountSoapIn" />
+      <wsdl:output message="tns:SetCustomerDiscountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCarrier">
+      <wsdl:input message="tns:getCarrierSoapIn" />
+      <wsdl:output message="tns:getCarrierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getKund_Boka">
+      <wsdl:input message="tns:getKund_BokaSoapIn" />
+      <wsdl:output message="tns:getKund_BokaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerSoap" type="tns:CustomerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ServiceAlive">
+      <soap:operation soapAction="http://lantmannen.com/centralen/ServiceAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomer">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGHGvarde">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getGHGvarde" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFreightValues">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getFreightValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAttributenumbersOnIO">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getAttributenumbersOnIO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAttributenumbersToFlag">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getAttributenumbersToFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerNotification">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomerNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerNotification">
+      <soap:operation soapAction="http://lantmannen.com/centralen/SetCustomerNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAddress">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomerAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoneForAddressOnIO">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getZoneForAddressOnIO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAddress_notExpired">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomerAddress_notExpired" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerCode">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomerCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerMo">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomerMo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerTeam">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCustomerTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerAddress">
+      <soap:operation soapAction="http://lantmannen.com/centralen/SetCustomerAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOcusma">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getOcusma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerDiscount">
+      <soap:operation soapAction="http://lantmannen.com/centralen/SetCustomerDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCarrier">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCarrier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKund_Boka">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getKund_Boka" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerSoap12" type="tns:CustomerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ServiceAlive">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/ServiceAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomer">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGHGvarde">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getGHGvarde" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFreightValues">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getFreightValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAttributenumbersOnIO">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getAttributenumbersOnIO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAttributenumbersToFlag">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getAttributenumbersToFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerNotification">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomerNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerNotification">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/SetCustomerNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAddress">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomerAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZoneForAddressOnIO">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getZoneForAddressOnIO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerAddress_notExpired">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomerAddress_notExpired" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerCode">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomerCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerMo">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomerMo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerTeam">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCustomerTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerAddress">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/SetCustomerAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOcusma">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getOcusma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerDiscount">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/SetCustomerDiscount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCarrier">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCarrier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKund_Boka">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getKund_Boka" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Customer">
+    <wsdl:port name="CustomerSoap" binding="tns:CustomerSoap">
+      <soap:address location="http://sr02009/Centralen/Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerSoap12" binding="tns:CustomerSoap12">
+      <soap12:address location="http://sr02009/Centralen/Customer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

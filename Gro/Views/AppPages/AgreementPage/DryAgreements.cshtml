@@ -1,0 +1,25 @@
+@model Gro.ViewModels.Pages.AppPages.Agreement.AgreementPageViewModel
+
+@if (Model.ListDryAgreements != null && Model.ListDryAgreements.Any())
+{
+    <div class="lm__table-wrapper">
+        <table class="lmTable" style="border: 0">
+            <thead>
+            <tr>
+                <th scope="col">@Html.Translate("/lantBruk/avtal/dryAgreement/skordeYear")</th>
+                <th scope="col">@Html.Translate("/lantBruk/avtal/dryAgreement/agreementExist")</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.ListDryAgreements)
+            {
+                <tr>
+                    <td>@item.skordeYear</td>
+                    <td>@item.AgreementExist</td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+}

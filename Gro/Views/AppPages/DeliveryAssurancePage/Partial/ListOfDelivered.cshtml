@@ -1,0 +1,71 @@
+@using System.Globalization
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.DeliveryAssurance.DeliveryAssuranceListViewModel
+
+<div class="lm__block">
+    <h3>@Html.Translate("/lantBruk/leveransForsakran/deliveredPastMonths")</h3>
+    <div class="lm__table-wrapper">
+        <table class="responsive-table no-width">
+            <thead>
+            <tr>
+                <th class="header-desktop-only">@Html.Translate("/lantBruk/leveransForsakran/deliveryAssurance")</th>
+                <th class="header-desktop-only">@Html.Translate("/lantBruk/leveransForsakran/itemName")</th>
+                <th >@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryDate")</th>
+                <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/print")</th>
+                @if (Model.IsShowCreateDelAssFromOtherLink)
+                {
+                    <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/useToCreateNew")</th>
+                }
+                <th class="action-control" style="display: none;">Boka</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.ListOfDelivered != null && Model.ListOfDelivered.Any())
+            {
+                foreach (var rowItem in Model.ListOfDelivered)
+                {
+                    <tr>
+                        <td>
+                            <a href="@rowItem.OverviewDeliveryAssuranceUrl">
+                                @rowItem.DeliveryAssurance.IONumber.ToString(CultureInfo.InvariantCulture)
+                            </a>
+                        </td>
+                        <td>
+                            @rowItem.DeliveryAssurance.Item
+                        </td>
+                        <td>@string.Format("{0:yyyy-MM-dd}", rowItem.DeliveryAssurance.DeliveryDate)</td>
+                        <td class="share-row collapsed-row">
+                            <div class="lm__checkbox lm__tick">
+                                <input type="checkbox" class="cbxToPrintDeliveried" value="@string.Format("{0};{1}", rowItem.DeliveryAssurance.IONumber, rowItem.DeliveryAssurance.LineNumber)"/>
+                                <label></label>
+                            </div>
+                            <a href="@string.Format("/api/pdfhandler/generatepdf?a={0}&l={1}&resync=true", rowItem.DeliveryAssurance.IONumber, rowItem.DeliveryAssurance.LineNumber)" target="_blank" class="lm__block-btn mobile-only">Skriv ut</a>
+                        </td>
+                        @if (Model.IsShowCreateDelAssFromOtherLink)
+                        {
+                            <td class="share-row collapsed-row">
+                                <a href="@rowItem.CreateDeliveryAssuranceFromExistingUrl" class="lm__inline-coppy-btn">
+                                </a>
+                            </td>
+                        }
+                        <td class="share-row collapsed-row" style="display: none;">
+                            <a href="@string.Format("{0}?ion={1}", Model.BookDeliveryUrl, rowItem.DeliveryAssurance.IONumber)">
+                                Boka
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+@if (Model.ListOfDelivered != null && Model.ListOfDelivered.Any())
+{
+    <div class="lm__meddelanden-actions">
+        <a href="javascript:void(0)" id="btnToPrintDeliveried" onclick="DeliveryAssuranceModule.printMultiLines('cbxToPrintDeliveried');" class="lm__meddelanden-action-btn"><i class="fa fa-print"></i>@Html.Translate("/lantBruk/leveransForsakran/print")</a>
+    </div>
+}
+
+

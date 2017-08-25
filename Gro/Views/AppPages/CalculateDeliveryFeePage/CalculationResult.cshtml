@@ -1,0 +1,31 @@
+@model Gro.Core.DataModels.ShippingDtos.DeliveryFeeResponse 
+
+@{
+    var isInternal = ViewBag.IsInternal != null && (bool)ViewBag.IsInternal;
+}
+
+@if (string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    @Html.Translate("/lantBruk/fraktPris/deliveryFee")
+    <span class="calculate_fee">@Model.Fee</span>
+
+    if (isInternal)
+    {
+        <div>
+            @Html.Translate("/lantBruk/fraktPris/bestCity")
+            <span class="calculate_bestCity">@Model.City</span>
+        </div>
+        <div>
+            @Html.Translate("/lantBruk/fraktPris/kmAway")
+            <span class="calculate_km">@Model.Distance</span>
+        </div>
+    }
+}
+else
+{
+    <span>@Model.ErrorMessage</span>
+}
+
+
+
+

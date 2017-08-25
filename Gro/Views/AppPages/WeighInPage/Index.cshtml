@@ -1,0 +1,130 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.WeighIn.WeighInPageViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__mina-avtal">
+                    <h1>@Model.CurrentPage.Heading</h1>
+                    @Html.PropertyFor(x => x.CurrentPage.Body)
+
+                    <div style="display:none;">
+                        <label for="kund">Kund: </label>
+                        <select name="kund" id="kund" style="display:inline;"></select>
+                    </div>
+
+                    @if (Model.WeighIns.Any())
+                    {
+                        <h4 class="mina-avtal__table-caption">
+                            @string.Format(Html.Translate("/lantBruk/weighIn/weighInHeader"), Model.CurrentYear)
+                        </h4>
+                    }
+                    else
+                    {
+                        <h4 class="mina-avtal__table-caption">
+                            @string.Format(Html.Translate("/lantBruk/weighIn/weighInMissingHeader"), Model.CurrentYear)
+                        </h4>
+                    }
+
+                    <p class="table-caption">Välj kolumner som skall visas</p>
+                    <div class="lm__table-wrapper">
+                        <table class="tablesaw" data-tablesaw-mode="columntoggle">
+                            <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/weighIn/sort")</th>
+                                    <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/weighIn/weight")</th>
+                                    <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/weighIn/date")</th>
+                                    <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/weighIn/deliveryNr")</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var weighIn in Model.WeighIns)
+                                {
+                                    <tr>
+                                        <td class="weighInSort">@weighIn.Sort</td>
+                                        <td>@weighIn.Weight</td>
+                                        <td>@weighIn.Date.ToShortDateString()</td>
+                                        <td>
+                                            <a href="#weighInAnalyze" role="button" class="showWeighInAnalyze" data-toggle="modal"
+                                               data-id="@weighIn.DeliveryNumber" data-date="@weighIn.Date.ToShortDateString()" data-sort="@weighIn.Sort">
+                                                @weighIn.DeliveryNumber
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#weighInMoreInfo" role="button" class="showWeighInMoreInfo lm__link no-state" data-toggle="modal"
+                                               data-id="@weighIn.DeliveryNumber" data-date="@weighIn.Date.ToShortDateString()" data-sort="@weighIn.Sort">
+                                                <i class="fa fa-info-circle"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @{
+                        var lastYearLink = Url.ContentUrl(Model.CurrentPage.ContentLink) + "?year=" + (Model.CurrentYear - 1);
+                    }
+
+                    <a class="visa-link" href="@lastYearLink">Visa föregående skördeår</a>
+
+                    @if (Model.AgreementSums.Any())
+                    {
+                        <h4>@string.Format(Html.Translate("/lantBruk/weighIn/agreement/weighInHeader"), Model.CurrentYear)</h4>
+                    }
+                    else
+                    {
+                        <h4>@string.Format(Html.Translate("/lantBruk/weighIn/agreement/weighInMissingHeader"), Model.CurrentYear)</h4>
+                    }
+
+                    <p class="table-caption">Välj kolumner som skall visas</p>
+                    <div class="lm__table-wrapper">
+                        <table class="tablesaw" data-tablesaw-mode="columntoggle">
+                            <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/weighIn/sort")</th>
+                                    <th scope="col" data-tablesaw-priority="1">Summa levererat avtal (kg)</th>
+                                    <th scope="col" data-tablesaw-priority="2">Summa spontantlevererat (kg)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var aggreement in Model.AgreementSums)
+                                {
+                                    <tr>
+                                        <td>@aggreement.Sort</td>
+                                        <td>@aggreement.Quantity</td>
+                                        <td>@aggreement.QuantitySpont</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <p @Html.EditAttributes(m => m.CurrentPage.OverViewDescription)>@Model.CurrentPage.OverViewDescription</p>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+
+        <div class="lm__modal-alert">
+            <div class="lm__modal-dialog">
+                <a class="modal-close" href="#"><i class="fa fa-times"></i></a>
+                <div class="table-container">
+
+                </div>
+                <div class="button-confirm">
+                    <button class="success-confirm">Stäng</button>
+                </div>
+                <div class="loader-wrapper">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

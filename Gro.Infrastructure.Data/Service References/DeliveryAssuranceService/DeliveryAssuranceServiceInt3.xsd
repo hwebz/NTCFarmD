@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Supplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Supplier" nillable="true" type="tns:Supplier" />
+  <xs:complexType name="DeliveryAssurances">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ListOfConfirmed" nillable="true" type="tns:ArrayOfDeliveryAssuranceList" />
+      <xs:element minOccurs="0" name="ListOfDelivered" nillable="true" type="tns:ArrayOfDeliveryAssuranceList" />
+      <xs:element minOccurs="0" name="ListOfNotConfirmed" nillable="true" type="tns:ArrayOfDeliveryAssuranceList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryAssurances" nillable="true" type="tns:DeliveryAssurances" />
+  <xs:complexType name="ArrayOfDeliveryAssuranceList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryAssuranceList" nillable="true" type="tns:DeliveryAssuranceList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryAssuranceList" nillable="true" type="tns:ArrayOfDeliveryAssuranceList" />
+  <xs:complexType name="DeliveryAssuranceList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookedTime" type="xs:int" />
+      <xs:element minOccurs="0" name="DeliveryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Gardshamtning" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IONumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Item" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="hasBooking" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryAssuranceList" nillable="true" type="tns:DeliveryAssuranceList" />
+  <xs:complexType name="DeliveryAssurance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeliveryAssuranceList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ATNR" type="xs:long" />
+          <xs:element minOccurs="0" name="Buyer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Depaavtal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExistingWarehouse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GHGvarde" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Glyfosat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KundorderNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KundsOrderNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Leveransdatum" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Leveransvillkor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Levsatt" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NumbersToUpdate" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="OrderTyp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ovrigt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="RED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SLAM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Skordear" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Straforkortat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SupplierNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Torkat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Warehouse" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeliveryAssurance" nillable="true" type="tns:DeliveryAssurance" />
+  <xs:complexType name="ArrayOfItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItem" nillable="true" type="tns:ArrayOfItem" />
+  <xs:complexType name="Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Keyvalue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Item" nillable="true" type="tns:Item" />
+  <xs:complexType name="ArrayOfDeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryAddress" nillable="true" type="tns:DeliveryAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryAddress" nillable="true" type="tns:ArrayOfDeliveryAddress" />
+  <xs:complexType name="DeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NutsCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryAddress" nillable="true" type="tns:DeliveryAddress" />
+</xs:schema>

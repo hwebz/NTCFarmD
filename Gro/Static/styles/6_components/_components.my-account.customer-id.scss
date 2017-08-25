@@ -1,0 +1,52 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.customer-id-block {
+    padding-bottom: 25px;
+
+    .lm__block-box {
+        @include set-responsive-property("tablet", padding, 10px 15px, 10px 30px);
+        border-bottom: 1px solid $body-background-color;
+        position: relative;
+
+        &:last-child {
+            border: none;
+        }
+
+        .lm__bold-title {
+            display: inline-block;
+            vertical-align: super;
+            padding: 0 10px;
+            margin: 0;
+        }
+
+        &:first-child {
+            padding: 30px;
+        }
+
+        .sub-checkbox {
+            margin-left: 40px;
+
+            ul {
+                li {
+                    line-height: 2;
+                }
+            }
+
+            .lm__radio.sub-hidden {
+                p, div {
+                    &:before,
+                    &:after {
+                        @include set-opacity(0);
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+
+        .parent-checkbox {
+            .lm__checkbox {
+                pointer-events: none;
+            }
+        }
+    }
+}

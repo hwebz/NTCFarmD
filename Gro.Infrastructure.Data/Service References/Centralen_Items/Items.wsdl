@@ -1,0 +1,2841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://lantmannen.com/centralen/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://lantmannen.com/centralen/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://lantmannen.com/centralen/">
+      <s:element name="ServiceAlive">
+        <s:complexType />
+      </s:element>
+      <s:element name="ServiceAliveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceAliveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWarehouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWarehouseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWarehouseResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDepaAvtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDepaAvtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDepaAvtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAvtalZpagrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAvtalZpagrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAvtalZpagrlResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTP_InkopsAvtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTP_InkopsAvtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTP_InkopsAvtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInkopsAvtalFraktServiceM3test">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInkopsAvtalFraktServiceM3testResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInkopsAvtalFraktServiceM3testResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInkopsAvtalFraktServiceM3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInkopsAvtalFraktServiceM3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInkopsAvtalFraktServiceM3Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTerminsavtal_avtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTerminsavtal_avtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTerminsavtal_avtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMinaAvtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMinaAvtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMinaAvtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMinaOdlingsAvtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMinaOdlingsAvtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMinaOdlingsAvtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMinaTorkAvtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMinaTorkAvtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMinaTorkAvtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_InkopsOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_InkopsOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_InkopsOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalleLevforsTest">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLagerstalleLevforsTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLagerstalleLevforsTestResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLagerstalleResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalleLevfors">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalleLevforsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLagerstalleLevforsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalle_Ext">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLagerstalle_ExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLagerstalle_ExtResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemQuantity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemQuantityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemQuantityResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemGroupResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemTypeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProductGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProductGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProductGroupResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSalesArea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSalesAreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesAreaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCsytab">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCsytabResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCsytabResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSPMLLevsatt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSPMLLevsattResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSPMLLevsattResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITBAL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITBALResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMITBALResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemAvailableBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemAvailableBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemAvailableBalanceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITAFO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITAFOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMITAFOResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOCUSAS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOCUSASResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOCUSASResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLoadLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLoadLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLoadLogResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPIATP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPIATPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPIATPResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITATP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITATPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMITATPResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZaffw">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZaffwResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getZaffwResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZaffw_Hist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZaffw_HistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getZaffw_HistResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZWDPRI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getZWDPRIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getZWDPRIResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMITPLO">
+        <s:complexType />
+      </s:element>
+      <s:element name="getMITPLOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMITPLOResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMPAGRH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMPAGRHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMPAGRHResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOpenItemsDepa431">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOpenItemsDepa431Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOpenItemsDepa431Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOpenItemsPool401">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOpenItemsPool401Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOpenItemsPool401Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOpenItemsOffert404">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOpenItemsOffert404Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOpenItemsOffert404Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTP_InkopsAvtal_Boka">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTP_InkopsAvtal_BokaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTP_InkopsAvtal_BokaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAssuranceItems">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDeliveryAssuranceItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDeliveryAssuranceItemsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAssuranceItemsNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inPAram">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAssuranceItemsNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDeliveryAssuranceItemsNewResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAgreementItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAgreementItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDeliveryAgreementItemsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAgreementItemsNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inPAram">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeliveryAgreementItemsNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDeliveryAgreementItemsNewResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addPOProp">
+        <s:complexType />
+      </s:element>
+      <s:element name="addPOPropResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addPOPropResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInvagning">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInvagningResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInvagningResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInvagningAvtal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInvagningAvtalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInvagningAvtalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInvagnExtendedInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInvagnExtendedInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInvagnExtendedInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOrtsjustering">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOrtsjusteringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOrtsjusteringResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControlArttyper">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControlArttyperResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInControlArttyperResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControlKodforms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControlKodformsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInControlKodformsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControlKodforms_falt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControlKodforms_faltResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInControlKodforms_faltResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControl_kodLagerSt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControl_kodLagerStResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInControl_kodLagerStResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControl_kodSaljomrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInControl_kodSaljomradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInControl_kodSaljomradeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ServiceAliveSoapIn">
+    <wsdl:part name="parameters" element="tns:ServiceAlive" />
+  </wsdl:message>
+  <wsdl:message name="ServiceAliveSoapOut">
+    <wsdl:part name="parameters" element="tns:ServiceAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemSoapIn">
+    <wsdl:part name="parameters" element="tns:getItem" />
+  </wsdl:message>
+  <wsdl:message name="getItemSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWarehouseSoapIn">
+    <wsdl:part name="parameters" element="tns:getWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="getWarehouseSoapOut">
+    <wsdl:part name="parameters" element="tns:getWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDepaAvtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getDepaAvtal" />
+  </wsdl:message>
+  <wsdl:message name="getDepaAvtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getDepaAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAvtalZpagrlSoapIn">
+    <wsdl:part name="parameters" element="tns:getAvtalZpagrl" />
+  </wsdl:message>
+  <wsdl:message name="getAvtalZpagrlSoapOut">
+    <wsdl:part name="parameters" element="tns:getAvtalZpagrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTP_InkopsAvtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getTP_InkopsAvtal" />
+  </wsdl:message>
+  <wsdl:message name="getTP_InkopsAvtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getTP_InkopsAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInkopsAvtalFraktServiceM3testSoapIn">
+    <wsdl:part name="parameters" element="tns:getInkopsAvtalFraktServiceM3test" />
+  </wsdl:message>
+  <wsdl:message name="getInkopsAvtalFraktServiceM3testSoapOut">
+    <wsdl:part name="parameters" element="tns:getInkopsAvtalFraktServiceM3testResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInkopsAvtalFraktServiceM3SoapIn">
+    <wsdl:part name="parameters" element="tns:getInkopsAvtalFraktServiceM3" />
+  </wsdl:message>
+  <wsdl:message name="getInkopsAvtalFraktServiceM3SoapOut">
+    <wsdl:part name="parameters" element="tns:getInkopsAvtalFraktServiceM3Response" />
+  </wsdl:message>
+  <wsdl:message name="getTerminsavtal_avtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getTerminsavtal_avtal" />
+  </wsdl:message>
+  <wsdl:message name="getTerminsavtal_avtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getTerminsavtal_avtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMinaAvtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getMinaAvtal" />
+  </wsdl:message>
+  <wsdl:message name="getMinaAvtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getMinaAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMinaOdlingsAvtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getMinaOdlingsAvtal" />
+  </wsdl:message>
+  <wsdl:message name="getMinaOdlingsAvtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getMinaOdlingsAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMinaTorkAvtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getMinaTorkAvtal" />
+  </wsdl:message>
+  <wsdl:message name="getMinaTorkAvtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getMinaTorkAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_InkopsOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:get_InkopsOrder" />
+  </wsdl:message>
+  <wsdl:message name="get_InkopsOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:get_InkopsOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalleLevforsTestSoapIn">
+    <wsdl:part name="parameters" element="tns:getLagerstalleLevforsTest" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalleLevforsTestSoapOut">
+    <wsdl:part name="parameters" element="tns:getLagerstalleLevforsTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalleSoapIn">
+    <wsdl:part name="parameters" element="tns:getLagerstalle" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalleSoapOut">
+    <wsdl:part name="parameters" element="tns:getLagerstalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalleLevforsSoapIn">
+    <wsdl:part name="parameters" element="tns:getLagerstalleLevfors" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalleLevforsSoapOut">
+    <wsdl:part name="parameters" element="tns:getLagerstalleLevforsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalle_ExtSoapIn">
+    <wsdl:part name="parameters" element="tns:getLagerstalle_Ext" />
+  </wsdl:message>
+  <wsdl:message name="getLagerstalle_ExtSoapOut">
+    <wsdl:part name="parameters" element="tns:getLagerstalle_ExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemQuantitySoapIn">
+    <wsdl:part name="parameters" element="tns:getItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="getItemQuantitySoapOut">
+    <wsdl:part name="parameters" element="tns:getItemQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:getItemGroup" />
+  </wsdl:message>
+  <wsdl:message name="getItemGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:getItemType" />
+  </wsdl:message>
+  <wsdl:message name="getItemTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProductGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:getProductGroup" />
+  </wsdl:message>
+  <wsdl:message name="getProductGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:getProductGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesAreaSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesArea" />
+  </wsdl:message>
+  <wsdl:message name="getSalesAreaSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCsytabSoapIn">
+    <wsdl:part name="parameters" element="tns:getCsytab" />
+  </wsdl:message>
+  <wsdl:message name="getCsytabSoapOut">
+    <wsdl:part name="parameters" element="tns:getCsytabResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSPMLLevsattSoapIn">
+    <wsdl:part name="parameters" element="tns:getSPMLLevsatt" />
+  </wsdl:message>
+  <wsdl:message name="getSPMLLevsattSoapOut">
+    <wsdl:part name="parameters" element="tns:getSPMLLevsattResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMITBALSoapIn">
+    <wsdl:part name="parameters" element="tns:getMITBAL" />
+  </wsdl:message>
+  <wsdl:message name="getMITBALSoapOut">
+    <wsdl:part name="parameters" element="tns:getMITBALResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemAvailableBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:getItemAvailableBalance" />
+  </wsdl:message>
+  <wsdl:message name="getItemAvailableBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemAvailableBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMITAFOSoapIn">
+    <wsdl:part name="parameters" element="tns:getMITAFO" />
+  </wsdl:message>
+  <wsdl:message name="getMITAFOSoapOut">
+    <wsdl:part name="parameters" element="tns:getMITAFOResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOCUSASSoapIn">
+    <wsdl:part name="parameters" element="tns:getOCUSAS" />
+  </wsdl:message>
+  <wsdl:message name="getOCUSASSoapOut">
+    <wsdl:part name="parameters" element="tns:getOCUSASResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLoadLogSoapIn">
+    <wsdl:part name="parameters" element="tns:getLoadLog" />
+  </wsdl:message>
+  <wsdl:message name="getLoadLogSoapOut">
+    <wsdl:part name="parameters" element="tns:getLoadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPIATPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPIATP" />
+  </wsdl:message>
+  <wsdl:message name="GetAPIATPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPIATPResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMITATPSoapIn">
+    <wsdl:part name="parameters" element="tns:getMITATP" />
+  </wsdl:message>
+  <wsdl:message name="getMITATPSoapOut">
+    <wsdl:part name="parameters" element="tns:getMITATPResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZaffwSoapIn">
+    <wsdl:part name="parameters" element="tns:getZaffw" />
+  </wsdl:message>
+  <wsdl:message name="getZaffwSoapOut">
+    <wsdl:part name="parameters" element="tns:getZaffwResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZaffw_HistSoapIn">
+    <wsdl:part name="parameters" element="tns:getZaffw_Hist" />
+  </wsdl:message>
+  <wsdl:message name="getZaffw_HistSoapOut">
+    <wsdl:part name="parameters" element="tns:getZaffw_HistResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZWDPRISoapIn">
+    <wsdl:part name="parameters" element="tns:getZWDPRI" />
+  </wsdl:message>
+  <wsdl:message name="getZWDPRISoapOut">
+    <wsdl:part name="parameters" element="tns:getZWDPRIResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMITPLOSoapIn">
+    <wsdl:part name="parameters" element="tns:getMITPLO" />
+  </wsdl:message>
+  <wsdl:message name="getMITPLOSoapOut">
+    <wsdl:part name="parameters" element="tns:getMITPLOResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMPAGRHSoapIn">
+    <wsdl:part name="parameters" element="tns:getMPAGRH" />
+  </wsdl:message>
+  <wsdl:message name="getMPAGRHSoapOut">
+    <wsdl:part name="parameters" element="tns:getMPAGRHResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOpenItemsDepa431SoapIn">
+    <wsdl:part name="parameters" element="tns:getOpenItemsDepa431" />
+  </wsdl:message>
+  <wsdl:message name="getOpenItemsDepa431SoapOut">
+    <wsdl:part name="parameters" element="tns:getOpenItemsDepa431Response" />
+  </wsdl:message>
+  <wsdl:message name="getOpenItemsPool401SoapIn">
+    <wsdl:part name="parameters" element="tns:getOpenItemsPool401" />
+  </wsdl:message>
+  <wsdl:message name="getOpenItemsPool401SoapOut">
+    <wsdl:part name="parameters" element="tns:getOpenItemsPool401Response" />
+  </wsdl:message>
+  <wsdl:message name="getOpenItemsOffert404SoapIn">
+    <wsdl:part name="parameters" element="tns:getOpenItemsOffert404" />
+  </wsdl:message>
+  <wsdl:message name="getOpenItemsOffert404SoapOut">
+    <wsdl:part name="parameters" element="tns:getOpenItemsOffert404Response" />
+  </wsdl:message>
+  <wsdl:message name="getTP_InkopsAvtal_BokaSoapIn">
+    <wsdl:part name="parameters" element="tns:getTP_InkopsAvtal_Boka" />
+  </wsdl:message>
+  <wsdl:message name="getTP_InkopsAvtal_BokaSoapOut">
+    <wsdl:part name="parameters" element="tns:getTP_InkopsAvtal_BokaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAssuranceItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:getDeliveryAssuranceItems" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAssuranceItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:getDeliveryAssuranceItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAssuranceItemsNewSoapIn">
+    <wsdl:part name="parameters" element="tns:getDeliveryAssuranceItemsNew" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAssuranceItemsNewSoapOut">
+    <wsdl:part name="parameters" element="tns:getDeliveryAssuranceItemsNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAgreementItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:getDeliveryAgreementItems" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAgreementItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:getDeliveryAgreementItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAgreementItemsNewSoapIn">
+    <wsdl:part name="parameters" element="tns:getDeliveryAgreementItemsNew" />
+  </wsdl:message>
+  <wsdl:message name="getDeliveryAgreementItemsNewSoapOut">
+    <wsdl:part name="parameters" element="tns:getDeliveryAgreementItemsNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="addPOPropSoapIn">
+    <wsdl:part name="parameters" element="tns:addPOProp" />
+  </wsdl:message>
+  <wsdl:message name="addPOPropSoapOut">
+    <wsdl:part name="parameters" element="tns:addPOPropResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInvagningSoapIn">
+    <wsdl:part name="parameters" element="tns:getInvagning" />
+  </wsdl:message>
+  <wsdl:message name="getInvagningSoapOut">
+    <wsdl:part name="parameters" element="tns:getInvagningResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInvagningAvtalSoapIn">
+    <wsdl:part name="parameters" element="tns:getInvagningAvtal" />
+  </wsdl:message>
+  <wsdl:message name="getInvagningAvtalSoapOut">
+    <wsdl:part name="parameters" element="tns:getInvagningAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInvagnExtendedInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getInvagnExtendedInfo" />
+  </wsdl:message>
+  <wsdl:message name="getInvagnExtendedInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getInvagnExtendedInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrtsjusteringSoapIn">
+    <wsdl:part name="parameters" element="tns:getOrtsjustering" />
+  </wsdl:message>
+  <wsdl:message name="getOrtsjusteringSoapOut">
+    <wsdl:part name="parameters" element="tns:getOrtsjusteringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInControlArttyperSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInControlArttyper" />
+  </wsdl:message>
+  <wsdl:message name="GetInControlArttyperSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInControlArttyperResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInControlKodformsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInControlKodforms" />
+  </wsdl:message>
+  <wsdl:message name="GetInControlKodformsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInControlKodformsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInControlKodforms_faltSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInControlKodforms_falt" />
+  </wsdl:message>
+  <wsdl:message name="GetInControlKodforms_faltSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInControlKodforms_faltResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInControl_kodLagerStSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInControl_kodLagerSt" />
+  </wsdl:message>
+  <wsdl:message name="GetInControl_kodLagerStSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInControl_kodLagerStResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInControl_kodSaljomradeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInControl_kodSaljomrade" />
+  </wsdl:message>
+  <wsdl:message name="GetInControl_kodSaljomradeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInControl_kodSaljomradeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ItemsSoap">
+    <wsdl:operation name="ServiceAlive">
+      <wsdl:input message="tns:ServiceAliveSoapIn" />
+      <wsdl:output message="tns:ServiceAliveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItem">
+      <wsdl:input message="tns:getItemSoapIn" />
+      <wsdl:output message="tns:getItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWarehouse">
+      <wsdl:input message="tns:getWarehouseSoapIn" />
+      <wsdl:output message="tns:getWarehouseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDepaAvtal">
+      <wsdl:input message="tns:getDepaAvtalSoapIn" />
+      <wsdl:output message="tns:getDepaAvtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAvtalZpagrl">
+      <wsdl:input message="tns:getAvtalZpagrlSoapIn" />
+      <wsdl:output message="tns:getAvtalZpagrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTP_InkopsAvtal">
+      <wsdl:input message="tns:getTP_InkopsAvtalSoapIn" />
+      <wsdl:output message="tns:getTP_InkopsAvtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInkopsAvtalFraktServiceM3test">
+      <wsdl:input message="tns:getInkopsAvtalFraktServiceM3testSoapIn" />
+      <wsdl:output message="tns:getInkopsAvtalFraktServiceM3testSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInkopsAvtalFraktServiceM3">
+      <wsdl:input message="tns:getInkopsAvtalFraktServiceM3SoapIn" />
+      <wsdl:output message="tns:getInkopsAvtalFraktServiceM3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTerminsavtal_avtal">
+      <wsdl:input message="tns:getTerminsavtal_avtalSoapIn" />
+      <wsdl:output message="tns:getTerminsavtal_avtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMinaAvtal">
+      <wsdl:input message="tns:getMinaAvtalSoapIn" />
+      <wsdl:output message="tns:getMinaAvtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMinaOdlingsAvtal">
+      <wsdl:input message="tns:getMinaOdlingsAvtalSoapIn" />
+      <wsdl:output message="tns:getMinaOdlingsAvtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMinaTorkAvtal">
+      <wsdl:input message="tns:getMinaTorkAvtalSoapIn" />
+      <wsdl:output message="tns:getMinaTorkAvtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_InkopsOrder">
+      <wsdl:input message="tns:get_InkopsOrderSoapIn" />
+      <wsdl:output message="tns:get_InkopsOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalleLevforsTest">
+      <wsdl:input message="tns:getLagerstalleLevforsTestSoapIn" />
+      <wsdl:output message="tns:getLagerstalleLevforsTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalle">
+      <wsdl:input message="tns:getLagerstalleSoapIn" />
+      <wsdl:output message="tns:getLagerstalleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalleLevfors">
+      <wsdl:input message="tns:getLagerstalleLevforsSoapIn" />
+      <wsdl:output message="tns:getLagerstalleLevforsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalle_Ext">
+      <wsdl:input message="tns:getLagerstalle_ExtSoapIn" />
+      <wsdl:output message="tns:getLagerstalle_ExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemQuantity">
+      <wsdl:input message="tns:getItemQuantitySoapIn" />
+      <wsdl:output message="tns:getItemQuantitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemGroup">
+      <wsdl:input message="tns:getItemGroupSoapIn" />
+      <wsdl:output message="tns:getItemGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemType">
+      <wsdl:input message="tns:getItemTypeSoapIn" />
+      <wsdl:output message="tns:getItemTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductGroup">
+      <wsdl:input message="tns:getProductGroupSoapIn" />
+      <wsdl:output message="tns:getProductGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesArea">
+      <wsdl:input message="tns:getSalesAreaSoapIn" />
+      <wsdl:output message="tns:getSalesAreaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCsytab">
+      <wsdl:input message="tns:getCsytabSoapIn" />
+      <wsdl:output message="tns:getCsytabSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSPMLLevsatt">
+      <wsdl:input message="tns:getSPMLLevsattSoapIn" />
+      <wsdl:output message="tns:getSPMLLevsattSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMITBAL">
+      <wsdl:input message="tns:getMITBALSoapIn" />
+      <wsdl:output message="tns:getMITBALSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemAvailableBalance">
+      <wsdl:input message="tns:getItemAvailableBalanceSoapIn" />
+      <wsdl:output message="tns:getItemAvailableBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMITAFO">
+      <wsdl:input message="tns:getMITAFOSoapIn" />
+      <wsdl:output message="tns:getMITAFOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOCUSAS">
+      <wsdl:input message="tns:getOCUSASSoapIn" />
+      <wsdl:output message="tns:getOCUSASSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLoadLog">
+      <wsdl:input message="tns:getLoadLogSoapIn" />
+      <wsdl:output message="tns:getLoadLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPIATP">
+      <wsdl:input message="tns:GetAPIATPSoapIn" />
+      <wsdl:output message="tns:GetAPIATPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMITATP">
+      <wsdl:input message="tns:getMITATPSoapIn" />
+      <wsdl:output message="tns:getMITATPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZaffw">
+      <wsdl:input message="tns:getZaffwSoapIn" />
+      <wsdl:output message="tns:getZaffwSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZaffw_Hist">
+      <wsdl:input message="tns:getZaffw_HistSoapIn" />
+      <wsdl:output message="tns:getZaffw_HistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZWDPRI">
+      <wsdl:input message="tns:getZWDPRISoapIn" />
+      <wsdl:output message="tns:getZWDPRISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMITPLO">
+      <wsdl:input message="tns:getMITPLOSoapIn" />
+      <wsdl:output message="tns:getMITPLOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMPAGRH">
+      <wsdl:input message="tns:getMPAGRHSoapIn" />
+      <wsdl:output message="tns:getMPAGRHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsDepa431">
+      <wsdl:input message="tns:getOpenItemsDepa431SoapIn" />
+      <wsdl:output message="tns:getOpenItemsDepa431SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsPool401">
+      <wsdl:input message="tns:getOpenItemsPool401SoapIn" />
+      <wsdl:output message="tns:getOpenItemsPool401SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsOffert404">
+      <wsdl:input message="tns:getOpenItemsOffert404SoapIn" />
+      <wsdl:output message="tns:getOpenItemsOffert404SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTP_InkopsAvtal_Boka">
+      <wsdl:input message="tns:getTP_InkopsAvtal_BokaSoapIn" />
+      <wsdl:output message="tns:getTP_InkopsAvtal_BokaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAssuranceItems">
+      <wsdl:input message="tns:getDeliveryAssuranceItemsSoapIn" />
+      <wsdl:output message="tns:getDeliveryAssuranceItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAssuranceItemsNew">
+      <wsdl:input message="tns:getDeliveryAssuranceItemsNewSoapIn" />
+      <wsdl:output message="tns:getDeliveryAssuranceItemsNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAgreementItems">
+      <wsdl:input message="tns:getDeliveryAgreementItemsSoapIn" />
+      <wsdl:output message="tns:getDeliveryAgreementItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAgreementItemsNew">
+      <wsdl:input message="tns:getDeliveryAgreementItemsNewSoapIn" />
+      <wsdl:output message="tns:getDeliveryAgreementItemsNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addPOProp">
+      <wsdl:input message="tns:addPOPropSoapIn" />
+      <wsdl:output message="tns:addPOPropSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvagning">
+      <wsdl:input message="tns:getInvagningSoapIn" />
+      <wsdl:output message="tns:getInvagningSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvagningAvtal">
+      <wsdl:input message="tns:getInvagningAvtalSoapIn" />
+      <wsdl:output message="tns:getInvagningAvtalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvagnExtendedInfo">
+      <wsdl:input message="tns:getInvagnExtendedInfoSoapIn" />
+      <wsdl:output message="tns:getInvagnExtendedInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrtsjustering">
+      <wsdl:input message="tns:getOrtsjusteringSoapIn" />
+      <wsdl:output message="tns:getOrtsjusteringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlArttyper">
+      <wsdl:input message="tns:GetInControlArttyperSoapIn" />
+      <wsdl:output message="tns:GetInControlArttyperSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlKodforms">
+      <wsdl:input message="tns:GetInControlKodformsSoapIn" />
+      <wsdl:output message="tns:GetInControlKodformsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlKodforms_falt">
+      <wsdl:input message="tns:GetInControlKodforms_faltSoapIn" />
+      <wsdl:output message="tns:GetInControlKodforms_faltSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInControl_kodLagerSt">
+      <wsdl:input message="tns:GetInControl_kodLagerStSoapIn" />
+      <wsdl:output message="tns:GetInControl_kodLagerStSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInControl_kodSaljomrade">
+      <wsdl:input message="tns:GetInControl_kodSaljomradeSoapIn" />
+      <wsdl:output message="tns:GetInControl_kodSaljomradeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ItemsSoap" type="tns:ItemsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ServiceAlive">
+      <soap:operation soapAction="http://lantmannen.com/centralen/ServiceAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItem">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWarehouse">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepaAvtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getDepaAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvtalZpagrl">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getAvtalZpagrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTP_InkopsAvtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getTP_InkopsAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInkopsAvtalFraktServiceM3test">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getInkopsAvtalFraktServiceM3test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInkopsAvtalFraktServiceM3">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getInkopsAvtalFraktServiceM3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTerminsavtal_avtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getTerminsavtal_avtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinaAvtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMinaAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinaOdlingsAvtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMinaOdlingsAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinaTorkAvtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMinaTorkAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_InkopsOrder">
+      <soap:operation soapAction="http://lantmannen.com/centralen/get_InkopsOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalleLevforsTest">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getLagerstalleLevforsTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalle">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getLagerstalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalleLevfors">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getLagerstalleLevfors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalle_Ext">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getLagerstalle_Ext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemQuantity">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getItemQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemGroup">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getItemGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemType">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductGroup">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getProductGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesArea">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getSalesArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCsytab">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getCsytab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSPMLLevsatt">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getSPMLLevsatt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITBAL">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMITBAL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemAvailableBalance">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getItemAvailableBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITAFO">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMITAFO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOCUSAS">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getOCUSAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoadLog">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getLoadLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPIATP">
+      <soap:operation soapAction="http://lantmannen.com/centralen/GetAPIATP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITATP">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMITATP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZaffw">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getZaffw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZaffw_Hist">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getZaffw_Hist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZWDPRI">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getZWDPRI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITPLO">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMITPLO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMPAGRH">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getMPAGRH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsDepa431">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getOpenItemsDepa431" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsPool401">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getOpenItemsPool401" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsOffert404">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getOpenItemsOffert404" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTP_InkopsAvtal_Boka">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getTP_InkopsAvtal_Boka" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAssuranceItems">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getDeliveryAssuranceItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAssuranceItemsNew">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getDeliveryAssuranceItemsNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAgreementItems">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getDeliveryAgreementItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAgreementItemsNew">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getDeliveryAgreementItemsNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPOProp">
+      <soap:operation soapAction="http://lantmannen.com/centralen/addPOProp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvagning">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getInvagning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvagningAvtal">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getInvagningAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvagnExtendedInfo">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getInvagnExtendedInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrtsjustering">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getOrtsjustering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlArttyper">
+      <soap:operation soapAction="http://lantmannen.com/centralen/GetInControlArttyper" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlKodforms">
+      <soap:operation soapAction="http://lantmannen.com/centralen/GetInControlKodforms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlKodforms_falt">
+      <soap:operation soapAction="http://lantmannen.com/centralen/GetInControlKodforms_falt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControl_kodLagerSt">
+      <soap:operation soapAction="http://lantmannen.com/centralen/GetInControl_kodLagerSt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControl_kodSaljomrade">
+      <soap:operation soapAction="http://lantmannen.com/centralen/GetInControl_kodSaljomrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ItemsSoap12" type="tns:ItemsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ServiceAlive">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/ServiceAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItem">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWarehouse">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getWarehouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepaAvtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getDepaAvtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvtalZpagrl">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getAvtalZpagrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTP_InkopsAvtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getTP_InkopsAvtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInkopsAvtalFraktServiceM3test">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getInkopsAvtalFraktServiceM3test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInkopsAvtalFraktServiceM3">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getInkopsAvtalFraktServiceM3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTerminsavtal_avtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getTerminsavtal_avtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinaAvtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMinaAvtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinaOdlingsAvtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMinaOdlingsAvtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinaTorkAvtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMinaTorkAvtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_InkopsOrder">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/get_InkopsOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalleLevforsTest">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getLagerstalleLevforsTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalle">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getLagerstalle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalleLevfors">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getLagerstalleLevfors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLagerstalle_Ext">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getLagerstalle_Ext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemQuantity">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getItemQuantity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemGroup">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getItemGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemType">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getItemType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductGroup">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getProductGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesArea">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getSalesArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCsytab">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getCsytab" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSPMLLevsatt">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getSPMLLevsatt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITBAL">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMITBAL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemAvailableBalance">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getItemAvailableBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITAFO">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMITAFO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOCUSAS">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getOCUSAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoadLog">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getLoadLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPIATP">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/GetAPIATP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITATP">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMITATP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZaffw">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getZaffw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZaffw_Hist">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getZaffw_Hist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZWDPRI">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getZWDPRI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMITPLO">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMITPLO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMPAGRH">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getMPAGRH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsDepa431">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getOpenItemsDepa431" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsPool401">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getOpenItemsPool401" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpenItemsOffert404">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getOpenItemsOffert404" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTP_InkopsAvtal_Boka">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getTP_InkopsAvtal_Boka" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAssuranceItems">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getDeliveryAssuranceItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAssuranceItemsNew">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getDeliveryAssuranceItemsNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAgreementItems">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getDeliveryAgreementItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeliveryAgreementItemsNew">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getDeliveryAgreementItemsNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPOProp">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/addPOProp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvagning">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getInvagning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvagningAvtal">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getInvagningAvtal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvagnExtendedInfo">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getInvagnExtendedInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrtsjustering">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getOrtsjustering" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlArttyper">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/GetInControlArttyper" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlKodforms">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/GetInControlKodforms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControlKodforms_falt">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/GetInControlKodforms_falt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControl_kodLagerSt">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/GetInControl_kodLagerSt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInControl_kodSaljomrade">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/GetInControl_kodSaljomrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Items">
+    <wsdl:port name="ItemsSoap" binding="tns:ItemsSoap">
+      <soap:address location="http://sr02009/Centralen/Items.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ItemsSoap12" binding="tns:ItemsSoap12">
+      <soap12:address location="http://sr02009/Centralen/Items.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

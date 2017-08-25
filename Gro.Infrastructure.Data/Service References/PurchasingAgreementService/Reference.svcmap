@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bd5779ae-1cf7-4b7c-bbb9-d105f407230b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="138312c0-f92e-4397-9cac-838d9340c98b" SourceId="1" SourceUrl="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="5d631b6f-d74e-46b8-8fa9-e87e2fdf7d1e" SourceId="1" SourceUrl="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="98caee27-4e0d-45ad-b121-f692969e6745" SourceId="1" SourceUrl="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc/mex" />
+    <MetadataFile FileName="PurchasingAgreementServiceInt.Models.xsd" MetadataType="Schema" ID="f7f28967-69c3-40fa-9aa4-a04c9dbf0869" SourceId="1" SourceUrl="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="d6285091-e2e2-4767-9725-82fd38bc232a" SourceId="1" SourceUrl="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,18 @@
+﻿@model Gro.Core.DataModels.PurchasingAgreements.Product[]
+
+<ul class="lm__form-dropdown type-3 productDropdown">
+    <li class="showcase">
+        <a href="#">Välj gröda</a>
+        @if (Model != null && Model.Any())
+        {
+            <ul class="dropdown">
+                @foreach (var item in Model)
+                {
+                    <li data-value="@item.ProductItemId">
+                        <a href="#"> @item.ProductItemName </a>
+                    </li>
+                }
+            </ul>
+        }
+    </li>
+</ul>

@@ -1,0 +1,304 @@
+﻿// ------------------------------------------------------------------------- //
+// #COLORS
+//
+// Color definitions and global color usings.
+// Use http://chir.ag/projects/name-that-color to name colors.
+// ------------------------------------------------------------------------- //
+
+
+
+// Palette
+$color-black:                   #000;
+$color-white:                   #fff;
+$color-red:                     #ff0000;
+$color-white-one:               #fbf9f7;
+$color-white-two:               #f3f3f3;
+$color-white-three:             #e1e1e1;
+$color-dark-tan:                #b37e47;
+$color-sepia:                   #9e6028;
+$color-dusky-blue:              #405980;
+$color-dusky-blue-95:           rgba(64, 89, 128, .95);
+$color-rhino-blue:              #273c5f;
+$color-zodiac-blue:             #101f40;
+$color-beige:                   #f9f5ef;
+$color-sand-brown:              #c99d66;
+$color-sand-brown-15:           rgba(201, 157, 102, .15);
+$color-sand-brown-95:           rgba(201, 157, 102, .95);
+$color-cloudy-blue:             #c3cdda;
+$color-greyish:                 #aaa;
+$color-greyish-brown:           #4a4a4a;
+$color-greyish-brown-20:        rgba(74, 74, 74, .2);
+$color-greyish-brown-40:        rgba(74, 74, 74, .4);
+$color-blush:                   #f3a5a2;
+$color-tangerine:               #f18c00;
+$color-maize:                   #f3c548;
+$color-robins-egg-blue:         #b3d6f2;
+$color-topaz:                   #0ca1b0;
+$color-rouge:                   #be1421;
+$color-grass:                   #59a227;
+$color-metallic-blue:           #547189;
+$color-darkish-green:           #298258;
+$color-warm-purple:             #a72366;
+$color-brownish-grey:           #666;
+$color-light-green:             #539D17;
+$color-light-green-3:           #71b33a;
+$color-light-green-4:           #64ad29;
+$color-dark-green:              #5a9b25;
+$color-dark-green-2:            #58a618;
+$color-lighter-green:           #82bd51;
+$color-darker-green:            #4f9415;
+$color-darker-green2:           #44880c;
+$color-green-middle:            #64ad29;
+$color-green-middle2:           #549c1a;
+$color-dark-gray:               #444444;
+$color-light-pink:              #f0ece5;
+$color-darker-gray:             #6d6d6d;
+$color-light-blue:              #009fda;
+$color-lighter-blue:            #1db2e9;
+$color-dark-blue:               #0b8cbb;
+$color-darker-blue:             #0d82ad;
+$color-white-1:                 #fafafa;
+$color-white-2:                 #f6f6f6;
+$color-white-3:                 #ebede3;
+$color-white-4:                 #f4f2ef;
+$color-gray-2:                  #e2e1e0;
+$color-gray-3:                  #ededec;
+$color-gray-4:                  #777777;
+$color-gray-5:                  #efeeee;
+$color-gray-6:                  #f8f6f2;
+$color-gray-7:                  #ddd9d1;
+$color-gray-8:                  #e6e6e6;
+$color-white-gray:              #cccccc;
+$color-white-gray-2:            #999999;
+$color-light-yellow:            #bed600;
+$color-black-gray:              #747474;
+$gray-bg:                       rgba(0, 0, 0, 0.2);
+$white-bg:                      rgba(255, 255, 255, 0.9);
+$green-bg:                      rgba(84, 97, 89, 0.8);
+$orange-bg:                     rgba(227, 114, 34, 0.8);
+$purple-bg:                     rgba(36, 28, 37, 0.2);
+$color-lighter-gray:            #f9f7f5;
+$color-lighter-gray-2:          #f9f9f9;
+$color-lighter-gray-3:          #f7f6f6;
+$color-dark-purple:             #93509e;
+$color-light-purple:            #ac6ab7;
+$color-alpha-gray:              #868686;
+$color-light-green-2:           #eef6e7;
+$color-orange:                  #e37222;
+$color-light-orange:            #fbebe0;
+$color-light-red:               #fc8686;
+$color-light-orange:            #fcf1e8;
+$color-green-dimmed:            #e7ede3;
+
+
+// Brand colors
+$color-primary-1: $color-sand-brown;
+$color-primary-2: $color-dusky-blue;
+
+$color-secondary-1: $color-blush;
+$color-secondary-2: $color-maize;
+$color-secondary-3: $color-robins-egg-blue;
+$color-secondary-4: $color-topaz;
+
+$color-background-1: $color-white-three;
+$color-background-2: $color-white-one;
+$color-background-3: $color-beige;
+$color-background-4: $color-sand-brown;
+$color-background-5: $color-dusky-blue;
+$color-background-6: $color-white;
+
+$color-text-1: $color-greyish-brown;
+$color-text-2: $color-brownish-grey;
+$color-text-3: $color-greyish;
+$color-text-4: $color-white-three;
+$color-text-5: $color-sand-brown;
+$color-text-6: $color-white;
+
+$color-border-1: $color-white-two;
+$color-border-2: $color-white-three;
+$color-border-3: $color-white-gray;
+
+$color-lantmannen: $color-grass;
+$color-organic: $color-darkish-green;
+$color-gluten-free: $color-warm-purple;
+$color-protein: $color-metallic-blue;
+
+
+
+// Base
+$color-base: $color-text-1;
+$color-base-background: $color-background-6;
+$color-base-background-startpage: $color-background-2;
+
+
+// Links
+$color-link: $color-primary-1;
+$color-link-hover: $color-dark-tan;
+$color-link-active: $color-sepia;
+$color-link-outline: $color-primary-1;
+
+
+// Buttons
+$color-btn-primary: $color-primary-1;
+$color-btn-primary-background: transparent;
+$color-btn-primary-border: $color-primary-1;
+$color-btn-primary-hover: $color-primary-1;
+$color-btn-primary-hover-background: $color-sand-brown-15;
+$color-btn-primary-hover-border: $color-primary-1;
+$color-btn-primary-active: $color-white;
+$color-btn-primary-active-background: $color-primary-1;
+$color-btn-primary-active-border: $color-primary-1;
+
+$color-btn-secondary: $color-white;
+$color-btn-secondary-background: $color-primary-2;
+$color-btn-secondary-border: $color-primary-2;
+$color-btn-secondary-hover: $color-white;
+$color-btn-secondary-hover-background: $color-rhino-blue;
+$color-btn-secondary-hover-border: $color-rhino-blue;
+$color-btn-secondary-active: $color-white;
+$color-btn-secondary-active-background: $color-zodiac-blue;
+$color-btn-secondary-active-border: $color-zodiac-blue;
+
+$color-btn-tertiary: $color-white;
+$color-btn-tertiary-background: $color-greyish-brown-20;
+$color-btn-tertiary-border: $color-white;
+$color-btn-tertiary-hover: $color-white;
+$color-btn-tertiary-hover-background: $color-greyish-brown-40;
+$color-btn-tertiary-hover-border: $color-white;
+$color-btn-tertiary-active: $color-text-1;
+$color-btn-tertiary-active-background: $color-white;
+$color-btn-tertiary-active-border: $color-white;
+
+
+// Typography
+$color-mark-background: $color-primary-1;
+$color-hr: $color-primary-1;
+
+
+// Quotes
+$color-blockquote-border: $color-primary-1;
+$color-blockquote-quote: $color-primary-1;
+$color-blockquote-background: $color-white;
+$color-blockquote-footer: $color-primary-1;
+
+
+// Tables
+$color-table-border: $color-primary-1;
+
+
+// Forms
+$color-form-input: $color-text-1;
+$color-form-input-background: $color-white;
+$color-form-input-border: $color-border-1;
+$color-form-input-border-active: $color-primary-2;
+$color-form-input-border-error: $color-rouge;
+
+$color-form-label: $color-text-3;
+$color-form-label-active: $color-primary-2;
+$color-form-label-error: $color-rouge;
+
+$color-form-fieldset-border: $color-border-1;
+
+
+// Lists
+$color-list-ui-border: $color-primary-1;
+
+
+
+// Page header
+$color-page-header-background: $color-white;
+$color-page-header-gradient-start: $color-black;
+$color-page-header-gradient-end: transparent;
+
+
+
+// Navigation
+$color-site-navigation: $color-text-1;
+
+
+
+// Page footer
+$color-page-footer: $color-text-3;
+$color-page-footer-background: $color-white;
+
+$component-background-color:                    $color-light-green-4;
+
+// News
+$body-text-color:                               $color-dark-gray;
+$body-background-color:                         $color-light-pink;
+
+$icon-background-color:                         $color-darker-gray;
+
+$top-header-background-color:                   $color-white;
+$settings-nav-li-background-color:              $color-white;
+
+$buble-message-count-background-color:          $color-light-blue;
+$buble-message-count-text-color:                $color-white;
+
+$active-text-color:                             $color-white;
+
+$user-profile-background-color:                 $color-white-2;
+
+$main-navigation-text-color:                    $color-white;
+$main-navigation-submenu-border-bottom-color:   $color-white-2;
+$main-navigation-submenu-hover-color:           $color-light-green-2;
+
+$main-navigation-hover-background-color:        $color-white;
+$main-navigation-hover-text-color:              $color-light-green;
+
+$section-background-color:                      $color-white;
+
+$date-time-color:                               $color-alpha-gray;
+
+$news-detail-content-link-underline-color:      $color-dark-green;
+
+$sidebar-market-report-header-background-color: $color-light-blue;
+
+// Odling start page
+$fisrt-thumbnail-block-header-text-color:       $color-white;
+
+$third-thumbnail-block-box-background-color:    $color-dark-purple;
+$third-thumbnail-block-circle-background-color: $color-light-purple;
+$blue-bg:                                       $color-dark-blue;
+
+// Foder start page
+$table-content-text-color:                      $color-black-gray;
+
+// Modules framework
+$kundtjanst-background-color:                   $color-lighter-green;
+$kundtjanst-link-background-color:              $color-darker-green;
+$mina-main-area-background-color:               $sidebar-market-report-header-background-color;
+$mina-link-background-color:                    $color-dark-blue;
+
+// Mina Avtal
+$mina-avtal-table-heading-background-color:     $color-dark-green;
+$mina-avtal-table-tr-even-background-color:     $color-white-3;
+$mina-avtal-link-color:                         $color-light-blue;
+
+// Setting pages
+$table-header-background-color:                 $color-white-2;
+$checkbox-checked-color:                        $kundtjanst-background-color;
+$checkbox-unchecked-color:                      $color-white-2;
+$settings-input-color:                          $color-white-gray;
+$settings-button-background-color:              $color-white-2;
+$settings-button-hover-background-color:        $color-light-green;
+
+// Foljesedlar
+$table-odd-row-background-color:                $color-white-2;
+$table-header-text-color:                       $color-dark-gray;
+$table-content-text-color:                      $color-black-gray;
+
+// Meddelande
+$tab-background-color:                          $color-lighter-gray;
+$tab-active-background-color:                   $color-white;
+$tab-active-text-color:                         $kundtjanst-background-color;
+$filter-active-background-color:                $main-navigation-submenu-hover-color;
+$unread-dot-color:                              $color-light-blue;
+$bookmark-color:                                $color-white-gray;
+$bookmark-active-color:                         $color-light-yellow;
+
+$detail-border-color:                           $color-white-2;
+
+// Administer
+$accordion-control-color:                       $kundtjanst-background-color;
+$accordion-content-background:                  $color-white-2;

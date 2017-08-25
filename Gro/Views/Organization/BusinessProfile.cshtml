@@ -1,0 +1,116 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+
+@model Gro.ViewModels.Pages.Organization.BusinessProfileViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till Mitt konto
+                </a>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block redigera-block ">
+                    <div class="lm__block-box no-padding-bottom">
+                        <h1 class="lm__page-title no-margin">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    </div>
+                    @if (!Model.IsLoginBankId)
+                    {
+                        <div class="lm__block-box has-separator">
+                            <div class="bankid-block">
+                                <img src="/Static/dist/images/bank_id.svg" alt="BankID Logo" class="bank-id__logo"/>
+                                <p>Du måste vara inloggad med BankID för att ändra uppgifter i de utgråade fälten nedan.</p>
+                                <a href="@Request.GetLoginBankAccountUrl()" class="bank-id__btn lm__form-btn reverse-state">Logga in med BankID</a>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="lm__block-box has-separator">
+                        <p>@Html.PropertyFor(x=>x.CurrentPage.Preamble)</p>
+                        <ul class="errors-list" style="display: none;">
+                            <li class="errors-list__header">Du måste se över</li>
+                            <li id="p_name" style="display: none;">Typ av verksamhet</li>
+                        </ul>
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="errors-list">@ViewBag.Message</div>
+                        }
+                    </div>
+
+                    @using (Html.BeginForm("Index", "BusinessProfilePage", FormMethod.Post, new
+                    {
+                        id = "editBusinessProfileForm", name = "editBusinessProfileForm",
+                        @class = "author-inform-form", enctype = "multipart/form-data"
+                    }))
+                    {
+                        <div class="author-inform-form__input">
+                            <h3 class="author-inform-form__input-title lm__bold-title">Typ av verksamhet</h3>
+                            <div class="author-inform-form__column author-inform-form__column-half">
+                                <input type="hidden" name="BusinessProfile.Id" class="verksamhetsprofil"
+                                       value="@(Model.BusinessProfile == null ? string.Empty : Model.BusinessProfile.Id.ToString())"/>
+                                <input type="text" id="name" name="BusinessProfile.Name" class="@(Model.IsLoginBankId ? "verksamhetsprofil" : "verksamhetsprofil disabled-input")"
+                                       value="@(Model.BusinessProfile == null ? string.Empty : Model.BusinessProfile.Name)"/>
+                            </div>
+                        </div>
+                        if (Model.BusinessProfile != null)
+                        {
+                            if (Model.BusinessProfile.Rows != null && Model.BusinessProfile.Rows.Count >= 1)
+                            {
+                                <div class="author-inform-form__input">
+                                    <h3 class="author-inform-form__input-title lm__bold-title">Produktionsprofil</h3>
+
+                                    @{
+                                        var i = 0;
+                                    }
+                                    @foreach (var field in Model.BusinessProfile.Rows[0].Fields)
+                                    {
+                                        <div class="author-inform-form__column author-inform-form__column-custom-3 @(i % 4 == 3 ? "no-padding" : string.Empty)">
+                                            <label for="input_@i">@field.Description</label>
+                                            <input type="hidden" name="BusinessProfile.Rows[0].Fields[@i].Id" value="@field.Id"/>
+                                            <input type="hidden" name="BusinessProfile.Rows[0].Fields[@i].Description" value="@field.Description"/>
+                                            <input type="text" id="input_@i" name="BusinessProfile.Rows[0].Fields[@i].Value" class="@(Model.IsLoginBankId ? string.Empty : "disabled-input")" value="@field.Value"/>
+                                        </div>
+                                        i++;
+                                    }
+                                </div>
+                            }
+
+                            if (Model.BusinessProfile.Rows != null && Model.BusinessProfile.Rows.Count >= 2)
+                            {
+                                <div class="author-inform-form__input">
+                                    @{
+                                        var i = 0;
+                                    }
+                                    @foreach (var field in Model.BusinessProfile.Rows[1].Fields)
+                                    {
+                                        <div class="author-inform-form__column author-inform-form__column-custom-3 @(i % 4 == 3 ? "no-padding" : string.Empty)">
+                                            <label for="input_@i">@field.Description</label>
+                                            <input type="hidden" name="BusinessProfile.Rows[1].Fields[@i].Id" value="@field.Id"/>
+                                            <input type="hidden" name="BusinessProfile.Rows[1].Fields[@i].Description" value="@field.Description"/>
+                                            <input type="text" id="input_@i" name="BusinessProfile.Rows[1].Fields[@i].Value" class="@(Model.IsLoginBankId ? string.Empty : "disabled-input")" value="@field.Value"/>
+                                        </div>
+                                        i++;
+                                    }
+                                </div>
+                            }
+                        }
+
+                        <div class="author-inform-form__input align-right-text block-button-on-mobile two-buttons">
+                            <a target="_self" href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__form-btn left-button">Avbryt</a>
+                            <input type="submit" class="@(Model.IsLoginBankId ? "lm__form-btn reverse-state" : "lm__form-btn reverse-state disabled-btn")" value="Uppdatera"/>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+﻿/// <reference path="../_references.scss" />
+
+// ------------------------------------------------------------------------- //
+// #Z-INDEX
+//
+// Gather all z-indexes in this file.
+// ------------------------------------------------------------------------- //
+
+
+
+/// Z-index map that contains all custom z-indexes.
+/// The z-indexes are used by calling the `z-index()` mixin.
+$z-indexes: (
+    "modal":            5000,
+    "navigation":       4000,
+    "navigation-close": 4100,
+    "default":          1,
+);

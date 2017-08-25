@@ -1,0 +1,35 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@model Gro.ViewModels.Pages.InformationArchive.InformationArchivePageViewModel
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block vaxtline-block">
+                    <section class="lm__news">
+                        @foreach (var inforPage in Model.LatestInformationPages)
+                        {
+                            <article class="lm__news-item">
+                                <a href="@Url.ContentUrl(inforPage.ContentLink)">
+                                    <p class="article-datetime">@inforPage.StartPublish.ToStandardDateTimeString()</p>
+                                    <h4 class="article-title">@inforPage.Heading</h4>
+                                    <p class="article-summary-description">@inforPage.Preamble</p>
+                                </a>
+                            </article>
+                        }
+                    </section>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>

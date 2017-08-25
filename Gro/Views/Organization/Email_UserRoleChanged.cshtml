@@ -1,0 +1,11 @@
+﻿@model IDictionary<string, string>
+
+<h3>Mail till användare för Kund: @Model["organizationName"] </h3>
+<p>Hej @Model["userName"],</p>
+<p>
+    Din användarprofil för @ViewData["organizationNumber"] @Model["organizationName"] i LM<sup>2</sup> har ändrats till @Model["profileTitle"].
+    Logga in i LM<sup>2</sup> för att se dina nya behörigheter.
+</p>
+<br />
+<p style="margin-bottom: 0">Med vänliga hälsningar,</p>
+<p style="margin-top: 0">Lantmännen</p>

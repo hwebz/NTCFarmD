@@ -1,0 +1,16 @@
+﻿@using Gro.Constants;
+@model Gro.ViewModels.PageViewModel<Gro.Core.ContentTypes.Pages.StartPages.FoderStartPage>
+
+<section  class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.LeftContent, new { Tag = ColumnLayout.TwoColumnTag })
+            </div>
+
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.RightContent, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News detail</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+<body>
+
+    <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+    <header class="lm__header">
+        <div class="lm__top-header">
+            <div class="wrapper">
+                <div class="layout  layout--small">
+                    <div class="layout__item u-1/3 u-1/2-laptop lm__logo">
+                        <a href="#"><img src="images/logo.png" alt="LM2 Logo" class="lm__logo-item"></a>
+                        <span class="lm__slogan">Verktyget för jordens entreprenörer</span>
+                    </div>
+                    <div class="layout__item u-2/3 u-1/2-laptop lm__utility">
+                        <nav class="lm__user-settings">
+                            <ul>
+                                <li class="lm__star"><a href="#"></a></li>
+                                <li class="lm__messages"><a href="#"><span class="lm__messages-count">2</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="lm__user-profile">
+                            <div class="user-info-wrapper">
+                                <a class="lm__user-info" href="#">
+                                    <h4 class="lm__user-id">32008145</h4>
+                                    <p class="lm__user-summary">Nilsson Lantbruk AB</p>
+                                </a>
+                                <div class="sub__user-profile">
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" checked />
+                                        <div class="user-id__label">
+                                            <h4>32008145</h4>
+                                            <p>Nilsson Lantbruk AB</p>
+                                        </div>
+                                    </div>
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" />
+                                        <div class="user-id__label">
+                                            <h4>3208007</h4>
+                                            <p>Karlssons Gård</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__user-avatar-wrapper">
+                                <a href="#" class="lm__user-avatar"><img src="images/user-avatar.jpg" alt="User Avatar"></a>
+                                <!--<div class="sub-settings">
+                                    <h3>Mina inställningar</h3>
+                                    <ul class="nav-bar">
+                                        <li><a href="#">Min profil</a></li>
+                                        <li><a href="#">Företaget</a></li>
+                                        <li><a href="#">Hantera användare</a></li>
+                                    </ul>
+                                    <a href="#" class="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i>Logga ut</a>
+                                </div>-->
+                                <div class="sub-settings-panel">
+                                    <div class="inform-panel">
+                                        <img src="images/user-avatar.jpg" alt="User Avatar">
+                                        <div class="inform-detail">
+                                            <h3>Lars Karlsson</h3>
+                                            <p>Administratör vid Nilsson lantbruk AB</p>
+                                        </div>
+                                        <a href="#" class="mitt-konto__btn">Mitt konto</a>
+                                    </div>
+                                    <div class="logout-btn__wrapper">
+                                        <a href="#" class="logout-btn">Logga ut</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lm__navigation-wrapper">
+            <div class="lm__navigation">
+                <div class="wrapper">
+                    <div class="layout  layout--small">
+                        <div class="layout__item u-1/1">
+                            <div class="lm__active-page">
+                                <nav class="lm__user-settings">
+                                    <ul>
+                                        <li class="lm__settings">
+                                            <a href="#"></a>
+                                            <nav class="lm_sub-settings">
+                                                <ul>
+                                                    <li class="spannmal"><a href="#">Spannmål</a></li>
+                                                    <li class="odling"><a href="#">Odling</a></li>
+                                                    <li class="foder"><a href="#">Foder</a></li>
+                                                    <li class="maskiner"><a href="#">Maskiner</a></li>
+                                                    <li class="ekonomi"><a href="#">Ekonomi</a></li>
+                                                    <div class="cleafix"></div>
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <h1 class="lm__page-title">Spannmål</h1>
+                            </div>
+                            <nav class="lm__main-navigation">
+                                <a class="lm_toggle-menu" href="#" alt="Humberger Icon">
+                                    <span class="text">Menu</span>
+                                    <span class="humb">
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li><a href="#">Sälja fysisk spannmål</a></li>
+                                    <li>
+                                        <a href="#">Lämna spannmål</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">Marknadsinformation</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blanketter</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End of header -->
+    <!-- END OF HEADER -->
+    <!-- START MAIN CONTENT -->
+    <section class="lm__contents">
+        <div class="wrapper">
+            <div class="layout  layout--large">
+                <div class="layout__item u-1/1">
+                    <a href="#" class="lm__back-link small-distance-bottom"><i class="fa fa-arrow-left" aria-hidden="true"></i>Tillbaka Logga in</a>
+                    <h1 class="lm__page-title">Registrera LM<sup>2</sup>-konto</h1>
+                </div>
+                <div class="layout__item u-1/1 u-2/3-tablet">
+                    <div class="lm__block">
+                        <form class="author-inform-form style-2" action="#" method="post">
+                            <div class="lm__block-box has-separator">
+                                <ul class="errors-list">
+                                    <li class="errors-list__header">Du måste se över</li>
+                                    <li>Ansökan om avtal för e-tjänster</li>
+                                    <li>Kopia på ID-handlingar</li>
+                                    <li>Registreringsbevis</li>
+                                    <li>Förnamn</li>
+                                    <li>Efternamn</li>
+                                    <li>Mobilnr</li>
+                                    <li>Peronslig E-post</li>
+                                    <li>Personnr</li>
+                                </ul>
+                                <h2 class="heading-title-2 small-distance-bottom">Aktivera konto för</h2>
+                                <p>Företag: Karlsson Gård</p>
+                                <p>Kundnummer: 32108007</p>
+                                <p>Organisationsnr/personnr: 5801011939</p>
+                                <p>Företagets E-post: mail@exempel.com</p>
+                            </div>
+                            <div class="lm__block-box has-separator">
+                                <h2 class="heading-title-2 small-distance-bottom">Kundinformation</h2>
+                                <div class="address-block gray-background register-guide no-margin has-separator">
+                                    <div class="big-distance-bottom">
+                                        <h2 class="heading-title-2">Avtal för e-tjänster</h2>
+                                        <p>Här bifogar du din ansökan om avtal för e-tjänster som du tidigare skrivit ut, skrivit under och scannat in. Har du inte redan gjort detta kan du klicka här. Du måste också bifoga registreringsbevis och kopior på ID-handlingar för firmatecknarna som underskrifterna i ansökan gäller.</p>
+                                    </div>
+
+                                    <div class="accordion-content static width-50">
+                                        <label for="asokan">Ansökan om avtal för e-tjänster*</label>
+                                        <div class="file-upload-wrapper error" data-back-btn-text="Välj fil">
+                                            <input type="file" name="asokan[]" class="file-upload-field" />
+                                        </div>
+                                        <span class="error-item">Du måste bifoga ansökan om avtal för e-tjänster</span>
+                                    </div>
+                                </div>
+                                <div class="address-block gray-background register-guide no-margin has-separator">
+                                    <div class="accordion-content static width-50">
+                                        <label for="kopia">Kopia på ID-handlingar*</label>
+                                        <div class="file-upload-wrapper error" data-back-btn-text="Välj fil">
+                                            <input type="file" name="kopia[]" class="file-upload-field" />
+                                        </div>
+                                        <span class="error-item">Du måste bifoga Kopia på ID-handlingar</span>
+                                    </div>
+                                </div>
+                                <div class="address-block gray-background register-guide no-margin">
+                                    <div class="accordion-content static width-50">
+                                        <label for="registreringsbevis">Registreringsbevis*</label>
+                                        <div class="file-upload-wrapper error" data-back-btn-text="Välj fil">
+                                            <input type="file" name="registreringsbevis[]" class="file-upload-field" />
+                                        </div>
+                                        <span class="error-item">Du måste bifoga Registreringsbevis för ditt företag</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__block-box has-separator">
+                                <h2 class="heading-title-2 small-distance-bottom">Dina användaruppgifter</h2>
+                                <p>Du som registrerar LM2-konto för företaget kommer registreras som kontots ägare.</p>
+                                <div class="author-inform-form__input">
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                        <label for="fornamn">Förnamn*</label>
+                                        <input type="text" name="fornamn" class="fornamn error" placeholder="Lars" />
+                                        <span class="error-item">DuFörnamn är obligatorisk.</span>
+                                    </div>
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                        <label for="efternamn">Efternamn*</label>
+                                        <input type="text" name="efternamn" class="efternamn error" placeholder="Karlsson" />
+                                        <span class="error-item">Efternamn är obligatoriskt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__block-box has-separator">
+                                <h2 class="heading-title-2 small-distance-bottom">Kontaktuppgifter och inloggning</h2>
+                                <p>Med e-postadressen som anges här kan du logga in i LM2 med tillsammans med  ett lösenord. Du kommer få ett tillfälligt lösenord för första gången du loggar in med e-postadressen.</p>
+                                <div class="author-inform-form__input">
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                        <label for="telefonnr">Telefonnr*</label>
+                                        <input type="text" name="telefonnr" class="telefonnr" />
+                                    </div>
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                        <label for="mobilnr">Mobilnr*</label>
+                                        <input type="text" name="mobilnr" class="mobilnr error" placeholder="07012345678" />
+                                        <span class="error-item">Mobilnr är obligatoriskt</span>
+                                    </div>
+                                    <div class="author-inform-form__column author-inform-form__column-large">
+                                        <label for="e-post">Personlig e-post*</label>
+                                        <input type="text" name="e-post" class="e-post error" />
+                                        <span class="error-item">E-post är obligatoriskt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__block-box has-separator">
+                                <h2 class="heading-title-2 small-distance-bottom">Kontaktuppgifter och inloggning</h2>
+                                <div class="bankid-block type-3">
+                                    <img src="images/bank_id.svg" alt="BankID Logo" class="bank-id__logo" />
+                                    <p>Genom att ange ditt personnummer möjliggör du inloggning med BankID. Att kunna logga in med BankID krävs för att du ska kunna använda tjänsterna i LM<sup>2</sup> med full behörighet.</p>
+                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin no-margin with-margin">
+                                        <label class="lm__bold-title" for="personnumer">Personr</label>
+                                        <input type="text" name="personnumer" class="personnumer width-100" placeholder="ÄÄMMDDNNNN" />
+                                        <span class="error-item">Personnr måste bestå av 12 siffror</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__block-box has-separator">
+                                <h2 class="heading-title-2 small-distance-bottom">Skicka tillfälligt lösenord</h2>
+                                <p>För att aktivera ditt LM2-konto loggar du in med ett tillfälligt lösenord som skickas till kundnumrets registrerade E-postadress.</p>
+                                <div class="author-inform-form__input">
+                                    <div class="author-inform-form__column author-inform-form__column-full">
+                                        <label for="skicka-epost">Ett tillgälligt lösenord skickas till registrerad E-postadress</label>
+                                        <input type="text" name="skicka-epost" class="skicka-epost disabled-input" placeholder="mail@exempel.com" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__block-box has-separator">
+                                <div class="term-header-with-tick">
+                                    <h2 class="heading-title-2 small-distance-bottom float-element">Användningsvillkor</h2>
+                                    <span class="success-icon"></span>
+                                </div>
+                                <p>Du måste läsa och godkänna <a href="#" class="lm__link">användningsvillkoren</a> för att registrera ett LM2-konto</p>
+
+                                <div class="meddelanden-accordion">
+                                    <a href="#" class="accordion-control">Läs och godkänn</a>
+                                    <div class="accordion-content">
+                                        <div class="small-distance-bottom">
+                                            <h4 class="lm__bold-title">Lorem ipsum</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h4 class="lm__bold-title">Lorem ipsum</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h4 class="lm__bold-title">Lorem ipsum</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</p>
+                                        </div>
+
+                                        <div class="accept-term-checkbox">
+                                            <div class="lm__checkbox middle-align lm__tick">
+                                                <input type="checkbox" checked />
+                                                <label></label>
+                                            </div>
+                                            <p class="lm__bold-title float-element">Jag har läst och godkänner användningsvillkoren för LM2</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__block-box">
+                                <div class="author-inform-form__input align-right-text">
+                                    <input type="reset" class="lm__form-btn" value="Avbryt" />
+                                    <input type="submit" class="lm__form-btn disabled-btn" value="Registrera" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="layout__item u-1/1 u-1/3-tablet">
+                    <div class="lm__block address-block green-background">
+                        <h2 class="heading-title-2">Saknar du BankID?</h2>
+                        <p>För att kunna dra nytta av tjänsterna i LM2 krävs att du kan logga in på ditt konto med BankID.</p>
+                        <p>Saknar du BankID måste du skaffa det. Det tar bara några minuter.</p>
+                        <p>BankID kan du skaffa på din personliga banks hemsida eller på ett bankkontor.</p>
+                    </div>
+
+                    <div class="lm__thumbnail-block third-post-block">
+                        <section class="lm__main-block">
+                            <article class="lm__main-block-item">
+                                <a href="#">
+                                    <div class="lm__icon">
+                                        <img src="images/book.png" alt="Third thumbnail block" class="article-thumbnail" />
+                                    </div>
+                                    <h4 class="article-title purple-bg">Vanliga frågor (FAQ) <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                </a>
+                            </article>
+                        </section>
+                    </div>
+
+                    <div class="lm__block kundtjanst-block">
+                        <div class="lm__block-header">
+                            <h1>Kundtjänst</h1>
+                        </div>
+                        <section class="lm__news">
+                            <article class="lm__news-item">
+                                <p>Kontakta Kassatjänst på telefon</p>
+                                <h3 class="phone_number">0771 111 225</h3>
+                                <p>Öppettider</p>
+                                <p>Vardagar 07:00 - 18:00</p>
+                            </article>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF MAIN CONTENT OF WEBPAGE -->
+
+    <!-- START FOOTER -->
+    <footer class="lm__footer">
+        <div class="wrapper">
+            <div class="layout layout--large">
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="lm__intro">
+                        <p>Lantmännen är ett lantbrukskooperativ och norra Eropas ledande aktör inom lantbruk, maskin, bionergi och livsmedel. Vi ägs av 27 000 svenska lantbrukare, har 10 000 anställda, verksamhet i ett 20-tal länder och omsätter 37 miljarder kronor.</p>
+                    </div>
+                </div>
+
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="layout layout--large">
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Kontakt</h3>
+                                <ul>
+                                    <li><a href="#">Lantmännen.ek.för</a></li>
+                                    <li><a href="#">Lantmännen Lantbruk</a></li>
+                                    <li><a href="#">Lantmännen Maskin</a></li>
+                                    <li><a href="#">Lantmännen Finans</a></li>
+                                    <li><a href="#">Växtråd</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                    <li><a href="#">Medlemsavdelningen</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Hjälp</h3>
+                                <ul>
+                                    <li><a href="#">Kundtjänst och support</a></li>
+                                    <li><a href="#">Vanliga frågor</a></li>
+                                </ul>
+                            </div>
+                            <div class="lm__more-info">
+                                <h3>Hitta säljare</h3>
+                                <ul>
+                                    <li><a href="#">Växtodling</a></li>
+                                    <li><a href="#">Maskin</a></li>
+                                    <li><a href="#">Nötfor</a></li>
+                                    <li><a href="#">Piggfor</a></li>
+                                    <li><a href="#">Pullfor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Anläggningar</h3>
+                                <ul>
+                                    <li><a href="#">Verkstäder och serviceställen</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="scripts/scripts.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿@model IDictionary<string, string>
+
+<h3>Mail till ny användare för Kund:@Model["organizationName"] (AnvändareID existerar redan)</h3>
+<p>Du har lagts till som @Model["profileTitle"] vid @Model["organizationName"] i LM<sup>2</sup>. </p>
+<p> Klicka på länken för att logga in </p>
+<a href="@Model["loginLink"]">Logga in i LM<sup>2</sup></a>
+<br />
+<p>Med vänliga hälsningar,</p>
+<p>Lantmännen</p>

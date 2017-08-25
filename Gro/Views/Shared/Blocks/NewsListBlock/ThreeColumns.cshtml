@@ -1,0 +1,31 @@
+﻿@model Gro.ViewModels.Blocks.NewsListBlockViewModel
+@using Gro.Helpers;
+@* 3 Columns View *@
+@{ const int maxItems = 3;}
+
+<div class="lm__block nyheter-block">
+    <div class="lm__block-header">
+        <h1>@Html.PropertyFor(m => m.CurrentBlock.Headline)</h1>
+    </div>
+    <section class="lm__news article-listing">
+        <div class="layout layout--large">
+            @{
+                var itemCount = 0;
+                foreach (var infoPage in Model.RecentInformationPages)
+                {
+                    itemCount++;
+                    if (itemCount > maxItems) { break; }
+                    <div class="layout__item u-1/1 u-1/3-mobile">
+                        <article class="lm__news-item">
+                            <a href="@Url.PageUrl(infoPage.LinkURL)">
+                                <p class="article-datetime">@infoPage.StartPublish.ToStandardDateTimeString()</p>
+                                <h4 class="article-title">@infoPage.Heading</h4>
+                            </a>
+                        </article>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+    <a href="@Url.ContentUrl(Model.CurrentBlock.ArchivePage)" class="lm__more-link align-right-text" @Html.EditAttributes(m => m.CurrentBlock.ArchivePage)>@Model.CurrentBlock.ArchiveLinkText<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+</div>

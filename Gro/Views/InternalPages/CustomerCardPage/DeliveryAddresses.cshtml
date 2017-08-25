@@ -1,0 +1,100 @@
+﻿@using Castle.Core.Internal
+@model Gro.ViewModels.Pages.InternalPages.CustomerCardPageViewModel
+@if (Model.DeliveryAddresses.IsNullOrEmpty())
+{
+    return;
+}
+
+<div class="lm__block redigera-block">
+    <div class="lm__block-header lighter-gray-background-header">
+        <h1>Leveransadresser</h1>
+    </div>
+    @if (!Model.DeliveryAddresses.IsNullOrEmpty())
+    {
+        foreach (var address in Model.DeliveryAddresses)
+        {
+            <div class="lm__accordion-wrapper">
+                <h3 class="lm__bold-title lm__accordion-link has-separator">@address.AdressStreet</h3>
+                <div class="lm__accordion-content author-inform-form">
+                    <div class="author-inform-form__input gray-background">
+                        <div class="author-inform-form__column author-inform-form__column-half lm__inform-box ">
+                            <h4 class="lm__bold-title">Adress</h4>
+                            <table border="0" class="lm__information-table type-3 no-margin">
+                                <tbody>
+                                    <tr>
+                                        <td>Gatuadress:</td>
+                                        <td>@address.AdressStreet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Postnummer:</td>
+                                        <td>@address.ZipCode</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ort:</td>
+                                        <td>@address.Place</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telefon:</td>
+                                        <td>@address.PhoneNumber</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobil</td>
+                                        <td>@address.MobileNumber</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                            <h4 class="lm__bold-title">Koordinater</h4>
+                            <table border="0" class="lm__information-table type-3 no-margin">
+                                <tbody>
+                                    <tr>
+                                        <td>Latttud:</td>
+                                        <td>@address.Latitude</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Longitud:</td>
+                                        <td>@address.Longitude</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                            <h4 class="lm__bold-title">Silos- Framkomlighet</h4>
+                            <table border="0" class="lm__information-table type-3 no-margin">
+                                <tbody>
+                                    @foreach (var siloItem in address.Silos)
+                                    {
+                                        <tr>
+                                            <td>@siloItem.Description</td>
+                                            <td>@siloItem.Accessibility</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                            <h4 class="lm__bold-title">Vägbeskrivning</h4>
+                            <p>@address.Direction</p>
+                        </div>
+                        <!--<div class="list-item-ext">
+                            <a href="#" class="link_format align-right-text"><i class="fa fa-edit"></i><span>Redigera</span></a>
+                        </div>-->
+                    </div>
+                    <div class="author-inform-form__input gray-background">
+                        <div class="author-inform-form__column author-inform-form__column-half lm__inform-box no-margin">
+                            <h4 class="lm__bold-title">Leveransavisering till</h4>
+                           @foreach (var receiver in address.Notifications)
+                           {
+                            <p>
+                                <a href="#" class="lm__link">@receiver.Name</a>
+                            </p>
+                           }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>

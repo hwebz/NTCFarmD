@@ -1,0 +1,218 @@
+﻿/// <reference path="../_references.scss" />
+
+.iam-block {
+    width: 100%;
+    height: 100vh;
+    margin: 0 !important;
+    background: $section-background-color url(../images/iam__bg-img.jpg) no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+
+    &.background-type-2 {
+        background: $section-background-color url(../images/iam__bg-img-2.jpg) no-repeat center center;
+        background-size: cover;
+    }
+
+    h1, h2 {
+        color: $color-white;
+
+        &.black-text {
+            color: $body-text-color;
+        }
+    }
+
+    .super-text {
+        font-size: 40px;
+        vertical-align: super;
+    }
+
+    > .wrapper {
+        height: 100vh;
+        overflow: hidden;
+        overflow-y: visible;
+        max-width: inherit;
+    }
+}
+
+.lm__center-block {
+    @include set-responsive-property("tablet", width, 290px, 470px);
+    margin: 30px auto;
+
+    &.type-2,
+    &.type-3 {
+        @include set-responsive-property("tablet", width, 290px, 670px);
+    }
+
+    &.type-2 {
+        .iam-block__login-form__wrapper {
+            .iam-block__login-form {
+                @include set-responsive-property("tablet", padding, 60px 15px, 60px 40px);
+            }
+        }
+    }
+
+    .iam-block__logo {
+        margin-bottom: 30px;
+
+        .primary {
+            margin-bottom: 0;
+            font-size: 65px;
+            line-height: 65px !important;
+        }
+
+        .slogan {
+            @include set-responsive-property("tablet", font-size, 18px, 22px);
+            @include set-responsive-property("tablet", padding, 0, 0 90px);
+            margin-top: 0;
+        }
+    }
+
+    .iam-block__register-link {
+        @include set-responsive-property("tablet", padding, 20px 15px, 20px 60px);
+        background: rgba(255, 255, 255, 0.85);
+        display: block;
+    }
+}
+
+.iam-block__box__wrapper {
+    .iam-block__box {
+        @include set-responsive-property("tablet", padding, 15px, 20px 60px);
+        background: rgba(255, 255, 255, 0.8);
+
+        h2 {
+            @include set-responsive-property("tablet", margin, 5px 0 15px 0, 10px 0 25px 0);
+            @include set-responsive-property("tablet", font-size, 18px, 22px);
+            color: $body-text-color;
+        }
+
+        label {
+            color: $body-text-color;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            border: 1px solid $color-white-gray;
+            margin: 5px 0 15px 0;
+        }
+
+        .lm__link {
+            @include set-absolute-position(5px, 0, auto, auto);
+            line-height: 16px !important;
+        }
+
+        .forgot-password__description {
+            margin-bottom: 30px;
+
+            ol li {
+                line-height: 2;
+            }
+
+            a {
+                color: $color-dark-green-2;
+            }
+        }
+    }
+
+    .change-password__description {
+        @include set-responsive-property("tablet", padding, 15px, 20px 60px);
+        background: rgba(255, 255, 255, 0.85);
+        border-top: 2px solid $color-white-gray;
+
+        h2 {
+            color: $body-text-color;
+        }
+    }
+}
+
+.iam-block__links {
+    a {
+        position: relative;
+        color: $body-text-color;
+        @include set-responsive-property("tablet", padding, 20px 15px, 20px 60px);
+        display: block;
+        background: $color-white;
+        border-bottom: 1px solid $color-white-4;
+        border-top: 1px solid $color-white-4;
+
+        &:last-child {
+            border-top: none;
+        }
+
+        i {
+            @include set-absolute-position(0, 60px, auto, auto);
+            @include set-center-position(top, 50%);
+            @include set-responsive-property("tablet", right, 15px, 60px);
+        }
+
+        &:hover {
+            background: $color-white-4;
+        }
+
+        &.not-responsive {
+            text-align: right;
+            padding-right: 40px;
+
+            i {
+                right: 15px;
+            }
+        }
+    }
+
+    &.with-border a {
+        border: 1px solid $color-white-gray;
+        border-bottom: none;
+        padding: 20px 15px;
+
+        &:last-child {
+            border-bottom: 1px solid $color-white-gray;
+        }
+
+        i {
+            right: 15px;
+        }
+    }
+}
+
+.remember-me {
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: absolute;
+        left: -9999px;
+
+        + label {
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            line-height: 1;
+
+            &:before {
+                content: "";
+                @include set-absolute-position(0, auto, auto, 0);
+                @include set-size(block, 16px, 16px);
+                border: 1px solid $color-white-gray;
+                background: $color-white;
+                border-radius: 3px;
+            }
+
+            &:after {
+                content: "";
+                @include set-absolute-position(0, auto, auto, 0);
+                background: transparent url(../images/tick_selected.png) no-repeat center center;
+                background-size: 80%;
+                @include set-size(block, 16px, 16px);
+                transition: all .2s;
+            }
+        }
+    }
+    /* checked mark aspect changes */
+    [type="checkbox"]:not(:checked) + label:after {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    [type="checkbox"]:checked + label:after {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

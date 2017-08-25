@@ -1,0 +1,30 @@
+a.step-link{
+    $highlightColor: #58a618;
+
+    &.active{
+        border: 2px solid $highlightColor !important;
+    }
+
+    &.done{
+        background-color: $highlightColor;
+    }
+}
+
+.search-user-spinner{
+    margin: 15px auto;
+}
+
+input[type=email]{
+    &[disabled]{
+        background-color: lightgray;
+    }
+}
+
+a.close-btn{
+    cursor: pointer;
+}
+
+.inactive-area{
+    pointer-events: none;
+    opacity: 0.7;
+}

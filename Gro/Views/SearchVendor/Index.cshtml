@@ -1,0 +1,11 @@
+﻿@model  Gro.ViewModels.SalesMen.SearchVendorViewModel
+
+
+<h1>@Model.Settings.SiteName</h1>
+<h1>Salesmen</h1>
+<ul>
+    @foreach (var salesman in Model.SalesMen)
+    {
+        <li>@salesman.name @salesman.surname - @salesman.city</li>
+    }
+</ul>

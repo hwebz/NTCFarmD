@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        var isFinishMigrate = true;
+        function migrate() {
+            $('#loading').show();
+            $('#migrateBtn').attr('disabled', true);
+            $.ajax({
+                url: '/api/migrate/machine-media',
+                type: "POST",
+                cache: false,
+                dataType: 'json',
+                success: function (result) {
+                    $('#migrateBtn').attr('disabled', false);
+                    $('#loading').hide();
+                    if (result.success) {
+                        alert("Migrate successfully");
+
+                    } else {
+                        alert("Migrate unsuccessfully. Please try again!");
+                    }
+
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h3>Migrate images and documents tool for machine</h3>
+    <h2 id="loading" style="display: none; color: orange;">Migrating...</h2>
+    <br/>
+    <input id="migrateBtn" type="button" onclick="migrate()" value="Start Migrate"  />
+</body>
+</html>

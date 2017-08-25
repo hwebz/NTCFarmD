@@ -1,0 +1,92 @@
+﻿/* ------------------------------------------------------------------------- //
+// #EDITOR STYLES FOR TINYMCE
+// ------------------------------------------------------------------------- */
+
+
+
+/**
+ * Headings
+ */
+h1 {
+    EditMenuTitle: "Rubriker";
+    EditMenuName: "Nivå 1";
+}
+
+h2 {
+    EditMenuName: "Nivå 2";
+}
+
+h3 {
+    EditMenuName: "Nivå 3";
+}
+
+h4 {
+    EditMenuName: "Nivå 4";
+}
+
+h5 {
+    EditMenuName: "Nivå 5";
+}
+
+h6 {
+    EditMenuName: "Nivå 6";
+}
+
+
+
+/**
+ * Typography
+ */
+p.lead {
+    EditMenuTitle: "Text";
+    EditMenuName: "Ingress";
+}
+
+small {
+    EditMenuName: "Liten text";
+}
+
+.lm__link {
+    EditMenuName: "Gro Link";
+}
+
+
+
+/**
+ * Alignment
+ */
+.u-align-left {
+    EditMenuTitle: "Justering";
+    EditMenuName: "Vänster";
+}
+
+.u-align-center {
+    EditMenuName: "Centrerad";
+}
+
+.u-align-right {
+    EditMenuName: "Höger";
+}
+
+
+
+/**
+ * Float
+ */
+.u-float-left {
+    EditMenuTitle: "Figursättning";
+    EditMenuName: "Innehåll till höger";
+}
+
+.u-float-right {
+    EditMenuName: "Innehåll till vänster";
+}
+
+.left {
+    EditMenuTitle: "Images";
+    EditMenuName: "Image Left";
+}
+.right {
+    EditMenuTitle: "Images";
+    EditMenuName: "Image Right";
+}

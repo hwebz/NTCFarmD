@@ -1,0 +1,215 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Castle.Core.Internal;
+using EPiServer.Core;
+using EPiServer.DataAbstraction;
+using EPiServer.Security;
+using Gro.Constants;
+using Gro.Core.DataModels.Security;
+using Gro.Core.Interfaces;
+using Gro.Business.DataProtection;
+using System.Security.Cryptography;
+using EPiServer;
+using Gro.Core.ContentTypes.Pages.MyProfile;
+using Gro.Core.ContentTypes.Utils;
+
+namespace Gro.Business.Services.Users
+{
+    public class UsersManagementService : IUsersManagementService
+    {
+        private readonly ISecurityRepository _securityRepository;
+        private readonly IContentSecurityRepository _contentSecurityRepository;
+        private readonly ITokenGenerator _tokenGenerator;
+
+<<<<<<< HEAD
+        private readonly IContentRepository _contentRepository;
+        private readonly IUserTermsOfUseRepository _userTermsOfUseRepository;
+=======
+        const string customerCookieKey = "_customer";
+>>>>>>> 28a5078288a7195a41885bfe02e1b8f3206385f5
+
+        public UsersManagementService(
+            ISecurityRepository securityRepository,
+            IContentSecurityRepository contentSecurityRepository,
+            ITokenGenerator tokenGenerator, IContentRepository contentRepository, IUserTermsOfUseRepository userTermsOfUseRepository)
+        {
+            _securityRepository = securityRepository;
+            _contentSecurityRepository = contentSecurityRepository;
+            _tokenGenerator = tokenGenerator;
+            _contentRepository = contentRepository;
+            _userTermsOfUseRepository = userTermsOfUseRepository;
+        }
+
+        //public CustomerBasicInfo GetActiveCustomer(string userName)
+        public CustomerBasicInfo GetActiveCustomer(string userName, bool updateCookie)
+        {
+            if (string.IsNullOrEmpty(userName))
+            {
+                return null;
+            }
+            var customerFromCookie = GetFromCookie(customerCookieKey);
+
+            //check and return right away
+            if (customerFromCookie != null && !updateCookie) return customerFromCookie;
+
+            var customerList = _securityRepository.GetCustomerListNoCache(userName);
+            if (customerList == null || customerList.Length == 0) return null;
+
+            CustomerBasicInfo activeCustomer = null;
+            var customerInList = customerList?.FirstOrDefault(c => c.CustomerNo == customerFromCookie?.CustomerNo);
+            if (customerInList == null)
+            {
+                activeCustomer = customerList[0];
+            }
+
+            AddToCookie(string.Format(CookieKeys.ActiveCustomerNumber, userName), activeCustomer);
+
+            return activeCustomer;
+        }
+
+        private CustomerBasicInfo GetFromCookie(string cookieKey)
+        {
+            var httpContext = HttpContext.Current;
+            var cookieValue = httpContext.Request.Cookies.AllKeys.Contains(cookieKey) ?
+                httpContext.Request.Cookies[cookieKey].Value : null;
+
+            var deserialized = cookieValue?.Split(':') ?? new string[0];
+            if (deserialized.Length != 3)
+            {
+                //invalid
+                return null;
+            }
+
+            return new CustomerBasicInfo
+            {
+<<<<<<< HEAD
+                var customerList = _securityRepository.GetCustomerListNoCache(userName);
+                return customerList?.FirstOrDefault(c => c.CustomerNo.Equals(customerFromCookie));
+=======
+                CustomerId = int.Parse(deserialized[0]),
+                CustomerName = deserialized[1],
+                CustomerNo = deserialized[2]
+>>>>>>> 28a5078288a7195a41885bfe02e1b8f3206385f5
+            };
+        }
+
+        private void AddToCookie(string key, CustomerBasicInfo customerInfo)
+        {
+            var httpContext = HttpContext.Current;
+            var serialized = $"{customerInfo.CustomerId}:{customerInfo.CustomerName}:{customerInfo.CustomerNo}";
+            httpContext.Response.Cookies.Add(new HttpCookie(key, serialized));
+        }
+
+        public void UpdateCustomerNumber(string userName, string customerNumber)
+        {
+            var customerList = _securityRepository.GetCustomerList(userName);
+            var customer = customerList.FirstOrDefault(c => c.CustomerNo == customerNumber);
+            if (customer == null) return;
+
+            AddToCookie(customerCookieKey, customer);
+        }
+
+        public bool UserHasAccessToPage(PageData page, string activeCustomerNumber, string userName)
+        {
+            if (page == null)
+            {
+                return false;
+            }
+
+            // get Role for the customer and User
+            var allRoles = _securityRepository.GetRolesForUser(userName);
+            if (allRoles == null || !allRoles.Any())
+            {
+                return false;
+            }
+            var rolesForThisCutomers = allRoles.Where(x => x.CustomerNumber == activeCustomerNumber).Select(x => x).ToArray();
+            return rolesForThisCutomers.Any() && InRolesHavingAccessToPage(page, rolesForThisCutomers);
+        }
+
+        public IEnumerable<TContent> FilterByUserAndCustomer<TContent>(IEnumerable<TContent> childrenByVisitor) where TContent : PageData
+        {
+            var userName = HttpContext.Current.User.Identity.Name;
+            if (string.IsNullOrEmpty(userName))
+            {
+                return childrenByVisitor;
+            }
+
+            var activeCustomer = GetActiveCustomer(userName, true);
+            if (string.IsNullOrEmpty(activeCustomer?.CustomerNo))
+            {
+                return childrenByVisitor;
+            }
+            var allRoles = _securityRepository.GetRolesForUser(userName);
+            if (allRoles.IsNullOrEmpty())
+            {
+                return childrenByVisitor;
+            }
+
+<<<<<<< HEAD
+            var rolesForThisCustomer = allRoles.Where(x => x.CustomerNumber == activeCustomer).Select(x => x).ToArray();
+=======
+            var rolesForThisCustomer = allRoles.Where(x => x.CustomerNumber == activeCustomer?.CustomerNo).Select(x => x).ToArray();
+>>>>>>> 28a5078288a7195a41885bfe02e1b8f3206385f5
+            if (rolesForThisCustomer.IsNullOrEmpty())
+            {
+                // having no special role, return the list which is filered by visitor groups.
+                return childrenByVisitor;
+            }
+
+            // filter by role of the (user and Customer).
+            return childrenByVisitor.Where(page => InRolesHavingAccessToPage(page, rolesForThisCustomer)).ToList();
+        }
+
+        private bool InRolesHavingAccessToPage(IContent page, UserRole[] userRoles)
+        {
+            var pageSecurity = _contentSecurityRepository.Get(page.ContentLink).CreateWritableClone() as IContentSecurityDescriptor;
+            if (pageSecurity == null) return false;
+
+            var roleEntities = pageSecurity.Entries;
+            return roleEntities.Where(item => item.Access != AccessLevel.NoAccess && item.Access != AccessLevel.Undefined).Any(item => item.Name.Equals("everyone", StringComparison.OrdinalIgnoreCase) || userRoles.Any(x => x.RoleName == item.Name));
+        }
+
+        public SiteUser GetSiteUser(HttpContextBase httpContext)
+        {
+            var siteUserCookie = httpContext.Request.Cookies?.Get(Cookies.SiteUser)?.Value;
+            if (string.IsNullOrWhiteSpace(siteUserCookie))
+            {
+                return null;
+            }
+
+            try
+            {
+                var siteUser = _tokenGenerator.Decode<SiteUser>(siteUserCookie);
+                return siteUser;
+            }
+            catch (CryptographicException)
+            {
+                return null;
+            }
+        }
+
+
+        #region user agreement management
+        public bool NeedAcceptUserAgreement(int userId, string term)
+        {
+            var termIdentity = term;
+            if (string.IsNullOrEmpty(termIdentity))
+            {
+                var agreementPage = ContentExtensions.GetAgreement();
+                if (agreementPage == null || agreementPage.Version <= 0) return false;
+                termIdentity = agreementPage.TermIdentity;
+            }
+            // check if user had accepted this version or not. 
+            return _userTermsOfUseRepository.CheckUserAccepts(userId, termIdentity);
+        }
+
+        public void UpdateVersionTermOfUse(int newVersion, string userAgreementIdentity)
+        {
+            _userTermsOfUseRepository.UpdateInsertTermOfUse(newVersion, userAgreementIdentity);
+        }
+
+        #endregion
+    }
+}

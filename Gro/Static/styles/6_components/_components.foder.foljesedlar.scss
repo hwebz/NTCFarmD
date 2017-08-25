@@ -1,0 +1,43 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.foljesedlar-block {
+    .lm__block-header {
+        background: none;
+
+        .lm__block-title {
+            font-family: $font-clarendonurw-reg;
+            font-size: 22px;
+            margin: 0;
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        .lm__news-item {
+            padding: 10px 15px;
+
+            table {
+                width: 100%;
+
+                th, td {
+                    padding: 10px;
+                }
+
+                thead {
+                    text-align: left;
+                }
+
+                tbody {
+                    text-align: right;
+                    color: $table-content-text-color;
+
+                    tr {
+                        td:first-child {
+                            padding-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

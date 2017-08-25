@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" />
+  <xs:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" />
+  <xs:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="RegisterUserWithCustomerNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserWithCustomerNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="RegisterUserWithCustomerNumberResult" nillable="true" type="q1:RegisterUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserWithCustomerNumberAutomatically">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserWithCustomerNumberAutomaticallyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="RegisterUserWithCustomerNumberAutomaticallyResult" nillable="true" type="q2:RegisterUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserWithoutCustomerNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="newUser" nillable="true" type="q3:RegisterUserDto" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserWithoutCustomerNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterUserWithoutCustomerNumberResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q4:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResetPasswordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInfoResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q5:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInfoResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInfoGetUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q6:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInfoGetUserNameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewlyRegisteredUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="orderUsersBy" type="q7:OrderUsersBy" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="sortOrder" type="q8:SortOrder" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewlyRegisteredUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetNewlyRegisteredUsersResult" nillable="true" type="q9:ArrayOfRegisterUserDto" />
+        <xs:element minOccurs="0" name="totalRecords" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewRegisteredUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewRegisteredUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetNewRegisteredUserResult" nillable="true" type="q10:RegisterUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserFromToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserFromTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetUserFromTokenResult" nillable="true" type="q11:UserTokenDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q12:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActivateAccountResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProxyRegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="newUser" nillable="true" type="q13:RegisterUserDto" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q14:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProxyRegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProxyRegisterUserResult" type="xs:boolean" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="registeredUser" nillable="true" type="q15:RegisterUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersRegisterdBy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q16:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersRegisterdByResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetUsersRegisterdByResult" nillable="true" type="q17:ArrayOfResponseUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersSorted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="orderUsersBy" type="q18:OrderUsersBy" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="sortOrder" type="q19:SortOrder" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersSortedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetAllUsersSortedResult" nillable="true" type="q20:ArrayOfResponseUserDto" />
+        <xs:element minOccurs="0" name="totalRecords" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetUserResult" nillable="true" type="q21:ResponseUserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrimaryRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrimaryRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPrimaryRolesResult" nillable="true" type="q22:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNonPrimaryRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNonPrimaryRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetNonPrimaryRolesResult" nillable="true" type="q23:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerIssues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="month" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="orderIssuesBy" type="q24:OrderIssuesBy" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="sortOrder" type="q25:SortOrder" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerIssuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetCustomerIssuesResult" nillable="true" type="q26:ArrayOfCustomerIssuesDto" />
+        <xs:element minOccurs="0" name="totalRecords" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewRegisteredUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="user" nillable="true" type="q27:RegisterUserDto" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q28:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewRegisteredUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateNewRegisteredUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="user" nillable="true" type="q29:ResponseUserDto" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q30:RequestUser" />
+        <xs:element minOccurs="0" name="changePassword" type="xs:boolean" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNewRegisteredUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deleteAllRelatedData" type="xs:boolean" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q31:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNewRegisteredUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteNewRegisteredUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExistingUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deleteAllRelatedData" type="xs:boolean" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q32:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExistingUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteExistingUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomersDeliveryAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomersDeliveryAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetCustomersDeliveryAddressesResult" nillable="true" type="q33:ArrayOfCustomerDeliveryAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerInvoiceAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerInvoiceAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetCustomerInvoiceAddressResult" nillable="true" type="q34:CustomerInvoiceAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetStatusToNewApproved">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="requester" nillable="true" type="q35:RequestUser" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetStatusToNewApprovedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUsersPasswordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerSegments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerSegmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCustomerSegmentsResult" nillable="true" type="q36:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetCustomerResult" nillable="true" type="q37:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRetailerCustomers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRetailerCustomersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetRetailerCustomersResult" nillable="true" type="q38:ArrayOfCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Impersonate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" minOccurs="0" name="personToImpersonate" nillable="true" type="q39:RequestUser" />
+        <xs:element minOccurs="0" name="requester" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImpersonateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ImpersonateResult" type="q40:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateImpersonation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="token" type="q41:guid" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateImpersonationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="ValidateImpersonationResult" nillable="true" type="q42:ImpersonationDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliverySettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliverySettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetDeliverySettingsResult" nillable="true" type="q43:DeliverySettingsDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmsNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmsNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetSmsNotificationResult" nillable="true" type="q44:ArrayOfSmsNotificationDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDeliverySettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="deliverySettings" nillable="true" type="q45:DeliverySettingsDto" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDeliverySettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetDeliverySettingsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSmsNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="smsNotifications" nillable="true" type="q46:SmsNotificationDto" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSmsNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetSmsNotificationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

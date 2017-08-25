@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <common>
+      <validations>
+        <contactblock>
+          <telephonenumberinvalid>
+            The field must be valid telephone
+          </telephonenumberinvalid>
+        </contactblock>
+      </validations>
+    </common>
+  </language>
+</languages>

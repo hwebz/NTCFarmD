@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" />
+  <xs:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetSupplierResult" nillable="true" type="q1:Supplier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAssurances">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAssurancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetDeliveryAssurancesResult" nillable="true" type="q2:DeliveryAssurances" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAssurance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ioNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lineNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAssuranceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetDeliveryAssuranceResult" nillable="true" type="q3:DeliveryAssurance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteIO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lineNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteIOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteIOResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLorryTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLorryTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetLorryTypesResult" nillable="true" type="q4:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetDeliveryAddressesResult" nillable="true" type="q5:ArrayOfDeliveryAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgreementItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgreementItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetAgreementItemsResult" nillable="true" type="q6:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetItemListResult" nillable="true" type="q7:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetAllItemsResult" nillable="true" type="q8:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOpenItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Deliverydate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="intern" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOpenItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetAllOpenItemsResult" nillable="true" type="q9:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWareHouses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="addressNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dried" type="xs:boolean" />
+        <xs:element minOccurs="0" name="itemNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sludge" type="xs:int" />
+        <xs:element minOccurs="0" name="ShortendedStraw" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWareHousesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWareHousesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="item" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliverydate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetWarehouseListResult" nillable="true" type="q10:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseSubtype">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseSubtypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWarehouseSubtypeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepaAvtal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="item" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepaAvtalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetDepaAvtalResult" nillable="true" type="q11:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepaAvtalDelAss">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="item" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepaAvtalDelAssResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetDepaAvtalDelAssResult" nillable="true" type="q12:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetYears">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetYearsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetYearsResult" nillable="true" type="q13:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultvalues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliveryAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultvaluesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetDefaultvaluesResult" nillable="true" type="q14:DeliveryAssurance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesForRadioButton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buttonName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesForRadioButtonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetM3ValuesForRadioButtonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgreementItemsDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Deliverydate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgreementItemsDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="GetAgreementItemsDateResult" nillable="true" type="q15:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesRED">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesREDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetM3ValuesREDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesSlam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesSlamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetM3ValuesSlamResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesGlyfosat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesGlyfosatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetM3ValuesGlyfosatResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesStraforkortat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesStraforkortatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetM3ValuesStraforkortatResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesTorkat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetM3ValuesTorkatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetM3ValuesTorkatResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="assurance" nillable="true" type="q16:DeliveryAssurance" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="SaveNewResult" nillable="true" type="q17:DeliveryAssurance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" minOccurs="0" name="assurance" nillable="true" type="q18:DeliveryAssurance" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

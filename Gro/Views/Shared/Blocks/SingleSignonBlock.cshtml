@@ -1,0 +1,36 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@using EPiServer.SpecializedProperties;
+@using Gro.Business;
+@model Gro.Core.ContentTypes.Blocks.SingleSignonBlock
+
+@{
+    var colorCss = Html.GetPushColorCss(Model.Color);
+    var siteUser = new HttpContextWrapper(HttpContext.Current).GetSiteUser();
+    LinkItem linkItem;
+
+    if (siteUser == null || string.IsNullOrWhiteSpace(siteUser.SerialNumber))
+    {
+        linkItem = Model.BlockLink == null ? null : Model.BlockLink.FirstOrDefault();
+    }
+    else
+    {
+        linkItem = Model.NoBankIdLink == null ? null : Model.NoBankIdLink.FirstOrDefault();
+    }
+
+    var link = linkItem == null ? "#" : GroLinkItem.FromLinkItem(linkItem).GetHref();
+    var text = linkItem == null ? string.Empty : linkItem.Text;
+    var target = linkItem == null || linkItem.Href == null || (linkItem.Href.StartsWith("http") == true) ? "_blank" : linkItem.Target;
+}
+<div class="lm__thumbnail-block post-block">
+    <section class="lm__main-block">
+        <article class="lm__main-block-item">
+            <a href="@link" target="@target">
+                <img src="@Model.Image.GetExternalUrl()" alt="First thumbnail block" class="article-thumbnail" @Html.EditAttributes(x => x.Image) />
+                <h4 class="article-title @colorCss">
+                    @text
+                </h4>
+            </a>
+        </article>
+    </section>
+</div>

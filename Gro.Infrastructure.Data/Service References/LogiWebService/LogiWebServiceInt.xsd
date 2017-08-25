@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LogiWebServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LogiWebServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfReportItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportItem" nillable="true" type="tns:ReportItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReportItem" nillable="true" type="tns:ArrayOfReportItem" />
+  <xs:complexType name="ReportItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerOrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerRowNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelAddress1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelAddress3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelAddress4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelCustName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelCustNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelDescriptionNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveredQuantity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromStorageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromStorageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Leveransdatum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderIdMx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderRowNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderedQuantity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderrowStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderrowStatusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlannedCarRegistationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlannedDeliveryDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShipmentIdMX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiloNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransportPayer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TripNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportItem" nillable="true" type="tns:ReportItem" />
+</xs:schema>

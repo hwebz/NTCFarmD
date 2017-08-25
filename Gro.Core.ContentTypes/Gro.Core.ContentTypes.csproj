@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gro.Core.ContentTypes</RootNamespace>
+    <AssemblyName>Gro.Core.ContentTypes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GRO EPiLyftet|AnyCPU'">
+    <OutputPath>bin\GRO EPiLyftet\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.5.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.5.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Enterprise, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.Enterprise.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Events, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell.UI, Version=9.5.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.5.0\lib\net45\EPiServer.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.UI, Version=9.5.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.5.0\lib\net45\EPiServer.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.XForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blocks\BlockAsProperties\SeoBlock.cs" />
+    <Compile Include="Blocks\BlockWidths\ITwoColumnWidth.cs" />
+    <Compile Include="Blocks\BlockWidths\IOneColumnWidth.cs" />
+    <Compile Include="Blocks\ContactBlock.cs" />
+    <Compile Include="Blocks\Containers\IOneColumnContainer.cs" />
+    <Compile Include="Blocks\Containers\ITwoColumnContainer.cs" />
+    <Compile Include="Blocks\InformationBlock.cs" />
+    <Compile Include="Blocks\OpenAgreementBlock.cs" />
+    <Compile Include="Blocks\UpcomingDeliveriesBlock.cs" />
+    <Compile Include="Blocks\SingleSignonBlock.cs" />
+    <Compile Include="Blocks\WeighinListBlock.cs" />
+    <Compile Include="Blocks\AgreementListBlock.cs" />
+    <Compile Include="Blocks\InformationListBlock.cs" />
+    <Compile Include="Blocks\PushBlock.cs" />
+    <Compile Include="Blocks\ListBlock.cs" />
+    <Compile Include="Blocks\NewsListBlock.cs" />
+    <Compile Include="Business\EnumSelectionFactory.cs" />
+    <Compile Include="Business\EpiserverFileRepository.cs" />
+    <Compile Include="Business\LinkItemCollectionLimitAttribute.cs" />
+    <Compile Include="Business\ServiceTeam.cs" />
+    <Compile Include="Business\UIDescriptors\EnumEditorDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\PushBlockColorSelectionFactory.cs" />
+    <Compile Include="Business\ValidEmailsAttribute.cs" />
+    <Compile Include="Business\ValidFileAttribute.cs" />
+    <Compile Include="Business\ValidPhonesAttribute.cs" />
+    <Compile Include="CustomProperties\CustomSelectionFactory.cs" />
+    <Compile Include="Media\FileBlobRepository.cs" />
+    <Compile Include="Media\GroCustomFile.cs" />
+    <Compile Include="Media\IMediaRepository.cs" />
+    <Compile Include="Pages\AppPages\AgreementPage.cs" />
+    <Compile Include="Pages\AppPages\DryingAgreementPage.cs" />
+    <Compile Include="Pages\AppPages\CalculateDeliveryFeePage.cs" />
+    <Compile Include="Pages\AppPages\DeliveryAssurance\DeliveryAssuranceListPage.cs" />
+    <Compile Include="Pages\AppPages\DeliveryNotePage.cs" />
+    <Compile Include="Pages\AppPages\GrobarhetPage.cs" />
+    <Compile Include="Pages\AppPages\PriceGraphPage.cs" />
+    <Compile Include="Pages\AppPages\PurchasingAgreement\PriceAlertPage.cs" />
+    <Compile Include="Pages\AppPages\PurchasingAgreement\PriceGrainPage.cs" />
+    <Compile Include="Pages\AppPages\PurchasingAgreement\PriceHedgePage.cs" />
+    <Compile Include="Pages\AppPages\PurchasingAgreement\PurchasingAgreementPage.cs" />
+    <Compile Include="Pages\AppPages\WeighInPage.cs" />
+    <Compile Include="Pages\EkonomiIFramePage.cs" />
+    <Compile Include="Pages\ExternalArticlePage.cs" />
+    <Compile Include="Pages\BasePages\NonServicePageBase.cs" />
+    <Compile Include="Pages\BokaPages\BokaListingPage.cs" />
+    <Compile Include="Pages\BokaPages\BokaPage.cs" />
+    <Compile Include="Pages\ContactFormPage.cs" />
+    <Compile Include="Pages\ContactPage.cs" />
+    <Compile Include="Pages\BasePages\AppPageBase.cs" />
+    <Compile Include="Pages\BookService\BookServicePilotenPage.cs" />
+    <Compile Include="Pages\Contacts\SalesPersonPage.cs" />
+    <Compile Include="Pages\Contacts\WorkshopPage.cs" />
+    <Compile Include="Pages\DeliveryMessagesPage.cs" />
+    <Compile Include="Pages\InternalPages\CustomerCardPage.cs" />
+    <Compile Include="Pages\InternalPages\InternalStartPage.cs" />
+    <Compile Include="Pages\NonServicePageFolder.cs" />
+    <Compile Include="Pages\IHasRightNavWithHeader.cs" />
+    <Compile Include="Pages\IFramePage.cs" />
+    <Compile Include="Pages\MachinePages\MachineAddPage.cs" />
+    <Compile Include="Pages\MachinePages\MachineDetailPage.cs" />
+    <Compile Include="Pages\Messages\AdministerMessagePage.cs" />
+    <Compile Include="Pages\Messages\UserMessagePage.cs" />
+    <Compile Include="Pages\Messages\UserSettingPage.cs" />
+    <Compile Include="Pages\MyProfile\MyCustomersPage.cs" />
+    <Compile Include="Pages\MyProfile\ChangePasswordPage.cs" />
+    <Compile Include="Pages\MyProfile\IAccountSettingPage.cs" />
+    <Compile Include="Pages\MyProfile\UserAgreementsPage.cs" />
+    <Compile Include="Pages\MyProfile\ProfilePage.cs" />
+    <Compile Include="Pages\MyProfile\HandleSignInInformationPage.cs" />
+    <Compile Include="Pages\MyProfile\MyAccountPage.cs" />
+    <Compile Include="Pages\Organization\AddDeliveryAddressPage.cs" />
+    <Compile Include="Pages\Organization\AddUserToOrganizationPage.cs" />
+    <Compile Include="Pages\Organization\HandleDeliveryAddressPage.cs" />
+    <Compile Include="Pages\Organization\BusinessProfilePage.cs" />
+    <Compile Include="Pages\Organization\CompanyInformationPage.cs" />
+    <Compile Include="Pages\Organization\HandleOrganizationPage.cs" />
+    <Compile Include="Pages\Organization\ProfileInformationPage.cs" />
+    <Compile Include="Pages\Registration\AccountActivationPage.cs" />
+    <Compile Include="Pages\Registration\RegisterAccountPage.cs" />
+    <Compile Include="Pages\Registration\RegistrationHome.cs" />
+    <Compile Include="Pages\SearchTransport\SearchTransportPage.cs" />
+    <Compile Include="Pages\SettingsPage.cs" />
+    <Compile Include="Pages\StartPages\EkonomiIframeStartPage.cs" />
+    <Compile Include="Pages\StartPages\ServiceStartPage.cs" />
+    <Compile Include="Pages\StartPages\EkonomiStartPage.cs" />
+    <Compile Include="Pages\StartPages\FoderStartPage.cs" />
+    <Compile Include="Pages\StartPages\MaskinStartPage.cs" />
+    <Compile Include="Pages\StartPages\SpannmalStartPage.cs" />
+    <Compile Include="Pages\StartPages\OdlingStartPage.cs" />
+    <Compile Include="Pages\StartPages\TwoColumnServiceStartPage.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\ContentExtensions.cs" />
+    <Compile Include="Business\CustomSettings\CustomTinyMCESettings.cs" />
+    <Compile Include="Utils\BlockGroupNames.cs" />
+    <Compile Include="Utils\GroupNames.cs" />
+    <Compile Include="Business\UIDescriptors\ContainerPageDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\SettingsPageDescriptor.cs" />
+    <Compile Include="Media\ImageFile.cs" />
+    <Compile Include="Pages\ArticlePage.cs" />
+    <Compile Include="Pages\BasePages\SitePageBase.cs" />
+    <Compile Include="Pages\ContainerPages\IContainerPage.cs" />
+    <Compile Include="Pages\FolderPage.cs" />
+    <Compile Include="Pages\InformationArchivePage.cs" />
+    <Compile Include="Pages\InformationPage.cs" />
+    <Compile Include="Pages\SearchVendorPage.cs" />
+    <Compile Include="Pages\StartPages\StartPage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gro.Core\Gro.Core.csproj">
+      <Project>{0F84F02B-E447-4C8D-9E6D-D496174E87D3}</Project>
+      <Name>Gro.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

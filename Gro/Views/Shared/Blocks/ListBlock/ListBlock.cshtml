@@ -1,0 +1,41 @@
+﻿@using Gro.Business;
+@using Gro.Helpers;
+@*@model Gro.Core.ContentTypes.Blocks.ListBlock*@
+@model Gro.ViewModels.Blocks.ListBlockViewModel
+
+<div class="lm__block">
+
+    <div class="lm__block-header white-background-header">
+        <h1>@Model.CurrentBlock.Heading</h1>
+    </div>
+    <section class="lm__news link-listing with-animation">
+        @{
+            var items = Model.LinkItems;
+            Func<GroLinkType, string> getLinkClass = linkType =>
+            {
+                switch (linkType)
+                {
+                    default:
+                        return string.Empty;
+                    case GroLinkType.ExternalLink:
+                        return "fa-external-link";
+                    case GroLinkType.InternalLink:
+                        return "fa-long-arrow-right";
+                    case GroLinkType.Pdf:
+                    case GroLinkType.Document:
+                    case GroLinkType.Email:
+                    case GroLinkType.Image:
+                        return "fa-file-pdf-o";
+                }
+            };
+        }
+        @foreach (var linkItem in items)
+        {
+            <article class="lm__news-item">
+                <a href="@linkItem.GetHref()" target="@linkItem.AsLinkItem().Target">
+                    <h4 class="article-title right-icon-pos">@linkItem.AsLinkItem().Text<i class="fa @getLinkClass(linkItem.Type)" aria-hidden="true"></i></h4>
+                </a>
+            </article>
+        }
+    </section>
+</div>

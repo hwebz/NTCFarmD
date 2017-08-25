@@ -1,0 +1,72 @@
+﻿@using Gro.Constants
+@using Gro.Core.DataModels.MessageHubDtos
+@using Gro.Helpers
+@model Gro.ViewModels.Pages.Messages.PlannedDeliveriesMessageModel
+@if (Model == null)
+{
+    return;
+}
+@helper RenderDeliveryTable(string[] listHeaders, PlannedDelivery[] deliveries, string deliveryAddress, bool isToCustomer = true)
+{
+var mobileTitle = isToCustomer ? "Leveranser planerade till " : "Hämtningar från ";
+var desktopTitle = isToCustomer ? "Leveranser till gården " : "Hämtning från gården ";
+    
+    <div class="lm__table-wrapper">
+        <p class="table-caption always-in-top desktop">@desktopTitle @deliveryAddress </p>
+        <p class="table-caption always-in-top tablet">@mobileTitle</p>
+        <table class="tablesaw no-border-top no-margin" data-tablesaw-mode="columntoggle">
+            <thead>
+                <tr>
+                    @for (var i = 0; i < listHeaders.Length; i++)
+                    {
+                        <th scope="col" data-tablesaw-priority="@(i == 0 ? "persist" : i.ToString())">@listHeaders[i]</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (deliveries != null)
+                {
+                    foreach (var delivery in deliveries)
+                    {
+                        <tr>
+                            @foreach (var td in listHeaders)
+                            {
+                                <td>@DeliveryMessageHelper.MappingMsgInforByName(delivery, td)</td>
+                            }
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+}
+
+<p>Lantmännen Lantbruk har följande leveranser och hämtningar till</p>
+
+@if (Model.PlannedDeliveriesList.Any())
+{
+    var headersToCustomers = new[]{
+                                    DeliveryItemHeader.Sandning, DeliveryItemHeader.SummaKvantitet,
+                                    DeliveryItemHeader.AntalOrderrader, DeliveryItemHeader.Planeradankomst,
+                                    DeliveryItemHeader.FranFabrikLager, DeliveryItemHeader.Transportor,
+                                    DeliveryItemHeader.TelTransportor
+                                };
+    var headersFromCustomers = new[]{
+                                    DeliveryItemHeader.LevForsakran, DeliveryItemHeader.Sandningsnr,
+                                    DeliveryItemHeader.Artikel, DeliveryItemHeader.Summa,
+                                    DeliveryItemHeader.Planeradankomst, DeliveryItemHeader.TillLager,
+                                    DeliveryItemHeader.Transportor, DeliveryItemHeader.TelTransportor
+                                };
+    foreach (var plannedDeliveriese in Model.PlannedDeliveriesList)
+    {
+        if (plannedDeliveriese == null) { continue; }
+
+        <p class="lm__mobile-display-only">@plannedDeliveriese.DeliveryAddress </p>
+        @RenderDeliveryTable(headersToCustomers, plannedDeliveriese.ToCustomer, plannedDeliveriese.DeliveryAddress)
+
+        @RenderDeliveryTable(headersFromCustomers, plannedDeliveriese.FromCustomer, plannedDeliveriese.DeliveryAddress, false)
+
+    }
+}

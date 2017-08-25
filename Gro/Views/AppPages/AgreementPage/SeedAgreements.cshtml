@@ -1,0 +1,46 @@
+@using Gro.Helpers
+
+@model Gro.ViewModels.Pages.AppPages.Agreement.AgreementPageViewModel
+
+@if (Model.ListSeedAgreementsByYears != null && Model.ListSeedAgreementsByYears.Any())
+{
+    foreach (var item in Model.ListSeedAgreementsByYears)
+    {
+        <h3>@string.Format(Html.Translate("/lantBruk/avtal/agreementHeader"), item.Key)</h3>
+        <div class="lm__table-wrapper">
+            <table cellspacing="1" class="lmTable bm20 tablesaw" style="border: 0" data-tablesaw-mode="columntoggle">
+                <thead>
+                <tr>
+                    <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/avtal/seedCrop/agreementNumber")</th>
+                    <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/avtal/seedCrop/name")</th>
+                    <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/avtal/seedCrop/area")</th>
+                    <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/avtal/seedCrop/quantity")</th>
+                    <th scope="col" data-tablesaw-priority="4">@Html.Translate("/lantBruk/avtal/seedCrop/weightIn")</th>
+                    <th scope="col" data-tablesaw-priority="5">@Html.Translate("/lantBruk/avtal/seedCrop/levTime")</th>
+                    <th scope="col" data-tablesaw-priority="6">@Html.Translate("/lantBruk/avtal/seedCrop/agreementType")</th>
+                    <th scope="col" data-tablesaw-priority="7">@Html.Translate("/lantBruk/avtal/seedCrop/price")</th>
+                    <th scope="col" data-tablesaw-priority="8">@Html.Translate("/lantBruk/avtal/deliveryterms")</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var rowItem in item)
+                {
+                    <tr>
+                        <td>
+                            <a href="#" class="showAnalyze" data-id="@rowItem.AgreementNumber">@rowItem.AgreementNumber</a>
+                        </td>
+                        <td>@rowItem.Sort</td>
+                        <td>@rowItem.Area</td>
+                        <td>@rowItem.Quantity.ConvertToTon()</td>
+                        <td>@rowItem.WeightIn.ConvertToTon()</td>
+                        <td>@rowItem.LevTime</td>
+                        <td>@rowItem.AgreementName</td>
+                        <td>@rowItem.Price</td>
+                        <td>@rowItem.DeliveryTerms</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+}

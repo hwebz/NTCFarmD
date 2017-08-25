@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://lantmannenlantbruk.se/1.0.0.0/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogiWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://lantmannenlantbruk.se/1.0.0.0/" location="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_ILogiWebService" type="i0:ILogiWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByCustomerNumber">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByShipmentIdMX">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByShipmentIdMX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByOrderNumber">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByOrderNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByCustomerOrderNumber">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerOrderNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByWaybillNumber">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByWaybillNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByCarrier">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCarrier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderRowsByShipmentIdMX">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderRowsByShipmentIdMX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentsdByOrderNumber">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByOrderNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentsdByCustomerOrderNumber">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByCustomerOrderNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarriers">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetCarriers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnoncements">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetAnnoncements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatus">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoadingPlaces">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetLoadingPlaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportData">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetReportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEsalesUrl">
+      <soap:operation soapAction="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetEsalesUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LantmannenLantbrukWcfExceptionFault">
+        <soap:fault use="literal" name="LantmannenLantbrukWcfExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogiWebService">
+    <wsdl:port name="BasicHttpBinding_ILogiWebService" binding="tns:BasicHttpBinding_ILogiWebService">
+      <soap:address location="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

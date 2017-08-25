@@ -1,0 +1,125 @@
+﻿@using EPiServer.Core
+@using Gro.ViewModels.Blocks
+@model UpcomingDeliveriesBlockViewModel
+@{
+    var missingBothPlan = !Model.DeliveriesFromCustomer.Any() && !Model.DeliveriesToCustomer.Any();
+    var plannedDeliveryPageUrl = ContentReference.IsNullOrEmpty(Model.DeliveryPlanPage) ? "#" : Url.ContentUrl(Model.DeliveryPlanPage);
+}
+
+@helper RenderDeliveryCard(DeliveryCard item, bool fromCustomer)
+{
+    <article class="lm__carousel__item @(item.HasDelayedToReceive ? "active" : "")"
+             data-orderNo="@item.OrderNo" data-orderLine="@item.OrderLine" data-itemName="@item.ItemName" data-orderQuantity="@item.OrderQuantity"
+             data-planedDate="@item.PlannedDeliveryDate" data-warehouse="@item.Warehouse" data-container="@item.Container">
+        <a href="#">
+            <div class="lm__carousel__item__content">
+                <img src="@item.CategoryIconUrl"  alt="Category icon" class="lm__carousel__icon" />
+                <p class="lm__carousel__datetime">@item.PlannedDeliveryDate</p>
+                <h3 class="heading-title-3 lm__carousel__title">@item.ItemName</h3>
+                 @if (fromCustomer)
+                {
+                    <p class="lm__carousel__description">Lev.försäkran: @item.OrderNo</p>
+                }
+                @if (item.HasDelayedToReceive)
+                {
+                    <p class="lm__carousel__tag">Ej levererad</p>
+                }
+                @*<a href="#" class="lm__blue-btn">Info</a>*@
+                <p class="lm__blue-btn">Info</p>
+            </div>
+        </a>
+
+    </article>
+}
+
+@helper RenderNoDeliveryCard(bool fromCustomer)
+{
+    <div class="lm__block-box has-separator align-center-text">
+        <a href="#" class="lm__blue-btn no-item disabled">
+            <h3 class="heading-title-3 align-center-text">@(fromCustomer ? "Från" : "Till") gården</h3>
+            <p class="align-center-text">Du har för tillfället inga planerade leveranser @(fromCustomer ? "från" : "till") gården</p>
+        </a>
+    </div>
+}
+
+@helper RenderDeliveryCardWithCalendar(string viewAllPageUrl)
+{
+    <article class="lm__carousel__item more-deliveries" data-item="1">
+        <a href="@viewAllPageUrl" class="lm__carousel__item__content callendar">
+            <img src="~/Static/images/calendar.png" alt="Calendar icon" class="lm__carousel__icon" />
+            <p class="lm__carousel__description">Gå till din leveransplan</p>
+        </a>
+    </article>
+}
+
+<div>
+    <div class="has-header">
+        <div class="lm__block-arrow-header @(missingBothPlan?"has-separator":string.Empty)">
+            <h2 class="heading-title-2">Kommande leveranser</h2>
+            <span class="content-datetime">Senast uppdaterad: @Model.LastUpdated</span>
+        </div>
+
+        <div class="lm__block">
+            @if (Model.DeliveriesToCustomer.Any())
+            {
+            <div class="lm__carousel-block">
+                <h3 class="heading-title-3">Planerad leverans till gården</h3>
+                <section class="lm__carousel__content" data-isFromCustomer="false">
+                    @if (Model.DeliveriesToCustomer.Any())
+                        {
+                            foreach (var item in Model.DeliveriesToCustomer)
+                            {
+                        @RenderDeliveryCard(item, false);
+                            }
+                        @RenderDeliveryCardWithCalendar(plannedDeliveryPageUrl);
+                        }
+                </section>
+            </div>
+            }
+            else
+            {
+            @RenderNoDeliveryCard(false);
+            }
+            @if (missingBothPlan)
+            {
+            @RenderNoDeliveryCard(true);
+            }
+            <a href="@Url.ContentUrl(Model.DeliveryPlanPage)" class="lm__more-link align-right-text">Gå till leveransplan <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+
+        </div>
+    </div>
+
+    <div class="lm__block">
+        @if (Model.DeliveriesFromCustomer.Any())
+        {
+            <div class="lm__carousel-block second-block">
+                <h3 class="heading-title-3">Planerad leverans från gården</h3>
+                <section class="lm__carousel__content" data-isFromCustomer="true">
+                    @if (Model.DeliveriesFromCustomer.Any())
+                    {
+                        foreach (var item in Model.DeliveriesFromCustomer)
+                        {
+                            @RenderDeliveryCard(item, true)
+                            ;
+                        }
+                        @RenderDeliveryCardWithCalendar(plannedDeliveryPageUrl)
+                        ;
+                    }
+
+                </section>
+            </div>
+            <a href="@Url.ContentUrl(Model.DeliveryPlanPage)" class="lm__more-link align-right-text">Gå till leveransplan <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        }
+        else if (!missingBothPlan)
+        {
+            @RenderNoDeliveryCard(true);
+            <a href="@Url.ContentUrl(Model.DeliveryPlanPage)" class="lm__more-link align-right-text">Gå till leveransplan <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        }
+
+
+    </div>
+
+    <div id="upcoming-detail" class="lm__modal-alert type-2">
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@using Gro.Helpers
+@using Newtonsoft.Json
+@model Gro.ViewModels.Pages.InternalPages.CustomerCardPageViewModel
+
+<script type="text/javascript">
+    window["roles"] = JSON.parse('@Html.Raw(ViewData["roles"])');
+    window["profileRoles"] = JSON.parse('@Html.Raw(ViewData["profileRoles"])');
+    window["initialUsers"] = JSON.parse('@Html.Raw(ViewData["users"])');
+</script>
+
+<div class="lm__listing-block" id="userListApp">
+
+</div>
+
+@if (Html.IsDebug())
+{
+    <script type="text/javascript" src="~/Static/dist/scripts/customerCardUserList.js"></script>
+}
+else
+{
+    <script type="text/javascript" src="~/Static/dist/scripts/customerCardUserList.production.js"></script>
+}

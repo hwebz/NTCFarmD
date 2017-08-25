@@ -1,0 +1,63 @@
+﻿@model Gro.ViewModels.PageViewModel<Gro.Core.ContentTypes.Pages.Registration.AccountActivationPage>
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <h1 @Html.EditAttributes(x => x.CurrentPage.Heading) class="lm__page-title">
+                    @(string.IsNullOrEmpty(Model.CurrentPage.Heading) ? "Registrera LM<sup>2</sup>-konto" : Model.CurrentPage.Heading)
+                </h1>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <form action="" method="post">
+                        <input type="hidden" hidden name="action" value="index" id="action" />
+                        <div class="lm__block-box has-separator">
+                            <ul class="errors-list" style="display: @(ViewData["errorCustomer"] == null && ViewData["errorOrganisation"] == null ? "none" : "block")">
+                                <li class="errors-list__header"><strong>Du måste se över</strong></li>
+                                @if (ViewData["errorCustomer"] != null)
+                                {
+                                    <li id="p_kundnummer">Ange kundnummer</li>
+                                }
+                                @if (ViewData["errorOrganisation"] != null)
+                                {
+                                    <li id="p_organisationsnr">Ange organisationsnummer</li>
+                                }
+                            </ul>
+                            <ul class="errors-list" style="display: @(ViewData["errorCode"] == null ? "none" : "block")">
+                                @if (ViewData["errorCode"] != null)
+                                {
+                                    <li class="errors-list__header"><strong>Något har blivit fel</strong></li>
+                                    <li class="errors-list__header">Vänligen kontakta Kundtjänst på telefonnummer 0771-111 222, eller via mail på lantbruk.kundtjanst@lantmannen.com</li>
+                                    <li class="errors-list__header">@ViewData["errorCode"]</li>
+                                }
+                            </ul>
+                            <h2 class="heading-title-2">Registrera konto</h2>
+                            <div class="author-inform-form__input">
+                                <div class="author-inform-form__column author-inform-form__column-custom-4 no-padding">
+                                    <label for="customerNumber">Ange kundnummer</label>
+                                    <input type="text" id="customerNumber" name="customerNumber" class="customerNumber @(ViewData["errorCustomer"] != null ? "error" : string.Empty)"
+                                           value="@ViewData["customerNumber"]" />
+                                    <span class="error-item">@ViewData["errorCustomer"]</span>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-4 no-padding">
+                                    <label for="organizationNumber">Ange organisationsnummer</label>
+                                    <input type="text" id="organizationNumber" name="organizationNumber" class="organisationsnr @(ViewData["errorOrganisation"] != null ? "error" : string.Empty)"
+                                           value="@ViewData["organizationNumber"]" />
+                                    <span class="error-item">@ViewData["errorOrganisation"]</span>
+                                </div>
+                            </div>
+                            <div class="author-inform-form__input small-distance-top">
+                                <a class="lm__form-btn" href="/">Avbryt</a>
+                                <input type="submit" class="lm__form-btn reverse-state" value="Fortsätt" />
+                            </div>
+                        </div>                     
+                    </form>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.RightContent)
+            </div>
+        </div>
+    </div>
+</section>

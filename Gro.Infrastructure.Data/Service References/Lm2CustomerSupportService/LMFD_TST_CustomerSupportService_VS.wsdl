@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsdlhttp="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LMFD_TST_CustomerSupportService_VS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Farmday CustomerSupportService </wsdl:documentation>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/LM2CustomerSupportService.Model" />
+      <xs:element name="Ping">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomersByOrgNr">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="organisationNr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="onlyNonActive" type="xs:boolean" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomersByOrgNrResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LM2CustomerSupportService.Model" minOccurs="0" name="GetCustomersByOrgNrResult" nillable="true" type="q1:ArrayOfCustomer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LM2CustomerSupportService.Model" minOccurs="0" name="customer" nillable="true" type="q2:Customer" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SaveCustomerResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomerLM2Id">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomerLM2IdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetCustomerLM2IdResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LM2CustomerSupportService.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LM2CustomerSupportService.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfCustomer">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+      <xs:complexType name="Customer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganisationNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Customer" nillable="true" type="tns:Customer" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ILM2CustomerSupportService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_GetCustomersByOrgNr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersByOrgNrResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_SaveCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_GetCustomerLM2Id_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerLM2Id" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_GetCustomerLM2Id_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerLM2IdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_GetCustomersByOrgNr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersByOrgNr" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2CustomerSupportService_SaveCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILM2CustomerSupportService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/Ping" message="tns:ILM2CustomerSupportService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/PingResponse" message="tns:ILM2CustomerSupportService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersByOrgNr">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/GetCustomersByOrgNr" message="tns:ILM2CustomerSupportService_GetCustomersByOrgNr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/GetCustomersByOrgNrResponse" message="tns:ILM2CustomerSupportService_GetCustomersByOrgNr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/SaveCustomer" message="tns:ILM2CustomerSupportService_SaveCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/SaveCustomerResponse" message="tns:ILM2CustomerSupportService_SaveCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLM2Id">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/GetCustomerLM2Id" message="tns:ILM2CustomerSupportService_GetCustomerLM2Id_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2CustomerSupportService/GetCustomerLM2IdResponse" message="tns:ILM2CustomerSupportService_GetCustomerLM2Id_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILM2CustomerSupportServiceHttpGET" type="tns:ILM2CustomerSupportService">
+    <wsdlhttp:binding verb="GET" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersByOrgNr">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/GetCustomersByOrgNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/SaveCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLM2Id">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/GetCustomerLM2Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILM2CustomerSupportServiceHttpPOST" type="tns:ILM2CustomerSupportService">
+    <wsdlhttp:binding verb="POST" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersByOrgNr">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/GetCustomersByOrgNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/SaveCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLM2Id">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/GetCustomerLM2Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILM2CustomerSupportService" type="tns:ILM2CustomerSupportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersByOrgNr">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/GetCustomersByOrgNr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomer">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/SaveCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerLM2Id">
+      <soap:operation soapAction="http://tempuri.org/ILM2CustomerSupportService/GetCustomerLM2Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LMFD_TST_CustomerSupportService_VS">
+    <wsdl:port name="LMFD_TST_CustomerSupportService_VShttp" binding="tns:BasicHttpBinding_ILM2CustomerSupportServiceHttpGET">
+      <wsdlhttp:address location="http://sci-api-tst.work.lantmannen.lan:80/ws/LMFD_TST_CustomerSupportService_VS/1.0" />
+    </wsdl:port>
+    <wsdl:port name="LMFD_TST_CustomerSupportService_VSsoaphttp" binding="tns:BasicHttpBinding_ILM2CustomerSupportService">
+      <soap:address location="http://sci-api-tst.work.lantmannen.lan:80/ws/LMFD_TST_CustomerSupportService_VS.LMFD_TST_CustomerSupportService_VSsoaphttp/1.0" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

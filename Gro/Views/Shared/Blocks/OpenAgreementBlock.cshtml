@@ -1,0 +1,135 @@
+﻿@using Gro.ViewModels.Blocks;
+@model OpenAgreementsBlockViewModel
+
+<div class="lm__block agreement">
+    <div class="lm__block-header">
+        <h1 class="align-center-text" @Html.EditAttributes(x => x.CurrentBlock.Heading)> @Model.CurrentBlock.Heading</h1>
+    </div>
+
+    @if (!Model.OpenGrainAgreements.Any() && !Model.OpenSeedAgreements.Any())
+    {
+        <section class="lm__news">
+            <p style="text-align: center; margin-top: 15px;" @Html.EditAttributes(x => x.CurrentBlock.NoAgreementText)>
+                @Model.CurrentBlock.NoAgreementText
+            </p>
+            <a href="@Url.ContentUrl(Model.CurrentBlock.AgreementPageLink)" class="lm__more-link"
+               @Html.EditAttributes(x => x.CurrentBlock.LinkText)>
+                @Model.CurrentBlock.LinkText<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+        </section>
+    }
+
+    @if (Model.OpenGrainAgreements.Any())
+    {
+        <section class="lm__news">
+            <h2 class="heading-title-2 spannmal" @Html.EditAttributes(x => x.CurrentBlock.GrainTradeHeadline)>@Model.CurrentBlock.GrainTradeHeadline</h2>
+            @foreach (var grainAgreement in Model.OpenGrainAgreements.OrderBy(a => a.ValidTo))
+            {
+                <article class="lm__news-item">
+                    <a href="#">
+                        <h4 class="article-title">@grainAgreement.Sort</h4>
+                        <table style="border: 0">
+                            <tr>
+                                <td width="50%">Giltigt t.o.m.</td>
+                                <td width="50%">@grainAgreement.ValidTo.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                        </table>
+                    </a>
+                    <div class="detail-information">
+                        <table style="border: 0">
+                            <tr>
+                                <td width="50%">Giltigt från:</td>
+                                <td width="50%">@grainAgreement.ValidFrom.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                            <tr>
+                                <td>Avtalsnummer:</td>
+                                <td>@grainAgreement.AgreementNumber</td>
+                            </tr>
+                            <tr>
+                                <td>Kvantitet:</td>
+                                <td>@grainAgreement.Quantity</td>
+                            </tr>
+                            <tr>
+                                <td>Invägt:</td>
+                                <td>@grainAgreement.Weighed</td>
+                            </tr>
+                            <tr>
+                                <td>Avtalstyp:</td>
+                                <td>@grainAgreement.AgreementName</td>
+                            </tr>
+                            <tr>
+                                <td>Pris:</td>
+                                <td>@grainAgreement.Price</td>
+                            </tr>
+                            <tr>
+                                <td>Leveransvillkor:</td>
+                                <td>@grainAgreement.DeliveryTerms</td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+            }
+
+            <a href="@Url.ContentUrl(Model.CurrentBlock.AgreementPageLink)" class="lm__more-link" @Html.EditAttributes(x => x.CurrentBlock.LinkText)>
+                @Model.CurrentBlock.LinkText<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+        </section>
+    }
+
+    @if (Model.OpenSeedAgreements.Any())
+    {
+        <section class="lm__news" style="background-color: white">
+            <h2 class="heading-title-2 odling" @Html.EditAttributes(x => x.CurrentBlock.SeedTradeHeadline)>@Model.CurrentBlock.SeedTradeHeadline</h2>
+            @foreach (var seedAgreement in Model.OpenSeedAgreements.OrderBy(a => a.AgreementNumber))
+            {
+                <article class="lm__news-item">
+                    <a href="#">
+                        <h4 class="article-title">@seedAgreement.Sort</h4>
+                        <table style="border: 0">
+                            <tr>
+                                <td width="100%">@seedAgreement.LevTime</td>
+                            </tr>
+                        </table>
+                    </a>
+                    <div class="detail-information">
+                        <table style="border: 0">
+                            <tr>
+                                <td width="30%">Avtalsnr:</td>
+                                <td width="70%">@seedAgreement.AgreementNumber</td>
+                            </tr>
+                            <tr>
+                                <td>Areal:</td>
+                                <td>@seedAgreement.Area</td>
+                            </tr>
+                            <tr>
+                                <td>Kvantitet:</td>
+                                <td>@seedAgreement.Quantity</td>
+                            </tr>
+                            <tr>
+                                <td>Invägt:</td>
+                                <td>@seedAgreement.WeightIn</td>
+                            </tr>
+                            <tr>
+                                <td>Avtalstyp:</td>
+                                <td>@seedAgreement.AgreementName</td>
+                            </tr>
+                            <tr>
+                                <td>Pris:</td>
+                                <td>@seedAgreement.Price</td>
+                            </tr>
+                            <tr>
+                                <td>Leveransvillkor:</td>
+                                <td>@seedAgreement.DeliveryTerms</td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+            }
+
+            <a href="@Url.ContentUrl(Model.CurrentBlock.AgreementPageLink)" class="lm__more-link"
+               @Html.EditAttributes(x => x.CurrentBlock.LinkText)>
+                @Model.CurrentBlock.LinkText<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+        </section>
+    }
+</div>

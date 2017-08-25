@@ -1,0 +1,82 @@
+﻿@using System.Configuration
+<section class="lm__contents iam-block">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <div class="lm__center-block">
+                    <div class="iam-block__logo">
+                        <h1 class="primary clarendonurw-reg-font align-center-text">LM<span class="super-text">2</span></h1>
+                        <h2 class="slogan clarendonurw-reg-font align-center-text">Verktyget för jordens entreprenörer</h2>
+                    </div>
+                    <div class="iam-block__box__wrapper">
+                        <div class="iam-block__box">
+                            <form action="#" method="post">
+                                <h2 class="clarendonurw-reg-font black-text">Logga in med e-post</h2>
+                                <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                    <label class="lm__bold-title" for="e-post">E-post</label>
+                                    <input type="text" name="e-post" class="e-post width-100" placeholder="din.epost@exampel.com" />
+                                </div>
+
+                                <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                    <label class="lm__bold-title" for="efternamn">Lösenord</label>
+                                    <input type="text" name="efternamn" class="efternamn width-100" placeholder="ditt lösenord" />
+                                </div>
+
+                                <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                    <div class="remember-me">
+                                        <input type="checkbox" />
+                                        <p>Kom ihåg mig</p>
+                                    </div>
+                                    <a class="lm__link" href="#">Glömt lösenord?</a>
+                                </div>
+
+                                <input type="submit" class="lm__form-btn reverse-state width-100" value="Logga in" />
+                            </form>
+                        </div>
+                        <div class="iam-block__links">
+                            <a class="lm__bold-title" href="#">Logga in med Mobilt BankID <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <a class="lm__bold-title" href="#">Logga in med BankID på fil <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="iam-block__register-link align-center-text">
+                            <a href="#" class="lm__link">Registrera nytt LM<sup>2</sup>-konto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (ViewData["reference"].Equals("PrivateFirm"))
+    {
+        <div class="lm__information-modal__wrapper">
+            <div class="mask"></div>
+            <div class="lm__information-modal large">
+                <h3 class="lm__information-modal__title">Ditt LM<sup>2</sup>-konto är nu registrerat</h3>
+                <p>Ett tillfälligt lösenord har skickats till din e-postadress.</p>
+                <p>Tänk på att det kan ta upp till 15 minuter innan du kan logga in.</p>
+                <br />
+                <div class="align-center-text block-element">
+                    <a href="@ConfigurationManager.AppSettings["domainUrl"].Replace(".com/lm", ".com")@ConfigurationManager.AppSettings["LogoutRedirect"]" id="login-link" target="_self" class="lm__form-btn reverse-state">Ok</a>                   
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="lm__information-modal__wrapper">
+            <div class="mask"></div>
+            <div class="lm__information-modal large">
+                <h3 class="lm__information-modal__title">Din ansökan om Lantmännenkonto är skickad</h3>
+                <p>
+                    Din anökan om Lantmännenkonto har skickats till vår kundtjänst. Kundtjänst måste därefter godkänna ansökan innan du kan få full behörighet till tjänsterna i LM2.
+                    Detta kan ta upp till en halv arbetsdag. Tills dess kan du logga in i LM2 med det tillfälliga lösenordet som har skickats till din e-postadress.
+                </p>
+                <p>Tänk på att det kan ta upp till 15 minuter innan det går att logga in.</p>
+                <br />
+                <div class="align-center-text block-element">
+                    <a href="@ConfigurationManager.AppSettings["domainUrl"].Replace(".com/lm", ".com")@ConfigurationManager.AppSettings["LogoutRedirect"]" id="login-link" target="_self" class="lm__form-btn reverse-state">Ok</a>
+                </div>
+            </div>
+        </div>
+    }
+</section>

@@ -1,0 +1,658 @@
+﻿@using System.Globalization
+@using Gro.Constants
+@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@using Gro.Infrastructure.Data
+@model Gro.ViewModels.Pages.AppPages.DeliveryAssurance.DeliveryAssuranceViewModel
+
+<!-- START MAIN CONTENT -->
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                @using (Html.BeginForm("Submit", "DeliveryAssurancePage", FormMethod.Post, new { id = "deliveryAssuranceForm", name = "deliveryAssuranceForm", @class = "lm__form-input", enctype = "multipart/form-data" }))
+                {
+                    <div class="lm__block lm__mina-avtal has-separator no-margin lm__block-contain-float">
+                        <input type="hidden" id="reqDate" name="RequestDate" value="@Model.DeliveryAssurance.RequestDate" />
+                        <input type="hidden" id="preDaysDelivery" value="@DeliveryAssuranceHelper.PreDaysDelivery" />
+                        <input type="hidden" id="postDaysDelivery" value="@DeliveryAssuranceHelper.PostDaysDelivery" />
+                        <input type="hidden" id="harvestPeriodStart" value="@DeliveryAssuranceHelper.HarvestPeriodStartDate" />
+                        <input type="hidden" id="harvestPeriodEnd" value="@DeliveryAssuranceHelper.HarvestPeriodEndDate" />
+                        <input type="hidden" id="numberOfDepaAvtal" value="@Model.DepaAvtals.Count" />
+
+                        <input type="hidden" id="CurrentUrl" name="CurrentUrl" value="@Model.DeliveryAssurance.CurrentUrl" />
+                        <input type="hidden" id="OrderType" name="OrderType" value="@Model.DeliveryAssurance.OrderType" />
+                        <input type="hidden" name="Action" id="Action" value="@Model.DeliveryAssurance.Action" />
+                        <input type="hidden" name="Item" value="@Model.DeliveryAssurance.Item" />
+                        <input type="hidden" name="Sort" value="@Model.DeliveryAssurance.Sort" />
+                        <input type="hidden" name="ItemName" value="@Model.DeliveryAssurance.ItemName" />
+                        <input type="hidden" name="LineNumber" value="@Model.DeliveryAssurance.LineNumber" />
+                        <input type="hidden" name="Status" value="@Model.DeliveryAssurance.Status" />
+                        <input type="hidden" id="IsInternal" value="@(Model.IsInternal ? 1 : 0)" />
+                        <input type="hidden" id="EnabledWarehouse" value="@(Model.EnabledWarehouse ? 1 : 0)" />
+
+                        <div class="u-1/1">
+                            @if (Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Create))
+                            {
+                                <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.CreateHeader)</h1>
+                            }
+                            else if (Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Change))
+                            {
+                                <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.ChangeHeader)</h1>
+                            }
+                            else if (Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Approve))
+                            {
+                                <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.ApproveHeader)</h1>
+                            }
+                        </div>
+                        <a class="lm__link" href="@Url.ContentUrl(Model.CurrentPage.MyPageUrl)">Gå till Mina avtal</a>
+
+                        @if (!Model.IsNew)
+                        {
+                            <div class="u-1/1 u-1/1-tablet lm__float-left-element u-1/1-desktop lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/deliveryAssurance")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.IONumber</span>
+                                    <input type="hidden" name="IONumber" value="@Model.DeliveryAssurance.IONumber" />
+                                </div>
+                            </div>
+                        }
+
+                        <div class="u-1/1 u-1/1-tablet lm__float-left-element u-1/1-desktop lm__row-margin">
+                            <div class="lm__float-left-element lm__control-label">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/create/name")</span>
+                            </div>
+                            <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                <span>@Model.DeliveryAssurance.CustomerName</span>
+                                <input type="hidden" name="CustomerName" value="@Model.DeliveryAssurance.CustomerName" />
+                            </div>
+                        </div>
+                        <div class="u-1/1 u-1/1-tablet lm__float-left-element u-1/1-desktop">
+                            <div class="lm__float-left-element lm__control-label">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/create/supplierNumber")</span>
+                            </div>
+                            <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                <span>@Model.DeliveryAssurance.CustomerNumber</span>
+                                <input type="hidden" id="dialog_CustomerNumber" name="CustomerNumber" value="@Model.DeliveryAssurance.CustomerNumber" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="lm__form lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="lm__block">
+                            <div class="u-1/1  lm__form">
+                                <div class="author-inform-form__column author-inform-form__column-half lm__row-margin">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/create/deliveryAddress")</span>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                        <ul class="lm__form-dropdown type-3">
+                                            <li class="showcase">
+                                                <a href="#" id="a_deliveryAddress">
+                                                    @(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.DeliveryAddress) ?
+                                                                        Model.DeliveryAssurance.DeliveryAddress :
+                                                                        "-- Välj leveransadress --")
+                                                </a>
+                                                <ul class="dropdown">
+                                                    @foreach (var item in Model.DeliveryAddresses)
+                                                    {
+                                                        <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.DeliveryAddress == item.Key ? " class=\"selected\"" : "")>
+                                                            <a href="javascript:void(0)">@item.Value</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                                <input type="hidden" class="form-element" id="DeliveryAddress" name="DeliveryAddress"
+                                                       value="@(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.DeliveryAddress) ?
+                                                                        Model.DeliveryAssurance.DeliveryAddress :
+                                                                        string.Empty)" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="author-inform-form__column u-1/2 u-1/2-tablet  u-1/4-desktop lm__row-margin">
+                                    <span>
+                                        @Html.Translate("/lantBruk/leveransForsakran/create/deliveryDate")
+                                        <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                    </span>
+
+                                    <div class="lm__information-modal__wrapper hidden">
+                                        <div class="mask"></div>
+                                        <div class="lm__information-modal">
+                                            <h3 class="lm__information-modal__title">Information - Leveransdatum</h3>
+                                            <p>
+                                                För gårdshämtning gäller angivet datum som första möjliga hämtningsdag. För egen transport ange förväntad leveransdag.
+                                            </p>
+                                        </div>
+                                        <div class="lm__information-modal__close-btn">
+                                            <a href=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="datepicker-container">
+                                        <input type="text"
+                                               id="DeliveryDate"
+                                               name="DeliveryDate"
+                                               value="@Model.DeliveryAssurance.DeliveryDate"
+                                               class="@(Model.EnalbedDeliveryDate ? string.Format("delivery-datepicker calculate_deliveryDate lm__row-margin {0}", Model.DeliveryDateCssClass) : "disabled")">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    if (!Model.IsNew)
+                    {
+                        <div class="lm__form lm__block lm__mina-avtal has-separator no-margin">
+                            <div class="lm__block">
+                                <div class="u-1/1  lm__form">
+                                    <div class="author-inform-form__column author-inform-form__column-half lm__row-margin">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/overview/item")</span>
+                                        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                            <span>@Model.DeliveryAssurance.ItemName</span>
+                                            <input type="hidden" class="form-element" name="Article" value="@Model.DeliveryAssurance.Article" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="lm__block">
+                            <div class="u-1/1">
+                                @if (Model.IsNew)
+                                {
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1 lm__row-margin">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/create/item")</span>
+                                        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                            <ul class="lm__form-dropdown type-3">
+                                                <li class="showcase">
+                                                    <a href="javascript:void(0)" id="a_article">@Html.Translate("/lantBruk/leveransForsakran/create/chooseItem")</a>
+                                                    <ul class="dropdown">
+                                                        @foreach (var item in Model.Articles)
+                                                        {
+                                                            <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.Article == item.Key ? " class=\"selected\"" : "")>
+                                                                <a href="javascript:void(0)" onclick='DeliveryAssuranceModule.getWarehouseList("#DeliveryDate", "@item.Key")'>@item.Value</a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                    <input type="hidden" class="form-element"
+                                                           id="Article" name="Article" value="@Model.DeliveryAssurance.Article" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="author-inform-form__column author-inform-form__column-custom-1 lm__row-margin">
+                                    <div class="u-3/5-tablet u-3/5-desktop u-3/5 lm__float-left-element author-inform-form__column small-input">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/create/quantity")</span>
+                                        <input type="text" id="Quantity" name="Quantity" class="lm__row-margin " value="@Model.DeliveryAssurance.Quantity" />
+                                    </div>
+                                    <div class="u-2/5-tablet u-2/5-desktop u-2/5 lm__float-left-element ">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/create/harvestYear")</span>
+                                        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                            <ul class="lm__form-dropdown type-3">
+                                                <li class="showcase">
+                                                    <a href="javascript:void(0)" id="a_HarvestYear">
+                                                        @(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.HarvestYear) ?
+                                                                        Model.DeliveryAssurance.HarvestYear :
+                                                                        (Model.HarvestYears.Any() ? Model.HarvestYears.FirstOrDefault().Value : string.Empty))
+                                                    </a>
+                                                    <ul class="dropdown">
+                                                        @foreach (var item in Model.HarvestYears)
+                                                        {
+                                                            <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.HarvestYear == item.Key ? " class=\"selected\"" : "")><a href="javascript:void(0)">@item.Value</a></li>
+                                                        }
+                                                    </ul>
+                                                    <input type="hidden" class="form-element" name="HarvestYear" id="HarvestYear"
+                                                           value="@(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.HarvestYear) ?
+                                                                        Model.DeliveryAssurance.HarvestYear :
+                                                                        (Model.HarvestYears.Any() ? Model.HarvestYears.FirstOrDefault().Key : string.Empty))" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="warehouseList" class="@(Model.DeliveryAssurance.Gardshamtning != "1" && !string.IsNullOrWhiteSpace(Model.DeliveryAssurance.TermAndCondition) || Model.IsInternal ? "author-inform-form__column author-inform-form__column-large lm__row-margin" : "author-inform-form__column author-inform-form__column-large lm__row-margin hidden")">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/create/warehouse")</span>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                        <ul class="@(Model.EnabledWarehouse ? "lm__form-dropdown type-3" : "lm__form-dropdown type-3 disabled")">
+                                            <li class="showcase">
+                                                <a href="javascript:void(0)" id="a_Warehouse">-- Välj mottagningsplats --</a>
+                                                <ul class="dropdown warehouseDropdown">
+                                                    @foreach (var item in Model.WarehouseList)
+                                                    {
+                                                        <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.Warehouse == item.Key ? " class=\"selected\"" : "")><a href="javascript:void(0)">@item.Value</a></li>
+                                                    }
+                                                </ul>
+                                                <input type="hidden" class="form-element" name="Warehouse" id="Warehouse" value="@Model.DeliveryAssurance.Warehouse" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="lm__block ">
+                            <div class="u-1/1">
+                                <div class="author-inform-form__column author-inform-form__column-full">
+                                    <div class="lm__control-label ">
+                                        <span>
+                                            @Html.Translate("/lantBruk/leveransForsakran/create/transportType")
+                                            <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                        </span>
+                                        <div class="lm__information-modal__wrapper hidden">
+                                            <div class="mask"></div>
+                                            <div class="lm__information-modal">
+                                                <h3 class="lm__information-modal__title">Information - Transportsätt</h3>
+                                                <p>
+                                                    Vid val av gårdshämtining sker beställning av hämtning i samband med denna leveransförsäkran.
+                                                </p>
+                                            </div>
+                                            <div class="lm__information-modal__close-btn">
+                                                <a href=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        <div class="lm__radio type-2 width-30">
+                                            <input type="radio" id="Gardshamtning" name="Gardshamtning" value="1" class="@(Model.DeliveryAssurance.OrderType != null && Model.DeliveryAssurance.OrderType.Equals("206") ? "disabled" : "")" @Html.Raw(Model.DeliveryAssurance.Gardshamtning == "1" ? " checked=\"checked\"" : "") />
+                                            <p>@Html.Translate("/lantBruk/leveransForsakran/create/farmCollection")</p>
+                                        </div>
+                                        <div class="lm__radio type-2 width-30">
+                                            <input type="radio" name="TermAndCondition" value="@DeliveryAssuranceTermConditions.OwnTransport" @Html.Raw(Model.DeliveryAssurance.TermAndCondition == DeliveryAssuranceTermConditions.OwnTransport ? " checked=\"checked\"" : "") />
+                                            <p>@Html.Translate("/lantBruk/leveransForsakran/create/ownTransport")</p>
+                                        </div>
+                                        @if (Model.IsInternal)
+                                        {
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="TermAndCondition" value="@DeliveryAssuranceTermConditions.SupplierChoice" @Html.Raw(Model.DeliveryAssurance.TermAndCondition == DeliveryAssuranceTermConditions.SupplierChoice ? " checked=\"checked\"" : "") />
+                                                <p>@Html.Translate("/lantBruk/leveransForsakran/create/supplierChoice")</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="lorryType" class="@(Model.DeliveryAssurance.Gardshamtning == "1" ? "u-1/1 " : "u-1/1  hidden")">
+                                <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/create/lorryType")</span>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                        <ul class="@(Model.EnabledLorryType ? "lm__form-dropdown type-3" : "lm__form-dropdown type-3 disabled")">
+                                            <li class="showcase">
+                                                <a href="javascript:void(0)" id="a_LorryType">
+                                                    @(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.LorryType) ?
+                                                                        Model.DeliveryAssurance.LorryType :
+                                                                        (Model.LorryTypes.Any() ? Model.LorryTypes.FirstOrDefault().Value : string.Empty))
+                                                </a>
+                                                <ul class="dropdown">
+                                                    @foreach (var item in Model.LorryTypes)
+                                                    {
+                                                        <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.LorryType == item.Key ? " class=\"selected\"" : "")><a href="javascript:void(0)">@item.Value</a></li>
+                                                    }
+                                                </ul>
+                                                <input type="hidden" class="form-element" id="LorryType" name="LorryType" value="@Model.DeliveryAssurance.LorryType" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="lm__block ">
+                            <div class="u-1/1">
+                                <div class="author-inform-form__column author-inform-form__column-full">
+                                    <div class="lm__control-label">
+                                        <span>
+                                            @Html.Translate("/lantBruk/leveransForsakran/create/typeDelivery")
+                                            <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                        </span>
+                                        <div class="lm__information-modal__wrapper hidden">
+                                            <div class="mask"></div>
+                                            <div class="lm__information-modal">
+                                                <h3 class="lm__information-modal__title">Information - Överleverans</h3>
+                                                <p>
+                                                    Välj om din leverans ska avräknas mot depåavtal eller spontanleverans när alla eventuella termins, pool och spotavtal är fyllda                                                
+                                                </p>
+                                            </div>
+                                            <div class="lm__information-modal__close-btn">
+                                                <a href=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        @foreach (var item in Model.DeliveryValues)
+                                        {
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="DeliveryType" value="@item.Key" @Html.Raw(Model.DeliveryAssurance.DeliveryType == item.Key ? " checked=\"checked\"" : "") />
+                                                <p>@item.Value</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="depaAvtal" class="@(Model.DeliveryAssurance.DeliveryType != null && Model.DeliveryAssurance.DeliveryType.Equals(DeliveryTypes.Depa) ? "u-1/1  lm__block" : "u-1/1  lm__block hidden")">
+                                <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/create/agreement")</span>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                        <ul class="lm__form-dropdown type-3">
+                                            <li class="showcase">
+                                                <a href="#">@Model.DeliveryAssurance.DepaAvtal</a>
+                                                <ul class="dropdown">
+                                                    @foreach (var item in Model.DepaAvtals)
+                                                    {
+                                                        <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.DepaAvtal == item.Key ? " class=\"selected\"" : "")><a href="javascript:void(0)">@item.Value</a></li>
+                                                    }
+                                                </ul>
+                                                <input type="hidden" class="form-element" name="DepaAvtal" value="@Model.DeliveryAssurance.DepaAvtal" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1 ">
+                                <div class="author-inform-form__column author-inform-form__column-full">
+                                    <div class="lm__control-label">
+                                        <span>
+                                            @Html.Translate("/lantBruk/leveransForsakran/create/dried")
+                                            <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                        </span>
+                                        <div class="lm__information-modal__wrapper hidden">
+                                            <div class="mask"></div>
+                                            <div class="lm__information-modal">
+                                                <h3 class="lm__information-modal__title">Information - Varmluftstorka</h3>
+                                                <p>
+                                                    Ange om leveransen avser vara som vamluftstorkats eller inte.
+                                                </p>
+                                            </div>
+                                            <div class="lm__information-modal__close-btn">
+                                                <a href=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        @foreach (var item in Model.M3TorkatValues)
+                                        {
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="Torkat" value="@item.Key" @Html.Raw(Model.DeliveryAssurance.Torkat == item.Key ? " checked=\"checked\"" : "") />
+                                                <p>@item.Value</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1 ">
+                                <div class="author-inform-form__column author-inform-form__column-full">
+                                    <div class="lm__control-label">
+                                        <span>
+                                            @Html.Translate("/lantBruk/leveransForsakran/create/red")
+                                            <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                        </span>
+                                        <div class="lm__information-modal__wrapper hidden">
+                                            <div class="mask"></div>
+                                            <div class="lm__information-modal">
+                                                <h3 class="lm__information-modal__title">Information - RED</h3>
+                                                <p>RED är ett EU-direktiv som reglerar hur spannmål för etanolproduktion får odlas.</p>
+                                                <p>För att leveransen&nbsp;räknas vara hållbar enligt RED ska följande vara uppyllt:</p>
+                                                <ul>
+                                                    <li>Odling ska vara på mark som var åkermark den 1 jan 2008</li>
+                                                    <li>Marken som varan odlats på ska ingå i ansökan för EU-stöd</li>
+                                                    <li>Odling i eventuella naturskyddsområden ska ske enligt uppskatta krav för området</li>
+                                                    <li>Leverans måste ske&nbsp;för vara odlad på egen gård</li>
+                                                </ul>
+                                                <p>Alla direktleveranser till Agroetanol måste uppfylla kraven ovan. Vid leverans till silo tillåts både godkänd och icke godkända leveranser. Det blir ingen prisskillnad för dig som leverantör oavsett om din spannmål är hållbar enligt RED eller ej.</p>
+                                                <p>Leveranser från andra gårdar än leverantörens egna är inte godkända enligt RED.</p>
+                                            </div>
+                                            <div class="lm__information-modal__close-btn">
+                                                <a href=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        @foreach (var item in Model.M3RedValues)
+                                        {
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="Red" value="@item.Key" @Html.Raw(Model.DeliveryAssurance.Red == item.Key ? " checked=\"checked\"" : "") />
+                                                <p>@item.Value</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-1/1 ">
+                                <div class="author-inform-form__column author-inform-form__column-full">
+                                    <div class="lm__control-label">
+                                        <span>
+                                            @Html.Translate("/lantBruk/leveransForsakran/create/strafork")
+                                            <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                        </span>
+                                        <div class="lm__information-modal__wrapper hidden">
+                                            <div class="mask"></div>
+                                            <div class="lm__information-modal">
+                                                <h3 class="lm__information-modal__title">Information - Stråförkortat</h3>
+                                                <p>
+                                                    Ange om varan som levereras behandlats med ståförkortningsmedel.
+                                                </p>
+                                            </div>
+                                            <div class="lm__information-modal__close-btn">
+                                                <a href=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        @foreach (var item in Model.M3StraforkValues)
+                                        {
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="Straforkortat" value="@item.Key" @Html.Raw(Model.DeliveryAssurance.Straforkortat == item.Key ? " checked=\"checked\"" : "") />
+                                                <p>@item.Value</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-1/1 ">
+                                <div class="author-inform-form__column author-inform-form__column-full">
+                                    <div class="lm__control-label">
+                                        <span>
+                                            @Html.Translate("/lantBruk/leveransForsakran/create/slam")
+                                            <a href="#/" class="lm_info link-to-open-popup"><i class="fa fa-info-circle"></i></a>
+                                        </span>
+                                        <div class="lm__information-modal__wrapper hidden">
+                                            <div class="mask"></div>
+                                            <div class="lm__information-modal">
+                                                <h3 class="lm__information-modal__title">Information - SLAM</h3>
+                                                <p>
+                                                    Ange om varan som levereras odlats på mark som behandlats med slam.
+                                                </p>
+                                            </div>
+                                            <div class="lm__information-modal__close-btn">
+                                                <a href=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        @foreach (var item in Model.M3SlamValues)
+                                        {
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="Slam" value="@item.Key" @Html.Raw(Model.DeliveryAssurance.Slam == item.Key ? " checked=\"checked\"" : "") />
+                                                <p>@item.Value</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="lm__block ">
+                            <div class="u-1/1">
+                                <div class="author-inform-form__column author-inform-form__column-custom-4">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/create/otherInfo")</span>
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                        <textarea name="OtherInfo" class="ovrig-information ">@Model.DeliveryAssurance.OtherInfo</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="lm__block lm__blue-btn-block">
+                            <div class="u-1/1 lm__blue-btn-block">
+                                <a href="javascript:void(0)" id="openCalculateFee" class="lm__blue-btn">Beräkna fraktpris</a>
+                            </div>
+                            <div class="u-1/1  lm__row-margin">
+                                <div class="lm__checkbox lm__tick">
+                                    <input type="checkbox" id="approveTerm" value="1" />
+                                    <label></label>
+                                </div>
+                                <span class="middle-vertical" data-id="4229496" href="#">Jag godkänner <a class="lm__link" href="@Url.ContentUrl(Model.CurrentPage.DeliveryTermsPageUrl)" target="_blank">Lantmännen Lantbruks leveransvillkor</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__block lm__mina-avtal has-separator ">
+                        <div class="lm__block ">
+                            <div class="align-right-text">
+                                @if (!Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Approve))
+                                {
+                                    <input type="button" id="clearBtn" class="lm__form-btn" value="@Html.Translate("/lantBruk/leveransForsakran/clear")" />
+                                }
+                                <input type="submit" id="btnSubmitDelivery" class="lm__form-btn disabled" value="@Html.Translate("/lantBruk/leveransForsakran/next")" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                <div id="calculateFeeDialog" class="lm__modal__wrapper hidden">
+                    <div class="mask"></div>
+                    <div class="lm__wide-modal author-inform-form">
+                        <div class="loader-wrapper" style="display: none;">
+                            <div class="loader"></div>
+                        </div>
+                        <div class="modal-content-container">
+                            <h3 class="lm__wide-modal__title">@Html.Translate("/lantBruk/leveransForsakran/deliveryFeeHeader")</h3>
+
+                            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/overview/lorryType")</span>
+                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                    <ul class="lm__form-dropdown type-3">
+                                        <li class="showcase">
+                                            <a href="javascript:void(0)">
+                                                @(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.LorryType) ?
+                                              Model.DeliveryAssurance.LorryType :
+                                              (Model.LorryTypes.Any() ? Model.LorryTypes.FirstOrDefault().Value : string.Empty))
+                                            </a>
+                                            <ul class="dropdown">
+                                                @foreach (var item in Model.LorryTypes)
+                                                {
+                                                    <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.LorryType == item.Key ? " class=\"selected\"" : "")><a href="javascript:void(0)">@item.Value</a></li>
+                                                }
+                                            </ul>
+                                            <input type="hidden" class="form-element" id="dialog_LorryType" value="@Model.DeliveryAssurance.LorryType" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryAddress")</span>
+                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                    <ul class="lm__form-dropdown type-3">
+                                        <li class="showcase">
+                                            <a href="#">
+                                                @(!string.IsNullOrWhiteSpace(Model.DeliveryAssurance.DeliveryAddress) ?
+                                                      Model.DeliveryAssurance.DeliveryAddress :
+                                                      (Model.DeliveryAddresses.Any() ? Model.DeliveryAddresses.FirstOrDefault().Value : string.Empty))
+                                            </a>
+                                            <ul class="dropdown">
+                                                @foreach (var item in Model.DeliveryAddresses)
+                                                {
+                                                    <li data-value="@item.Key" @Html.Raw(Model.DeliveryAssurance.DeliveryAddress == item.Key ? " class=\"selected\"" : "")><a href="javascript:void(0)">@item.Value</a></li>
+                                                }
+                                            </ul>
+                                            <input type="hidden" class="form-element" id="dialog_DeliveryAddress" value="@Model.DeliveryAssurance.DeliveryAddress" />
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/overview/quantity")</span>
+                                <input type="text" id="dialog_Quantity" class="u-1/1 u-1/2-tablet  u-1/2-desktop lm__element-margin-top" value="@Model.DeliveryAssurance.Quantity">
+                            </div>
+
+                            <div class="author-inform-form__column u-1/1 u-1/2-tablet  u-1/2-desktop lm__row-margin">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryDate")</span>
+                                <div class="datepicker-container">
+                                    <input type="text" id="dialog_DeliveryDate" onchange="" class="datepicker-blank-dialog calculate_deliveryDate lm__element-margin-top" value="@Model.DeliveryAssurance.DeliveryDate">
+                                </div>
+                            </div>
+
+                            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                                <span>@Html.Translate("/lantBruk/leveransForsakran/overview/item")</span>
+                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                    <ul class="lm__form-dropdown type-3">
+                                        <li class="showcase">
+                                            <a href="javascript:void(0)">@Html.Translate("/lantBruk/leveransForsakran/create/chooseItem")</a>
+                                            <ul class="dropdown">
+                                                @foreach (var item in Model.Articles)
+                                                {
+                                                    <li data-value="@item.Key"><a href="javascript:void(0)">@item.Value</a></li>
+                                                }
+                                            </ul>
+                                            <input type="hidden" id="dialog_Article" class="form-element" value="@Model.DeliveryAssurance.Article" />
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                                <div id="calculateResult">
+
+                                </div>
+                            </div>
+
+                            <div class="lm__wide-modal__close-btn">
+                                <a href=""></a>
+                            </div>
+                            <div class="author-inform-form__input lm__wide-modal__action-btn">
+                                <button id="calculateFree" class="author-inform-form__btn width-40">@Html.Translate("/lantBruk/fraktPris/calculate")</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lm__modal__wrapper hidden" id="informationDialog">
+                    <div class="mask"></div>
+                    <div class="lm__wide-modal">
+                        <h3 class="lm__wide-modal__title" id="dialogTitle"></h3>
+                        <p id="dialogContent"></p>
+                        <div class="lm__wide-modal__close-btn">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet ">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+            {
+                Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+            }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END OF MAIN CONTENT OF WEBPAGE -->

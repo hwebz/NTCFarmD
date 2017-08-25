@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <lantBruk>
+      <avtal>
+        <agreementHeader>Avtal skörd {0}</agreementHeader>
+        <agreementNumber>AvtalsNr</agreementNumber>
+        <name>Sort</name>
+        <quantity>Kvantitet</quantity>
+        <weighed>Invägt</weighed>
+        <validFrom>Giltig från</validFrom>
+        <validTo>Giltig till</validTo>
+        <agreementType>Avtalstyp</agreementType>
+        <price>Pris</price>
+        <deliveryterms>Leveransvillkor</deliveryterms>
+        <analyze>
+          <description>Nedan redovisas gårdsprover för avtalsnummer: </description>
+          <farmsamples>Gårdsprover</farmsamples>
+          <farmsample>Gårdsprov</farmsample>
+          <addedAnalyze>Inkom analycen</addedAnalyze>
+          <batchWeight>Partivikt</batchWeight>
+        </analyze>
+        <priceHedging>
+          <priceHedgings>Terminssäkringar</priceHedgings>
+          <description>Nedan visas dina i avtalet ingående prissänkningar:</description>
+          <inputPriceHedging>Ingående prissäkringar</inputPriceHedging>
+          <agreementDate>Avtalsdatum</agreementDate>
+          <quantity>Kvantitet</quantity>
+          <price>Pris</price>
+        </priceHedging>
+        <seedCrop>
+          <header>Tecknade avtal om utsädesodling</header>
+          <name>Sort/Art/Klass</name>
+          <agreementNumber>Avtalsnr</agreementNumber>
+          <sort>Sort/Art/Klass</sort>
+          <area>Areal</area>
+          <quantity>Kvantitet</quantity>
+          <weightIn>Invägt</weightIn>
+          <productionSite>Produktionsplats</productionSite>
+          <levTime>Lev.tid</levTime>
+          <agreementType>Avtalstyp</agreementType>
+          <price>Pris</price>
+        </seedCrop>
+        <popup>
+          <close>Stäng</close>
+        </popup>
+        <dryAgreement>
+          <header>Tecknade torkavtal</header>
+          <skordeYear>Skördeår</skordeYear>
+          <agreementExist>Avtal tecknat</agreementExist>
+        </dryAgreement>
+        <farmingAgreement>
+          <header>Tecknade odlingsavtal</header>
+        </farmingAgreement>
+      </avtal>
+    </lantBruk>
+  </language>
+</languages>

@@ -1,0 +1,107 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.meddelanden-block {
+    h3 {
+        font-size: 26px;
+        font-family: $font-clarendonurw-reg;
+        margin-bottom: 50px;
+    }
+
+    h4 {
+        font-size: 20px;
+        font-family: $font-clarendonurw-reg;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: none;
+        margin: 20px 0;
+
+        th, td {
+            border-color: $table-header-background-color;
+            text-align: center;
+
+            .lm__checkbox {
+                margin: 0;
+            }
+        }
+
+        tr {
+            background: white;
+
+            th, td {
+                @include set-responsive-property("tablet", padding, 10px 5px, 15px 10px);
+                max-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+
+                &:first-child {
+                    text-align: left;
+                }
+            }
+        }
+
+        thead {
+            th {
+                font-family: $font-akzidenz-medium;
+                background: $table-header-background-color;
+                border-color: white;
+                color: $body-text-color;
+                white-space: nowrap;
+
+                @include set-responsive-property("mobile", font-size, 14px, $body-font-size);
+            }
+        }
+    }
+
+    .first-summary,
+    .valja-aviseringar,
+    .lantbruk-block,
+    .maskin-block {
+        padding: 15px;
+        border-bottom: 2px solid $body-background-color;
+
+        @include media-query("tablet") {
+            padding: 30px;
+        }
+    }
+
+    .lantbruk-block,
+    .maskin-block,
+    .valja-aviseringar {
+        table tr {
+            th, td {
+                width: 20%;
+
+                &:first-child {
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .maskin-block {
+        border: none;
+    }
+
+    .lantbruk-block {
+        .spannmal {
+            margin-bottom: 50px;
+        }
+
+        .spannmal, .odling {
+            thead {
+                th:nth-child(2) {
+                    color: #dbdbdb;
+                }
+            }
+        }
+    }
+
+    .author-inform-form__input {
+        @include set-responsive-property("tablet", padding, 15px, 30px);
+    }
+}

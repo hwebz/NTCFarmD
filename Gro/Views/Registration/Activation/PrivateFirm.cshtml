@@ -1,0 +1,252 @@
+﻿@using System.Configuration
+@using Gro.ViewModels;
+@using Gro.Core.ContentTypes.Pages.Registration;
+@model PageViewModel<AccountActivationPage>
+<style>
+    div.error {
+        color: #e37222;
+        outline-color: #c99d66;
+        border-style: none !important;
+    }
+</style>
+<script type="text/javascript">
+    $(function() {
+        var termsState = "closed";
+        var submitted = false;
+        $("#activation-form").validate({
+            errorElement: 'div',
+            errorClass: "error",
+            rules: {
+                FirstName: "required",
+                LastName: "required",
+                Telephone: {
+                    phoneSE: true
+                },
+                Mobilephone: {
+                    required: true,
+                    mobileSE: true
+                },
+                Email: {
+                    required: true,
+                    email: true
+                }
+            },
+
+            messages: {
+                FirstName: window["validationMessage"].firstName.required,
+                LastName: window["validationMessage"].lastName.required,
+                Telephone: {
+                    phoneSE: window["validationMessage"].phoneSE.valid
+                },
+                Mobilephone: {
+                    required: window["validationMessage"].mobileSE.required,
+                    mobileSE: window["validationMessage"].mobileSE.valid
+                },
+                Email: {
+                    required: window["validationMessage"].email.required,
+                    email: window["validationMessage"].email.valid
+                },
+            },
+
+            invalidHandler: function(form, validator) {
+                submitted = true;
+            },
+
+            highlight: function(element, errorClass) {
+                $(element).addClass(errorClass);
+            },
+
+            showErrors: function(errorMap, errorList) {
+                if (submitted) {
+                    console.log(errorMap);
+                    console.log(errorList);
+                    submitted = false;
+
+                    ////set top error alert box
+                    var errorListElement = $("#errors-list");
+                    if (errorList.length > 0) {
+                        errorListElement.css("display", "block");
+                        $("#errors-list .error-list-item").each(function(idx, eli) {
+                            var display = errorMap[$(eli).data("for")] ? "block" : "none";
+                            $(eli).css("display", display);
+                        });
+                    }
+                }
+
+                this.defaultShowErrors();
+            }
+        });
+        var emailerror = '@(ViewData["emailError"])';
+        if (emailerror) {
+            $("#errors-list").css("display", "block");
+            $("#jsEmailError").css("display", "block");
+        }
+
+        $("#accordion-control").click(function() {
+            if (termsState === "closed") {
+                //open it
+                $("#accordion-content").removeClass("hidden");
+                $("#accordion-control").addClass("expanded");
+                termsState = "open";
+            } else if (termsState === "open") {
+                $("#accordion-content").addClass("hidden");
+                $("#accordion-control").removeClass("expanded");
+                termsState = "closed";
+            }
+        });
+
+        $("#termsCheckbox").change(function() {
+            $(".success-icon").removeClass("hidden");
+            $(".meddelanden-accordion").addClass("hidden");
+            termsState = "agreed";
+            $("input[type=submit]").removeClass("disabled-btn");
+            $("#term-header-accepted").css("display", "block");
+            $("#term-header").css("display", "none");
+        });
+
+        $("#cancel-button").click(function() {
+            var cancelDialog = $("#cancel-dialog");
+            cancelDialog.css("display", "block");
+        });
+
+        $("#cancel-accept").click(function() {
+            window.location.href = '@ConfigurationManager.AppSettings["publicSitePrefix"]@Request.Url.AbsolutePath.Replace("ActivationForm", "")';
+        });
+    });
+</script>
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="/" class="lm__back-link small-distance-bottom" target="_self">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>Till logga in
+                </a>
+                <h1 class="lm__page-title">
+                    Registrera LM<sup>2</sup>-konto
+                </h1>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <form id="activation-form" name="private-firm-activation-form" class="author-inform-form style-2"
+                          enctype="multipart/form-data" action="." method="post">
+                        <input type="hidden" name="CustomerNumber" value="@ViewData["customerNumber"]" />
+                        <input type="hidden" name="OrganizationNumber" value="@ViewData["organizationNumber"]" />
+                        <input type="hidden" name="PersonNumber" value="@ViewData["organizationNumber"]" />
+                        <input type="hidden" name="SerialNumber" value="@ViewData["serialNumber"]" />
+                        <input type="hidden" name="Action" value="PrivateFirm" />
+                        <div class="lm__block-box has-separator">
+                            <ul class="errors-list" id="errors-list" style="display: none">
+                                <li class="errors-list__header"><strong>Du måste se över</strong></li>
+                                <li class="error-list-item" data-for="Mobilephone">Mobilnr</li>
+                                <li class="error-list-item" data-for="Telephone">Telefonnr</li>
+                                <li class="error-list-item" data-for="FirstName">Förnamn</li>
+                                <li class="error-list-item" data-for="LastName">Efternamn</li>
+                                <li class="error-list-item" id="jsEmailError" data-for="Email">Personlig E-post</li>
+                            </ul>
+                            <h2 class="heading-title-2 small-distance-bottom">Aktivera konto för</h2>
+                            <p>Företag: @ViewData["customerName"]</p>
+                            <p>Kundnummer: @ViewData["customerNumber"]</p>
+                            <p>Organisationsnr/personnr: @ViewData["organizationNumber"]</p>
+                        </div>
+                        <div class="lm__block-box">
+                            <h2 class="heading-title-2 small-distance-bottom">Dina användaruppgifter</h2>
+                            <p>
+                                Du som registrerar LM2-konto för företaget kommer registreras som kontots ägare. Informationen som du fyller i här gäller dina personliga uppgifter. Dessa kan du se och redigera på Min Profil under Mitt konto när  loggat in i portalen.
+                            </p>
+                            <div class="author-inform-form__input">
+                                <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                    <label for="FirstName">Förnamn*</label>
+                                    <input type="text" name="FirstName" id="FirstName" class="fornamn" value="@ViewData["firstName"]" />
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                    <label for="LastName">Efternamn*</label>
+                                    <input type="text" name="LastName" id="LastName" class="efternamn" value="@ViewData["lastName"]" />
+                                </div>
+                            </div>
+                            <div class="author-inform-form__input">
+                                <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                    <label for="Telephone">Telefonnr</label>
+                                    <input type="text" name="Telephone" id="Telephone" placeholder="+46123456" class="telefonnr" value="@ViewData["telephone"]">
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                    <label for="Mobilephone">Mobilnr*</label>
+                                    <input type="text" name="Mobilephone" id="Mobilephone" placeholder="+467021234567" class="mobilnr" value="@ViewData["mobilePhone"]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lm__block-box has-separator">
+                            <div class="lm__gray-box">
+                                <h2 class="heading-title-2 small-distance-bottom">Skicka tillfälligt lösenord</h2>
+                                <p>
+                                    Med e-postadressen som anges här kan du logga in i LM<sup>2</sup> med tillsammans med ett lösenord. Du kommer få ett tillfälligt lösenord för första gången du loggar in med denna e-postadress. I fortsättningen kan du logga in med BankID för att få full behörighet till tjänsterna i LM<sup>2</sup>.
+                                </p>
+                                <div class="author-inform-form__input">
+                                    <div class="author-inform-form__column author-inform-form__column-full">
+                                        <label for="Email">E-post</label>
+                                        <input type="text" name="Email" id="Email" class="skicka-epost" placeholder="adress@exempel.com" value="@ViewData["email"]" />
+                                        @if (ViewData["emailError"] != null)
+                                        {
+                                            <div class="error">@ViewData["emailError"]</div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lm__block-box has-separator">
+                            <div class="term-header-with-tick">
+                                <h2 class="heading-title-2 small-distance-bottom float-element">Användningsvillkor</h2>
+                                <span class="success-icon hidden"></span>
+                            </div>
+                            <p id="term-header">Du måste läsa och godkänna anväsningsvillkoren för att registrera ett LM2-konto</p>
+                            <p id="term-header-accepted" style="display: none">
+                                Du har godkänt <a href="#" class="lm__link">användningsvillkoren</a> för LM<sup>2</sup>
+                            </p>
+                            <div class="meddelanden-accordion">
+                                <a style="cursor: pointer" class="accordion-control" id="accordion-control">Läs och godkänn</a>
+                                <div class="accordion-content hidden" id="accordion-content">
+                                    @Html.PropertyFor(x => x.CurrentPage.UserAgreementPageReference.MainBody)
+                                    <div class="accept-term-checkbox">
+                                        <div class="lm__checkbox middle-align lm__tick">
+                                            <input type="checkbox" id="termsCheckbox" />
+                                            <label></label>
+                                        </div>
+                                        <label for="termsCheckbox" class="lm__bold-title float-element">Jag har läst och godkänner användningsvillkoren för LM<sup>2</sup></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lm__block-box">
+                            <div class="author-inform-form__input align-right-text block-button-on-mobile">
+                                <input type="button" class="lm__form-btn left-button" id="cancel-button" value="Avbryt" />
+                                <input type="submit" class="lm__form-btn disabled-btn" value="Registrera" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+            </div>
+        </div>
+    </div>
+</section>
+<div class="lm__modal-alert" id="cancel-dialog">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title">
+                Du har valt att inte godkänna användningsvillkoren för LM<sup>2</sup> och kommer därför inte att kunna använda LM2.
+            </h3>
+            <p>
+                Väljer du Avsluta lämnar du LM<sup>2</sup> och kommer inte kunna använda LM<sup>2</sup>-tjänsterna.
+            </p>
+            <p>Väljer du Ångra kommer du tillbaka till villkoren igen och kan välja att godkänna dem.</p>
+            <div class="button-confirm align-right-text">
+                <button class="success-confirm-inform reject" id="cancel-reject">Nej, avbryt inte</button>
+                <button class="success-confirm-inform" id="cancel-accept">Ja, avbryt</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>

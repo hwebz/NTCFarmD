@@ -1,0 +1,21 @@
+﻿@model Gro.ViewModels.Blocks.NewsListBlockViewModel
+@using Gro.Helpers;
+@* 1 Columns View *@
+
+<div class="lm__block nyhether-sidebar">
+    <div class="lm__block-header">
+        <h1>@Html.PropertyFor(m => m.CurrentBlock.Headline)</h1>
+    </div>
+    <section class="lm__news article-listing">
+        @foreach (var infoPage in Model.RecentInformationPages)
+        {
+            <article class="lm__news-item">
+                <a href="@Url.PageUrl(infoPage.LinkURL)">
+                    <p class="article-datetime">@infoPage.StartPublish.ToStandardDateTimeString()</p>
+                    <h4 class="article-title">@infoPage.Heading</h4>
+                </a>
+            </article>
+        }
+    </section>
+    <a href="@Url.ContentUrl(Model.CurrentBlock.ArchivePage)" class="lm__more-link" @Html.EditAttributes(m => m.CurrentBlock.ArchivePage)>@Model.CurrentBlock.ArchiveLinkText<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+</div>

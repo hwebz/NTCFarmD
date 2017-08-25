@@ -1,0 +1,57 @@
+﻿@using EPiServer.Editor
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PurchasingAgreementViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1-tablet u-2/3-desktop">
+                <div class="loader-wrapper" style="display: none;" id="agreement-loader">
+                    <div class="loader"></div>
+                </div>
+                @using (Html.BeginForm("SaveAgreement", "PurchasingAgreementPage", FormMethod.Post, new {id = "newPurchasingAgreementForm", name = "newPurchasingAgreementForm", enctype = "multipart/form-data"}))
+                {
+                    <input type="hidden" name="PriceArea" value="@Model.SelectedPriceArea.PriceAreaId"/>
+                    <input type="hidden" name="AgreementType" id="AgreementType" value="@Model.CurrentPage.AgreementType" />
+                    if (PageEditing.PageIsInEditMode ||
+                        (ViewData["NotLoggedIn"] == null || !(bool)ViewData["NotLoggedIn"]))
+                    {
+                        <div id="pStep1">
+                            @Html.Partial("Partial/PoolAndDepaAgreementForm", Model)
+                        </div>
+
+                        <div class="hidden" id="pStep2">
+                            @Html.Partial("Partial/PoolAndDepaAgreementOverview", Model)
+                        </div>
+                    }
+
+                }
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (!PageEditing.PageIsInEditMode && ViewData["NotLoggedIn"] != null && (bool)ViewData["NotLoggedIn"])
+            {
+    <div class="lm__modal__wrapper" id="errorDialog">
+        <div class="mask"></div>
+        <div class="lm__wide-modal">
+            <h3 class="lm__wide-modal__title">@Html.Translate("/lantBruk/leveransForsakran/errorMessages/error")</h3>
+            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                @Html.Translate("/lantBruk/leveransForsakran/errorMessages/notLoggedIn")
+            </div>
+            <div class="lm__wide-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+}
+
+@Html.Partial("~/Views/AppPages/PurchasingAgreementPage/Partial/MessageDialogs.cshtml", Model.CurrentPage.AgreementType)
+

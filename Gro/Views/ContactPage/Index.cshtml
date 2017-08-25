@@ -1,0 +1,155 @@
+﻿@using EPiServer.Editor
+@using Gro.Business
+@using Gro.Helpers
+@model Gro.ViewModels.PageViewModel<Gro.Core.ContentTypes.Pages.ContactPage>
+<style>
+    .contact-richtext p,h1,h2,h3,h4 {
+        margin-bottom: 0;
+    }
+</style>
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout layout--large">
+            <div class="layout__item u-1/1">
+                <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+            </div>
+
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <div class="lm__block-box" style="padding-top:15px;">
+                        <div class="layout layout--large">
+                            <div class="layout__item u-1/1 u-1/2-tablet xhtml-content">
+                                <div class="contact-richtext">@Html.PropertyFor(x => x.CurrentPage.Introduction)</div>
+                            </div>
+                            <div class="layout__item u-1/1 u-1/2-tablet">
+                                @if (PageEditing.PageIsInEditMode)
+                                {
+                                    <div class="contact-richtext">
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Besöksadress</h2>
+                                            <p>@Html.PropertyFor(x => x.CurrentPage.Gatuadress)</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Postadress</h2>
+                                            <p>@Html.PropertyFor(x => x.CurrentPage.Postadress)</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Telefon</h2>
+                                            <p>@Html.PropertyFor(x => x.CurrentPage.Telephone)</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Öppet</h2>
+                                            <p>@Html.PropertyFor(x => x.CurrentPage.OpenHours, new { tag = "LineBreaked" })</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">E-postadress</h2>
+                                            <p><a href="@Url.ContentUrl(Model.CurrentPage.Email)" class="lm__link">@Html.PropertyFor(x => x.CurrentPage.Email)</a></p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Webbsida</h2>
+                                            <p>@Html.PropertyFor(x => x.CurrentPage.Website)</p>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Faktureringsadress</h2>
+                                            <span class="xhtml-content" @Html.EditAttributes(x => x.CurrentPage.BillingAddress)>
+                                                @if (Model.CurrentPage.BillingAddress!=null)
+                                                {
+                                                    @Html.Raw(Model.CurrentPage.BillingAddress.ToHtmlString())
+                                                }
+                                            </span>
+                                        </div>
+                                        <div class="small-distance-bottom">
+                                            <h2 class="heading-title-2">Organisationsnummer</h2>
+                                            <p>@Html.PropertyFor(x => x.CurrentPage.OrganisationNumber)</p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="contact-richtext">
+                                        @if (!string.IsNullOrEmpty(Model.CurrentPage.Gatuadress))
+                                        {
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">Besöksadress</h2>
+                                                <p>@Html.PropertyFor(x => x.CurrentPage.Gatuadress)</p>
+                                            </div>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.CurrentPage.Postadress))
+                                        {
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">Postadress</h2>
+                                                <p>@Html.PropertyFor(x => x.CurrentPage.Postadress)</p>
+                                            </div>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.CurrentPage.Telephone))
+                                        {
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">Telefon</h2>
+                                                <p>@Html.PropertyFor(x => x.CurrentPage.Telephone)</p>
+                                            </div>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.CurrentPage.OpenHours))
+                                        {
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">Öppet</h2>
+                                                <p>@Html.PropertyFor(x => x.CurrentPage.OpenHours, new { tag = "LineBreaked" })</p>
+                                            </div>
+                                        }
+                                        @if (Model.CurrentPage.Email != null)
+                                        {
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">E-postadress</h2>
+                                                <p><a href="@Url.ContentUrl(Model.CurrentPage.Email)" class="lm__link">@Html.PropertyFor(x => x.CurrentPage.Email)</a></p>
+                                            </div>
+                                        }
+                                        @if (Model.CurrentPage.Website != null)
+                                        {
+                                            var items = Model.CurrentPage.Website.GetGroLinkItems();
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">Webbsida</h2>
+                                                <p>
+                                                    @foreach (var linkItem in items)
+                                                    {
+                                                        <a href="@linkItem.GetHref()" class="lm__link" target="@linkItem.AsLinkItem().Target">
+                                                            @linkItem.AsLinkItem().Text
+                                                        </a>
+                                                        if (linkItem.Type == GroLinkType.ExternalLink)
+                                                        {
+                                                            <i class="fa fa-external-link"></i>
+                                                        }
+                                                        <br />
+                                                    }
+                                                </p>
+                                            </div>
+                                        }
+                                        @if (Model.CurrentPage.BillingAddress != null)
+                                        {
+                                            <div class="small-distance-bottom xhtml-content">
+                                                <h2 class="heading-title-2">Faktureringsadress</h2>
+                                                <span>
+                                                    @Html.Raw(Model.CurrentPage.BillingAddress.ToHtmlString())
+                                                </span>
+                                            </div>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.CurrentPage.OrganisationNumber))
+                                        {
+                                            <div class="small-distance-bottom">
+                                                <h2 class="heading-title-2">Organisationsnummer</h2>
+                                                <p>@Html.PropertyFor(x => x.CurrentPage.OrganisationNumber)</p>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.RightContent)
+            </div>
+        </div>
+    </div>
+</section>

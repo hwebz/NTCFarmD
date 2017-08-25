@@ -1,0 +1,38 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers;
+@model Gro.ViewModels.IPageViewModel<Gro.Core.ContentTypes.Pages.Messages.UserSettingPage>
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till Mitt konto
+                </a>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet" >
+                <div class="lm__block no-margin">
+                    <div class="lm__block-box no-padding-bottom">
+                        <h1 class="lm__page-title no-margin" @Html.EditAttributes(x => x.CurrentPage.Heading)>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    </div>
+                </div>
+                <div id="user-message-settings-app"></div>
+            </div>
+            @if (Html.IsDebug())
+            {
+                <script type="text/javascript" src="~/Static/dist/scripts/userSettings.js"></script>
+            }
+            else
+            {
+                <script type="text/javascript" src="~/Static/dist/scripts/userSettings.production.js"></script>
+            }
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>

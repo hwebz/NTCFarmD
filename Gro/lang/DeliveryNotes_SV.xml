@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="svenska" id="sv">
+    <lantBruk>
+      <deliverynotes>
+        <deliverytable>
+          <header>
+            <ordernr>Ordernr</ordernr>
+            <radnr>Radnr</radnr>
+            <kundnr>Kundnr</kundnr>
+            <artikelnr>Artikelnr</artikelnr>
+            <benamning>Benämning</benamning>
+            <utlastad>Utlastad</utlastad>
+            <best_kvant>Best.kvant</best_kvant>
+            <lev_kvant>Lev.kvant</lev_kvant>
+            <lev_fabrik>Lev.fabrik</lev_fabrik>
+          </header>
+          <seeall>Se alla mina följesedlar</seeall>
+        </deliverytable>
+        <no_item_message>
+          Du har inga följesedlar för närvarande
+        </no_item_message>
+      </deliverynotes>
+    </lantBruk>
+  </language>
+</languages>

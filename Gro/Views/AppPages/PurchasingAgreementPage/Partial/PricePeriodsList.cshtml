@@ -1,0 +1,26 @@
+﻿@model Dictionary<string, string>
+
+@{
+    var hasItem = Model != null && Model.Any();
+}
+<ul class="lm__form-dropdown type-3 periodDropdown">
+    <li class="showcase">
+        <a href="#" data-value="">Välj leveransperiod</a>
+        <ul class="dropdown">
+            @if (hasItem)
+            {
+                foreach (var item in Model)
+                {
+                    <li data-value="@item.Key">
+                        <a href="#" class="period-item">@item.Value</a>
+                    </li>
+                }
+            }
+        </ul>
+        <input type="hidden" class="form-element" name="AgreementPeriod" id="AgreementPeriod" />
+    </li>
+</ul>
+@if (!hasItem)
+{
+    <span>Det finns inga perioder för valt avtal</span>
+}

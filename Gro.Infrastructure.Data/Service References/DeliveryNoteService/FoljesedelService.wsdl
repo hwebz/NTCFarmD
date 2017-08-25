@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FoljesedelService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FoljesedelServiceInt.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFoljesedelService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComments" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetFabrics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFabrics" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetFabrics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFabricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetPDFData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPDFData" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetPDFData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPDFDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetPDFFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPDFFile" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetPDFFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPDFFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetBulkfoderLeverans_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBulkfoderLeverans" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetBulkfoderLeverans_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBulkfoderLeveransResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetReceptNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceptNumber" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetReceptNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReceptNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetVaruInfoDefault_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaruInfoDefault" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetVaruInfoDefault_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaruInfoDefaultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetVaruInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaruInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetVaruInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaruInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_IsArtikelType55_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsArtikelType55" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_IsArtikelType55_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsArtikelType55Response" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetDurabilityText4_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDurabilityText4" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetDurabilityText4_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDurabilityText4Response" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetDurabilityText3_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDurabilityText3" />
+  </wsdl:message>
+  <wsdl:message name="IFoljesedelService_GetDurabilityText3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDurabilityText3Response" />
+  </wsdl:message>
+  <wsdl:portType name="IFoljesedelService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/Ping" message="tns:IFoljesedelService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/PingResponse" message="tns:IFoljesedelService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetComments" message="tns:IFoljesedelService_GetComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetCommentsResponse" message="tns:IFoljesedelService_GetComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/Search" message="tns:IFoljesedelService_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/SearchResponse" message="tns:IFoljesedelService_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFabrics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetFabrics" message="tns:IFoljesedelService_GetFabrics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetFabricsResponse" message="tns:IFoljesedelService_GetFabrics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPDFData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetPDFData" message="tns:IFoljesedelService_GetPDFData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetPDFDataResponse" message="tns:IFoljesedelService_GetPDFData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPDFFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetPDFFile" message="tns:IFoljesedelService_GetPDFFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetPDFFileResponse" message="tns:IFoljesedelService_GetPDFFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBulkfoderLeverans">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetBulkfoderLeverans" message="tns:IFoljesedelService_GetBulkfoderLeverans_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetBulkfoderLeveransResponse" message="tns:IFoljesedelService_GetBulkfoderLeverans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceptNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetReceptNumber" message="tns:IFoljesedelService_GetReceptNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetReceptNumberResponse" message="tns:IFoljesedelService_GetReceptNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaruInfoDefault">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetVaruInfoDefault" message="tns:IFoljesedelService_GetVaruInfoDefault_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetVaruInfoDefaultResponse" message="tns:IFoljesedelService_GetVaruInfoDefault_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaruInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetVaruInfo" message="tns:IFoljesedelService_GetVaruInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetVaruInfoResponse" message="tns:IFoljesedelService_GetVaruInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsArtikelType55">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/IsArtikelType55" message="tns:IFoljesedelService_IsArtikelType55_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/IsArtikelType55Response" message="tns:IFoljesedelService_IsArtikelType55_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDurabilityText4">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetDurabilityText4" message="tns:IFoljesedelService_GetDurabilityText4_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetDurabilityText4Response" message="tns:IFoljesedelService_GetDurabilityText4_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDurabilityText3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoljesedelService/GetDurabilityText3" message="tns:IFoljesedelService_GetDurabilityText3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoljesedelService/GetDurabilityText3Response" message="tns:IFoljesedelService_GetDurabilityText3_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFoljesedelService" type="tns:IFoljesedelService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFabrics">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetFabrics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPDFData">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetPDFData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPDFFile">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetPDFFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBulkfoderLeverans">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetBulkfoderLeverans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceptNumber">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetReceptNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaruInfoDefault">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetVaruInfoDefault" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaruInfo">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetVaruInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsArtikelType55">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/IsArtikelType55" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDurabilityText4">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetDurabilityText4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDurabilityText3">
+      <soap:operation soapAction="http://tempuri.org/IFoljesedelService/GetDurabilityText3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FoljesedelService">
+    <wsdl:port name="BasicHttpBinding_IFoljesedelService" binding="tns:BasicHttpBinding_IFoljesedelService">
+      <soap:address location="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

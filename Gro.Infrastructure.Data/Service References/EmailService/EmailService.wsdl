@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EmailService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sr02009/EmailServiceInt/EmailService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sr02009/EmailServiceInt/EmailService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/EmailServiceInt/EmailService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EmailServiceInt.Models" />
+      <xsd:import schemaLocation="http://sr02009/EmailServiceInt/EmailService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EmailServiceInt.Models.CustomerSupport" />
+      <xsd:import schemaLocation="http://sr02009/EmailServiceInt/EmailService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://sr02009/EmailServiceInt/EmailService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmailService_SendActivateMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendActivateMail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendActivateMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendActivateMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendRegistrationMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendRegistrationMail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendRegistrationMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendRegistrationMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendNewPasswordMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNewPasswordMail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendNewPasswordMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNewPasswordMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendLostUserIdMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendLostUserIdMail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendLostUserIdMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendLostUserIdMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendChangedNotificationsMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangedNotificationsMail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendChangedNotificationsMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangedNotificationsMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendMailWithAttachements_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMailWithAttachements" />
+  </wsdl:message>
+  <wsdl:message name="IEmailService_SendMailWithAttachements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMailWithAttachementsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmailService">
+    <wsdl:operation name="SendActivateMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendActivateMail" message="tns:IEmailService_SendActivateMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendActivateMailResponse" message="tns:IEmailService_SendActivateMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRegistrationMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendRegistrationMail" message="tns:IEmailService_SendRegistrationMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendRegistrationMailResponse" message="tns:IEmailService_SendRegistrationMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNewPasswordMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendNewPasswordMail" message="tns:IEmailService_SendNewPasswordMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendNewPasswordMailResponse" message="tns:IEmailService_SendNewPasswordMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLostUserIdMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendLostUserIdMail" message="tns:IEmailService_SendLostUserIdMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendLostUserIdMailResponse" message="tns:IEmailService_SendLostUserIdMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangedNotificationsMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendChangedNotificationsMail" message="tns:IEmailService_SendChangedNotificationsMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendChangedNotificationsMailResponse" message="tns:IEmailService_SendChangedNotificationsMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendMail" message="tns:IEmailService_SendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendMailResponse" message="tns:IEmailService_SendMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailWithAttachements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmailService/SendMailWithAttachements" message="tns:IEmailService_SendMailWithAttachements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmailService/SendMailWithAttachementsResponse" message="tns:IEmailService_SendMailWithAttachements_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmailService" type="tns:IEmailService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendActivateMail">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendActivateMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRegistrationMail">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendRegistrationMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewPasswordMail">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendNewPasswordMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLostUserIdMail">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendLostUserIdMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangedNotificationsMail">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendChangedNotificationsMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailWithAttachements">
+      <soap:operation soapAction="http://tempuri.org/IEmailService/SendMailWithAttachements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmailService">
+    <wsdl:port name="BasicHttpBinding_IEmailService" binding="tns:BasicHttpBinding_IEmailService">
+      <soap:address location="http://sr02009/EmailServiceInt/EmailService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

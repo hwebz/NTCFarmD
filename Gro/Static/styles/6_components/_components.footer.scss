@@ -1,0 +1,103 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__footer {
+    color: $color-white;
+    background-color: $component-background-color;
+    padding: 30px 0;
+
+    a {
+        color: $color-white;
+    }
+
+    h3 {
+        font-family: $font-clarendonurw-reg;
+        font-size: $footer-header-font-size;
+    }
+
+    .lm__intro,
+    .lm__more-info,
+    .lm__contact {
+        display: inline-block;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        width: 100%;
+        @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+
+        @include media-query("mobile") {
+            border: none;
+            padding-bottom: 0;
+        }
+
+        &.lm__contact {
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .lm__intro {
+        background: url(../images/lm-footer-logo.png) no-repeat center top;
+        background-size: 60px;
+        padding: 70px 15px 15px 15px;
+        min-height: 60px;
+
+        img {
+            width: 120px;
+            float: left;
+            margin-right: 15px;
+        }
+
+        @include media-query("mobile") {
+            background-size: 90px;
+            background-position: 0 0;
+            padding: 0 15px 0 110px;
+            min-height: 100px;
+        }
+
+        p {
+            margin: 5px 0 !important;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+    }
+
+    .lm__more-info {
+        @include set-responsive-property("mobile", padding, 0 15px, 0);
+
+        ul {
+            list-style-type: none;
+
+            li {
+                margin: 5px 0;
+
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                i {
+                    margin-left: 8px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .lm__contact {
+        .lm__contact-method {
+            h5 {
+                @extend %heading-title-5;
+                margin-bottom: 0;
+            }
+
+            p {
+                margin: 0;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

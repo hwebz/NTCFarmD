@@ -1,0 +1,98 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.PriceAlert.PriceAlertPageViewModel
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <div class="lm__block-box has-separator">
+                        <h1 class="lm__page-title">@(string.IsNullOrWhiteSpace(Model.CurrentPage.Heading) ? "Skapade prisbevakningar" : Model.CurrentPage.Heading)</h1>
+                        <p class="table-caption">Välj kolumner som skall visas</p>
+                        <div class="lm__table-wrapper">
+                            <table style="border: 0" class="tablesaw" data-tablesaw-mode="columntoggle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist">Benämning</th>
+                                        <th scope="col" data-tablesaw-priority="1">Ton</th>
+                                        <th scope="col" data-tablesaw-priority="2" style="min-width:50px">Övre Pris</th>
+                                        <th scope="col" data-tablesaw-priority="3" style="min-width:50px">Undre Pris</th>
+                                        <th scope="col" data-tablesaw-priority="4" style="min-width:210px">Lev.period</th>
+                                        <th scope="col" data-tablesaw-priority="5">Avtal</th>
+                                        <th scope="col" data-tablesaw-priority="6" style="min-width:110px">Giltig till</th>
+                                        <th scope="col" data-tablesaw-priority="7">Aktivitet</th>
+                                        <th scope="col" data-tablesaw-priority="8" style="min-width:70px">Ta bort</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        if (Model != null && Model.PriceWatchList.Count > 0)
+                                        {
+                                            foreach (var item in Model.PriceWatchList)
+                                            {
+                                                <tr>
+                                                    <td>@item.Name</td>
+                                                    <td>@item.Quantity</td>
+                                                    <td>@item.Price</td>
+                                                    <td>@item.PriceMin</td>
+                                                    <td>@item.DeliveryPeriod</td>
+                                                    <td>@item.ContractType</td>
+                                                    <td>@item.ValidTo</td>
+                                                    <td>@item.Activity</td>
+                                                    <td class="center-text"><a href="#" class="lm__inline-delete-btn priceAlertDelete" data-value="@item.Id"></a></td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal with button at bottom (and icon success) -->
+            <div class="lm__modal-alert">
+                <div class="lm__modal-dialog">
+                    <div class="modal-content-inform">
+                        <span class="alert-icon success"></span>
+                        <h3 class="success-header-title">Klart - Ändringar sparade</h3>
+                        <p>Din personliga inromation har ändrats och sparats</p>
+                        <div class="button-confirm">
+                            <button class="success-confirm-inform width-100">Stäng</button>
+                        </div>
+                        <div class="lm__information-modal__close-btn">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal with button at bottom (and icon warning) -->
+            <div class="lm__modal-alert">
+                <div class="lm__modal-dialog">
+                    <div class="modal-content-inform">
+                        <span class="alert-icon warning"></span>
+                        <h3 class="success-header-title">Vill du verkligen lämna den här sidan utan att ha sparat ändringar?</h3>
+                        <p>Om du lämnar sidan sparas inga ändringar</p>
+                        <div class="button-confirm">
+                            <button class="success-confirm-inform width-40">Lämna sidan</button>
+                            <button class="success-confirm-inform width-40">Stanna på sidan</button>
+                        </div>
+                        <div class="lm__information-modal__close-btn">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model != null && Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+                @Html.PropertyFor(x => x.CurrentPage.RightContent)
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="RegisterUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerSegment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryRole" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Registered" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequesterCustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequesterUserId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Roles" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SalesRoles" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Status" type="tns:CustomerStatus" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterUserDto" nillable="true" type="tns:RegisterUserDto" />
+  <xs:simpleType name="CustomerStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotActivated" />
+      <xs:enumeration value="Started" />
+      <xs:enumeration value="WaitForHandling" />
+      <xs:enumeration value="Approved" />
+      <xs:enumeration value="Deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CustomerStatus" nillable="true" type="tns:CustomerStatus" />
+  <xs:simpleType name="OrderUsersBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Name" />
+      <xs:enumeration value="CustomerNumber" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="TypeOfUser" />
+      <xs:enumeration value="Status" />
+      <xs:enumeration value="Registered" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrderUsersBy" nillable="true" type="tns:OrderUsersBy" />
+  <xs:simpleType name="SortOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SortOrder" nillable="true" type="tns:SortOrder" />
+  <xs:complexType name="ArrayOfRegisterUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegisterUserDto" nillable="true" type="tns:RegisterUserDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegisterUserDto" nillable="true" type="tns:ArrayOfRegisterUserDto" />
+  <xs:complexType name="UserTokenDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expires" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Token" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserTokenDto" nillable="true" type="tns:UserTokenDto" />
+  <xs:complexType name="ArrayOfResponseUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseUserDto" nillable="true" type="tns:ResponseUserDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseUserDto" nillable="true" type="tns:ArrayOfResponseUserDto" />
+  <xs:complexType name="ResponseUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLocketOut" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpmlSupplier" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastActivityDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastLockedOutDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastLoginDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastPasswordChangedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PassWordquestion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryRole" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Roles" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SalesRoles" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Typ" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipAndCity" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseUserDto" nillable="true" type="tns:ResponseUserDto" />
+  <xs:simpleType name="OrderIssuesBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CustomerNumber" />
+      <xs:enumeration value="Description" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="CustomerName" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrderIssuesBy" nillable="true" type="tns:OrderIssuesBy" />
+  <xs:complexType name="ArrayOfCustomerIssuesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerIssuesDto" nillable="true" type="tns:CustomerIssuesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerIssuesDto" nillable="true" type="tns:ArrayOfCustomerIssuesDto" />
+  <xs:complexType name="CustomerIssuesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerStatus" type="tns:CustomerStatus" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerIssuesDto" nillable="true" type="tns:CustomerIssuesDto" />
+  <xs:complexType name="ArrayOfCustomerDeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerDeliveryAddress" nillable="true" type="tns:CustomerDeliveryAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerDeliveryAddress" nillable="true" type="tns:ArrayOfCustomerDeliveryAddress" />
+  <xs:complexType name="CustomerDeliveryAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomerBaseAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Directions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Silos" nillable="true" type="tns:ArrayOfSiloItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerDeliveryAddress" nillable="true" type="tns:CustomerDeliveryAddress" />
+  <xs:complexType name="CustomerBaseAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressRow4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaxNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerBaseAddress" nillable="true" type="tns:CustomerBaseAddress" />
+  <xs:complexType name="ArrayOfSiloItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SiloItem" nillable="true" type="tns:SiloItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSiloItem" nillable="true" type="tns:ArrayOfSiloItem" />
+  <xs:complexType name="SiloItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accessibility" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiloItem" nillable="true" type="tns:SiloItem" />
+  <xs:complexType name="CustomerInvoiceAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomerBaseAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerInvoiceAddress" nillable="true" type="tns:CustomerInvoiceAddress" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerSegment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Retailers" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="VatNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="ImpersonationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PersonToImpersonate" nillable="true" type="tns:ResponseUserDto" />
+      <xs:element minOccurs="0" name="Requester" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImpersonationDto" nillable="true" type="tns:ImpersonationDto" />
+  <xs:complexType name="DeliverySettingsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MailMessages" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SmsMessages" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliverySettingsDto" nillable="true" type="tns:DeliverySettingsDto" />
+  <xs:complexType name="ArrayOfSmsNotificationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmsNotificationDto" nillable="true" type="tns:SmsNotificationDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmsNotificationDto" nillable="true" type="tns:ArrayOfSmsNotificationDto" />
+  <xs:complexType name="SmsNotificationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BulkLevereratSms" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BulkPlaneratSms" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlakLevereratSms" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlakPlaneratSms" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlakTelefon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GardshamtnignHamtat" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GardshamtningPlanerat" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LeveransplanViaEpost" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmsNotificationDto" nillable="true" type="tns:SmsNotificationDto" />
+</xs:schema>

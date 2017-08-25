@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://sr02009/Centralen/Items.asmx?wsdl" docRef="http://sr02009/Centralen/Items.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://sr02009/Centralen/Items.asmx" xmlns:q1="http://lantmannen.com/centralen/" binding="q1:ItemsSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://sr02009/Centralen/Items.asmx" xmlns:q2="http://lantmannen.com/centralen/" binding="q2:ItemsSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

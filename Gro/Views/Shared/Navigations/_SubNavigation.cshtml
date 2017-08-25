@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Gro.ViewModels.Navigation.NavigationItemModel>
+
+@if (Model.Any())
+{
+    <a class="lm_toggle-menu" href="#" alt="Humberger Icon">
+        <span class="text">Menu</span>
+        <span class="humb">
+            <span class="humb-icon"></span>
+            <span class="humb-icon"></span>
+            <span class="humb-icon"></span>
+        </span>
+    </a>
+}
+
+<ul>
+    @foreach (var item in Model)
+    {
+        string liClass = item.IsActive ? "active" : "";
+
+        <li class="@liClass">
+            <a href="#">@item.Text</a>
+            <ul class="lm__sub-navigation">
+                @foreach (var child in item.Children)
+                {
+                    <li class="@(child.IsActive ? "active" : string.Empty)">
+                        <a href="@Url.ContentUrl(child.ContentLink)">@child.Text <span class="toggle-icon"></span></a>
+                        @if (child.Children != null && child.Children.Any())
+                        {
+                            <ul class="lm__child-sub-navigation">
+                                @foreach (var subChild in child.Children)
+                                {
+                                    <li class="@(subChild.IsActive ? "active" : string.Empty)">
+                                        <a href="@Url.ContentUrl(subChild.ContentLink)">@subChild.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

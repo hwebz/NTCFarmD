@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WeighInServiceInt" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WeighInServiceInt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfWeighIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeighIn" nillable="true" type="tns:WeighIn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWeighIn" nillable="true" type="tns:ArrayOfWeighIn" />
+  <xs:complexType name="WeighIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeliveryNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeighIn" nillable="true" type="tns:WeighIn" />
+  <xs:complexType name="ArrayOfAnalyzeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalyzeList" nillable="true" type="tns:AnalyzeList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalyzeList" nillable="true" type="tns:ArrayOfAnalyzeList" />
+  <xs:complexType name="AnalyzeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Keyvalue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnalyzeList" nillable="true" type="tns:AnalyzeList" />
+  <xs:complexType name="ArrayOfWeighInExtended">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeighInExtended" nillable="true" type="tns:WeighInExtended" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWeighInExtended" nillable="true" type="tns:ArrayOfWeighInExtended" />
+  <xs:complexType name="WeighInExtended">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agreement" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="FarmCollection" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:double" />
+      <xs:element minOccurs="0" name="ReceptionPoint" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeighInExtended" nillable="true" type="tns:WeighInExtended" />
+  <xs:complexType name="ArrayOfOverview">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Overview" nillable="true" type="tns:Overview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOverview" nillable="true" type="tns:ArrayOfOverview" />
+  <xs:complexType name="Overview">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agreement" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Item" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="WeightIn" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Overview" nillable="true" type="tns:Overview" />
+</xs:schema>

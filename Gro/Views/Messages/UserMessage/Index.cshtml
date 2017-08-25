@@ -1,0 +1,44 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using Gro.Business.Messages
+@using Gro.Helpers
+@model Gro.ViewModels.IPageViewModel<Gro.Core.ContentTypes.Pages.Messages.UserMessagePage>
+@{
+    var userSettingPage = MessageSetting.GetUserSettingPage();
+    var userSettingUrl = ContentReference.IsNullOrEmpty(userSettingPage) ? string.Empty : Url.ContentUrl(userSettingPage);
+}
+
+<section class="lm__contents">
+    <div class="wrapper">
+
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <h1 class="lm__page-title">Meddelanden</h1>
+            </div>
+            <div class="layout__item u-1/1">
+                <input type="hidden" id="setting-page-url" value="@userSettingUrl" />
+                <input type="hidden" id="empty-category-message" value="@MessageSetting.GetMessageForEmptyCategory()" />
+                <input type="hidden" id="user_pagesize" value="@MessageSetting.GetPageSizeForUserPage()"/>
+                <div class="hidden xhtml-content" id="message-signature">
+                    @Html.Raw(MessageSetting.GetMessageSignature())
+                </div>
+                <div class="lm__block lm__meddelanden" id="user-message-app">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    @if (Html.IsDebug())
+    {
+        <script type="text/javascript" src="~/Static/dist/scripts/userMessages.js"></script>
+    }
+    else
+    {
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="~/Static/dist/scripts/userMessages.production.js"></script>
+    }
+</section>

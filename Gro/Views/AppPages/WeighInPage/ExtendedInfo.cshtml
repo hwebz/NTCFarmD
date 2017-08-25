@@ -1,0 +1,45 @@
+﻿@using Gro.Core.DataModels.WeighInDtos;
+@model WeighInExtended[]
+<div>
+    <div class="modal-header-title">
+        <h3>Invägning Utökad info</h3>
+    </div>
+    <div class="modal-content" data-role="page">
+        <div class="table-header" style="text-align:left">
+            <div class="bold">Sedelnummer: <span class="deliveryNumber">@ViewData["deliveryNumber"]</span></div>
+            <div class="analyzeDate">@Html.Raw(ViewData["date"])</div>
+            <div class="weighInSort bold">@Html.Raw(ViewData["sort"])</div>
+        </div>
+
+        <br />
+        <div id="table-data">
+            <p class="table-caption">Välj kolumner som skall visas</p>
+            <div class="lm__table-wrapper">
+                <table border="0" class="tablesaw" data-tablesaw-mode="columntoggle">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/weighIn/moreInfo/agreement") </th>
+                            <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/weighIn/moreInfo/quantity") </th>
+                            <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/weighIn/moreInfo/receptionPoint") </th>
+                            <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/weighIn/moreInfo/farmCollection") </th>
+                            <th scope="col" data-tablesaw-priority="4">@Html.Translate("/lantBruk/weighIn/moreInfo/carNr") </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var farmCollection = item.FarmCollection ? "Ja" : "Nej";
+                            <tr>
+                                <td>@item.Agreement</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.ReceptionPoint</td>
+                                <td>@farmCollection</td>
+                                <td>@item.CarNr</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

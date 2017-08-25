@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <lantBruk>
+      <mycustomer>
+        <info_popup>
+          <title>
+            <Default_roll>Basfunktioner</Default_roll>
+            <Basfunktioner>Basfunktioner</Basfunktioner>
+            <Bestallning>Beställning (E-handel)</Bestallning>
+            <CustomerOwner>Ägare</CustomerOwner>
+            <Ekonomi>Ekonomi</Ekonomi>
+            <Leverans>Leveransinformation</Leverans>
+            <Maskin>Maskiner</Maskin>
+            <Prenumeration>Prenumerationer - Rådgivning</Prenumeration>
+            <Spml_Avtal>Spannmålsavtal</Spml_Avtal>
+            <Finasiell_Spml>Finansiell spannmålshandel</Finasiell_Spml>
+          </title>
+          <content>
+            <Default_roll>
+              &lt;p&gt;Tillgång till grundläggande funktionalitet i portalen, till exempel nyheter, marknadsrapporter och produktkatalog. &lt;/p&gt;
+            </Default_roll>
+            <Basfunktioner>
+              &lt;p&gt;Tillgång till grundläggande funktionalitet i portalen, till exempel nyheter, marknadsrapporter och produktkatalog. &lt;/p&gt;
+            </Basfunktioner>
+            <Bestallning>
+              &lt;span class="akzidenz-medium-font"&gt;Behörighet - Kan se&lt;/span&gt;
+              &lt;p&gt;Gjorda beställningar från E.handel Maskin och E-handel Lantbruk. &lt;/p&gt;
+              &lt;span class="akzidenz-medium-font"&gt;Fullständig behörighet&lt;/span&gt;
+              &lt;p&gt;Tillgång till E-handel Maskin,Tillgång till E-handel Lantbruk. &lt;/p&gt;
+            </Bestallning>
+            <CustomerOwner>
+            </CustomerOwner>
+            <Ekonomi>
+              &lt;span class="akzidenz-medium-font"&gt;Behörighet - Kan se&lt;/span&gt;
+              &lt;p&gt;Saldo, Kreditpost, Faktura, Betald faktura, Kontobesked, Emissionsinsatser, Räntesatser,  Kontakt. &lt;/p&gt;
+              &lt;span class="akzidenz-medium-font"&gt;Fullständig behörighet&lt;/span&gt;
+              &lt;p&gt;Se-behörighet, Beställa kopia, till Lantmännenkortet, Att överföra Saldo, Att överföra Kreditpost, Att betala faktura, Att göra utbetalning, Att anmäla nytt konto, E-handel (Lantbruk &amp; Maskin). &lt;/p&gt;
+            </Ekonomi>
+            <Leverans>
+              &lt;span class="akzidenz-medium-font"&gt;Behörighet - Kan se&lt;/span&gt;
+              &lt;p&gt;Leveransförsäkran, söka transport, tidsbokning för gårdshämtning, mottagaranläggnignar, prenumerationer av öppettider, invägningar &lt;/p&gt;
+              &lt;span class="akzidenz-medium-font"&gt;Fullständig behörighet&lt;/span&gt;
+              &lt;p&gt;Se-behörighet, Lämna leveransförsäkran, Boka tid för gårdshämtning. &lt;/p&gt;
+            </Leverans>
+            <Maskin>
+              &lt;span class="akzidenz-medium-font"&gt;Behörighet - Kan se&lt;/span&gt;
+              &lt;p&gt;Maskiner kopplade till företaget.  &lt;/p&gt;
+              &lt;span class="akzidenz-medium-font"&gt;Fullständig behörighet&lt;/span&gt;
+              &lt;p&gt;Lägg till Maskin, Ta bort Maskin, Boka service. &lt;/p&gt;
+            </Maskin>
+            <Prenumeration>
+              &lt;span class="akzidenz-medium-font"&gt;Behörighet - Kan se&lt;/span&gt;
+              &lt;p&gt;Växline Syd, VäxtlineVäst, Växtline Vallbrev. Växtodlingsbrev, Utsädesodlare brev, Kalkyler &lt;/p&gt;
+              &lt;p&gt;Vilka prenumerationer användaren kommer kunna se beroer på vilka prenumerationer som är tecknade för detta KundID. &lt;/p&gt;
+              &lt;span class="akzidenz-medium-font"&gt;Fullständig behörighet&lt;/span&gt;
+              &lt;p&gt;Se-behörighet, Teckna prenumeration. &lt;/p&gt;
+            </Prenumeration>
+            <Spml_Avtal>
+              &lt;span class="akzidenz-medium-font"&gt;Behörighet - Kan se&lt;/span&gt;
+              &lt;p&gt;Prisbevakning spot &amp; terminsavtal. Depå-, tork- och poolavtal. Pool &amp; spannmålspris, Prisutveckling spannmål, Mina spannmålsavtal. &lt;/p&gt;
+              &lt;span class="akzidenz-medium-font"&gt;Fullständig behörighet&lt;/span&gt;
+              &lt;p&gt;Se-behörighet. Att skapa prisbevakning spot &amp; terminsavtal, Att säkra depåavtal, Att teckna depå-, tork- och poolavtal. &lt;/p&gt;
+            </Spml_Avtal>
+            <Finasiell_Spml></Finasiell_Spml>
+          </content>
+        </info_popup>
+      </mycustomer>
+    </lantBruk>
+  </language>
+</languages>

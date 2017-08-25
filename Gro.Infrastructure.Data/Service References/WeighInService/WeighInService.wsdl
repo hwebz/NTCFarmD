@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WeighInService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WeighInServiceInt" />
+      <xsd:import schemaLocation="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WeighInServiceInt.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWeighInService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighInList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInList" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighInList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighIn" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetAnalyzeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalyzeList" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetAnalyzeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalyzeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetMoreInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoreInfo" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetMoreInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoreInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetOverViewList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOverViewList" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetOverViewList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOverViewListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_IsUserInExtendedRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInExtendedRole" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_IsUserInExtendedRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInExtendedRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighInSumAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInSumAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighInSumAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInSumAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighInSumAgreementAllHarvestYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInSumAgreementAllHarvestYear" />
+  </wsdl:message>
+  <wsdl:message name="IWeighInService_GetWeighInSumAgreementAllHarvestYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeighInSumAgreementAllHarvestYearResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWeighInService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/Ping" message="tns:IWeighInService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/PingResponse" message="tns:IWeighInService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighInList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInList" message="tns:IWeighInService_GetWeighInList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInListResponse" message="tns:IWeighInService_GetWeighInList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetWeighIn" message="tns:IWeighInService_GetWeighIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInResponse" message="tns:IWeighInService_GetWeighIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyzeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetAnalyzeList" message="tns:IWeighInService_GetAnalyzeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetAnalyzeListResponse" message="tns:IWeighInService_GetAnalyzeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoreInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetMoreInfo" message="tns:IWeighInService_GetMoreInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetMoreInfoResponse" message="tns:IWeighInService_GetMoreInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverViewList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetOverViewList" message="tns:IWeighInService_GetOverViewList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetOverViewListResponse" message="tns:IWeighInService_GetOverViewList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInExtendedRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/IsUserInExtendedRole" message="tns:IWeighInService_IsUserInExtendedRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/IsUserInExtendedRoleResponse" message="tns:IWeighInService_IsUserInExtendedRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighInSumAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInSumAgreement" message="tns:IWeighInService_GetWeighInSumAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInSumAgreementResponse" message="tns:IWeighInService_GetWeighInSumAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighInSumAgreementAllHarvestYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInSumAgreementAllHarvestYear" message="tns:IWeighInService_GetWeighInSumAgreementAllHarvestYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeighInService/GetWeighInSumAgreementAllHarvestYearResponse" message="tns:IWeighInService_GetWeighInSumAgreementAllHarvestYear_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWeighInService" type="tns:IWeighInService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighInList">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetWeighInList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighIn">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetWeighIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyzeList">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetAnalyzeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoreInfo">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetMoreInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverViewList">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetOverViewList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInExtendedRole">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/IsUserInExtendedRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighInSumAgreement">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetWeighInSumAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeighInSumAgreementAllHarvestYear">
+      <soap:operation soapAction="http://tempuri.org/IWeighInService/GetWeighInSumAgreementAllHarvestYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeighInService">
+    <wsdl:port name="BasicHttpBinding_IWeighInService" binding="tns:BasicHttpBinding_IWeighInService">
+      <soap:address location="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

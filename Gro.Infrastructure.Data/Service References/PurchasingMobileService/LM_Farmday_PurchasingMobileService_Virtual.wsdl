@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LM_Farmday_PurchasingMobileService_Virtual" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="Ping">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsPrice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" type="xs:int" />
+            <xs:element minOccurs="0" name="signatur" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="partNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="priceArea" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sortID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsPriceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetItemsPriceResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:element ref="xs:schema" />
+                  <xs:any />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItems">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" type="xs:int" />
+            <xs:element minOccurs="0" name="signatur" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="priceArea" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetItemsResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:element ref="xs:schema" />
+                  <xs:any />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" type="xs:int" />
+            <xs:element minOccurs="0" name="signatur" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetCustomerResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesMen">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesMenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetSalesMenResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:element ref="xs:schema" />
+                  <xs:any />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesMen_Farmday">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="caegory" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesMen_FarmdayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="GetSalesMen_FarmdayResult" nillable="true" type="q1:ArrayOfSalesman" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchSalesman_Farmday">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="caegory" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchSalesman_FarmdayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="SearchSalesman_FarmdayResult" nillable="true" type="q2:ArrayOfSalesman" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCampaign">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCampaignResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCampaignResult" nillable="true" type="q3:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsPriceStat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" type="xs:int" />
+            <xs:element minOccurs="0" name="signatur" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="partId" type="xs:int" />
+            <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsPriceStatResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetItemsPriceStatResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:element ref="xs:schema" />
+                  <xs:any />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" type="xs:int" />
+            <xs:element minOccurs="0" name="signatur" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetItemsListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetItemsListResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:element ref="xs:schema" />
+                  <xs:any />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMarketInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNo" type="xs:int" />
+            <xs:element minOccurs="0" name="signatur" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMarketInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetMarketInfoResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:element ref="xs:schema" />
+                  <xs:any />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGarages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGaragesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="GetGaragesResult" nillable="true" type="q4:ArrayOfGarage" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGarage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetGarageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="GetGarageResult" nillable="true" type="q5:ArrayOfSalesman" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesman">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSalesmanResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="GetSalesmanResult" nillable="true" type="q6:Salesman" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetStarGarage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetStarGarageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetStarGarageResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveStarGarage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveStarGarageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RemoveStarGarageResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BookService">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="bookingInfo" nillable="true" type="q7:GarageBooking" />
+            <xs:element minOccurs="0" name="userEmail" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sendCopy" type="xs:boolean" />
+            <xs:element minOccurs="0" name="ownerEmail" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BookServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BookServiceResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNearestGarage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNearestGarageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" minOccurs="0" name="GetNearestGarageResult" nillable="true" type="q8:Salesman" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStarGarage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStarGarageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetStarGarageResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLMStarGarage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLMStarGarageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetLMStarGarageResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="DataSet" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PurchasingMobileServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfSalesman">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Salesman" nillable="true" type="tns:Salesman" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSalesman" nillable="true" type="tns:ArrayOfSalesman" />
+      <xs:complexType name="Salesman">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cellphone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="division" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="picttype" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="picturl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="team" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="zipcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Salesman" nillable="true" type="tns:Salesman" />
+      <xs:complexType name="ArrayOfGarage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Garage" nillable="true" type="tns:Garage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfGarage" nillable="true" type="tns:ArrayOfGarage" />
+      <xs:complexType name="Garage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lmStar" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ownStar" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Garage" nillable="true" type="tns:Garage" />
+      <xs:complexType name="GarageBooking">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="garagecity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="garageemail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="markmodel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="organisationId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="registrationno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="serialno" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GarageBooking" nillable="true" type="tns:GarageBooking" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IPurchasingMobileService_GetSalesMen_Farmday_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesMen_Farmday" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_RemoveStarGarage_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStarGarage" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetSalesMen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesMenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_SetStarGarage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetStarGarage" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_SearchSalesman_Farmday_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSalesman_Farmday" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetGarages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGaragesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetMarketInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItems" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetNearestGarage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNearestGarage" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetLMStarGarage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMStarGarage" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItemsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItemsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsList" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetSalesman_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesmanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetMarketInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_BookService_InputMessage">
+    <wsdl:part name="parameters" element="tns:BookService" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItemsPriceStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsPriceStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetLMStarGarage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMStarGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetSalesMen_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesMen" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetNearestGarage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNearestGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItemsPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsPrice" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetSalesMen_Farmday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesMen_FarmdayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaign" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetGarage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGarage" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetGarages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGarages" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetStarGarage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStarGarage" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_BookService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BookServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetGarage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_SearchSalesman_Farmday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSalesman_FarmdayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_SetStarGarage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetStarGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetStarGarage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStarGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItemsPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_RemoveStarGarage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveStarGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetItemsPriceStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsPriceStat" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingMobileService_GetSalesman_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesman" />
+  </wsdl:message>
+  <wsdl:portType name="IPurchasingMobileService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/Ping" message="tns:IPurchasingMobileService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/PingResponse" message="tns:IPurchasingMobileService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsPrice" message="tns:IPurchasingMobileService_GetItemsPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsPriceResponse" message="tns:IPurchasingMobileService_GetItemsPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItems" message="tns:IPurchasingMobileService_GetItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsResponse" message="tns:IPurchasingMobileService_GetItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetCustomer" message="tns:IPurchasingMobileService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetCustomerResponse" message="tns:IPurchasingMobileService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesMen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetSalesMen" message="tns:IPurchasingMobileService_GetSalesMen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetSalesMenResponse" message="tns:IPurchasingMobileService_GetSalesMen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesMen_Farmday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetSalesMen_Farmday" message="tns:IPurchasingMobileService_GetSalesMen_Farmday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetSalesMen_FarmdayResponse" message="tns:IPurchasingMobileService_GetSalesMen_Farmday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSalesman_Farmday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/SearchSalesman_Farmday" message="tns:IPurchasingMobileService_SearchSalesman_Farmday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/SearchSalesman_FarmdayResponse" message="tns:IPurchasingMobileService_SearchSalesman_Farmday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetCampaign" message="tns:IPurchasingMobileService_GetCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetCampaignResponse" message="tns:IPurchasingMobileService_GetCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPriceStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsPriceStat" message="tns:IPurchasingMobileService_GetItemsPriceStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsPriceStatResponse" message="tns:IPurchasingMobileService_GetItemsPriceStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsList" message="tns:IPurchasingMobileService_GetItemsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetItemsListResponse" message="tns:IPurchasingMobileService_GetItemsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetMarketInfo" message="tns:IPurchasingMobileService_GetMarketInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetMarketInfoResponse" message="tns:IPurchasingMobileService_GetMarketInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGarages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetGarages" message="tns:IPurchasingMobileService_GetGarages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetGaragesResponse" message="tns:IPurchasingMobileService_GetGarages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGarage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetGarage" message="tns:IPurchasingMobileService_GetGarage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetGarageResponse" message="tns:IPurchasingMobileService_GetGarage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesman">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetSalesman" message="tns:IPurchasingMobileService_GetSalesman_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetSalesmanResponse" message="tns:IPurchasingMobileService_GetSalesman_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetStarGarage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/SetStarGarage" message="tns:IPurchasingMobileService_SetStarGarage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/SetStarGarageResponse" message="tns:IPurchasingMobileService_SetStarGarage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStarGarage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/RemoveStarGarage" message="tns:IPurchasingMobileService_RemoveStarGarage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/RemoveStarGarageResponse" message="tns:IPurchasingMobileService_RemoveStarGarage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BookService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/BookService" message="tns:IPurchasingMobileService_BookService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/BookServiceResponse" message="tns:IPurchasingMobileService_BookService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNearestGarage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetNearestGarage" message="tns:IPurchasingMobileService_GetNearestGarage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetNearestGarageResponse" message="tns:IPurchasingMobileService_GetNearestGarage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStarGarage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetStarGarage" message="tns:IPurchasingMobileService_GetStarGarage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetStarGarageResponse" message="tns:IPurchasingMobileService_GetStarGarage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMStarGarage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetLMStarGarage" message="tns:IPurchasingMobileService_GetLMStarGarage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingMobileService/GetLMStarGarageResponse" message="tns:IPurchasingMobileService_GetLMStarGarage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPurchasingMobileService" type="tns:IPurchasingMobileService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPrice">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetItemsPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesMen">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetSalesMen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesMen_Farmday">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetSalesMen_Farmday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSalesman_Farmday">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/SearchSalesman_Farmday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaign">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsPriceStat">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetItemsPriceStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsList">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetItemsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketInfo">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetMarketInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGarages">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetGarages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGarage">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetGarage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesman">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetSalesman" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStarGarage">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/SetStarGarage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveStarGarage">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/RemoveStarGarage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookService">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/BookService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNearestGarage">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetNearestGarage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStarGarage">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetStarGarage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMStarGarage">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingMobileService/GetLMStarGarage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LM_Farmday_PurchasingMobileService_Virtual">
+    <wsdl:port name="LM_Farmday_PurchasingMobileService_Virtualsoaphttp" binding="tns:BasicHttpBinding_IPurchasingMobileService">
+      <soap:address location="http://sci-api-tst.work.lantmannen.lan:80/ws/LM_Farmday_PurchasingMobileService_Virtual/1.0" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

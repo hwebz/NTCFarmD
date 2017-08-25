@@ -1,0 +1,235 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@model Gro.ViewModels.Pages.Machines.MachineDetailPageViewModel
+
+@{
+    var modelTitle = (string.IsNullOrEmpty(Model.Machine.Model.Name) && string.IsNullOrEmpty(Model.Machine.Model.Key) ? Model.Machine.GetModelDescription() : Model.Machine.Model.Name);
+}
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetPageUnderSettingUrl(x=>x.MachineStartPage)" class="lm__back-link small-distance-bottom"><i class="fa fa-arrow-left" aria-hidden="true"></i>Till Maskinlistan</a>
+            </div>
+            <div class="layout__item u-1/1">
+                <div class="lm__block machine-detail">
+                    <div class="layout  layout--large machine-detail__header">
+                        <div class="layout__item u-1/1 u-1/2-tablet machine-detail__header-left">
+                            <h1 class="lm__page-title no-margin">@modelTitle</h1>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-tablet machine-detail__header-right align-right-text">
+                            <a href="@string.Format(Model.UrlBookService, modelTitle, Model.Machine.SerialNumber, Model.Machine.LegalRegNumber)" class="lm__blue-btn">Boka service</a>
+                            <a href="@string.Format("https://ehandel.lantmannenmaskin.se/lmma_e-Sales/esa/zItemList.jsp?mark={0}&model={1}", Model.Machine.Brand.Key, Model.Machine.Model.Name.RemoveAllSpaces())" target="_blank" class="lm__blue-btn"><i class="fa fa-cart" aria-hidden="true"></i>Köp reservdel</a>
+                        </div>
+                        <div class="layout__item u-1/1 machine-detail__header-left">
+                            <p>
+                                <span class="lm__bold-title">Serviceavtal</span> saknas
+                            </p>
+                        </div>
+                    </div>
+                    <div class="layout  layout--large">
+                        <div class="layout__item u-1/1 u-2/3-tablet machine-detail__information">
+                            <div class="layout layout--large">
+                                <input type="hidden" id="inno" value="@Model.Machine.IndividualNumber"/>
+                                <input type="hidden" id="machineId" value="@Model.Machine.Id"/>
+                                <div class="layout__item u-1/1 u-1/2-tablet no-padding lm__avatar pos-2">
+                                    <div class="machine-item__thumbnail-wrapper">
+                                        <div class="loader-wrapper" id="loader" style="display: none; width: 80px; height: 80px; opacity: 0.9; background: white;">
+                                            <div class="loader"></div>
+                                        </div>
+                                        <img class="machine-item__thumbnail horizontal-img" id="machine-picture" src="@Model.Machine.ImageUrl" alt="Machine Detail Thumbnail"/>
+                                    </div>
+
+                                    @if (Model.IsHasMachineWRight)
+                                    {
+                                        <a href="#" class="lm__avatar__upload-btn">
+                                            <i class="fa fa-camera" aria-hidden="true"></i>
+                                        </a>
+                                        <ul class="popup-sub">
+                                            <li>
+                                                <a class="upload-avatar lm__icon-btn width-100" href="javascript:void(0)" id="machine-link"><i class="fa fa-plus-2"></i><span>Ladda upp bild</span></a>
+                                            </li>
+                                            @if (Model.IsHasMachineOwnerPicture)
+                                            {
+                                                <li>
+                                                    <a class="remove-avatar lm__icon-btn width-100" href="javascript:void(0)" id="machine-deleteBtn"><i class="fa fa-trash-2"></i><span>Ta bort bild</span></a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a class="remove-avatar lm__icon-btn width-100" style="display: none;" href="javascript:void(0)" id="machine-deleteBtn"><i class="fa fa-trash-2"></i><span>Ta bort bild</span></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                        <input type="file" id="machine-file" class="file-upload-input" accept="image/*"/>
+                                        <div class="lm__group-btns align-right-text block-button-on-mobile" style="display: none;">
+                                            <button class="lm__form-btn upload-left-button" id="machine-cancelUpload">Avbryt</button>
+                                            <button class="lm__form-btn" id="machine-uploadBtn">Använd</button>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="layout__item u-1/1 u-1/2-tablet machine-detail__description-wrapper" id="total_hours" style="display: none;">
+                                    <div class="center-description">
+                                        <img src="/Static/dist/images/vintage-hourglass.png" alt="Sand Clock"/>
+                                        <h2 class="heading-title-2">Körtimmar (totalt)</h2>
+                                        <h1 class="heading-title total-text"></h1>
+                                    </div>
+                                </div>
+                                <div class="layout__item u-1/1 u-1/2-tablet machine-detail__block-wrapper" id="generic_banner" style="display: none;">
+                                    @Html.PropertyFor(x => x.CurrentPage.PushBanner)
+                                </div>
+                                <div class="layout__item u-1/1 machine-detail__inform-wrapper">
+                                    <div class="machine-detail__inform">
+                                        <p class="lm__bold-title">Registreringsnummer</p>
+                                        <p>@(string.IsNullOrEmpty(Model.Machine.LegalRegNumber) ? "(saknas)" : Model.Machine.LegalRegNumber)</p>
+                                    </div>
+                                    <div class="machine-detail__inform">
+                                        <p class="lm__bold-title">Serienummer</p>
+                                        <p>@(string.IsNullOrEmpty(Model.Machine.SerialNumber) ? "(saknas)" : Model.Machine.SerialNumber)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/3-tablet">
+                            <div class="lm__block">
+                                <div class="lm__block-header white-background-header">
+                                    <h1>Manualer</h1>
+                                </div>
+                                <section class="lm__news">
+                                    @if (Model.Machine.Documents.Count > 0)
+                                    {
+                                        foreach (var doc in Model.Machine.Documents)
+                                        {
+                                            <article class="lm__news-item">
+                                                <a href="@doc.Url" target="_blank" class="@(string.IsNullOrWhiteSpace(doc.Url)?"normal-text":"") ">
+                                                    <h4 class="article-title right-icon-pos">
+                                                        @doc.Name<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                                    </h4>
+                                                </a>
+                                            </article>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <article class="lm__news-item">
+                                            <a class="normal-text">
+                                                <h4 class="article-title right-icon-pos">Tyvärr finns just nu inga manualer tillgängliga</h4>
+                                            </a>
+                                        </article>
+                                    }
+                                </section>
+                            </div>
+                            <div class="lm__block">
+                                <div class="lm__block-header white-background-header">
+                                    <h1>Instruktionsfilmer</h1>
+                                </div>
+                                <section class="lm__news with-animation">
+                                    @if (Model.Machine.Videos.Count > 0)
+                                    {
+                                        foreach (var video in Model.Machine.Videos)
+                                        {
+                                            <article class="lm__news-item">
+                                                <a href="@video.Url" target="_blank" class="@(string.IsNullOrWhiteSpace(video.Url)?"normal-text":"") ">
+                                                    <h4 class="article-title right-icon-pos">
+                                                        @video.Name<i class="fa fa-external-link" aria-hidden="true"></i>
+                                                    </h4>
+                                                </a>
+                                            </article>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <article class="lm__news-item">
+                                            <a class="normal-text">
+                                                <h4 class="article-title right-icon-pos">Tyvärr finns inga instruktionsfilmer tillgängliga</h4>
+                                            </a>
+                                        </article>
+                                    }
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="machine-detail__bottom-btn">
+                        @if (Model.IsHasMachineWRight)
+                        {
+                            using (Html.BeginForm("RemoveMachineById", "MachineDetailPage", new {machineId = Model.Machine.Id}, FormMethod.Post, new {id = "form-remove-machine", enctype = "multipart/form-data"}))
+                            {
+                                <button class="lm__icon-btn remove-machine-button" type="button"><i class="fa fa-trash-2"></i><span>Ta bort maskin</span></button>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="lm__modal-alert delete-machine-alert">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title">Är du säker på att du vill ta bort maskin?</h3>
+            <div class="button-confirm">
+                <button class="success-confirm-inform width-40" id="disagree-remove-machine">Nej, spara den</button>
+                <button class="success-confirm-inform reverse-state width-40" id="agree-remove-machine">Ja, ta bort den</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lm__modal-alert upload-error">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title">Bilden kunde inte laddas upp</h3>
+            <p>Något gick fel när du försökte ladda upp bilden. Vänligen försök igen.</p>
+            <div class="button-confirm">
+                <button class="success-confirm-inform width-40">OK</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for showing error or information after event -->
+<div class="lm__modal-alert" id="informationDialog">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title" id="dialogTitle">Är du säker på att du vill ta bort bilden?</h3>
+            <p id="dialogContent"></p>
+            <div class="button-confirm align-right-center">
+                <button class="success-confirm-inform ">OK</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="lm__modal-alert" id="dialog-confirmation">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title">Är du säker på att du vill ta bort bilden?</h3>
+            <div class="button-confirm align-right-text">
+                <button class="success-confirm-inform no">Nej, spara den</button>
+                <button class="success-confirm-inform yes">Ja, ta bort</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="deleteFailed" value="@TempData["DeleteFailed"]"/>

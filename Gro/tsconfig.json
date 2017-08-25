@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "jsx": "react",
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "dom",
+      "es2015.promise",
+      "es6"
+    ],
+    "allowJs": true
+  },
+  "exclude": [
+    "node_modules",
+    "typings",
+    "build",
+    "Static",
+    "lib",
+    "bin",
+    "bower_components"
+  ],
+  "compileOnSave": false
+}

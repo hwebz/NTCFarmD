@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1698298f-0eaf-4b9c-87fd-72cb43a8ad0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LogiWebServiceInt.wsdl" MetadataType="Wsdl" ID="53549bef-2744-45c3-b651-ba8e571bbb98" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="LogiWebServiceInt.xsd" MetadataType="Schema" ID="b040d036-0404-49f5-a8e5-2dc71b0630a8" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LogiWebServiceInt1.xsd" MetadataType="Schema" ID="0896cc9c-de8e-45f2-989d-1bdabb61511c" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LogiWebService.wsdl" MetadataType="Wsdl" ID="c323e76e-0415-4a59-bc72-379889d44cfa" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?wsdl" />
+    <MetadataFile FileName="LogiWebServiceInt2.xsd" MetadataType="Schema" ID="d7710548-13bc-4d23-9070-8de316840946" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LogiWebServiceInt3.xsd" MetadataType="Schema" ID="e07beea8-2388-4f36-afda-deb4ef1c3125" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LogiWebServiceInt4.xsd" MetadataType="Schema" ID="88781909-ac51-4a75-af76-eed71d889128" SourceId="1" SourceUrl="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

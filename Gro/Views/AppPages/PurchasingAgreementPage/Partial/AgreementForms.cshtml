@@ -1,0 +1,98 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PurchasingAgreementViewModel
+
+@{
+    var agreementType = Model.CurrentPage.AgreementType;
+}
+
+<div class="lm__block lm__mina-avtal layout__item has-separator no-margin">
+    <div class="layout layout--large">
+        @if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+        {
+            <div class="layout__item u-1/1">
+                <span class="lm__control-label no-margin"> Ange pris (SEK)</span>
+            </div>
+        }
+        <div class="layout__item u-1/1 ">
+            <div class="layout layout--small">
+                <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop  agreement-element disabled">
+                    <span>Övre pris</span>
+                    <input type="text" id="UpperPrice" name="UpperPrice" class="lm__element-margin-top" value="@Model.FormModel.UpperPrice">
+                </div>
+
+                <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop  agreement-element disabled">
+                    <span>Undre pris</span>
+                    <input type="text" id="LowerPrice" name="LowerPrice" class="lm__element-margin-top" value="@Model.FormModel.LowerPrice">
+                </div>
+
+                @if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+                {
+                    <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop  agreement-element big-distance-left-for-mobile disabled">
+                        <span>Kvantitet/ton</span>
+                        <input type="text" id="CommitQuantity" name="CommitQuantity" class="lm__element-margin-top" value="@Model.FormModel.CommitQuantity" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+{
+    <div class="lm__block lm__mina-avtal layout__item has-separator no-margin">
+        <div class="u-1/1 u-1/1-tablet u-3/5-desktop agreement-element disabled">
+            <span>Leveranssätt</span>
+            <div class="layout__item u-1/1">
+                <div class="lm__radio type-2 width-40">
+                    <input type="radio" name="DeliveryMode" checked="checked" value="1" id="Egen Transport" />
+                    <p>Egen transport</p>
+                </div>
+                <div class="lm__radio type-2 width-40">
+                    <input type="radio" name="DeliveryMode" value="2" id="Gårdshämtning" />
+                    <p>Gårdshämtning</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="lm__block lm__mina-avtal has-separator no-margin lm__block-contain-float">
+    <div class="u-1/1 u-1/1-tablet u-3/5-desktop agreement-element disabled">
+        @if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+        {
+            <span>Resultat av prisbevakning</span>
+        }
+        <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="TargetAction" checked="checked" id="Prissäkra" value="A">
+                <p>
+                    <label>Prissäkra</label>
+                </p>
+            </div>
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="TargetAction" id="SMS" value="S">
+                <p>
+                    <label>SMS</label>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <span>Bevakning giltig tom (max 60 dagar) </span>
+    <div class="u-1/1 u-1/1-tablet u-1/4-desktop agreement-element disabled">
+        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+            <div class="datepicker-container u-1/1 u-1/1-tablet u-1/1-desktop ">
+                <input type="text" id="PriceWatchEndDate" name="PriceWatchEndDate" value="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lm__block lm__mina-avtal layout__item has-separator">
+    <div class="layout">
+        <div class="layout__item u-1/1 u-1/1-tablet u-1/4-desktop agreement-element">
+            <input type="button" id="move-to-step2" class="lm__form-btn width-100 no-margin disabled" value="Granska" />
+        </div>
+    </div>
+</div>

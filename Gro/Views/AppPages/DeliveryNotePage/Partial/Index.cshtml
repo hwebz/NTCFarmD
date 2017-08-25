@@ -1,0 +1,80 @@
+﻿@using Castle.Core.Internal
+@model Gro.ViewModels.Pages.AppPages.DeliveryNote.DeliveryNotePageViewModel
+@{
+    var itemToDisplay = Model.CurrentPage.ItemCount > 0 ? Model.CurrentPage.ItemCount : 0;
+    var deliveriesList = Model.ListDeliveries.Take(itemToDisplay).ToArray();
+}
+<div class="lm__block foljesedlar-block" data-role="page">
+    <div class="lm__block-header">
+        <h2 class="lm__block-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h2>
+    </div>
+    <section class="lm__news">
+        <article class="lm__news-item">
+            @if (deliveriesList.IsNullOrEmpty())
+            {
+                <p>@Html.Translate("/lantBruk/deliverynotes/no_item_message")</p>
+            }
+            else
+            {
+                <p class="table-caption">Välj kolumner som skall visas</p>
+                <div class="lm__table-wrapper">
+                    <table class="tablesaw deliveryNote" data-tablesaw-mode="columntoggle">
+                        <thead>
+                        <tr>
+                            <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/ordernr")</th>
+                            <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/radnr")</th>
+
+                            <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/artikelnr")</th>
+                            <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/benamning")</th>
+                            <th scope="col" data-tablesaw-priority="4">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/utlastad")</th>
+                            <th scope="col" data-tablesaw-priority="5">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/best_kvant")</th>
+                            <th scope="col" data-tablesaw-priority="6">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/lev_kvant")</th>
+                            <th scope="col" data-tablesaw-priority="7">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/lev_fabrik")</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var rowItem in deliveriesList)
+                        {
+                            <tr>
+                                <td>
+                                    <a cdata-orderNumber="@rowItem.OrderNumber"
+                                       cdata-fabricID="@rowItem.FabricID"
+                                       cdata-activePdf="@rowItem.ActivatedPDF.ToString()"
+                                       cdata-rowNumber="@rowItem.RowNumber"
+                                       cdata-customerNumber="@rowItem.CustomerNumber"
+                                       cdata-system="@rowItem.System"
+                                       class="showPdf" href="javascript:void(0);">@rowItem.DisplayOrderNumber</a>
+                                </td>
+                                <td>@rowItem.RowNumber</td>
+                                <td>@rowItem.ArticleNumber</td>
+                                <td>@rowItem.Description</td>
+                                <td>@rowItem.LoadingDate.ToShortDateString()</td>
+                                <td>@rowItem.OrderedQuantity</td>
+                                <td>@rowItem.DeliveredQuantity</td>
+                                <td>@rowItem.FabricDescription</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </article>
+    </section>
+    @if (Model.ListDeliveries != null && Model.ListDeliveries.Any())
+    {
+        <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)" class="lm__more-link">@Html.Translate("/lantBruk/deliverynotes/deliverytable/seeall")<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    }
+</div>
+
+<div class="lm__modal-alert pdf-getting-error">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title"></h3>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>

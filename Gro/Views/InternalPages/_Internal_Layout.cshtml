@@ -1,0 +1,38 @@
+﻿@using EPiServer.Framework.Web
+@using EPiServer.Framework.Web.Mvc.Html
+@using Gro.Constants
+@model Gro.ViewModels.IPageViewModel<EPiServer.Core.PageData>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internal</title>
+    <link rel="shortcut icon" type="image/png"
+          href="http://lantmannen.com/siteassets/images/99-framework/favicon/lm-icon.png?w=32&h=32&format=png" />
+    @Html.Partial("_CSS")
+
+    @Html.RequiredClientResources(RenderingTags.Header)
+    @Html.Partial("_Javascripts")
+</head>
+<body class="internal-page">
+    <div class="wrapper no-margin no-padding">
+        <div class="layout  layout--large">
+            @Html.Action("Index", "InternalNavigation", new { page = Model.CurrentPage })
+            <div class="layout__item  u-1/1  u-7/8-tablet no-padding">
+                <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+                <div class="wrapper  wrapper--full-width">
+                    <!-- START HEADER -->
+                    <header class="lm__header internal-page">
+                        <div class="sticky-header">
+                            @Html.Action("RenderSearchHeader", "InternalSearch")
+                            @*@Html.Partial("~/Views/InternalPages/_Internal_Search.cshtml")*@
+                        </div>
+                    </header>
+                    <!-- END OF HEADER -->
+                    @RenderBody()
+                </div>
+                <!-- END OF MAIN CONTENT OF WEBPAGE -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePriceWatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePriceWatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeletePriceWatchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetCustomerResult" nillable="true" type="q1:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDryingAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDryingAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetDryingAgreementResult" nillable="true" type="q2:DryingAgreement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrainTypesPoolAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productItemId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrainTypesPoolAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetGrainTypesPoolAgreementResult" nillable="true" type="q3:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrainTypesSpotAndForwardAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productItemId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrainTypesSpotAndForwardAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetGrainTypesSpotAndForwardAgreementResult" nillable="true" type="q4:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsSpotAndForwardAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsSpotAndForwardAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPeriodsSpotAndForwardAgreementResult" nillable="true" type="q5:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrainTypesStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productItemId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrainTypesStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetGrainTypesStorageAgreementResult" nillable="true" type="q6:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModesOfDeliveryPoolAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModesOfDeliveryPoolAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetModesOfDeliveryPoolAgreementResult" nillable="true" type="q7:ArrayOfKeyValueOfintstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModesOfDeliveryStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModesOfDeliveryStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetModesOfDeliveryStorageAgreementResult" nillable="true" type="q8:ArrayOfKeyValueOfintstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModesOfDeliverySpotAndForwardAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModesOfDeliverySpotAndForwardAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetModesOfDeliverySpotAndForwardAgreementResult" nillable="true" type="q9:ArrayOfKeyValueOfintstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsPoolAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsPoolAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPeriodsPoolAgreementResult" nillable="true" type="q10:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsPriceProtectingStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productItemId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="grainType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsPriceProtectingStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPeriodsPriceProtectingStorageAgreementResult" nillable="true" type="q11:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeriodsStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPeriodsStorageAgreementResult" nillable="true" type="q12:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAreaDescr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAreaDescrResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPriceAreaDescrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAreas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAreasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetPriceAreasResult" nillable="true" type="q13:ArrayOfPriceArea" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPricePeriodsGrainPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPricePeriodsGrainPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetPricePeriodsGrainPriceResult" nillable="true" type="q14:ArrayOfPricePeriod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceWatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceWatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetPriceWatchResult" nillable="true" type="q15:ArrayOfPriceWatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsPoolAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsPoolAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetProductsPoolAgreementResult" nillable="true" type="q16:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsSpotAndForwardAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsSpotAndForwardAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetProductsSpotAndForwardAgreementResult" nillable="true" type="q17:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetProductsStorageAgreementResult" nillable="true" type="q18:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageAgreementsForPriceProtection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageAgreementsForPriceProtectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetStorageAgreementsForPriceProtectionResult" nillable="true" type="q19:ArrayOfStorageAgreement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageAgreementValuesForPriceProtection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="agreementId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageAgreementValuesForPriceProtectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="GetStorageAgreementValuesForPriceProtectionResult" nillable="true" type="q20:StorageAgreement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCustomerFavoritePriceArea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="priceAreaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCustomerFavoritePriceAreaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveCustomerFavoritePriceAreaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDryingAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDryingAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveDryingAgreementResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePoolAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="agreement" nillable="true" type="q21:PoolAgreement" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePoolAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="SavePoolAgreementResult" nillable="true" type="q22:AgreementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePriceProtectedStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="storageAgreement" nillable="true" type="q23:PriceProtectStorageAgreement" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePriceProtectedStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="SavePriceProtectedStorageAgreementResult" nillable="true" type="q24:AgreementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSpotAndForwardAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="agreement" nillable="true" type="q25:SpotAndForwardAgreement" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSpotAndForwardAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="SaveSpotAndForwardAgreementResult" nillable="true" type="q26:AgreementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStorageAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="storageAgreement" nillable="true" type="q27:StorageAgreement" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStorageAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" minOccurs="0" name="SaveStorageAgreementResult" nillable="true" type="q28:AgreementResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

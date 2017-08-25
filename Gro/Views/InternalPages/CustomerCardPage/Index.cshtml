@@ -1,0 +1,34 @@
+﻿@model Gro.ViewModels.Pages.InternalPages.CustomerCardPageViewModel
+@{
+    Layout = "~/Views/InternalPages/_Internal_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    window["customerNumber"] = '@ViewData["customerNumber"]';
+</script>
+
+<section class="lm__contents">
+    <div class="wrapper no-padding">
+        <div class="layout  layout--large">
+            @if (Model.IsFromUserCard)
+            {
+                <div class="layout__item u-1/1">
+                    <a href="#" class="lm__back-link small-distance-bottom"><i class="fa fa-arrow-left" aria-hidden="true"></i>Tillbaka till användaren</a>
+                </div>
+            }
+            <div class="layout__item u-1/1">
+                <div class="lm__block">
+                    @Html.Partial("~/Views/InternalPages/CustomerCardPage/GeneralInfor.cshtml", Model)
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/2-tablet">
+                @Html.Partial("~/Views/InternalPages/CustomerCardPage/UsersList.cshtml", Model)
+            </div>
+
+            <div class="layout__item u-1/1 u-1/2-tablet">
+                @Html.Partial("~/Views/InternalPages/CustomerCardPage/DeliveryAddresses.cshtml", Model)
+            </div>
+
+        </div>
+    </div>
+</section>

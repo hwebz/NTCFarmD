@@ -1,0 +1,283 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__checkbox {
+    position: relative;
+    display: inline-block;
+    font-size: $base-font-size;
+    vertical-align: middle;
+    margin-right: 10px;
+
+    &.has-margin {
+        margin-right: 5px;
+    }
+
+    label {
+        display: inline-block;
+        width: $settings-checkbox-size-3;
+        height: $settings-checkbox-size-3;
+        position: relative;
+        top: 0;
+        left: -3px;
+        overflow: hidden;
+        margin: 0 !important;
+    }
+
+    input {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: $settings-checkbox-size-3;
+        height: $settings-checkbox-size-3;
+        border-radius: 50%;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity=0);
+        -moz-opacity: 0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    &.lm__tick {
+        label {
+            &:before {
+                @include set-absolute-position(50%, auto, auto, 0);
+                @include set-center-position(top, 50%);
+                @include set-size(block, $settings-checkbox-size-3, $settings-checkbox-size-3);
+                background: transparent url(../images/input_uncheck.png) no-repeat center center;
+                background-size: 90%;
+                content: "";
+            }
+        }
+
+        input:checked + label:before {
+            background: transparent url(../images/input_check.png) no-repeat center center;
+            background-size: 90%;
+        }
+
+        input:disabled {
+            cursor: default;
+
+            + label {
+                &:before {
+                    background: #ededec;
+                    border-radius: 20px;
+                }
+            }
+
+            &:checked {
+                + label {
+                    &:before {
+                        background: transparent url(../images/input_check.png) no-repeat center center;
+                        background-size: 90%;
+                        -webkit-filter: grayscale(100%);
+                        filter: grayscale(100%);
+                    }
+                }
+            }
+        }
+    }
+
+    &.lm__switcher {
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+
+        input {
+            width: $settings-checkbox-size-3 * 2;
+        }
+
+        label {
+            width: $settings-checkbox-size-3 * 2;
+            border-radius: $settings-checkbox-size-3;
+            background: $checkbox-unchecked-color;
+            padding: 2px;
+
+            &:before {
+                content: "";
+                width: $settings-checkbox-size-3 - em(4px);
+                height: $settings-checkbox-size-3 - em(4px);
+                background: $color-white;
+                display: block;
+                border-radius: $settings-checkbox-size-3;
+                position: absolute;
+                transition: all 0.2s ease-in-out;
+                left: 2px;
+            }
+        }
+
+        input:checked + label {
+            background-color: $color-light-green;
+        }
+
+        input:checked + label:before {
+            left: 32px;
+        }
+    }
+
+    &.style-2 {
+        input[type="checkbox"]:checked + label {
+            background-color: $color-black-gray;
+        }
+
+        &.lm__tick {
+            input:checked + label:before {
+                top: -18px;
+            }
+        }
+    }
+
+    &.style-3 {
+        label,
+        label:before,
+        input:checked + label {
+            background: none;
+        }
+
+        &.lm__tick {
+            label {
+                border: none;
+            }
+
+            input:checked + label:before {
+                background: transparent url(../images/input_checkbox_check.png) no-repeat center center;
+                background-size: 100%;
+            }
+        }
+    }
+}
+
+.lm__radio {
+    position: relative;
+    font-size: $base-font-size;
+
+    input {
+        @include set-absolute-position(0, auto, auto, 0);
+        @include set-size(block, 100%, 100%);
+        @include set-opacity(0);
+        cursor: pointer;
+        z-index: 4;
+        margin: 0;
+    }
+
+    > div, > p {
+        cursor: pointer;
+        margin: 10px 0 !important;
+
+        &:before {
+            @include set-absolute-position(50%, auto, auto, 12px);
+            @include set-center-position(top, 50%);
+            @include set-size(block, $settings-checkbox-size-2, $settings-checkbox-size-2);
+            background: transparent url(../images/input_uncheck.png) no-repeat center center;
+            background-size: 90%;
+            content: "";
+        }
+    }
+
+    div, > p {
+        padding: 10px 10px 10px 50px;
+    }
+
+    input:checked {
+        + div, + p {
+            &:before {
+                display: none;
+            }
+
+            &:after {
+                @include set-absolute-position(50%, auto, auto, 12px);
+                @include set-center-position(top, 50%);
+                @include set-size(block, $settings-checkbox-size-2, $settings-checkbox-size-2);
+                background: transparent url(../images/input_check.png) no-repeat center center;
+                background-size: 90%;
+                content: "";
+            }
+        }
+    }
+
+    &.type-2 {
+        > p {
+            @include set-responsive-property("tablet", margin, 5px 0 !important, 10px 0 !important);
+
+            &:before {
+                left: 7px;
+            }
+
+            > label {
+                color: #444;
+            }
+        }
+
+        input:checked {
+            + p {
+                &:before {
+                    display: block;
+                }
+
+                &:after {
+                    @include set-absolute-position(50%, auto, auto, 17px);
+                    @include set-center-position(top, 50%);
+                    @include set-size(block, $settings-checkbox-size-3/2.7, $settings-checkbox-size-3/2.7);
+                    content: "";
+                    color: $color-white;
+                    border-radius: 100%;
+                    background: $body-text-color;
+                }
+            }
+        }
+
+        input:disabled {
+            + p {
+                &:before {
+                    background: #ededec;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+
+    &.type-3 {
+        div, p {
+            &:before {
+                left: 10px;
+            }
+
+            &.user-id__label {
+                margin: 0 !important;
+                padding: 10px 10px 10px 50px !important;
+
+                p {
+                    margin: 5px 0 !important;
+                }
+            }
+        }
+    }
+
+    &.type-4 {
+        div, p {
+            margin: 0 !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+
+            &:before {
+                left: 0;
+            }
+        }
+
+        input:checked + div,
+        input:checked + p {
+            &:after {
+                left: 0;
+                background: transparent url(../images/input_radio_check.png) no-repeat center center;
+                background-size: 100%;
+            }
+        }
+    }
+}
+
+input[type=text] {
+    &:disabled {
+        background-color: #ededec;
+    }
+}

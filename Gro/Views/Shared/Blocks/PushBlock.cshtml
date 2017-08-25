@@ -1,0 +1,23 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@using Gro.Business;
+@model Gro.Core.ContentTypes.Blocks.PushBlock
+
+@*static view: odling-start-page.html*@
+@{
+    var colorCss = Html.GetPushColorCss(Model.Color);
+    var linkItem = Model.BlockLink == null ? null : Model.BlockLink.FirstOrDefault();
+    var target = linkItem == null || linkItem.Href == null || (linkItem.Href.StartsWith("http") == true) ? "_blank" : linkItem.Target;
+    var text = linkItem == null ? string.Empty : linkItem.Text;
+    var href = linkItem == null ? "#" : GroLinkItem.FromLinkItem(linkItem).GetHref();
+}
+<div class="lm__thumbnail-block post-block">
+    <section class="lm__main-block">
+        <article class="lm__main-block-item">
+            <a href="@href" target="@target">
+                <img src="@Model.Image.GetExternalUrl()" alt="First thumbnail block" class="article-thumbnail" @Html.EditAttributes(x => x.Image) />
+                <h4 class="article-title @colorCss">@text</h4>
+            </a>
+        </article>
+    </section>
+</div>

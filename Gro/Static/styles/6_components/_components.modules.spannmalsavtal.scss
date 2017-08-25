@@ -1,0 +1,41 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.spannmalsavtal-block {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        .lm__news-item {
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            .list-title {
+                font-family: $font-akzidenz-medium;
+                font-size: 16px;
+            }
+
+            ul {
+                list-style: none;
+                display: block;
+                min-height: 36px;
+
+                li {
+                    margin-left: 10px;
+
+                    a {
+                        color: $body-text-color;
+
+                        &:hover {
+                            border-bottom: 2px solid $news-detail-content-link-underline-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

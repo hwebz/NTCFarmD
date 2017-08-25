@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" />
+  <xs:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" />
+  <xs:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="TestCustomerRegistration">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCustomerRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestProfile">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestProfileResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCreateCust2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="file" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCreateCust2Response">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCreateCust">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCreateCustResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendTemporaryPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="temPwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendTemporaryPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendTemporaryPasswordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExistingCustomerRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="registration" nillable="true" type="q1:ExistingUserRegistration" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExistingCustomerRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveExistingCustomerRegistrationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerRegistrationContainer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="organisationNr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerRegistrationContainerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="GetCustomerRegistrationContainerResult" nillable="true" type="q2:CustomerRegistration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCustomerRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="registration" nillable="true" type="q3:CustomerRegistration" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCustomerRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveCustomerRegistrationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindMachinePictures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindMachinePicturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="FindMachinePicturesResult" nillable="true" type="q4:ArrayOfOrganisationPicture" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMachinePicURL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="machineId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMachinePicURLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="GetMachinePicURLResult" nillable="true" type="q5:OrganisationPicture" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMachinePicURL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="machineId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="picUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMachinePicURLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="CreateMachinePicURLResult" nillable="true" type="q6:OrganisationPicture" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMachinePicURL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMachinePicURLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteMachinePicURLResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="GetOrganisationProfileResult" nillable="true" type="q7:Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element minOccurs="0" name="profileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="CreateOrganisationProfileResult" nillable="true" type="q8:Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveOrganisationProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="profile" nillable="true" type="q9:Profile" />
+        <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveOrganisationProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveOrganisationProfileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressSilo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="accessibility" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressSiloResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="CreateDeliveryAddressSiloResult" nillable="true" type="q10:SiloItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cellphone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="latidtude" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="silos" nillable="true" type="q11:ArrayOfSiloItem" />
+        <xs:element minOccurs="0" name="directions" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="CreateDeliveryAddressResult" nillable="true" type="q12:CustomerDeliveryAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDeliveryAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="addres" nillable="true" type="q13:CustomerDeliveryAddress" />
+        <xs:element minOccurs="0" name="tickets" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDeliveryAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateDeliveryAddressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDeliveryAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element minOccurs="0" name="AddressNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDeliveryAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDeliveryAddressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomersDeliveryAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomersDeliveryAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" minOccurs="0" name="GetCustomersDeliveryAddressesResult" nillable="true" type="q14:ArrayOfCustomerDeliveryAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="GetOrganisationResult" nillable="true" type="q15:OrganisationInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestUpdateOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestUpdateOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="currVal" nillable="true" type="q16:OrganisationInformation" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateOrganisationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressReceivers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="userIds" nillable="true" type="q17:ArrayOfint" />
+        <xs:element minOccurs="0" name="addressNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressReceiversResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateDeliveryAddressReceiversResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressReceiver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="addressNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDeliveryAddressReceiverResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateDeliveryAddressReceiverResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDeliveryAddressReceivers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="userIds" nillable="true" type="q18:ArrayOfint" />
+        <xs:element minOccurs="0" name="addressNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDeliveryAddressReceiversResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDeliveryAddressReceiversResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDeliveryAddressReceiver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="addressNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDeliveryAddressReceiverResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDeliveryAddressReceiverResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAddressReceivers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organisationId" type="xs:int" />
+        <xs:element minOccurs="0" name="addressNr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeliveryAddressReceiversResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" minOccurs="0" name="GetDeliveryAddressReceiversResult" nillable="true" type="q19:ArrayOfDeliveryReceiver" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContactCustomerService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sendCopy" type="xs:boolean" />
+        <xs:element minOccurs="0" name="userEmailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContactCustomerServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ContactCustomerServiceResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

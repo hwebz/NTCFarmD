@@ -1,0 +1,80 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__thumbnail-block {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 160px;
+    overflow: hidden;
+
+    @include respond-to-min($laptopSize) {
+        height: 260px;
+    }
+
+    .lm__main-block {
+        .lm__main-block-item {
+            a {
+                color: $fisrt-thumbnail-block-header-text-color;
+
+                .article-thumbnail {
+                    @include set-size(block, 100%, 100%);
+                    position: absolute;
+                }
+
+                .article-title {
+                    position: absolute;
+                    display: block;
+                    bottom: 0;
+                    width: 100%;
+                    padding: 20px;
+                    margin: 0;
+                    color: $color-white;
+                    @include set-font($font-clarendonurw-reg, 16px !important, 26px);
+
+                    @include media-query("tablet") {
+                        @include set-font($font-clarendonurw-reg, 20px !important, 22px);
+                    }
+
+                    i {
+                        margin-left: 5px;
+                        font-weight: normal;
+                    }
+
+                    &.gray-bg {
+                        background-color: $gray-bg;
+                    }
+
+                    &.green-bg {
+                        background-color: $green-bg;
+                    }
+
+                    &.orange-bg {
+                        background-color: $orange-bg;
+                    }
+
+                    &.purple-bg {
+                        background-color: $purple-bg;
+                    }
+
+                    &.blue-bg {
+                        background-color: $blue-bg;
+                    }
+                }
+
+                &:hover img {
+                    @include set-opacity(0.8);
+                }
+            }
+        }
+    }
+}
+
+.article-title {
+    .fa-long-arrow-right,
+    .fa-arrow-right {
+        @include set-size(inline-block, 20px, 20px);
+        background: transparent url(../images/arrow-right-white.png) no-repeat center center;
+        margin-right: 20px;
+    }
+}

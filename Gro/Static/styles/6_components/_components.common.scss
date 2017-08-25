@@ -1,0 +1,1831 @@
+﻿/// <reference path="../_references.scss" />
+
+body:after{
+     display:none;
+     content: url(../../images/spannmal_hover.png) url(../../images/odling_hover.png)
+              url(../../images/maskiner_hover.png) url(../../images/foder_hover.png)
+              url(../../images/ekonomi_hover.png) url(../../images/arrow-hover.png)
+              url(../../images/menu-minus-sign.png) url(../../images/menu-plus-sign.png)
+              url(../../images/accordion-collapsed.png) url(../../images/accordion-expanded.png)
+              url(../../images/settings.png) url(../../images/settings_open.png)
+              url(../../images/settings_over.png) url(../../images/tick_selected.png)
+              url(../../images/table-toggle-tick.png);
+}
+
+// revert list style
+.xhtml-content {
+    ul {
+        list-style: initial !important;
+    }
+}
+
+// Reset padding, margin
+.reset-padding-margin {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+// Relative parent
+.relative-position {
+    position: relative;
+}
+
+// Bold title
+.lm__bold-title {
+    @extend %heading-title-4;
+
+    &.gray-text {
+        color: $color-alpha-gray;
+    }
+}
+
+// Tooltip button
+.link-to-open-popup {
+    color: $body-text-color;
+    margin-left: 10px;
+
+    &:hover {
+        color: $body-text-color;
+    }
+}
+
+.middle-vertical {
+    vertical-align: middle;
+}
+
+// Block element
+.block-element {
+    display: block !important;
+}
+
+// Float element
+.float-element {
+    display: inline-block !important;
+}
+
+// Align text
+.align-right-text {
+    text-align: right !important;
+
+    &.mobile {
+        text-align: left !important;
+
+        @include respond-to-max($phoneLandscape) {
+            text-align: right !important;
+        }
+    }
+}
+
+.align-left-text {
+    text-align: left !important;
+}
+
+.align-center-text {
+    text-align: center !important;
+}
+
+.upload-left-button {
+    @include set-absolute-position(auto, auto, auto, 5px);
+}
+// 40% with
+.width-40-no-responsive {
+    display: inline-block !important;
+}
+
+.width-40 {
+    @extend .width-40-no-responsive;
+    @include set-responsive-property("tablet", width, 100% !important, 40% !important);
+}
+
+.width-30 {
+    @extend .width-40-no-responsive;
+    @include set-responsive-property("tablet", width, 100% !important, 30% !important);
+}
+
+// half width
+.width-50 {
+    @include set-responsive-property("tablet", width, 100%, 50%);
+}
+
+// full height
+.height-100 {
+    height: 100%;
+}
+
+// full width
+.width-100 {
+    width: 100% !important;
+}
+
+// Hidden elements
+.hidden {
+    display: none !important;
+}
+
+// Reset padding
+.no-padding {
+    padding: 0 !important;
+}
+
+// Reset margin
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+
+// Make clear distance for elements
+.small-distance-top {
+    margin-top: 20px !important;
+}
+
+.small-distance-bottom {
+    margin-bottom: 20px !important;
+}
+
+.big-distance-top {
+    margin-top: 40px !important;
+}
+
+.big-distance-bottom {
+    margin-bottom: 40px !important;
+}
+
+.big-distance-left {
+    padding-left: 50px;
+}
+
+.big-distance-left-for-mobile {
+    @include respond-to-min($breakpoint-desktop-start) {
+        padding-left: 50px !important;
+    }
+}
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.inline-padding-right-25px{
+    display: inline-block;
+    padding-right: 25px;
+}
+
+// default unordered list
+.default-unordered-list {
+    margin: 15px 0 15px 20px !important;
+
+    li {
+        list-style: disc !important;
+        line-height: 1.5 !important;
+    }
+}
+
+// full width button on mobile
+.block-button-on-mobile {
+    position: relative;
+
+    .lm__form-btn {
+        @include set-responsive-property("mobile", padding, 12px !important, 12px 35px !important);
+        @include set-responsive-property("mobile", margin, 5px 0, 5px);
+
+        @include respond-to-max($phoneLandscape) {
+            &.left-button {
+                @include set-absolute-position(auto, auto, auto, 15px);
+            }
+        }
+    }
+
+    &.two-buttons {
+        .lm__form-btn {
+            @include respond-to-max($phoneLandscape) {
+                &:first-child {
+                    width: 40%;
+                }
+
+                &:last-child {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    &.special-case {
+        .lm__form-btn {
+            padding: 12px 25px !important;
+
+            &.left-button {
+                left: 0;
+            }
+
+            &.reverse-state {
+                padding: 12px 35px !important;
+            }
+        }
+    }
+
+    &.with-icon-btn {
+        .lm__icon-btn {
+            @include set-center-position(top, 50%);
+            left: 30px;
+        }
+
+        @include respond-to-max($phoneLandscape) {
+            .lm__form-btn {
+                padding: 12px 20px !important;
+                margin: 0 5px;
+            }
+
+            .lm__icon-btn {
+                margin: 0 !important;
+                padding: 11px 15px !important;
+                left: 15px;
+
+                span {
+                    display: none;
+                }
+
+                i {
+                    margin: 0;
+                    @include set-size(inline-block, 20px, 20px);
+                }
+            }
+        }
+
+        @include respond-to-min-max($phoneLandscape, $tabletSize) {
+            .lm__icon-btn {
+                left: 15px;
+                margin: 0 !important;
+            }
+        }
+
+        @include respond-to-min-max($tabletSize, $desktopSize) {
+            .lm__form-btn {
+                padding: 12px 20px !important;
+                margin: 0 5px;
+            }
+
+            .lm__icon-btn {
+                margin: 0 !important;
+                padding: 11px 15px !important;
+
+                span {
+                    display: none;
+                }
+
+                i {
+                    margin: 0;
+                    @include set-size(inline-block, 20px, 20px);
+                }
+            }
+        }
+    }
+
+    &.full-width {
+        .lm__form-btn, .lm__icon-btn {
+            @include set-responsive-property("mobile", display, block, inline-block);
+            @include set-responsive-property("mobile", width, 100%, auto);
+
+            &.left-button {
+                @include set-absolute-position(auto, auto, auto, 35px);
+                @include set-responsive-property("tablet", left, 15px, 35px);
+                @include set-responsive-property("mobile", position, initial, absolute);
+                top: 50%;
+                @include set-responsive-property("mobile", transform, none, -webkit-translate(0, -50%));
+                @include set-responsive-property("mobile", transform, none, -moz-translate(0, -50%));
+                @include set-responsive-property("mobile", transform, none, translate(0, -50%));
+                margin: 0 !important;
+
+                &.type-2 {
+                    @include set-absolute-position(auto, auto, auto, 0);
+                }
+            }
+        }
+    }
+}
+
+// Links
+a.lm__link,
+p.lm__link,
+span.lm__link {
+    @extend %anchor-link;
+
+    &.green-arrow {
+        background: transparent url(../images/arrow-hover.png) no-repeat left center;
+        background-size: contain;
+        padding-left: 30px;
+        position: relative;
+
+        &:hover {
+            border: none;
+
+            &:after {
+                content: "";
+                @include set-size(block, 65%, 1px);
+                background: $color-light-green;
+                @include set-absolute-position(auto, 0, 0, auto);
+            }
+        }
+    }
+
+    * {
+        @extend %anchor-link;
+    }
+}
+
+p.lm__link {
+    &:hover {
+        border-color: transparent;
+        text-decoration: none;
+    }
+}
+
+.link_format {
+    border-bottom: 1px solid $color-light-green;
+}
+
+// File links
+.lm__file-link {
+    color: $body-text-color;
+
+    &:hover {
+        color: $body-text-color;
+    }
+
+    &:before {
+        content: "\f016";
+        @include set-font(FontAwesome, $base-font-size, 24px);
+        color: $body-text-color;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+}
+
+// Back links
+.lm__back-link {
+    @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+    color: $body-text-color;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 22px;
+    position: relative;
+
+    &:hover, &:visited, &:link {
+        color: $body-text-color;
+        border: none;
+    }
+
+    i {
+        text-indent: -9999px;
+        background: transparent url(../images/arrow.png) no-repeat center center;
+        background-size: 100%;
+        @include set-size(inline-block, 16px, 16px);
+        margin-right: 7px;
+        @include set-absolute-position(50%, auto, auto, 0);
+        @include set-center-position(top, 50%);
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Form buttons
+.lm__form-btn {
+    background-color: $color-gray-2;
+    border: none !important;
+    border-radius: 5px;
+    color: $body-text-color;
+    font-family: $font-akzidenz-medium;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    margin: 5px;
+    @include set-responsive-property("tablet", padding, 11px 15px !important, 11px 25px !important);
+
+    i {
+        margin-right: 10px !important;
+        margin-bottom: 4px !important;
+    }
+
+    &:hover {
+        background-color: $color-gray-3;
+    }
+
+    &.green-dimmed {
+        background-color: $color-green-dimmed;
+        -webkit-filter: grayscale(0);
+        filter: grayscale(0);
+    }
+
+    &.reverse-state {
+        background-color: $settings-button-hover-background-color;
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-light-green-3;
+        }
+    }
+
+    &.iam-btn {
+        &:hover {
+            background-color: #71b33a;
+            color: $color-white;
+        }
+    }
+
+    &.responsive {
+        @include respond-to-max($phoneLandscape) {
+            display: block;
+            width: 100%;
+            margin: 0 !important;
+        }
+    }
+
+    
+}
+
+.lm__blue-btn {
+    background-color: $color-light-blue;
+    border-radius: 30px;
+    color: $color-white !important;
+    font-family: $font-akzidenz-medium;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    margin: 5px;
+    border: none;
+
+    @include set-responsive-property("tablet", padding, 11px 15px !important, 11px 25px !important);
+
+    &:hover {
+        color: $color-white !important;
+        background-color: $color-lighter-blue;
+    }
+
+    &.no-item {
+        background-color: $color-white-two;
+        border-radius: 10px;
+        color: $body-text-color !important;
+        @include set-responsive-property("mobile", padding, 10px 20px !important, 15px 50px !important);
+
+        p {
+            font-family: $font-akzidenz-reg;
+        }
+    }
+
+    > i {
+        margin-right: 10px !important;
+        margin-bottom: 4px !important;
+    }
+}
+
+.lm__btn-decor {
+    border-radius: 30px;
+    font-family: clarendonurwreg,Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    display: inline-block;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    color: $color-white !important;
+    @include set-responsive-property("tablet", padding, 6px 15px !important, 6px 15px 6px 25px!important);
+
+    &:after {
+        content: "";
+        padding: 0px 15px 0 10px;
+        margin-left: 10px;
+    }
+
+    &.negative-btn {
+        background-color: #f76257;
+
+        &:after {
+            background: transparent url(../images/icon-down-arrow.png) no-repeat 50%;
+        }
+    }
+
+    &.neutral-btn {
+        background-color: #bca69e;
+
+        &:after {
+            background: transparent url(../images/icon-normal-arrow.png) no-repeat 50%;
+        }
+    }
+
+    &.positive-btn {
+        background-color: $color-green-middle;
+
+        &:after {
+            background: transparent url(../images/icon-up-arrow.png) no-repeat 50%;
+        }
+    }
+}
+
+// LM btn with icon and label
+.lm__icon-btn {
+    @extend .lm__basic-btn;
+    padding: 10px 15px !important;
+    @include set-responsive-property("tablet", border, none, 1px solid #ddd9d1);
+    //@include set-responsive-property("tablet", width, 20px, auto);
+    @include set-responsive-property("tablet", margin-left, 10px !important, 5px !important);
+    font-family: $font-akzidenz-medium;
+
+    &.no-margin {
+        margin-left: 0 !important;
+    }
+
+    &:hover {
+        background-color: $color-lighter-gray-2;
+    }
+
+    span {
+        vertical-align: text-top;
+    }
+}
+
+.register-acc-btn {
+    @extend .lm__icon-btn;
+    vertical-align: bottom;
+    width: auto;
+
+    i {
+        margin-left: 10px;
+        margin-right: 0 !important;
+    }
+}
+
+// LM edit button
+.lm__edit-btn {
+    @include set-absolute-position(15px, 15px, auto, auto);
+    @include set-size(block, 30px, 30px);
+    border-radius: 3px;
+    border: 1px solid $color-gray-2;
+    background: $color-white;
+    text-align: center;
+
+    &:before {
+        content: "\f040";
+        @include set-font(FontAwesome, $base-font-size, 24px);
+        color: $body-text-color;
+    }
+}
+
+.lm__basic-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ddd9d1;
+    overflow: hidden;
+    border-radius: 3px !important;
+    background: $color-white;
+    text-align: center;
+
+    &,
+    &:hover {
+        border: 1px solid #ddd9d1 !important;
+        color: $body-text-color !important;
+    }
+
+    i {
+        margin-right: 10px;
+    }
+
+    &.full-width {
+        display: block;
+        text-align: center;
+    }
+}
+
+.lm__edit-with-content-btn {
+    @include set-absolute-position(0, 0, auto, auto);
+    // position: relative;
+    // display: block;
+    float: left;
+    @include set-size(block, 30px, 30px);
+    border-radius: 3px;
+    border: 1px solid $color-gray-2;
+    background: $color-white;
+    text-align: center;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    // -webkit-transition-duration: 0.3s;
+    transition-duration: 0.5s;
+
+    &:before {
+        content: "\f040";
+        @include set-font(FontAwesome, $base-font-size, 27px);
+        color: $body-text-color;
+        left: 7px;
+        position: absolute;
+    }
+
+    &:after {
+        content: "Redigera";
+        display: block;
+        opacity: 0;
+        transition: 0.3s all;
+        transition-delay: 0s;
+        padding-left: 15px;
+        padding-top: 3px;
+    }
+
+    &:hover {
+        width: 110px;
+        transition-delay: 0s;
+
+        &:after {
+            opacity: 1;
+            transition-delay: 0.3s;
+        }
+    }
+}
+
+.lm__inline-edit-btn {
+    @include set-size(inline-block, 30px, 30px);
+    border-radius: 3px;
+    border: 1px solid $color-gray-2;
+    background: $color-white;
+    text-align: center;
+
+    &:before {
+        content: "\f040";
+        @include set-font(FontAwesome, $base-font-size, 27px);
+        color: $body-text-color;
+    }
+}
+
+.lm__inline-coppy-btn {
+    @include set-size(inline-block, 30px, 30px);
+    border-radius: 3px;
+    border: 1px solid $color-gray-2;
+    background: $color-white;
+    text-align: center;
+
+    &:before {
+        content: "\f0c5";
+        @include set-font(FontAwesome, $base-font-size, 27px);
+        color: $body-text-color;
+    }
+}
+
+.lm__inline-delete-btn {
+    @include set-size(inline-block, 30px, 30px);
+    border-radius: 3px;
+    border: 1px solid $color-gray-2;
+    background: $color-white;
+    text-align: center;
+
+    &:before {
+        content: "\f1f8";
+        @include set-font(FontAwesome, $base-font-size, 27px);
+        color: $body-text-color;
+    }
+
+    &:hover{
+        border: 1px solid $color-gray-2 !important;
+    }
+}
+
+.exclamation-btn {
+    &::before {
+        border-radius: 20px;
+        border: 1px solid $color-gray-2;
+        background: $color-white;
+        text-align: center;
+        height: 30px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        content: "\f12a";
+        @include set-font(FontAwesome, $base-font-size, 27px);
+        color: #E57D15;
+    }
+}
+
+.lm__block-btn {
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid $color-gray-2;
+    background: $color-white;
+    text-align: center;
+    height: 30px;
+    padding: 3px 18px;
+    color: #444 !important;
+
+    &:hover {
+        border-bottom: 1px solid $color-gray-2 !important;
+    }
+
+    &.disabled {
+        background-color: $color-lighter-gray;
+        color: #999999;
+
+        &:before {
+            content: "";
+            @include set-absolute-position(0, auto, auto, 0);
+            //background: rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+    }
+}
+
+.lm__plus-blue-btn {
+    background-color: $color-light-blue;
+    border: none;
+    border-radius: 25px;
+    color: $color-white;
+    font-family: $font-akzidenz-medium;
+    padding: 8px 25px !important;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    margin: 5px;
+    font-size: 17px;
+    line-height: 26px;
+
+    &::before {
+        content: "\f067";
+        @include set-font(FontAwesome, $base-font-size, 27px);
+        color: $color-white;
+        padding-right: 20px;
+    }
+
+    &:hover {
+        color: $color-white;
+    }
+}
+
+// Message components
+.lm__message-closable {
+    @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+    background-color: #d3f1ba;
+    color: #577d37;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    margin: 10px 0;
+
+    &.error {
+        background-color: $color-light-red;
+        color: $color-white;
+
+        .close-btn {
+            .fa-times {
+                background: transparent url(../images/fa-close-white.png) no-repeat center center;
+                background-size: 100%;
+            }
+        }
+    }
+
+    .message {
+        margin: 10px 20px 10px 0 !important;
+    }
+
+    .close-btn {
+        @include set-absolute-position(auto, 15px, auto, auto);
+        @include set-center-position(top, 50%);
+        z-index: 5;
+    }
+}
+
+// LM message box for success state
+.lm__message-success {
+    background-color: $color-lighter-gray;
+    padding: 20px;
+    position: relative;
+
+    .lm__checkbox {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    p {
+        margin: 0 !important;
+    }
+}
+
+// Akizidenz Regular font
+.akzidenz-reg-font {
+    font-family: $font-akzidenz-reg !important;
+}
+
+// Akizidenz Medium font
+.akzidenz-medium-font {
+    font-family: $font-akzidenz-medium;
+}
+
+// Clarendonurw Regular font
+.clarendonurw-reg-font {
+    font-family: $font-clarendonurw-reg;
+}
+
+// Gray background
+.gray-background {
+    background-color: $color-white-2;
+
+    &.big-padding {
+        padding: 60px 15px;
+    }
+}
+
+// BankID block
+.bankid-block {
+    position: relative;
+    //border: 1px solid $color-white-gray;
+    //border-radius: 5px;
+    padding: 10px;
+
+    &.no-border {
+        border: none;
+        padding: 0;
+    }
+
+    p {
+        @include set-responsive-property("mobile", display, block, inline-block);
+        @include set-responsive-property("mobile", max-width, 100%, 265px);
+        @include set-responsive-property("mobile", text-align, center, left);
+        vertical-align: -moz-middle-with-baseline;
+
+        @include respond-to-min($tabletSize) {
+            max-width: 330px;
+        }
+    }
+
+    .bank-id__btn {
+        display: block;
+        @include set-responsive-property("mobile", width, 100%, auto);
+
+        @include media-query("mobile") {
+            @include set-absolute-position(0, 10px, auto, auto);
+            @include set-center-position(top, 50%);
+        }
+
+        &.custom {
+            @include media-query("mobile") {
+                @include set-center-position(top, 50%);
+                @include set-absolute-position(57%, 10px, auto, auto);
+            }
+        }
+    }
+
+    .author-inform-form__column {
+        @include set-responsive-property("mobile", width, 100% !important, 74% !important);
+
+        &.with-margin {
+            @include set-responsive-property("mobile", width, 100% !important, 50% !important);
+            @include set-responsive-property("mobile", margin-left, 0, 35px !important);
+        }
+    }
+
+    &.type-2 {
+        img {
+            vertical-align: bottom;
+        }
+
+        .bank-id__btn {
+            @include set-responsive-property("tablet", margin-top, 10px, 30px);
+            position: initial;
+            -webkit-transform: none;
+            transform: none;
+            display: inline-block;
+        }
+    }
+
+    &.type-3 {
+        img {
+            max-width: 50px;
+        }
+
+        p {
+            max-width: 88%;
+            vertical-align: top;
+        }
+
+        .author-inform-form__column {
+            @include set-responsive-property("tablet", margin-left, 0, 68px !important);
+
+            label {
+                @include set-font($font-akzidenz-reg, $body-font-size, 1);
+                color: $body-text-color;
+            }
+        }
+    }
+}
+
+.bank-id__logo {
+    @include set-responsive-property("mobile", display, block, inline-block);
+    @include set-responsive-property("mobile", margin, 0 auto 10px auto, 0 15px 0 0);
+    max-width: 70px;
+
+    &.mobile-hidden {
+        @include set-responsive-property("tablet", display, none, inline-block);
+    }
+}
+
+// Disabled components
+.disabled {
+    pointer-events: none;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+    position: relative;
+
+    // change color of image background
+    filter: grayscale(100%);
+
+    span {
+        color: grey;
+    }
+
+    ul.lm__form-dropdown{
+        li.showcase {
+            a{
+                background-color: $color-lighter-gray-2;
+                color: grey;
+            }
+        }
+    }
+
+    input[type="text"]{
+        background-color: $color-lighter-gray-2;
+    }
+
+    .lm__radio {
+        p {
+            label{
+                color: grey !important;
+            }
+
+            &::before{
+                background: #ededec;
+                border-radius: 20px;
+            }
+        }
+
+        input:checked{
+            + p {
+                label{
+                    color: grey !important;
+                }
+
+                &::before{
+                    background: #ededec;
+                    border-radius: 20px;
+                }
+
+                &::after{
+                    background: grey !important;
+                }
+            }
+        }
+    }
+
+    &:before {
+        content: "";
+        @include set-absolute-position(0, auto, auto, 0);
+        //background: rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    &.lm__form-btn{
+        color: #999999;
+    }
+
+}
+
+.disabled-input {
+    @extend .disabled;
+    background-color: $color-lighter-gray !important;
+}
+
+// Disabled button
+.disabled-btn {
+    pointer-events: none;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+    cursor: default;
+    @include set-opacity(0.5);
+}
+
+// Disabled form fields
+.disabled-form {
+    input, select, textarea {
+        pointer-events: none;
+        background: #ccc;
+    }
+}
+
+// Border bottom for boxes
+.has-separator {
+    border-bottom: 2px solid $body-background-color;
+}
+
+.has-big-separator {
+    border-bottom: 10px solid $body-background-color;
+}
+
+// Breadcrums
+.lm__breadcrums {
+    margin-bottom: 25px;
+    position: relative;
+    @include set-font($font-akzidenz-reg, 18px, 1);
+
+    .lm__step-inform {
+        @include set-responsive-property("tablet", padding, 25px 15px 40px 15px, 40px 15px 60px 15px);
+        background: $color-lighter-gray;
+
+        * {
+            text-align: center;
+        }
+    }
+
+    &.done {
+        .lm__form-progress .lm__form-progress__line {
+            width: 100%;
+        }
+    }
+
+    .lm__form-progress {
+        display: block;
+        text-align: center;
+        @include set-absolute-position(auto, auto, -30px, 0);
+        @include set-responsive-property("tablet", bottom, -20px, -30px);
+        width: 100%;
+
+        &:before {
+            content: "";
+            @include set-absolute-position(auto, auto, 29px, 0);
+            @include set-responsive-property("tablet", bottom, 19px, 29px);
+            @include set-size(block, 100%, 1px);
+            display: block;
+            background: $color-white-gray;
+            z-index: 0;
+        }
+
+        .lm__form-progress__line {
+            content: "";
+            @include set-absolute-position(auto, auto, 28px, 0);
+            @include set-responsive-property("tablet", bottom, 18px, 28px);
+            @include set-size(block, 0, 2px);
+            background: $color-green-middle;
+            z-index: 0;
+        }
+
+        li {
+            display: inline-block;
+            @include set-responsive-property("tablet", margin, 0 5px !important, 0 25px !important);
+
+            &.active {
+                a {
+                    color: $color-green-middle;
+                    border-color: $color-green-middle;
+                    border-width: 2px;
+                }
+            }
+
+            &.done {
+                a {
+                    background: $color-green-middle;
+                    color: $color-white;
+                    border-color: $color-green-middle;
+                }
+            }
+
+            a {
+                @include set-size(block, 55px, 55px);
+                @include set-responsive-property("tablet", width, 40px, 55px);
+                @include set-responsive-property("tablet", height, 40px, 55px);
+                @include set-responsive-property("tablet", padding, 10px, 17px);
+                text-decoration: none;
+                font-family: $font-akzidenz-medium;
+                color: $color-white-gray-2;
+                background: $color-white;
+                border-radius: 50%;
+                border: 1px solid $color-white-gray;
+                position: relative;
+            }
+        }
+    }
+}
+
+// Information table style
+&.white-bg-table {
+    margin: 15px 0;
+
+    tr {
+        background-color: transparent !important;
+
+        td {
+            padding: 3px 0;
+
+            &:first-child {
+                width: 30%;
+            }
+        }
+    }
+}
+
+.lm__information-table {
+    @extend .white-bg-table;
+
+    tr {
+        td {
+            padding: 7px 0;
+
+            &:last-child {
+                font-family: $font-akzidenz-medium;
+                padding-left: 10px;
+
+                @include media-query("tablet") {
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+
+    &.type-2 {
+        tr td {
+            font-family: $font-akzidenz-reg;
+
+            &:first-child {
+                font-family: $font-akzidenz-medium;
+            }
+        }
+    }
+
+    &.type-3 {
+        tr td {
+            font-family: $font-akzidenz-reg;
+            padding: 3px 10px 3px 0;
+        }
+    }
+}
+
+// Gray background box
+.lm__gray-box {
+    background-color: $color-lighter-gray;
+    @include set-responsive-property("tablet", padding, 10px, 20px);
+    position: relative;
+    overflow: hidden;
+
+    &.wider-padding {
+        @include set-responsive-property("tablet", padding, 15px, 30px);
+    }
+
+    p {
+        margin: 15px 0 !important;
+    }
+
+    .lm__gray-box__avatar {
+        @include rounded-avatar(110px);
+        @include set-responsive-property("tablet", width, 80px, 110px);
+        @include set-responsive-property("tablet", height, 80px, 110px);
+        @include set-responsive-property("tablet", display, block, inline-block);
+        margin: 0 auto;
+    }
+
+    .lm__gray-box__inform {
+        display: inline-block;
+        @include set-responsive-property("tablet", margin-left, 0, 15px);
+        vertical-align: top;
+
+        p {
+            @include set-responsive-property("tablet", margin, 5px 0 !important, 5px 10px !important);
+        }
+
+        table {
+            margin-bottom: 0;
+
+            tr {
+                background: transparent;
+
+                td {
+                    @include set-responsive-property("tablet", padding, 5px 0, 5px 10px);
+
+                    &:first-child {
+                        padding-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .lm__form-btn {
+        @include set-absolute-position(30px, 30px, auto, auto);
+        @include set-responsive-property("tablet", position, initial, absolute);
+        @include set-responsive-property("tablet", margin, 20px 0, 0);
+        display: block;
+    }
+}
+
+// Big, gray background title
+.lm__big-gray-title {
+    @include set-responsive-property("tablet", padding, 20px 15px, 20px 40px);
+    background-color: $color-lighter-gray;
+    @extend %heading-title-2;
+    margin: 0;
+}
+
+// Handle users box
+.lm__handle-user-box {
+    .lm__handle-user-box__title {
+        @extend .lm__big-gray-title;
+    }
+
+    .lm__handle-user-box__inform {
+        @include set-responsive-property("tablet", padding, 10px, 10px 40px);
+        display: block;
+
+        .lm__handle-user-box__avatar {
+            @include rounded-avatar(80px);
+        }
+
+        > a {
+            color: $body-text-color;
+            display: block;
+
+            > div {
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 15px;
+
+                p {
+                    margin: 5px 0 !important;
+                }
+            }
+        }
+    }
+}
+
+// LM Accordion links
+.lm__accordion-link {
+    @extend .no-margin;
+    @include set-responsive-property("tablet", padding, 20px 15px, 20px 30px);
+    cursor: pointer;
+    position: relative;
+
+    ~ .lm__accordion-content {
+        display: none;
+
+        .list-item-ext {
+            top: 50px;
+
+            .link_format {
+                width: 107px !important;
+            }
+
+            &:hover {
+                width: 115px;
+            }
+        }
+    }
+
+    &.active {
+        @extend .gray-background;
+
+        ~ .lm__accordion-content {
+            display: block;
+        }
+
+        &:before {
+            background: transparent url(../images/menu-minus-sign.png) no-repeat center center;
+            background-size: contain;
+        }
+    }
+
+    &:before {
+        content: "";
+        @include set-absolute-position(0, 30px, auto, auto);
+        @include set-center-position(top, 50%);
+        @include set-size(block, 30px, 30px);
+        @include set-responsive-property("tablet", right, 15px, 30px);
+        background: transparent url(../images/accordion-expanded.png) no-repeat center center;
+        background-size: contain;
+    }
+}
+
+// Right element
+.right-element {
+    @include set-absolute-position(50%, 15px, auto, auto);
+    @include set-center-position(top, 50%);
+    @include set-responsive-property("tablet", position, initial, absolute);
+    @include set-responsive-property("tablet", margin-top, 20px, 0);
+    display: inline-block;
+}
+
+// Address block
+.address-block {
+    margin-bottom: 40px;
+    @extend .relative-position;
+
+    &.multiple {
+        margin: 3px 0 !important;
+    }
+
+    &.compact {
+        margin-bottom: 20px;
+    }
+
+    .address-sections.has-margin {
+        margin-bottom: 40px;
+    }
+
+    &.gray-background {
+        padding: 15px;
+    }
+
+    &.green-background {
+        padding: 15px;
+        background: $color-lighter-green;
+        color: $color-white;
+    }
+
+    .lm__form-btn {
+        margin-bottom: 30px;
+    }
+
+    h3, p {
+
+        &.margin-15 {
+            margin: 15px 0;
+        }
+
+        &.margin-bottom-15 {
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+
+        span {
+            @include set-responsive-property("tablet", display, block, inline);
+            @include set-responsive-property("tablet", margin, 5px 0, 0 10px 0 0);
+        }
+    }
+
+    select {
+        padding: 0;
+        min-height: 205px;
+
+        option {
+            padding: 5px 20px;
+        }
+    }
+}
+
+.register-guide {
+    ul {
+        margin: 25px;
+
+        li {
+            list-style: disc;
+            line-height: 2;
+        }
+    }
+
+    ol {
+        margin: 25px 0;
+    }
+}
+
+.listing-list {
+    li {
+        &:before {
+            content: "-";
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+}
+
+.has-separator-line {
+    margin-bottom: 40px;
+
+    &:after {
+        @include set-responsive-property("tablet", position, absolute, initial);
+        content: "";
+        @include set-size("block", 150%, 2px);
+        background: $color-light-pink;
+        bottom: -20px;
+        left: -30px;
+    }
+}
+
+.maskin-type-sub {
+    .address-block {
+        display: none;
+    }
+
+    #traktorer {
+        display: block;
+    }
+}
+
+.color-numeric-list {
+    list-style: none;
+    margin: 0;
+
+    li {
+        line-height: 2;
+        counter-increment: item;
+        margin-bottom: 5px;
+
+        &:before {
+            content: counter(item);
+            border-radius: 100%;
+            margin-right: 10px;
+            width: 32px;
+            display: inline-block;
+            text-align: center;
+            color: $color-white;
+            background-color: $color-light-blue;
+        }
+    }
+}
+
+.right-position {
+    @include set-absolute-position(0, 0, auto, auto);
+    @include set-center-position(top, 50%);
+}
+
+.lm__switch-btn {
+    padding: 8px;
+    margin: 0 3px;
+    display: inline-block;
+
+    &.active,
+    &:hover {
+        background: $color-white !important;
+    }
+
+    &.hide-on-mobile {
+        @include set-responsive-property("tablet", display, none, inline-block);
+    }
+}
+
+// info icon
+.fa-info-circle {
+    background: transparent url(../images/info-icon.png) no-repeat center center;
+    background-size: 100%;
+    @include set-size(inline-block, 27px, 27px);
+    text-indent: -9999px;
+    vertical-align: middle;
+
+    &.fa-info-page-title{
+        margin-top: -15px;
+    }
+}
+
+// errors list and items
+.errors-list {
+    padding: 15px !important;
+    background: $color-light-orange;
+    list-style: none;
+    margin-bottom: 15px;
+
+    li {
+        line-height: 2;
+        padding-left: 15px !important;
+        margin-left: 15px !important;
+        position: relative;
+        @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 22px);
+
+        &:before {
+            content: "-";
+            @include set-absolute-position(50%, auto, auto, 0);
+            @include set-center-position(top, 50%);
+        }
+
+        &.errors-list__header {
+            font-family: $font-akzidenz-reg;
+            padding: 0 !important;
+
+            &:before {
+                content: "";
+            }
+        }
+
+        &.not-list-style {
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.5;
+
+            &:before {
+                content: "";
+            }
+        }
+    }
+}
+
+.error-item {
+    color: $color-orange;
+}
+
+.error {
+    border: 1px solid $color-orange !important;
+
+    &.file-upload-wrapper {
+        border: none !important;
+
+        &:after {
+            border: 1px solid $color-orange !important;
+        }
+    }
+}
+
+.with-bg {
+    background: #EEF6E7 !important;
+}
+
+.fa {
+    vertical-align: middle !important;
+
+    &:before {
+        content: "" !important;
+    }
+}
+
+.fa-long-arrow-right,
+.fa-arrow-right {
+    @extend %arrow-right-icon-black;
+}
+
+.fa-star-o,
+.fa-trash,
+.fa-envelope,
+.fa-cog,
+.fa-times,
+.fa-print,
+.fa-cart-2,
+.fa-edit {
+    @include set-size(inline-block, 20px, 20px);
+}
+
+.fa-plus,
+.fa-plus-2,
+.fa-trash-2,
+.fa-cart {
+    @include set-size(inline-block, 15px, 15px);
+}
+
+.fa-external-link,
+.fa-external-link-white,
+.fa-file-pdf-o {
+    @include set-size(inline-block, 20px !important, 20px !important);
+}
+
+.fa-star-o {
+    background: transparent url(../images/fa-star.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-trash {
+    background: transparent url(../images/fa-trash.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-envelope {
+    background: transparent url(../images/fa-envelope.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-trash-2 {
+    background: transparent url(../images/fa-trash-2.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-cog {
+    background: transparent url(../images/fa-gear.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-camera {
+    @include set-size(inline-block, 30px, 30px);
+    background: transparent url(../images/fa-camera.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-times {
+    background: transparent url(../images/fa-close.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-print {
+    background: transparent url(../images/print-icon.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-plus {
+    background: transparent url(../images/plus-icon.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-plus-2 {
+    background: transparent url(../images/plus-icon-2.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-cart {
+    background: transparent url(../images/cart-icon.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-cart-2 {
+    background: transparent url(../images/cart-2-icon.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-edit {
+    background: transparent url(../images/fa-edit.png) no-repeat center center;
+    background-size: contain !important;
+}
+
+.fa-external-link {
+    background: transparent url(../images/fa-external.png) no-repeat center center !important;
+    background-size: contain !important;
+}
+
+.fa-external-link-white {
+    background: transparent url(../images/fa-external-white.png) no-repeat center center !important;
+    background-size: contain !important;
+}
+
+.fa-file-pdf-o {
+    background: transparent url(../images/fa-pdf.png) no-repeat center center !important;
+    background-size: contain !important;
+}
+
+.lm__control-label {
+    padding-right: 5px;
+    font-family: $font-akzidenz-medium !important;
+
+    + span {
+        display: inline-block;
+    }
+}
+
+.mobile-only {
+    @include set-responsive-property("tablet", display, inline-block, none);
+}
+
+.desktop-only {
+    @include set-responsive-property("tablet", display, none, inline-block );
+}
+
+/*Responsive Tables*/
+
+th {
+    font-family: $font-akzidenz-medium;
+}
+
+td,
+th {
+    padding: 6px;
+    text-align: left;
+}
+
+.responsive-header {
+    display: none;
+}
+
+
+.table-expand-info {
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    top: 5px;
+    right: 0;
+    z-index: 4;
+
+    &.expand-icon-plus {
+        &::after {
+            background: transparent url(../images/accordion-expanded.png) no-repeat 50%;
+            background-size: cover;
+            display: block;
+            width: 30px;
+            height: 30px;
+            content: "";
+        }
+    }
+
+    &.expand-icon-minus {
+        &::after {
+            background: transparent url(../images/accordion-collapsed.png) no-repeat 50%;
+            background-size: cover;
+            display: block;
+            width: 30px;
+            height: 30px;
+            content: "";
+        }
+    }
+}
+
+/*Mobile*/
+
+.responsive-table.mobile,
+.mobile thead,
+.mobile tbody,
+.mobile th,
+.mobile td,
+.mobile tr {
+    display: block;
+    overflow: auto;
+    position: relative;
+}
+
+.mobile thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.mobile td {
+    border: none;
+    word-wrap: break-word;
+}
+
+.mobile .responsive-header {
+    font-family: $font-akzidenz-medium;
+    display: inline;
+    padding-right: 10px;
+    float: left;
+    border: none;
+}
+
+.mobile td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.mobile td.share-row {
+    text-align: center;
+    float: left;
+}
+
+.mobile td div.lm__checkbox.lm__tick {
+    @include set-responsive-property("tablet", display, none, inline-block );
+}
+
+// DuyNH
+.green-text {
+    color: $color-light-green !important;
+}
+
+.dropdown-disabled {
+    pointer-events: none;
+    @include set-opacity(0.5);
+}
+
+
+// Internal Site - Badget
+.lm__badget {
+    @extend .lm__form-btn;
+    @include set-absolute-position(-5px, 25px, auto, auto);
+    background-color: $color-orange;
+    color: $color-white;
+    margin: 0;
+    cursor: default;
+
+    &:hover {
+        background-color: $color-orange;
+    }
+}
+
+.search-btn {
+    @include set-absolute-position(14px, 15px, auto, auto);
+    @include set-size(block, 20px, 20px);
+    background: transparent url(../images/search-icon.png) no-repeat center center;
+    background-size: contain;
+    outline: none;
+    border: none;
+    text-indent: -9999px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.text-top {
+    vertical-align: text-top;
+}

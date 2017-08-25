@@ -1,0 +1,62 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.mina-invagningar-block {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        .lm__news-item {
+            table {
+                width: 100%;
+                margin: 0;
+
+                tr, th, td {
+                    background: $color-white;
+                }
+
+                thead {
+                    th {
+                        padding: 20px 0;
+                        color: $body-text-color;
+
+                        &:first-child {
+                            text-align: left;
+                        }
+
+                        &:last-child {
+                            text-align: right;
+                        }
+                    }
+                }
+
+                tbody {
+                    padding: 0 20px;
+
+                    tr {
+                        td {
+                            padding: 12px 0;
+                        }
+
+                        td:last-child {
+                            text-align: right;
+                        }
+
+                        .circle-progress {
+                            display: inline-block;
+                            margin-left: 5px;
+                        }
+
+                        .statistic-text {
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetResourceGroupList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetResourceGroupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceGroupListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceGroupItemsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupVehicleTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupVehicleTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceGroupVehicleTypesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceGroupTimesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupTimesOutside">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceGroupTimesOutsideResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceGroupTimesOutsideResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeReservationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteReservationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeReservationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReservationList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReservationListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReservationListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMakeReservationFormData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMakeReservationFormDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMakeReservationFormDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetResourceGroupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupList" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupItems" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupVehicleTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupVehicleTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupVehicleTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupVehicleTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupTimes" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupTimesOutsideSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupTimesOutside" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceGroupTimesOutsideSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceGroupTimesOutsideResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeReservation" />
+  </wsdl:message>
+  <wsdl:message name="MakeReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteReservation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeReservation" />
+  </wsdl:message>
+  <wsdl:message name="ChangeReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReservationListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReservationList" />
+  </wsdl:message>
+  <wsdl:message name="GetReservationListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReservationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMakeReservationFormDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMakeReservationFormData" />
+  </wsdl:message>
+  <wsdl:message name="GetMakeReservationFormDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMakeReservationFormDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BokaSoap">
+    <wsdl:operation name="GetResourceGroupList">
+      <wsdl:input message="tns:GetResourceGroupListSoapIn" />
+      <wsdl:output message="tns:GetResourceGroupListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupItems">
+      <wsdl:input message="tns:GetResourceGroupItemsSoapIn" />
+      <wsdl:output message="tns:GetResourceGroupItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupVehicleTypes">
+      <wsdl:input message="tns:GetResourceGroupVehicleTypesSoapIn" />
+      <wsdl:output message="tns:GetResourceGroupVehicleTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupTimes">
+      <wsdl:input message="tns:GetResourceGroupTimesSoapIn" />
+      <wsdl:output message="tns:GetResourceGroupTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupTimesOutside">
+      <wsdl:input message="tns:GetResourceGroupTimesOutsideSoapIn" />
+      <wsdl:output message="tns:GetResourceGroupTimesOutsideSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeReservation">
+      <wsdl:input message="tns:MakeReservationSoapIn" />
+      <wsdl:output message="tns:MakeReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <wsdl:input message="tns:DeleteReservationSoapIn" />
+      <wsdl:output message="tns:DeleteReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeReservation">
+      <wsdl:input message="tns:ChangeReservationSoapIn" />
+      <wsdl:output message="tns:ChangeReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReservationList">
+      <wsdl:input message="tns:GetReservationListSoapIn" />
+      <wsdl:output message="tns:GetReservationListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMakeReservationFormData">
+      <wsdl:input message="tns:GetMakeReservationFormDataSoapIn" />
+      <wsdl:output message="tns:GetMakeReservationFormDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BokaSoap" type="tns:BokaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetResourceGroupList">
+      <soap:operation soapAction="http://tempuri.org/GetResourceGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupItems">
+      <soap:operation soapAction="http://tempuri.org/GetResourceGroupItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupVehicleTypes">
+      <soap:operation soapAction="http://tempuri.org/GetResourceGroupVehicleTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupTimes">
+      <soap:operation soapAction="http://tempuri.org/GetResourceGroupTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupTimesOutside">
+      <soap:operation soapAction="http://tempuri.org/GetResourceGroupTimesOutside" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeReservation">
+      <soap:operation soapAction="http://tempuri.org/MakeReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <soap:operation soapAction="http://tempuri.org/DeleteReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeReservation">
+      <soap:operation soapAction="http://tempuri.org/ChangeReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReservationList">
+      <soap:operation soapAction="http://tempuri.org/GetReservationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMakeReservationFormData">
+      <soap:operation soapAction="http://tempuri.org/GetMakeReservationFormData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BokaSoap12" type="tns:BokaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetResourceGroupList">
+      <soap12:operation soapAction="http://tempuri.org/GetResourceGroupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupItems">
+      <soap12:operation soapAction="http://tempuri.org/GetResourceGroupItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupVehicleTypes">
+      <soap12:operation soapAction="http://tempuri.org/GetResourceGroupVehicleTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupTimes">
+      <soap12:operation soapAction="http://tempuri.org/GetResourceGroupTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceGroupTimesOutside">
+      <soap12:operation soapAction="http://tempuri.org/GetResourceGroupTimesOutside" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeReservation">
+      <soap12:operation soapAction="http://tempuri.org/MakeReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <soap12:operation soapAction="http://tempuri.org/DeleteReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeReservation">
+      <soap12:operation soapAction="http://tempuri.org/ChangeReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReservationList">
+      <soap12:operation soapAction="http://tempuri.org/GetReservationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMakeReservationFormData">
+      <soap12:operation soapAction="http://tempuri.org/GetMakeReservationFormData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Boka">
+    <wsdl:port name="BokaSoap" binding="tns:BokaSoap">
+      <soap:address location="http://sr02033/BokaWebService_ETT/Boka.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BokaSoap12" binding="tns:BokaSoap12">
+      <soap12:address location="http://sr02033/BokaWebService_ETT/Boka.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

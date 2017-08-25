@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LM_Farmday_MinaAvtalService_Virtual" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" />
+      <xs:element name="Ping">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMyOpenAgreements">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="rowCount" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMyOpenAgreementsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetMyOpenAgreementsResult" nillable="true" type="q1:ArrayOfAgreement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMyOpenSeedAgreements">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerNr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="rowCount" type="xs:int" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMyOpenSeedAgreementsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetMyOpenSeedAgreementsResult" nillable="true" type="q2:ArrayOfSeedAssurance" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSeedAgreementList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSeedAgreementListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetSeedAgreementListResult" nillable="true" type="q3:ArrayOfSeedAssurance" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSeedAgreement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="agreementNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSeedAgreementResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetSeedAgreementResult" nillable="true" type="q4:SeedAssurance" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFarmSampleList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="agreementNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFarmSampleListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetFarmSampleListResult" nillable="true" type="q5:ArrayOfFarmSample" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFarmSample">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="agreementNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFarmSampleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetFarmSampleResult" nillable="true" type="q6:FarmSample" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPriceHedgingList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="agreementNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPriceHedgingListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetPriceHedgingListResult" nillable="true" type="q7:ArrayOfPriceHedging" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPriceHedging">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="agreementNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPriceHedgingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetPriceHedgingResult" nillable="true" type="q8:PriceHedging" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAgreementList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAgreementListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetAgreementListResult" nillable="true" type="q9:ArrayOfAgreement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFarmingAgreementList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFarmingAgreementListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetFarmingAgreementListResult" nillable="true" type="q10:ArrayOfAgreement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAgreement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="agreementNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAgreementResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetAgreementResult" nillable="true" type="q11:Agreement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDryAgreementList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDryAgreementListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" minOccurs="0" name="GetDryAgreementListResult" nillable="true" type="q12:ArrayOfDryAgreement" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AgreementServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfAgreement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Agreement" nillable="true" type="tns:Agreement" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAgreement" nillable="true" type="tns:ArrayOfAgreement" />
+      <xs:complexType name="Agreement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgreementName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AgreementNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AgreementType" type="xs:int" />
+          <xs:element minOccurs="0" name="AntalIntresseanmalan" type="xs:int" />
+          <xs:element minOccurs="0" name="DeliveryTerms" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HarvestYear" type="xs:int" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValidFrom" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Weighed" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Agreement" nillable="true" type="tns:Agreement" />
+      <xs:complexType name="ArrayOfSeedAssurance">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SeedAssurance" nillable="true" type="tns:SeedAssurance" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSeedAssurance" nillable="true" type="tns:ArrayOfSeedAssurance" />
+      <xs:complexType name="SeedAssurance">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgreementName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AgreementNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AgreementType" type="xs:int" />
+          <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryTerms" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HarvestYear" type="xs:int" />
+          <xs:element minOccurs="0" name="LevTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductionSite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeightIn" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SeedAssurance" nillable="true" type="tns:SeedAssurance" />
+      <xs:complexType name="ArrayOfFarmSample">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FarmSample" nillable="true" type="tns:FarmSample" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFarmSample" nillable="true" type="tns:ArrayOfFarmSample" />
+      <xs:complexType name="FarmSample">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Analyskod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvNr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resultat" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FarmSample" nillable="true" type="tns:FarmSample" />
+      <xs:complexType name="ArrayOfPriceHedging">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PriceHedging" nillable="true" type="tns:PriceHedging" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPriceHedging" nillable="true" type="tns:ArrayOfPriceHedging" />
+      <xs:complexType name="PriceHedging">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgreementDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InputPriceHedging" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:int" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PriceHedging" nillable="true" type="tns:PriceHedging" />
+      <xs:complexType name="ArrayOfDryAgreement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DryAgreement" nillable="true" type="tns:DryAgreement" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDryAgreement" nillable="true" type="tns:ArrayOfDryAgreement" />
+      <xs:complexType name="DryAgreement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AgreementExist" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="skordeYear" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DryAgreement" nillable="true" type="tns:DryAgreement" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IAgreementService_GetMyOpenAgreements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyOpenAgreements" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetDryAgreementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDryAgreementList" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetAgreementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementList" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetFarmSample_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFarmSample" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetPriceHedging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceHedgingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetAgreementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetFarmSample_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFarmSampleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetFarmSampleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFarmSampleList" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetFarmingAgreementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFarmingAgreementListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetSeedAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeedAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetSeedAgreementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeedAgreementListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetFarmSampleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFarmSampleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetPriceHedging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceHedging" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetMyOpenSeedAgreements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyOpenSeedAgreements" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetMyOpenSeedAgreements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyOpenSeedAgreementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetPriceHedgingList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceHedgingListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetSeedAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeedAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetMyOpenAgreements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyOpenAgreementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetSeedAgreementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSeedAgreementList" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetPriceHedgingList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceHedgingList" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetFarmingAgreementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFarmingAgreementList" />
+  </wsdl:message>
+  <wsdl:message name="IAgreementService_GetDryAgreementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDryAgreementListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAgreementService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/Ping" message="tns:IAgreementService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/PingResponse" message="tns:IAgreementService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyOpenAgreements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetMyOpenAgreements" message="tns:IAgreementService_GetMyOpenAgreements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetMyOpenAgreementsResponse" message="tns:IAgreementService_GetMyOpenAgreements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyOpenSeedAgreements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetMyOpenSeedAgreements" message="tns:IAgreementService_GetMyOpenSeedAgreements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetMyOpenSeedAgreementsResponse" message="tns:IAgreementService_GetMyOpenSeedAgreements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeedAgreementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetSeedAgreementList" message="tns:IAgreementService_GetSeedAgreementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetSeedAgreementListResponse" message="tns:IAgreementService_GetSeedAgreementList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeedAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetSeedAgreement" message="tns:IAgreementService_GetSeedAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetSeedAgreementResponse" message="tns:IAgreementService_GetSeedAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSampleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetFarmSampleList" message="tns:IAgreementService_GetFarmSampleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetFarmSampleListResponse" message="tns:IAgreementService_GetFarmSampleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSample">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetFarmSample" message="tns:IAgreementService_GetFarmSample_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetFarmSampleResponse" message="tns:IAgreementService_GetFarmSample_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceHedgingList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetPriceHedgingList" message="tns:IAgreementService_GetPriceHedgingList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetPriceHedgingListResponse" message="tns:IAgreementService_GetPriceHedgingList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceHedging">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetPriceHedging" message="tns:IAgreementService_GetPriceHedging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetPriceHedgingResponse" message="tns:IAgreementService_GetPriceHedging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetAgreementList" message="tns:IAgreementService_GetAgreementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetAgreementListResponse" message="tns:IAgreementService_GetAgreementList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmingAgreementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetFarmingAgreementList" message="tns:IAgreementService_GetFarmingAgreementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetFarmingAgreementListResponse" message="tns:IAgreementService_GetFarmingAgreementList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetAgreement" message="tns:IAgreementService_GetAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetAgreementResponse" message="tns:IAgreementService_GetAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDryAgreementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgreementService/GetDryAgreementList" message="tns:IAgreementService_GetDryAgreementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgreementService/GetDryAgreementListResponse" message="tns:IAgreementService_GetDryAgreementList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAgreementService" type="tns:IAgreementService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyOpenAgreements">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetMyOpenAgreements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyOpenSeedAgreements">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetMyOpenSeedAgreements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeedAgreementList">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetSeedAgreementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeedAgreement">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetSeedAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSampleList">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetFarmSampleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSample">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetFarmSample" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceHedgingList">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetPriceHedgingList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceHedging">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetPriceHedging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementList">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetAgreementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmingAgreementList">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetFarmingAgreementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreement">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDryAgreementList">
+      <soap:operation soapAction="http://tempuri.org/IAgreementService/GetDryAgreementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LM_Farmday_MinaAvtalService_Virtual">
+    <wsdl:port name="LM_Farmday_MinaAvtalService_Virtualsoaphttp" binding="tns:BasicHttpBinding_IAgreementService">
+      <soap:address location="http://sci-api-tst.work.lantmannen.lan:80/ws/LM_Farmday_MinaAvtalService_Virtual/1.0" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

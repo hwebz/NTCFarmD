@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <SitePageBase>
+        <properties>
+          <Heading>
+            <caption>Page Heading</caption>
+          </Heading>
+        </properties>
+      </SitePageBase>
+      
+      <SettingsPage>
+        <properties>
+          <SiteName>
+            <caption>Site Name</caption>
+          </SiteName>
+          <SelectServiceText>
+            <caption>Select Service</caption>
+          </SelectServiceText>
+          <GoogleTagMgrId>
+            <caption>Google Tag Manager ID</caption>
+          </GoogleTagMgrId>
+          <RegisterAccountPage>
+            <caption>Register Account Page</caption>
+          </RegisterAccountPage>
+          <ConfirirmationPage>
+            <caption>Confirirmation Page</caption>
+          </ConfirirmationPage>
+          <LoginWithBankIDUrl>
+            <caption>Login With BankID Url</caption>
+          </LoginWithBankIDUrl>
+          <UserSettingMessage>
+            <caption>User Message Setting Page</caption>
+          </UserSettingMessage>
+          <AdminSettingMessage>
+            <caption>Admin Message Page</caption>
+          </AdminSettingMessage>
+          <EmptyCategoryMessage>
+            <caption>Message For Empty Category</caption>
+          </EmptyCategoryMessage>
+          <PageSizeInViewMessage>
+            <caption>Page Size In View Message</caption>
+          </PageSizeInViewMessage>
+          <PageSizeInAdminMessage>
+            <caption>Page Size In Admin Message</caption>
+          </PageSizeInAdminMessage>
+          <UserViewMessage>
+            <caption>User Message Page</caption>
+          </UserViewMessage>
+          <MessageSignature>
+            <caption>Message Signature</caption>
+          </MessageSignature>
+          <AddDeliveryAddressPage>
+            <caption>Add Delivery Address Page</caption>
+          </AddDeliveryAddressPage>
+          <MyAccountLink>
+            <caption>My Account Page</caption>
+          </MyAccountLink>
+          <UserAgreementPage>
+            <caption>User Agreement Page</caption>
+          </UserAgreementPage>
+          <AddDeliveryAddressPage>
+            <caption>Add Delivery Address Page</caption>
+          </AddDeliveryAddressPage>
+          <HandleAddressPage>
+            <caption>Handle Address Page</caption>
+          </HandleAddressPage>
+          <AddUserToOrganizationPage>
+            <caption>Add User To Organization Page</caption>
+          </AddUserToOrganizationPage>
+          <HandleOrganizationUserPage>
+            <caption>Handle User Organization Page</caption>
+          </HandleOrganizationUserPage>
+          <FreeTextOnFooter>
+            <caption>Free Text On Footer</caption>
+          </FreeTextOnFooter>
+          <Column1>
+            <caption>First Column On Footer</caption>
+          </Column1>
+          <Column2>
+            <caption>Second Column On Footer</caption>
+          </Column2>
+          <Column3>
+            <caption>Third Column On Footer</caption>
+          </Column3>
+          <MachineMediaFolder>
+            <caption>
+              Machine Media Folder
+            </caption>
+          </MachineMediaFolder>
+          <IsInternal>
+            <caption>Is Internal Site</caption>
+          </IsInternal>
+          <LorryTypesInExternalSite>
+            <caption>Lorry Types In External Site</caption>
+          </LorryTypesInExternalSite>
+          <DeliveryAssurancePage>
+            <caption>Delivery Assurance Page</caption>
+          </DeliveryAssurancePage>
+          <PlannedDeliveryPage>
+            <caption> Planned Delivery Page</caption>
+          </PlannedDeliveryPage>
+        </properties>
+      </SettingsPage>
+      
+      <TwoColumnServiceStartPage>
+        <properties>
+          <LeftContent>
+            <caption>Left Content</caption>
+          </LeftContent>
+          <RightContent>
+            <caption> Right Content</caption>
+          </RightContent>
+        </properties>
+      </TwoColumnServiceStartPage>
+      
+      <SpannmalStartPage>
+        <properties>
+          <LeftSubColumn>
+            <caption> Left Sub Column </caption>
+          </LeftSubColumn>
+          <RightSubColumn>
+            <caption> Right Sub Column</caption>
+          </RightSubColumn>
+        </properties>
+      </SpannmalStartPage>
+      
+      <OdlingStartPage>
+        <properties>
+          <LeftTopColumn>
+            <caption>Left Top Column</caption>
+          </LeftTopColumn>
+          <RightTopColumn>
+            <caption>Right Top Column</caption>
+          </RightTopColumn>
+        </properties>  
+      </OdlingStartPage>
+      
+      <NewsListBlock>
+        <name>News List Block</name>
+        <description>Recent news</description>
+        <properties>
+          <NumberOfItems>
+            <caption>Number of items</caption>
+            <help>Number of recent news to display</help>
+          </NumberOfItems>
+          <ArchivePage>
+            <caption>Archive page</caption>
+            <help>Link to archive page</help>
+          </ArchivePage>
+          <ArchiveLinkText>
+            <caption>Archive link text</caption>
+          </ArchiveLinkText>
+          <Headline>
+
+          </Headline>
+        </properties>
+      </NewsListBlock>
+      
+      <InformationPage>
+        <name>Information Page</name>
+        <description>Information details</description>
+        <properties>
+          <Preamble>
+            <caption>Preamble text</caption>
+          </Preamble>
+          <Body></Body>
+        </properties>
+      </InformationPage>
+      
+      <InformationArchivePage>
+        <name>Information Archive Page</name>
+        <description>Listing Information Pages</description>
+        <properties>
+          <LatestPagesHeadline>
+            <caption>Latest Pages Headline</caption>
+          </LatestPagesHeadline>
+          <LatestPagesSeemoreText>
+            <caption> Latest Pages Seemore Text</caption>
+          </LatestPagesSeemoreText>
+        </properties>
+      </InformationArchivePage>
+
+      <InformationListBlock>
+        <name>Information List Block</name>
+        <description>Vaxline information listings</description>
+        <properties>
+          <NumberOfItems>
+            <caption>Number of items</caption>
+          </NumberOfItems>
+          <ArchiveLinkText>
+            <caption>Archive link text</caption>
+          </ArchiveLinkText>
+          <ArchivePage>
+            <caption>Archive Page</caption>
+          </ArchivePage>
+        </properties>
+      </InformationListBlock>
+
+      <ContactBlock>
+        <name>Contact Block</name>
+        <description>Contact Block</description>
+        <properties>
+          <Heading>
+            <caption>Heading</caption>
+          </Heading>
+          <Description>
+            <caption>Description</caption>
+          </Description>
+          <TelephoneNumber>
+            <caption>Telephone number</caption>
+          </TelephoneNumber>
+          <OpeningHours>
+            <caption>Opening hours</caption>
+          </OpeningHours>
+          <LinkToContactPageText>
+            <caption>Display text for link</caption>
+          </LinkToContactPageText>
+          <LinkToContactPage>
+            <caption>Link to contact page</caption>
+          </LinkToContactPage>
+        </properties>
+      </ContactBlock>
+      
+      <AgreementListBlock>
+        <name>Agreement List Block</name>
+        <description>Agreement List Block</description>
+        <properties>
+          <Heading>
+            <caption>Heading</caption>
+          </Heading>
+          <LinkText>
+            <caption>Link Text</caption>
+          </LinkText>
+          <ArchivePage>
+            <caption>Page</caption>
+          </ArchivePage>
+        </properties>
+      </AgreementListBlock>
+
+      <WeighinListBlock>
+        <name>Weigh-ins List Block</name>
+        <description>Weigh-ins List Block</description>
+        <properties>
+          <Heading>
+            <caption>Heading</caption>
+          </Heading>
+          <LinkText>
+            <caption>Link Text</caption>
+          </LinkText>
+          <ArchivePage>
+            <caption>Page</caption>
+          </ArchivePage>
+        </properties>
+      </WeighinListBlock>
+
+      <ContactPage>
+        <name>Contact Page</name>
+        <description>Contact Page</description>
+        <properties>
+          <Gatuadress>
+            <caption>Besöksadress</caption>
+          </Gatuadress>
+          <Postadress>
+            <caption>Postadress</caption>
+          </Postadress>
+          <Telephone>
+            <caption>Telefon</caption>
+          </Telephone>
+          <OpenHours>
+            <caption>Öppet</caption>
+          </OpenHours>
+          <Email>
+            <caption>E-post</caption>
+          </Email>
+          <Website>
+            <caption>Webbsida</caption>
+          </Website>
+          <BillingAddress>
+            <caption>Faktureringsadress</caption>
+          </BillingAddress>
+          <OrganisationNumber>
+            <caption>Organisationsnummer</caption>
+          </OrganisationNumber>
+          <Introduction>
+            <caption>Introduction</caption>
+          </Introduction>
+          <RightContent>
+            <caption>Right Content</caption>
+          </RightContent>
+        </properties>
+      </ContactPage>
+
+      <ContactFormPage>
+        <properties>
+          <InstructionWithLogin>
+            <caption>Instruction With Login</caption>
+          </InstructionWithLogin>
+          <InstructionWithoutLogin>
+            <caption>Instruction Without Login</caption>
+          </InstructionWithoutLogin>
+          <RightContent>
+            <caption>Right Content</caption>
+          </RightContent>
+          <TextLink>
+            <caption> Coming Back Link Text</caption>
+          </TextLink>
+          <ComingBackLink>
+            <caption>Coming Back Link</caption>
+          </ComingBackLink>
+        </properties>
+      </ContactFormPage>
+
+      <InformationBlock>
+        <name>Information Block</name>
+        <description>Block show heading and body</description>
+        <properties>
+          <Heading>
+            <caption>Heading</caption>
+          </Heading>
+          <Body>
+            <caption>Body</caption>
+          </Body>
+        </properties>
+      </InformationBlock>
+
+      <RegisterAccountPage>
+        <name>Register Account Page</name>
+        <description>Register Account Page</description>
+        <properties>
+          <AccountActivationPage>
+            <caption>Active Farmday Customer Page</caption>
+          </AccountActivationPage>
+          <RegisterNewCustomerPage>
+            <caption>Register New Customer Page</caption>
+          </RegisterNewCustomerPage>
+          <RegisterNewCustomerForm>
+            <caption>Register New Customer Form</caption>
+          </RegisterNewCustomerForm>
+          <RightContent>
+            <caption>Right Content</caption>
+        </RightContent>
+        </properties>
+      </RegisterAccountPage>
+
+      <AccountActivationPage>
+        <name>Active Farmday Customer Page</name>
+        <description>Active Farmday Customer Page</description>
+        <properties>
+          <TermsOfUse>
+            <caption>Terms Of Use</caption>
+          </TermsOfUse>
+          <ContractApplicationUrl>
+            <caption>Contract Application Url</caption>
+          </ContractApplicationUrl>
+          <RightContent>
+            <caption>Right Content</caption>
+          </RightContent>
+        </properties>
+      </AccountActivationPage>
+
+      <UpcomingDeliveriesPage>
+        <name>Upcoming Deliveries Page</name>
+      </UpcomingDeliveriesPage>
+
+      <NonServicePageFolder>
+        <name>Non Service Page Folder</name>
+        <description>Forder For Non-Service Pages</description>
+        <properties>
+          <RightNavigationHeader>
+            <caption>Right Navigation Header</caption>
+          </RightNavigationHeader>
+        </properties>
+      </NonServicePageFolder>
+      <DeliveryAssuranceListPage>
+        <name>Delivery Assurance List Page</name>
+        <description>Delivery Assurance ListPage</description>
+        <properties>
+          <Introduction>
+            <caption>Introduction</caption>
+          </Introduction>
+          <RemoveDeliveryAssuranceConfirmText>
+            <caption>Remove Delivery Assurance confirm text</caption>
+          </RemoveDeliveryAssuranceConfirmText>
+          <BookDeliveryPageUrl>
+            <caption>Book Delivery page</caption>
+          </BookDeliveryPageUrl>
+
+          <ChangeNotAvailableHeader>
+            <caption>Change not available - Header</caption>
+          </ChangeNotAvailableHeader>
+          <ChangeNotAvailable>
+            <caption>Change not available</caption>
+          </ChangeNotAvailable>
+          <OverviewHeader>
+            <caption>Overview Header</caption>
+          </OverviewHeader>
+
+          <ApproveHeader>
+            <caption>Approve Header</caption>
+          </ApproveHeader>
+          <CreateHeader>
+            <caption>Create Header</caption>
+          </CreateHeader>
+          <ChangeHeader>
+            <caption>Change Header</caption>
+          </ChangeHeader>
+
+          <DeliveryTermsPageUrl>
+            <caption>Delivery Terms Page</caption>
+          </DeliveryTermsPageUrl>
+          <ThankYouText>
+            <caption>Thank You Text For Create Assurance</caption>
+          </ThankYouText>
+          <ThankYouTextForUpdate>
+            <caption>Thank You Text For Update/Approve Assurance</caption>
+          </ThankYouTextForUpdate>
+          <ErrorText>
+            <caption>Error Text</caption>
+          </ErrorText>
+          <MyPageUrl>
+            <caption>Mina sidor page</caption>
+          </MyPageUrl>
+          <ButtonConfirmText>
+            <caption>Button Confirm Text</caption>
+          </ButtonConfirmText>
+          
+          <Header1>
+            <caption>Header1</caption>
+          </Header1>
+
+          <Header2>
+            <caption>Header2</caption>
+          </Header2>
+          <Header3>
+            <caption>Header3</caption>
+          </Header3>
+          <Header4>
+            <caption>Header4</caption>
+          </Header4>
+
+          <MainBody>
+            <caption>Main Body</caption>
+          </MainBody>
+          <Footer1>
+            <caption>Footer1</caption>
+          </Footer1>
+          <Footer2>
+            <caption>Footer2</caption>
+          </Footer2>
+
+          <Footer3>
+            <caption>Footer3</caption>
+          </Footer3>
+          <Footer4>
+            <caption>Footer4</caption>
+          </Footer4>
+          <Footer5>
+            <caption>Footer5</caption>
+          </Footer5>
+
+        </properties>
+      </DeliveryAssuranceListPage>
+
+      <PurchasingAgreementPage>
+        <name>Purchasing Agreement Page</name>
+        <description>Purchasing Agreement Page</description>
+        <properties>
+          <AgreementType>
+            <caption>Agreement Type</caption>
+          </AgreementType>
+          <UpdatePriceHedgePage>
+            <caption>Subcribe Price Page</caption>
+          </UpdatePriceHedgePage>
+          <Body>
+            <caption>Description</caption>
+          </Body>
+          <HelpUrl>
+            <caption>Help Url</caption>
+          </HelpUrl>
+        </properties>
+      </PurchasingAgreementPage>
+
+      <PriceHedgePage>
+        <name>Price Hedge Page</name>
+        <description>Price Hedge Page</description>
+        <properties>
+          <PurchaseTermAndConditionPage>
+            <caption>Purchase Term And Condition Page</caption>
+          </PurchaseTermAndConditionPage>
+          <PriceAlertPage>
+            <caption>Price Alert Page</caption>
+          </PriceAlertPage>
+          <ConfirmationTextForDepaavtal>
+            <caption>Confirmation Text For Depaavtal</caption>
+          </ConfirmationTextForDepaavtal>
+
+          <ConfirmationTextForPoolavtal>
+            <caption>Confirmation Text For Poolavtal</caption>
+          </ConfirmationTextForPoolavtal>
+
+          <ConfirmationTextForSportavtal>
+            <caption>Confirmation Text For Sportavtal</caption>
+          </ConfirmationTextForSportavtal>
+
+          <ConfirmationTextForPrissakringDepaavtal>
+            <caption>Confirmation Text For Prissakring Depaavtal</caption>
+          </ConfirmationTextForPrissakringDepaavtal>
+        </properties>
+      </PriceHedgePage>
+
+      <DryingAgreementPage>
+        <name>Drying Agreement Page</name>
+        <description>Drying Agreement Page</description>
+        <properties>
+          <ConfirmationText>
+            <caption>Confirmation Text</caption>
+          </ConfirmationText>
+        </properties>
+      </DryingAgreementPage>
+
+
+    </contenttypes>
+  </language>
+</languages>

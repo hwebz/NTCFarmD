@@ -1,0 +1,503 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__header {
+    z-index: 999;
+    @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+
+    .lm__top-header {
+        @include set-size(block, auto, 67px);
+        background-color: $top-header-background-color;
+        margin-top: 45px;
+
+        @include media-query("mobile") {
+            margin-top: 0;
+        }
+
+        .lm__logo {
+            @include set-size(inline-block, auto, 62px);
+            padding-top: 10px;
+
+            @include respond-to-min-max($tabletSize, $desktopSize) {
+                padding-top: 15px;
+            }
+
+            > a {
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    @include set-size(inline-block, 60px, auto);
+                }
+            }
+
+            .lm__slogan {
+                @include set-font($font-clarendonurw-reg, $slogan-font-size, $slogan-line-height);
+                margin-left: 15px;
+                vertical-align: sub;
+                @include set-responsive-property("tablet", display, none, inline-block);
+
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    margin-left: 5px;
+                    font-size: $base-font-size;
+                }
+            }
+        }
+
+        .lm__utility {
+            text-align: right;
+            position: inherit;
+
+            @include media-query("desktop") {
+                position: relative;
+            }
+
+            .lm__user-settings {
+                display: inline-block;
+                margin-right: -5px;
+
+                > ul {
+                    @extend %reset-list;
+
+                    > li {
+                        display: inline-block;
+                        position: relative;
+                        height: 67px;
+
+                        > a {
+                            @include set-size(inline-block, 70px, 67px);
+                            padding: 0 35px;
+
+                            &.lm__user-settings__button {
+                                width: auto;
+                                @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+                                color: $color-white;
+                                height: auto;
+                                margin: 13px 0;
+
+                                &:hover {
+                                    color: $body-text-color;
+                                }
+
+                                &:after {
+                                    content: "\f090";
+                                    font-family: FontAwesome;
+                                    font-size: $base-font-size;
+                                    margin-left: 10px;
+                                    vertical-align: middle;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            background-color: $color-lighter-gray;
+                        }
+
+                        &.no-hover:hover {
+                            background-color: transparent;
+                        }
+                    }
+                }
+
+                .lm__star {
+                    position: relative;
+                    background: transparent url(../../images/star.png) no-repeat center center;
+                    @include set-opacity(0.8);
+
+                    .lm__messages-stat-count {
+                        @include set-font($font-akzidenz-reg, 12px, 20px);
+                        @include set-absolute-position(12px, 5px, auto, auto);
+                        padding: 0 7px;
+                        display: inline-block;
+                        height: 20px;
+                        border-radius: 10px;
+                        background-color: $buble-message-count-background-color;
+                        color: $buble-message-count-text-color;
+                        text-align: center;
+                    }
+
+                    &:hover {
+                        @include set-opacity(1);
+                    }
+                }
+
+                .lm__messages {
+                    position: relative;
+                    background: transparent url(../../images/messages.png) no-repeat center center;
+                    @include set-opacity(0.8);
+
+                    .lm__messages-count {
+                        @include set-font($font-akzidenz-reg, 12px, 20px);
+                        @include set-absolute-position(12px, 15px, auto, auto);
+                        padding: 0 7px;
+                        display: inline-block;
+                        height: 20px;
+                        border-radius: 10px;
+                        background-color: $buble-message-count-background-color;
+                        color: $buble-message-count-text-color;
+                        text-align: center;
+                    }
+
+                    &:hover {
+                        @include set-opacity(1);
+                    }
+                }
+            }
+
+            .lm__user-profile {
+                @include set-responsive-property("mobile", position, initial, relative);
+                @include set-font($font-akzidenz-reg, 14px, 1.5);
+                display: inline-block;
+                text-align: left;
+                vertical-align: top;
+
+                .user-info-wrapper {
+                    @include set-absolute-position(0, auto, auto, 0);
+
+                    @include set-responsive-property("mobile", position, absolute, inherit);
+                    @include set-responsive-property("mobile", width, 100% !important, 180px !important);
+                    @include set-responsive-property("mobile", height, 45px, auto);
+                    margin: 0;
+                    display: inline-block;
+                    margin-right: -4px;
+
+                    .lm__user-info {
+                        @include set-size(block, 100%, 45px);
+                        @include set-responsive-property("mobile", background, $user-profile-background-color, none);
+                        @include set-responsive-property("mobile", height, 45px, 67px);
+                        @include set-responsive-property("mobile", padding, 15px, 20px 15px 15px 15px);
+                        color: $body-text-color;
+                        position: relative;
+                        border-left: 1px solid $color-light-pink;
+                        border-right: 1px solid $color-light-pink;
+                        overflow: hidden;
+
+                        &:hover {
+                            background: $color-white-2;
+                        }
+
+                        .lm__user-id {
+                            @include set-font($font-akzidenz-medium, $user-id-font-size, 1);
+                            margin: 0 5px 0 0;
+                            padding: 0;
+                            text-align: left;
+                        }
+
+                        .lm__user-id,
+                        .lm__user-summary {
+                            @include set-responsive-property("mobile", display, inline-block, block);
+                            @include set-responsive-property("mobile", margin, 0, 0 15px 0 0);
+                            position: relative;
+                            white-space: nowrap;
+                            padding-right: 12px;
+                            text-overflow: ellipsis;
+                        }
+
+                        .lm__user-summary {
+                            @include media-query("mobile") {
+                                overflow: hidden;
+                            }
+                        }
+
+                        &:after {
+                            @include set-absolute-position(55%, 10px, auto, auto);
+                            @include set-size(block, 15px, 10px);
+                            background: transparent url(../images/chevron-down-gray.png) no-repeat center center;
+                            background-size: contain;
+                            @include set-responsive-property("mobile", top, 40%, 55%);
+                            content: "";
+                        }
+                    }
+
+                    .sub__user-profile {
+                        @include set-absolute-position(45px, 1px, auto, auto);
+                        @include set-responsive-property("mobile", top, 45px, 67px);
+                        @include set-responsive-property("mobile", width, 100%, auto);
+                        @include set-responsive-property("mobile", min-width, auto, 250px);
+                        @extend %shadow-box;
+                        z-index: 100;
+                        background: $color-white;
+                        display: none;
+
+                        &:after {
+                            content: "";
+                            @include set-size(block, 72px, 1px);
+                            @include set-absolute-position(0, auto, auto, 0);
+                            background: $color-light-pink;
+                            @include set-responsive-property("mobile", display, none, block);
+                        }
+
+                        .lm__radio {
+                            .user-id__label {
+                                margin: 0 !important;
+                            }
+
+                            &:hover div {
+                                background-color: $color-lighter-gray;
+                            }
+                        }
+
+                        div {
+                            h4, p {
+                                margin: 0;
+                                display: block;
+                                line-height: 1;
+                            }
+
+                            h4 {
+                                font-family: $font-akzidenz-medium;
+                                margin: 0 5px 0 0;
+                                padding: 0;
+                                font-size: $user-id-font-size;
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+
+                .lm__user-avatar-wrapper {
+                    position: relative;
+                    display: inline-block;
+                    width: 65px;
+                    height: 67px;
+                    vertical-align: inherit;
+                    text-align: center;
+
+                    .sub-settings-panel {
+                        position: absolute;
+                        z-index: 100;
+                        right: 0;
+                        background: $color-white;
+                        top: 67px;
+                        min-width: 300px;
+                        max-width: 500px;
+                        display: none;
+                        @extend %shadow-box;
+
+                        &:after {
+                            content: "";
+                            @include set-size(block, 234px, 1px);
+                            @include set-absolute-position(0, auto, auto, 0);
+                            background: $color-light-pink;
+                        }
+
+                        .inform-panel {
+                            padding: 30px;
+                            text-align: center;
+
+                            img {
+                                @include rounded-avatar(100px);
+                            }
+
+                            .inform-detail {
+                                text-align: left;
+                                margin: 20px 0;
+
+                                h3 {
+                                    font-family: $font-clarendonurw-reg;
+                                    font-size: 20px;
+                                }
+                            }
+
+                            .mitt-konto__btn {
+                                background-color: $settings-button-hover-background-color;
+                                color: $color-white;
+                                display: block;
+                                border-radius: 5px;
+                                font-family: $font-akzidenz-medium;
+                                padding: 15px 0;
+
+                                &:hover {
+                                    background-color: $color-light-green-3;
+                                }
+                            }
+                        }
+
+                        .logout-btn__wrapper {
+                            background: #f5f5f5;
+                            padding: 20px 30px;
+                            text-align: center;
+
+                            .logout-btn {
+                                @include set-size(inline-block, 80%, auto);
+                                border-radius: 5px;
+                                font-family: $font-akzidenz-medium;
+                                padding: 15px 0;
+                                text-align: center;
+                                cursor: pointer;
+                                background-color: $color-gray-2;
+                                color: $body-text-color;
+
+                                &:hover {
+                                    background-color: $color-gray-3;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .lm__user-avatar {
+                    overflow: hidden;
+                    padding: 0 5px;
+                    display: inline-block;
+                    width: 100%;
+                    height: 67px;
+
+                    &:hover {
+                        background-color: $color-lighter-gray;
+                    }
+
+                    img {
+                        @include rounded-avatar(50px);
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.internal-page {
+        margin-top: 1em;
+        position: relative;
+        min-height: 94px;
+
+        .sticky-header {
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+
+            &.fixed {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 8;
+                margin: 0;
+            }
+        }
+
+        .lm__top-header {
+            @include set-responsive-property('mobile', height, 330px, 94px);
+            margin: 0;
+            background-color: transparent;
+
+            > .wrapper {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin: 0;
+                background-color: $color-gray-8;
+
+                .lm__logo {
+                    padding-right: 30px;
+                    padding-top: 20px;
+                    font-family: $font-akzidenz-medium;
+
+                    @include respond-to-max($phoneLandscape) {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0;
+                    }
+                }
+
+                .lm__form-dropdown,
+                input,
+                button {
+                    margin-top: 10px !important;
+                }
+
+                label {
+                    color: inherit;
+                    text-transform: uppercase;
+
+                    @include respond-to-min-max($phoneLandscape, $tabletSize) {
+                        font-size: 14px;
+                    }
+                }
+
+                .author-inform-form__column {
+                    position: relative;
+                    @include respond-to-min-max($phoneLandscape, $tabletSize) {
+                        padding: 0 5px !important;
+                    }
+
+                    @include respond-to-max($phoneLandscape) {
+                        .lm__form-dropdown,
+                        input,
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &.message-popup {
+                @include set-absolute-position(-95px, auto, auto, 0);
+                -webkit-transition: top 0.3s ease-in-out;
+                -moz-transition: top 0.3s ease-in-out;
+                transition: top 0.3s ease-in-out;
+                width: 100%;
+
+                .respond-message {
+                    color: $color-white;
+                    position: relative;
+
+                    >.wrapper {
+                        padding: 15px;
+                        background: $color-light-blue;
+                        margin: 0;
+                    }
+                    .layout__item {
+                        a {
+                            color: $color-white;
+
+                            span {
+                                vertical-align: text-bottom;
+                            }
+
+                            &:hover {
+                                @include set-opacity(0.8);
+                            }
+                        }
+                        .close-btn {
+                            @include set-center-position(top, 50%);
+                            right: 0;
+                            i {
+                                @include set-size(inline-block, 30px, 30px);
+                                vertical-align: middle;
+                                background: transparent url(../images/fa-close-white.png) no-repeat center center;
+                                background-size: 50%;
+                                border: 1px solid $color-white;
+                                border-radius: 50%;
+                                margin-left: 10px;
+                            }
+                        }
+
+                        .fa-arrow-right {
+                            @extend %arrow-right-icon-white;
+                            position: initial;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .overflow-message {
+            overflow: hidden;
+            @include set-absolute-position(0, auto, auto, 0);
+            height: 94px;
+            width: 100%;
+            pointer-events: none;
+
+            &.open {
+                pointer-events: all;
+                z-index: 10;
+                .message-popup {
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+.lm__header--external {
+    border-bottom: 6px solid $color-green-middle;
+}
+
+.layout__item {
+    position: relative;
+}

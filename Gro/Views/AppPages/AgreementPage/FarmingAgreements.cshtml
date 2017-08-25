@@ -1,0 +1,40 @@
+﻿@model Gro.ViewModels.Pages.AppPages.Agreement.AgreementPageViewModel
+
+@if (Model.ListFarmingAgreements != null && Model.ListFarmingAgreements.Any())
+{
+    foreach (var item in Model.ListFarmingAgreements)
+    {
+        <h3 class="clarendonurw">@string.Format(Html.Translate("/lantBruk/avtal/agreementHeader"), item.Key)</h3>
+
+        <p class="table-caption">Välj kolumner som skall visas</p>
+        <div class="lm__table-wrapper">
+            <table class="tablesaw" data-tablesaw-mode="columntoggle">
+                <thead>
+                    <tr>
+                        <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/avtal/agreementNumber")</th>
+                        <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/avtal/name")</th>
+                        <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/avtal/quantity")</th>
+                        <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/avtal/weighed")</th>
+                        <th scope="col" data-tablesaw-priority="4">@Html.Translate("/lantBruk/avtal/validFrom")</th>
+                        <th scope="col" data-tablesaw-priority="5">@Html.Translate("/lantBruk/avtal/validTo")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rowItem in item)
+                    {
+                        <tr>
+                            <td>@rowItem.AgreementNumber</td>
+                            <td>@rowItem.Sort</td>
+                            <td>@rowItem.Quantity</td>
+                            <td>@rowItem.Weighed</td>
+                            <td class="no-wrap">@rowItem.ValidFrom.ToShortDateString()</td>
+                            <td class="no-wrap">@rowItem.ValidTo.ToShortDateString()</td>
+                            <td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+         </div>
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5c5cc91d-aaa1-4502-9688-95dc5f1909aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LM2OrganisationService.disco" MetadataType="Disco" ID="4ad62e07-894d-4b0e-afd2-61f8c849e7bd" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?disco" />
+    <MetadataFile FileName="LM2OrganisationService4.xsd" MetadataType="Schema" ID="9f9634a4-dc48-4f02-bc8c-e121570499b3" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LM2OrganisationService.xsd" MetadataType="Schema" ID="0dff5dae-44ea-45f6-a793-7d96e1a5403b" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LM2OrganisationService1.xsd" MetadataType="Schema" ID="96232246-c40b-472b-b5a9-19e25cf7cd80" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LM2OrganisationService2.xsd" MetadataType="Schema" ID="be341c3d-6f6a-405c-969e-985818e4e17e" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LM2OrganisationService3.xsd" MetadataType="Schema" ID="66334296-f5d7-43f5-8ffc-50dbf397196a" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LM2OrganisationService.wsdl" MetadataType="Wsdl" ID="6d4ce88b-8e4b-47da-b288-e4d484babca6" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?wsdl" />
+    <MetadataFile FileName="LM2OrganisationService5.xsd" MetadataType="Schema" ID="c9584fd8-e556-4c6e-8933-84ad6f167e27" SourceId="1" SourceUrl="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

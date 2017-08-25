@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://lantmannenlantbruk.se/1.0.0.0/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://lantmannenlantbruk.se/1.0.0.0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://lantmannenlantbruk.se/1.0.0.0/Imports">
+      <xsd:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd0" namespace="http://lantmannenlantbruk.se/1.0.0.0/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfCommon" />
+      <xsd:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/LogiWebServiceInt.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILogiWebService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCustomerNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCustomerNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCustomerNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByShipmentIdMX_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByShipmentIdMX" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByShipmentIdMX_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByShipmentIdMXResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByShipmentIdMX_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByOrderNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByOrderNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByOrderNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByOrderNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCustomerOrderNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByCustomerOrderNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCustomerOrderNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByCustomerOrderNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCustomerOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByWaybillNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByWaybillNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByWaybillNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByWaybillNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByWaybillNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCarrier_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByCarrier" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCarrier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByCarrierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_SearchByCarrier_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetOrderRowsByShipmentIdMX_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderRowsByShipmentIdMX" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetOrderRowsByShipmentIdMX_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderRowsByShipmentIdMXResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetOrderRowsByShipmentIdMX_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetShipmentsdByOrderNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipmentsdByOrderNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetShipmentsdByOrderNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipmentsdByOrderNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetShipmentsdByOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetShipmentsdByCustomerOrderNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipmentsdByCustomerOrderNumber" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetShipmentsdByCustomerOrderNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipmentsdByCustomerOrderNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetShipmentsdByCustomerOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetCarriers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarriers" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetCarriers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetCarriers_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetAnnoncements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnoncements" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetAnnoncements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnoncementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetAnnoncements_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetOrderStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderStatus" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetOrderStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetOrderStatus_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetLoadingPlaces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoadingPlaces" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetLoadingPlaces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoadingPlacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetLoadingPlaces_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetReportData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportData" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetReportData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetReportData_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetEsalesUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEsalesUrl" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetEsalesUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEsalesUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogiWebService_GetEsalesUrl_LantmannenLantbrukWcfExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:LantmannenLantbrukWcfException" />
+  </wsdl:message>
+  <wsdl:portType name="ILogiWebService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/Ping" message="tns:ILogiWebService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/PingResponse" message="tns:ILogiWebService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByCustomerNumber">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerNumber" message="tns:ILogiWebService_SearchByCustomerNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerNumberResponse" message="tns:ILogiWebService_SearchByCustomerNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerNumberLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_SearchByCustomerNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByShipmentIdMX">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByShipmentIdMX" message="tns:ILogiWebService_SearchByShipmentIdMX_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByShipmentIdMXResponse" message="tns:ILogiWebService_SearchByShipmentIdMX_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByShipmentIdMXLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_SearchByShipmentIdMX_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByOrderNumber">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByOrderNumber" message="tns:ILogiWebService_SearchByOrderNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByOrderNumberResponse" message="tns:ILogiWebService_SearchByOrderNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByOrderNumberLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_SearchByOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByCustomerOrderNumber">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerOrderNumber" message="tns:ILogiWebService_SearchByCustomerOrderNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerOrderNumberResponse" message="tns:ILogiWebService_SearchByCustomerOrderNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCustomerOrderNumberLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_SearchByCustomerOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByWaybillNumber">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByWaybillNumber" message="tns:ILogiWebService_SearchByWaybillNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByWaybillNumberResponse" message="tns:ILogiWebService_SearchByWaybillNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByWaybillNumberLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_SearchByWaybillNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByCarrier">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCarrier" message="tns:ILogiWebService_SearchByCarrier_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCarrierResponse" message="tns:ILogiWebService_SearchByCarrier_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/SearchByCarrierLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_SearchByCarrier_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderRowsByShipmentIdMX">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderRowsByShipmentIdMX" message="tns:ILogiWebService_GetOrderRowsByShipmentIdMX_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderRowsByShipmentIdMXResponse" message="tns:ILogiWebService_GetOrderRowsByShipmentIdMX_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderRowsByShipmentIdMXLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetOrderRowsByShipmentIdMX_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentsdByOrderNumber">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByOrderNumber" message="tns:ILogiWebService_GetShipmentsdByOrderNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByOrderNumberResponse" message="tns:ILogiWebService_GetShipmentsdByOrderNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByOrderNumberLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetShipmentsdByOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentsdByCustomerOrderNumber">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByCustomerOrderNumber" message="tns:ILogiWebService_GetShipmentsdByCustomerOrderNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByCustomerOrderNumberResponse" message="tns:ILogiWebService_GetShipmentsdByCustomerOrderNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetShipmentsdByCustomerOrderNumberLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetShipmentsdByCustomerOrderNumber_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarriers">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetCarriers" message="tns:ILogiWebService_GetCarriers_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetCarriersResponse" message="tns:ILogiWebService_GetCarriers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetCarriersLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetCarriers_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnoncements">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetAnnoncements" message="tns:ILogiWebService_GetAnnoncements_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetAnnoncementsResponse" message="tns:ILogiWebService_GetAnnoncements_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetAnnoncementsLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetAnnoncements_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatus">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderStatus" message="tns:ILogiWebService_GetOrderStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderStatusResponse" message="tns:ILogiWebService_GetOrderStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetOrderStatusLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetOrderStatus_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoadingPlaces">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetLoadingPlaces" message="tns:ILogiWebService_GetLoadingPlaces_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetLoadingPlacesResponse" message="tns:ILogiWebService_GetLoadingPlaces_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetLoadingPlacesLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetLoadingPlaces_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportData">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetReportData" message="tns:ILogiWebService_GetReportData_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetReportDataResponse" message="tns:ILogiWebService_GetReportData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetReportDataLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetReportData_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEsalesUrl">
+      <wsdl:input wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetEsalesUrl" message="tns:ILogiWebService_GetEsalesUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetEsalesUrlResponse" message="tns:ILogiWebService_GetEsalesUrl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://lantmannenlantbruk.se/1.0.0.0/ILogiWebService/GetEsalesUrlLantmannenLantbrukWcfExceptionFault" name="LantmannenLantbrukWcfExceptionFault" message="tns:ILogiWebService_GetEsalesUrl_LantmannenLantbrukWcfExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

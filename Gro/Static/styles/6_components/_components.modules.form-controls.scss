@@ -1,0 +1,302 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__form-controls {
+    background: $color-white;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    @include media-query("tablet") {
+        padding: 30px;
+    }
+
+    @include media-query("desktop") {
+        margin-bottom: 0;
+    }
+
+    .lm__form-title {
+        font-size: 26px;
+        font-family: $font-clarendonurw-reg;
+        margin-bottom: 30px;
+    }
+
+    .lm__form {
+        p {
+            position: relative;
+            display: block;
+            margin-bottom: 30px;
+
+            label {
+                margin-bottom: 10px;
+            }
+
+            input, select {
+                width: 100%;
+                border-radius: 5px;
+                padding: 5px;
+                outline: 0;
+
+                @include media-query("tablet") {
+                    width: 75%;
+                }
+            }
+
+            &.full-width {
+                a.lm__form-submit {
+                    @include set-responsive-property("tablet", display, block, inline-block);
+                    @include set-responsive-property("tablet", width, 100%, auto);
+                }
+            }
+
+            a.lm__form-submit {
+                @extend .lm__form-btn;
+            }
+        }
+
+        .lm__error {
+            display: none;
+            margin: 10px 0 0 0;
+            color: red;
+        }
+    }
+}
+.additional-text {
+    @include set-absolute-position(0, 0, auto, auto);
+}
+
+input, select, textarea {
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    outline: none;
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    border: none !important;
+}
+
+.lm__form-dropdown {
+    display: block;
+    @extend %reset-list;
+
+    &.maskin-type {
+        margin: 5px 0 25px 0;
+    }
+
+    li {
+        position: relative;
+
+        &.showcase {
+            > a {
+                border: 1px solid $color-white-gray;
+                background: $color-white url(../images/chevron-down.png) no-repeat right 10px center;
+                background-size: 15px;
+                border-radius: 5px;
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:before {
+                    content: " ";
+                    display: inline-block;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            color: $body-text-color;
+            background-color: $color-white;
+            padding: 5px 10px;
+            text-decoration: none;
+
+            small {
+                color: $color-darker-gray;
+                display: block;
+            }
+        }
+
+        ul {
+            @include set-absolute-position(33px, auto, auto, 0);
+            border: 1px solid $color-white-gray;
+            margin-top: 5px !important;
+            border-radius: 5px;
+            z-index: 5;
+            width: 100%;
+            display: none;
+
+            li a:hover {
+                background: $color-lighter-gray-2;
+            }
+        }
+    }
+
+    &.type-2 {
+        li a {
+            padding: 5px 20px 5px 40px;
+        }
+
+        .showcase > a {
+            padding-left: 20px;
+        }
+
+        li ul li.selected {
+            position: relative;
+
+            &:before {
+                content: "\f00c";
+                font-family: FontAwesome;
+                font-size: 20px;
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+                color: $color-light-green;
+                margin-left: 2px;
+            }
+        }
+    }
+
+    &.type-3 {
+        .dropdown {
+            overflow: hidden;
+            overflow-y: visible;
+            top: 44px;
+            max-height: 200px;
+        }
+
+        li.showcase a {
+            padding: 10px;
+            padding-right: 30px;
+        }
+    }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+// For placeholde
+::-webkit-input-placeholder {
+    color: $color-gray-4 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: $color-gray-4 !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: $color-gray-4 !important;
+}
+
+:-ms-input-placeholder {
+    color: $color-gray-4 !important;
+}
+
+// This will make the placeholder invisible when focus
+input:focus::-webkit-input-placeholder {
+    color: transparent !important;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent !important;
+}
+
+input:focus::-moz-placeholder {
+    color: transparent !important;
+}
+
+input:focus:-ms-input-placeholder {
+    color: transparent !important;
+}
+
+// Datepicker Stylesheet
+.ui-datepicker {
+    @include set-font($font-akzidenz-reg, $body-font-size, 1);
+    padding: 15px;
+    border-color: $color-white-gray;
+
+    * {
+        font-weight: normal !important;
+    }
+
+    .ui-datepicker-header {
+        background: $color-white;
+        border: none;
+
+        .ui-datepicker-prev-hover,
+        .ui-datepicker-next-hover {
+            background: none;
+            border: none;
+            @include set-opacity(0.7);
+            cursor: pointer;
+            top: 2px;
+        }
+
+        .ui-datepicker-prev-hover {
+            left: 2px;
+        }
+
+        .ui-datepicker-next-hover {
+            right: 2px;
+        }
+
+        .ui-datepicker-title {
+            @include set-font($font-akzidenz-medium, $body-font-size, 2);
+        }
+
+        .ui-icon {
+            width: 20px;
+            height: 20px;
+            background: transparent url(../images/datepicker-prev.png) no-repeat center center;
+            background-size: contain;
+        }
+
+        .ui-datepicker-next .ui-icon {
+            -webkit-transform: rotateZ(180deg);
+            -moz-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+            -webkit-transform-origin: center center;
+            -moz-transform-origin: center center;
+            transform-origin: center center;
+        }
+    }
+
+    .ui-datepicker-calendar {
+        margin: 0;
+
+        .ui-state-default {
+            @include set-font($font-akzidenz-medium, $body-font-size, 2);
+            background: $color-gray-5;
+            border: none;
+            padding-right: 5px;
+
+            &.ui-state-highlight {
+                color: $color-white;
+                background-color: $color-white-gray;
+            }
+        }
+
+        .ui-state-active {
+            background: $color-dark-green-2 !important;
+            color: $color-white !important;
+            text-align: center;
+            padding-right: 0;
+        }
+
+        th {
+            font-size: 14px;
+            text-transform: lowercase;
+        }
+    }
+}

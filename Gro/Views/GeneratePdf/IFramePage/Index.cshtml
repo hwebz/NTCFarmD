@@ -1,0 +1,49 @@
+﻿@using Gro.Core.ContentTypes.Pages;
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.PageViewModel<IFramePage>
+
+<style type="text/css">
+    .page-container {
+        position: relative;
+        padding-bottom: 177.5%;
+        padding-top: 35px;
+        height: 0px;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: visible;
+        overflow-y: hidden;
+    }
+
+        .page-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*margin-top: -160px;*/
+        }
+</style>
+
+@*<img src="file:///C:/farmday_iframe_poc/files/header.png" style="position:absolute; left:20px; top:20px;"></img>*@
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 @(Model.CurrentPage.EnableNavigation? "u-2/3-tablet": "")">
+                <div class="lm__mina-avtal">
+                    <h1>@Model.CurrentPage.Heading</h1>
+                    <div class="page-container" style="height: @string.Format("{0}px", Model.CurrentPage.IFrameHeight); padding-bottom: 0px;">
+                        <iframe src="@Model.CurrentPage.IFrameUrl" style="border: 0;">
+                            <p>Your browser does not support iframes.</p>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3 && Model.CurrentPage.EnableNavigation)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>

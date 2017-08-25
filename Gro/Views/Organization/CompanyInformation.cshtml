@@ -1,0 +1,111 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+
+@model Gro.ViewModels.Pages.Organization.CompanyInformationViewModel
+
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till Mitt konto
+                </a>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block redigera-block ">
+                    <div class="lm__block-box no-padding-bottom">
+                        <h1 class="lm__page-title no-margin">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    </div>
+                    @if (!Model.IsLoginBankId)
+                    {
+                        <div class="lm__block-box has-separator">
+                            <div class="bankid-block">
+                                <img src="/Static/dist/images/bank_id.svg" alt="BankID Logo" class="bank-id__logo"/>
+                                <p>Du måste vara inloggad med BankID för att ändra uppgifter i de utgråade fälten nedan.</p>
+                                <a href="@Request.GetLoginBankAccountUrl()" class="bank-id__btn lm__form-btn reverse-state">Logga in med BankID</a>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="lm__block-box has-separator">
+                        <p>@Html.PropertyFor(x => x.CurrentPage.Preamble)</p>
+                        <p>Alla stjärnmärkta fält är obligatoriska</p>
+                        <ul class="errors-list" style="display: none;">
+                            <li class="errors-list__header">Du måste se över</li>
+                            <li id="p_namn" style="display: none;">Företag/Namn</li>
+                            <li id="p_gatuadress" style="display: none;">Gatuadress</li>
+                            <li id="p_postnummer" style="display: none;">Postnummer</li>
+                            <li id="p_ort" style="display: none;">Ort</li>
+                            <li id="p_telegonnummer" style="display: none;">Telefonnummer</li>
+                            <li id="p_mobil" style="display: none;">Mobil</li>
+                            <li id="p_email" style="display: none;">E-post</li>
+                        </ul>
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="errors-list">@ViewBag.Message</div>
+                        }
+                    </div>
+                    @using (Html.BeginForm("Index", "CompanyInformationPage", FormMethod.Post, new {id = "editCompanyInformationFrom", name = "editCompanyInformation", @class = "author-inform-form", enctype = "multipart/form-data"}))
+                    {
+                        <div class="author-inform-form__input">
+                            <h3 class="author-inform-form__input-title lm__bold-title">Företag/Namn*</h3>
+                            <div class="author-inform-form__column author-inform-form__column-half">
+                                <input type="text" id="namn" name="CompanyName" tag="Företag/Namn" class="@(Model.IsLoginBankId ? "namn" : "namn disabled-input")" placeholder="Nilssons Lantbruk AB" value="@Model.CompanyInformation.CompanyName"/>
+                            </div>
+                        </div>
+
+                        <div class="author-inform-form__input">
+                            <h3 class="author-inform-form__input-title lm__bold-title">Kontaktinformation</h3>
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="telegonnummer">Telefonnummer</label>
+                                <input type="text" id="telegonnummer" name="PhoneWork" class="@(Model.IsLoginBankId ? "telegonnummer" : "telegonnummer disabled-input")" placeholder="+46 8 123456" value="@Model.CompanyInformation.PhoneWork" />
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="mobil">Mobil*</label>
+                                <input type="text" id="mobil" name="PhoneMobile" tag="Mobil" class="@(Model.IsLoginBankId ? "mobil" : "mobil disabled-input")" placeholder="+46702 1234567" value="@Model.CompanyInformation.PhoneMobile" />
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="email">E-post*</label>
+                                <input type="email" id="email" name="Email" tag="E-post" class="@(Model.IsLoginBankId ? "e-post" : "e-post disabled-input")" placeholder="lars.nilsson@gmail.com" value="@Model.CompanyInformation.Email" />
+                            </div>
+                        </div>
+
+                        <div class="author-inform-form__input">
+                            <h3 class="author-inform-form__input-title lm__bold-title">Fakturaadress</h3>
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="gatuadress">Gatuadress*</label>
+                                <input type="text" id="gatuadress" name="Address" tag="Gatuadress" class="@(Model.IsLoginBankId ? "gatuadress" : "gatuadress disabled-input")" placeholder="Lantgatan 1" value="@Model.CompanyInformation.Address"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-custom-2">
+                                <label for="postnummer">Postnummer*</label>
+                                <input type="text" id="postnummer" name="ZipCode" tag="Postnummer" class="@(Model.IsLoginBankId ? "postnummer" : "postnummer disabled-input")" placeholder="123 45" value="@Model.CompanyInformation.ZipCode"/>
+                            </div>
+                            <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                <label for="ort">Ort*</label>
+                                <input type="text" id="ort" name="City" tag="Ort" class="@(Model.IsLoginBankId ? "ort" : "ort disabled-input")" placeholder="Ystad" value="@Model.CompanyInformation.City"/>
+                            </div>
+                        </div>
+                        <div class="author-inform-form__input">
+                            <h3 class="author-inform-form__input-title lm__bold-title">Övrig information</h3>
+                            <div class="author-inform-form__column author-inform-form__column-full">
+                                <textarea name="Comment" class="@(Model.IsLoginBankId ? "ovrig-information" : "ovrig-information disabled-input")" value="@Model.CompanyInformation.Comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="author-inform-form__input align-right-text block-button-on-mobile two-buttons">
+                            <a target="_self" href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__form-btn left-button" >Avbryt</a>
+                            <input type="submit" class="@(Model.IsLoginBankId ? "lm__form-btn reverse-state" : "lm__form-btn reverse-state disabled-btn")" value="Uppdatera"/>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>

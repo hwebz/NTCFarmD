@@ -1,0 +1,36 @@
+﻿@using Castle.Core.Internal
+@model Gro.ViewModels.Users.CustomerListViewModel
+
+@if (!Model.CustomerList.IsNullOrEmpty())
+{
+    <div class="user-info-wrapper">
+        <a class="lm__user-info" href="#" data-active-No="@Model.ActiveCustomer.CustomerNo">
+            <h4 class="lm__user-id">@Model.ActiveCustomer.CustomerNo</h4>
+            <p class="lm__user-summary">@Model.ActiveCustomer.CustomerName</p>
+        </a>
+        <div class="sub__user-profile">
+            @foreach (var customer in Model.CustomerList)
+            {
+                <div class="user-id__wrapper lm__radio type-3" data-customer-no="@customer.CustomerNo" data-customer-name="@customer.CustomerName">
+                    @if (customer.CustomerNo == Model.ActiveCustomer.CustomerNo)
+                    {
+                        <input type="radio" name="user_id" checked />
+                    }
+                    else
+                    {
+                        <input type="radio" name="user_id" />
+                    }
+
+                    <div class="user-id__label">
+                        <h4>@customer.CustomerNo</h4>
+                        <p>@customer.CustomerName</p>
+                    </div>
+                </div>
+            }
+            <form id="customerNumberForm" hidden method="post" action="/api/customer-user/change-customer">
+                <input name="customerNumber" type="hidden" hidden id="newCustomerNumber" />
+                <input name="referenceLink" type="hidden" hidden id="referenceLink" value="/" />
+            </form>
+        </div>
+    </div>
+}

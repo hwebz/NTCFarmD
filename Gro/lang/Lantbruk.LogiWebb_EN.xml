@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <logiwebb>
+      <status>
+        <Planerad>Preliminärt Planerad</Planerad>
+        <Frislappt>Planerad</Frislappt>
+        <Lastad>Lastad</Lastad>
+        <Levererad>Levererad</Levererad>
+        <Internkororder>Visas inte på Inside</Internkororder>
+        <Aktiv>Pågående lass</Aktiv>
+        <Bekraftad>Lasset avslutat</Bekraftad>
+        <Vantarpamanuellhantering>Lasset avslutat</Vantarpamanuellhantering>
+        <Väntarpabekraftantillfabrik>Lasset avslutat</Väntarpabekraftantillfabrik>
+        <Status60>Lasset avslutat</Status60>
+        <Status70>Lasset avslutat</Status70>
+        <Status80>Lasset avslutat</Status80>
+        <Status80Last>Lasset avslutat</Status80Last>
+        <Status80medfel>Lasset avslutat</Status80medfel>
+        <FelrapporteradefranM3>Lasset avslutat</FelrapporteradefranM3>
+        <AvraknadiM3>Lasset avslutat</AvraknadiM3>
+        <Hanterad>Lasset avslutat</Hanterad>
+        <Klar>Lasset avslutat</Klar>
+        <Hamtaspris>Lasset avslutat</Hamtaspris>
+        <Hamtaravstand>Lasset avslutat</Hamtaravstand>
+        <Viktrapportering>Lasset avslutat</Viktrapportering>
+        <SkickartillM3>Lasset avslutat</SkickartillM3>
+        <VantarsvarfranM3>Lasset avslutat</VantarsvarfranM3>
+        <Borttagen>Borttagen</Borttagen>
+        <StatusSaknas>Status Saknas</StatusSaknas>
+        <Ejlevererbar>Ej komplett leverans</Ejlevererbar>
+        <Komplett>Lasset avslutat</Komplett>
+      </status>
+    </logiwebb>
+  </language>
+</languages>

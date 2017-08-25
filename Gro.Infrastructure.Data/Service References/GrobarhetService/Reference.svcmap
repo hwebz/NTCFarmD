@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="85897167-f77e-4d07-ab18-7885df08c0b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Gro.Core" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://SR02009/apps/GrobarhetServiceInt/GrobarhetServiceInt.GrobarhetService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GrobarhetServiceInt.xsd" MetadataType="Schema" ID="97e11adc-1a21-401f-90df-44542b35cbb1" SourceId="1" SourceUrl="http://sr02009/Apps/GrobarhetServiceInt/GrobarhetServiceInt.GrobarhetService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GrobarhetServiceInt1.xsd" MetadataType="Schema" ID="09df99a0-eaf4-4d7e-b671-a667e71b7d43" SourceId="1" SourceUrl="http://sr02009/Apps/GrobarhetServiceInt/GrobarhetServiceInt.GrobarhetService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GrobarhetService.wsdl" MetadataType="Wsdl" ID="0cfef23d-2a43-4b01-9595-c734c2676a9f" SourceId="1" SourceUrl="http://sr02009/apps/GrobarhetServiceInt/GrobarhetServiceInt.GrobarhetService.svc?wsdl" />
+    <MetadataFile FileName="GrobarhetServiceInt2.xsd" MetadataType="Schema" ID="347f27ed-f8a6-45a0-ad29-d57ea709d9dc" SourceId="1" SourceUrl="http://sr02009/Apps/GrobarhetServiceInt/GrobarhetServiceInt.GrobarhetService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

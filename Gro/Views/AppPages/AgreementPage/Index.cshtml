@@ -1,0 +1,57 @@
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.Agreement.AgreementPageViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__mina-avtal">
+                    <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    @Html.PropertyFor(x => x.CurrentPage.Body)
+
+                    @Html.Partial("Agreements", Model)
+
+                    @if (Model.ListFarmingAgreements != null && Model.ListFarmingAgreements.Any())
+                    {
+                        <h3>@Html.Translate("/lantBruk/avtal/farmingAgreement/header")</h3>
+                        @Html.Partial("FarmingAgreements", Model)
+                    }
+
+                    @if (Model.ListSeedAgreementsByYears != null && Model.ListSeedAgreementsByYears.Any())
+                    {
+                        <h3>@Html.Translate("/lantBruk/avtal/seedCrop/header")</h3>
+                        @Html.Partial("SeedAgreements", Model)
+                    }
+
+                    @if (Model.ListDryAgreements != null && Model.ListDryAgreements.Any())
+                    {
+                        <h3>@Html.Translate("/lantBruk/avtal/dryAgreement/header")</h3>
+                        @Html.Partial("DryAgreements", Model)
+                    }
+
+                    <div class="lm__modal-alert">
+                        <div class="lm__modal-dialog">
+                            <a class="modal-close" href="#"><i class="fa fa-times"></i></a>
+
+                            <div class="button-confirm">
+                                <button class="success-confirm">@Html.Translate("/lantBruk/avtal/popup/close")</button>
+                            </div>
+
+                            <div class="loader-wrapper">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>

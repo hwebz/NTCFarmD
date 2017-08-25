@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PurchasingAgreementService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/PurchasingAgreementServiceInt.Models" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPurchasingAgreementService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_DeletePriceWatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePriceWatch" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_DeletePriceWatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePriceWatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetDryingAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDryingAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetDryingAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDryingAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetGrainTypesPoolAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrainTypesPoolAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetGrainTypesPoolAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrainTypesPoolAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetGrainTypesSpotAndForwardAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrainTypesSpotAndForwardAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetGrainTypesSpotAndForwardAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrainTypesSpotAndForwardAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsSpotAndForwardAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsSpotAndForwardAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsSpotAndForwardAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsSpotAndForwardAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetGrainTypesStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrainTypesStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetGrainTypesStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrainTypesStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetModesOfDeliveryPoolAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModesOfDeliveryPoolAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetModesOfDeliveryPoolAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModesOfDeliveryPoolAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetModesOfDeliveryStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModesOfDeliveryStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetModesOfDeliveryStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModesOfDeliveryStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetModesOfDeliverySpotAndForwardAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModesOfDeliverySpotAndForwardAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetModesOfDeliverySpotAndForwardAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModesOfDeliverySpotAndForwardAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsPoolAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsPoolAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsPoolAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsPoolAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsPriceProtectingStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsPriceProtectingStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsPriceProtectingStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsPriceProtectingStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPeriodsStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPriceAreaDescr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceAreaDescr" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPriceAreaDescr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceAreaDescrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPriceAreas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceAreas" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPriceAreas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceAreasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPricePeriodsGrainPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricePeriodsGrainPrice" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPricePeriodsGrainPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPricePeriodsGrainPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPriceWatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceWatch" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetPriceWatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceWatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetProductsPoolAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsPoolAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetProductsPoolAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsPoolAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetProductsSpotAndForwardAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsSpotAndForwardAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetProductsSpotAndForwardAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsSpotAndForwardAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetProductsStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetProductsStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetStorageAgreementsForPriceProtection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageAgreementsForPriceProtection" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetStorageAgreementsForPriceProtection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageAgreementsForPriceProtectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetStorageAgreementValuesForPriceProtection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageAgreementValuesForPriceProtection" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_GetStorageAgreementValuesForPriceProtection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStorageAgreementValuesForPriceProtectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveCustomerFavoritePriceArea_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerFavoritePriceArea" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveCustomerFavoritePriceArea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerFavoritePriceAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveDryingAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDryingAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveDryingAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDryingAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SavePoolAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePoolAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SavePoolAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePoolAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SavePriceProtectedStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePriceProtectedStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SavePriceProtectedStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePriceProtectedStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveSpotAndForwardAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSpotAndForwardAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveSpotAndForwardAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSpotAndForwardAgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveStorageAgreement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveStorageAgreement" />
+  </wsdl:message>
+  <wsdl:message name="IPurchasingAgreementService_SaveStorageAgreement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveStorageAgreementResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPurchasingAgreementService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/Ping" message="tns:IPurchasingAgreementService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/PingResponse" message="tns:IPurchasingAgreementService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePriceWatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/DeletePriceWatch" message="tns:IPurchasingAgreementService_DeletePriceWatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/DeletePriceWatchResponse" message="tns:IPurchasingAgreementService_DeletePriceWatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetCustomer" message="tns:IPurchasingAgreementService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetCustomerResponse" message="tns:IPurchasingAgreementService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDryingAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetDryingAgreement" message="tns:IPurchasingAgreementService_GetDryingAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetDryingAgreementResponse" message="tns:IPurchasingAgreementService_GetDryingAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrainTypesPoolAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesPoolAgreement" message="tns:IPurchasingAgreementService_GetGrainTypesPoolAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesPoolAgreementResponse" message="tns:IPurchasingAgreementService_GetGrainTypesPoolAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrainTypesSpotAndForwardAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesSpotAndForwardAgreement" message="tns:IPurchasingAgreementService_GetGrainTypesSpotAndForwardAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesSpotAndForwardAgreementResponse" message="tns:IPurchasingAgreementService_GetGrainTypesSpotAndForwardAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsSpotAndForwardAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsSpotAndForwardAgreement" message="tns:IPurchasingAgreementService_GetPeriodsSpotAndForwardAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsSpotAndForwardAgreementResponse" message="tns:IPurchasingAgreementService_GetPeriodsSpotAndForwardAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrainTypesStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesStorageAgreement" message="tns:IPurchasingAgreementService_GetGrainTypesStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesStorageAgreementResponse" message="tns:IPurchasingAgreementService_GetGrainTypesStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModesOfDeliveryPoolAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliveryPoolAgreement" message="tns:IPurchasingAgreementService_GetModesOfDeliveryPoolAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliveryPoolAgreementResponse" message="tns:IPurchasingAgreementService_GetModesOfDeliveryPoolAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModesOfDeliveryStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliveryStorageAgreement" message="tns:IPurchasingAgreementService_GetModesOfDeliveryStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliveryStorageAgreementResponse" message="tns:IPurchasingAgreementService_GetModesOfDeliveryStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModesOfDeliverySpotAndForwardAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliverySpotAndForwardAgreement" message="tns:IPurchasingAgreementService_GetModesOfDeliverySpotAndForwardAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliverySpotAndForwardAgreementResponse" message="tns:IPurchasingAgreementService_GetModesOfDeliverySpotAndForwardAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsPoolAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsPoolAgreement" message="tns:IPurchasingAgreementService_GetPeriodsPoolAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsPoolAgreementResponse" message="tns:IPurchasingAgreementService_GetPeriodsPoolAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsPriceProtectingStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsPriceProtectingStorageAgreement" message="tns:IPurchasingAgreementService_GetPeriodsPriceProtectingStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsPriceProtectingStorageAgreementResponse" message="tns:IPurchasingAgreementService_GetPeriodsPriceProtectingStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsStorageAgreement" message="tns:IPurchasingAgreementService_GetPeriodsStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPeriodsStorageAgreementResponse" message="tns:IPurchasingAgreementService_GetPeriodsStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAreaDescr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPriceAreaDescr" message="tns:IPurchasingAgreementService_GetPriceAreaDescr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPriceAreaDescrResponse" message="tns:IPurchasingAgreementService_GetPriceAreaDescr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAreas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPriceAreas" message="tns:IPurchasingAgreementService_GetPriceAreas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPriceAreasResponse" message="tns:IPurchasingAgreementService_GetPriceAreas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPricePeriodsGrainPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPricePeriodsGrainPrice" message="tns:IPurchasingAgreementService_GetPricePeriodsGrainPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPricePeriodsGrainPriceResponse" message="tns:IPurchasingAgreementService_GetPricePeriodsGrainPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceWatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPriceWatch" message="tns:IPurchasingAgreementService_GetPriceWatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetPriceWatchResponse" message="tns:IPurchasingAgreementService_GetPriceWatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsPoolAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetProductsPoolAgreement" message="tns:IPurchasingAgreementService_GetProductsPoolAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetProductsPoolAgreementResponse" message="tns:IPurchasingAgreementService_GetProductsPoolAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsSpotAndForwardAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetProductsSpotAndForwardAgreement" message="tns:IPurchasingAgreementService_GetProductsSpotAndForwardAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetProductsSpotAndForwardAgreementResponse" message="tns:IPurchasingAgreementService_GetProductsSpotAndForwardAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetProductsStorageAgreement" message="tns:IPurchasingAgreementService_GetProductsStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetProductsStorageAgreementResponse" message="tns:IPurchasingAgreementService_GetProductsStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageAgreementsForPriceProtection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetStorageAgreementsForPriceProtection" message="tns:IPurchasingAgreementService_GetStorageAgreementsForPriceProtection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetStorageAgreementsForPriceProtectionResponse" message="tns:IPurchasingAgreementService_GetStorageAgreementsForPriceProtection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageAgreementValuesForPriceProtection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetStorageAgreementValuesForPriceProtection" message="tns:IPurchasingAgreementService_GetStorageAgreementValuesForPriceProtection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/GetStorageAgreementValuesForPriceProtectionResponse" message="tns:IPurchasingAgreementService_GetStorageAgreementValuesForPriceProtection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerFavoritePriceArea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveCustomerFavoritePriceArea" message="tns:IPurchasingAgreementService_SaveCustomerFavoritePriceArea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveCustomerFavoritePriceAreaResponse" message="tns:IPurchasingAgreementService_SaveCustomerFavoritePriceArea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDryingAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveDryingAgreement" message="tns:IPurchasingAgreementService_SaveDryingAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveDryingAgreementResponse" message="tns:IPurchasingAgreementService_SaveDryingAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePoolAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SavePoolAgreement" message="tns:IPurchasingAgreementService_SavePoolAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SavePoolAgreementResponse" message="tns:IPurchasingAgreementService_SavePoolAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePriceProtectedStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SavePriceProtectedStorageAgreement" message="tns:IPurchasingAgreementService_SavePriceProtectedStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SavePriceProtectedStorageAgreementResponse" message="tns:IPurchasingAgreementService_SavePriceProtectedStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSpotAndForwardAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveSpotAndForwardAgreement" message="tns:IPurchasingAgreementService_SaveSpotAndForwardAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveSpotAndForwardAgreementResponse" message="tns:IPurchasingAgreementService_SaveSpotAndForwardAgreement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStorageAgreement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveStorageAgreement" message="tns:IPurchasingAgreementService_SaveStorageAgreement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPurchasingAgreementService/SaveStorageAgreementResponse" message="tns:IPurchasingAgreementService_SaveStorageAgreement_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPurchasingAgreementService" type="tns:IPurchasingAgreementService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePriceWatch">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/DeletePriceWatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDryingAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetDryingAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrainTypesPoolAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesPoolAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrainTypesSpotAndForwardAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesSpotAndForwardAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsSpotAndForwardAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPeriodsSpotAndForwardAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrainTypesStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetGrainTypesStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModesOfDeliveryPoolAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliveryPoolAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModesOfDeliveryStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliveryStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModesOfDeliverySpotAndForwardAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetModesOfDeliverySpotAndForwardAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsPoolAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPeriodsPoolAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsPriceProtectingStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPeriodsPriceProtectingStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodsStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPeriodsStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAreaDescr">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPriceAreaDescr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAreas">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPriceAreas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPricePeriodsGrainPrice">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPricePeriodsGrainPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceWatch">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetPriceWatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsPoolAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetProductsPoolAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsSpotAndForwardAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetProductsSpotAndForwardAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetProductsStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageAgreementsForPriceProtection">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetStorageAgreementsForPriceProtection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageAgreementValuesForPriceProtection">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/GetStorageAgreementValuesForPriceProtection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerFavoritePriceArea">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/SaveCustomerFavoritePriceArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDryingAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/SaveDryingAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePoolAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/SavePoolAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePriceProtectedStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/SavePriceProtectedStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSpotAndForwardAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/SaveSpotAndForwardAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStorageAgreement">
+      <soap:operation soapAction="http://tempuri.org/IPurchasingAgreementService/SaveStorageAgreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PurchasingAgreementService">
+    <wsdl:port name="BasicHttpBinding_IPurchasingAgreementService" binding="tns:BasicHttpBinding_IPurchasingAgreementService">
+      <soap:address location="http://sr02009/Apps_EPiLyft-1.1/PurchasingAgreementServiceInt/PurchasingAgreementServiceInt.PurchasingAgreementService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

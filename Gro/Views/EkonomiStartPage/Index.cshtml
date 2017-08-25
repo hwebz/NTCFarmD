@@ -1,0 +1,24 @@
+﻿@using Gro.Constants;
+@model Gro.ViewModels.PageViewModel<Gro.Core.ContentTypes.Pages.StartPages.EkonomiStartPage>
+
+<section  class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-1/4-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.Column1, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+
+            <div class="layout__item u-1/1 u-1/4-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.Column2, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+
+            <div class="layout__item u-1/1 u-1/4-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.Column3, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+
+            <div class="layout__item u-1/1 u-1/4-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.Column4, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+        </div>
+    </div>
+</section>

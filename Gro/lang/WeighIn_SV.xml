@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="svenska" id="sv">
+    <lantBruk>
+      <weighIn>
+        <weighInHeader>Skördeår som visas är {0}</weighInHeader>
+        <weighInMissingHeader>Invägning saknas för skördeår {0}</weighInMissingHeader>
+        <weighInCustomerNumber>Invägning, kundnummer: {0}</weighInCustomerNumber>
+        <weighInAnalyzeNumber>Analys, leveransnummer:</weighInAnalyzeNumber>
+        <moreInfoNumber>Sedelnummer: </moreInfoNumber>
+        <sort>Sort</sort>
+        <weight>Vikt</weight>
+        <date>Datum</date>
+        <deliveryNr>Leveransnr</deliveryNr>
+        <moreInfo>
+          <header>Invägning Utökad info</header>
+          <agreement>Avtal</agreement>
+          <quantity>Kvantitet</quantity>
+          <receptionPoint>Mottagningsplats</receptionPoint>
+          <farmCollection>Gårdshämtning</farmCollection>
+          <carNr>Bilnr</carNr>
+        </moreInfo>
+        <analyze>
+          <header>Analys</header>
+          <name>Namn</name>
+          <value>Värde</value>
+        </analyze>
+        <overview>
+          <agreement>Avtal</agreement>
+          <item>Artikel</item>
+          <weightIn>Summa invängt</weightIn>
+          <quantity>Avtalad kvantitet</quantity>
+          <weighInPrevYear>Invägningar föregående skördeår</weighInPrevYear>
+          <weighInCurrentYear>Invägningar nuvarande skördeår</weighInCurrentYear>
+        </overview>
+        <spontaneously>
+          <weighInHeader>Summa spontantlevererat (kg) {0}</weighInHeader>
+          <weighInMissingHeader>Spontantavtal saknas för år {0}</weighInMissingHeader>
+        </spontaneously>
+        <agreement>
+          <weighInHeader>Summa levererat avtal (kg) skörd {0}</weighInHeader>
+          <weighInMissingHeader>Avtal saknas för år {0}</weighInMissingHeader>
+        </agreement>
+      </weighIn>
+    </lantBruk>
+  </language>
+</languages>

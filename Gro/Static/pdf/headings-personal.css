@@ -1,0 +1,119 @@
+﻿@font-face {
+  font-family: 'clarendonur';
+  src: url('Fonts/clarendonurw-med-webfont.eot');
+  src: url('Fonts/clarendonurw-med-webfont.eot#iefix') format('embedded-opentype'), url('Fonts/clarendonurw-med-webfont.woff') format('woff'), url('Fonts/clarendonurw-med-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #666666;
+  margin-top: 0;
+  line-height: normal;
+}
+h1 {
+  font-size: 30px;
+  margin-bottom: 5px;
+  margin-top: 0;
+  padding: 0;
+  line-height: 32px;
+}
+h1.search {
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #7ab800;
+  line-height: 26px;
+}
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 18px;
+}
+h5 {
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 14px;
+}
+h1.green,
+h1.clarendonurwgreen,
+h2.green,
+h2.clarendonurwgreen,
+h3.green,
+h3.clarendonurwgreen,
+h4.green,
+h4.clarendonurwgreen,
+.module h4 {
+  color: #7ab800;
+}
+h1.green a,
+h1.clarendonurwgreen a,
+h2.green a,
+h2.clarendonurwgreen a,
+h3.green a,
+h3.clarendonurwgreen a,
+h4.green a,
+h4.clarendonurwgreen a,
+.module h4 a {
+  color: #7ab800;
+}
+.module h4 {
+  padding-bottom: 10px;
+  background: url(../images/border_dotted.png) repeat-x -1px bottom;
+}
+h2.clarendonurw {
+  color: #666666;
+}
+h1.brown,
+h1.clarendonurwbrown,
+h2.brown,
+h2.clarendonurwbrown,
+h3.brown,
+h3.clarendonurwbrown,
+h4.brown,
+h4.clarendonurwbrown {
+  color: #774a39;
+}
+h4.blue,
+h4.clarendonurwblue {
+  color: #00aef0;
+}
+h4.clarendonurw,
+h4.clarendonurwgreen,
+h4.clarendonurwblue {
+  font-size: 16px;
+}
+.clarendonurw,
+.clarendonurwgreen,
+.clarendonurwblue,
+.clarendonurwbrown,
+.blue,
+.green,
+.brown,
+.module h1,
+.module h2,
+.module h3,
+.module h4,
+.module h5,
+.module h6 {
+  font-family: 'clarendonur', Arial;
+}
+.wysiwyg h2,
+.wysiwyg h3 {
+  font-family: 'clarendonur', Arial;
+  color: #7ab800;
+}
+.wysiwyg h2 a,
+.wysiwyg h3 a {
+  color: #7ab800;
+}

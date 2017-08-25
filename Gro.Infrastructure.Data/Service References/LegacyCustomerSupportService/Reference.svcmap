@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5aed34d1-a1be-4586-a15d-a1d63562a981" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustomerSupportServiceInt.xsd" MetadataType="Schema" ID="e400ac1d-893a-4258-9b9b-e0140894fa54" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd6" />
+    <MetadataFile FileName="CustomerSupportServiceInt1.xsd" MetadataType="Schema" ID="7a4eb9bc-4524-454d-a91d-2983309bf1fd" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CustomerSupportServiceInt2.xsd" MetadataType="Schema" ID="ce82ac0e-102a-4354-a3e6-4ca3933c690c" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CustomerSupportService.wsdl" MetadataType="Wsdl" ID="ec386812-18a2-4f3d-933b-54a92efa39ce" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?wsdl" />
+    <MetadataFile FileName="CustomerSupportServiceInt3.xsd" MetadataType="Schema" ID="6e96f9ef-3737-4802-95fa-ff3dab2119a5" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CustomerSupportServiceInt4.xsd" MetadataType="Schema" ID="0ef3ab8a-a9be-46e9-bbf4-5c0050c24079" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CustomerSupportServiceInt5.xsd" MetadataType="Schema" ID="dc2bf2e3-26b0-4709-a0cc-1bd5c4906efc" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CustomerSupportServiceInt6.xsd" MetadataType="Schema" ID="a2946668-4039-4445-8031-190578cdb444" SourceId="1" SourceUrl="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

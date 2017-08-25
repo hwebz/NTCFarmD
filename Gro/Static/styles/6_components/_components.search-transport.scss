@@ -1,0 +1,141 @@
+/// <reference path="../_references.scss" />
+
+.no-padding-row {
+    padding: 0;
+}
+
+.lm__collapse-row {
+    display: none;
+}
+
+.padding-1\/8-side {
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+}
+
+.padding-1\/16-side {
+    padding-left: 6.25%;
+    padding-right: 6.25%;
+}
+
+div.expand-info {
+    text-align: center;
+    cursor: pointer;
+
+    &.expand-icon-plus {
+        &::after {
+            background: transparent url(../images/accordion-expanded.png) no-repeat 50%;
+            background-size: cover;
+            display: block;
+            width: 30px;
+            height: 30px;
+            content: "";
+        }
+    }
+
+    &.expand-icon-minus {
+        &::after {
+            background: transparent url(../images/accordion-collapsed.png) no-repeat 50%;
+            background-size: cover;
+            display: block;
+            width: 30px;
+            height: 30px;
+            content: "";
+        }
+    }
+}
+
+.lm_float-control {
+    display: block;
+    float: left;
+    padding: 0 5px;
+}
+
+.lm__nested-table {
+    > tbody {
+        > tr.lm__parent-row--odd,
+        > tr.lm__parent-row--odd + tr.lm__collapse-row,
+        > tr.lm__parent-row--odd + tr.lm__collapse-row thead tr th {
+            background-color: #f8f6f2;
+        }
+
+        > tr.lm__parent-row--even,
+        > tr.lm__parent-row--even + tr.lm__collapse-row,
+        > tr.lm__parent-row--even + tr.lm__collapse-row thead tr th {
+            background-color: #fff;
+        }
+    }
+
+    > tbody > tr > td > table > tbody > tr {
+        background-color: inherit !important;
+    }
+
+    .lm__summary-row {
+        background-color: #fff;
+    }
+}
+
+.lm__error {
+    color: #e37222 !important;
+}
+
+.lm__float-left-element {
+    display: block;
+    float: left;
+}
+
+.lm__float-right-element {
+    display: block;
+    float: right;
+}
+
+.layout--large {
+    .layout__item {
+        .dash-connector {
+            &:before {
+                content: " - ";
+                position: absolute;
+                @include set-responsive-property("tablet", left, 50%, -13px);
+                @include set-responsive-property("tablet", top, -80%, 25%);
+            }
+        }
+    }
+}
+
+.layout--small {
+    .layout__item {
+        .dash-connector {
+            &:before {
+                content: " - ";
+                position: absolute;
+                @include set-responsive-property("tablet", left, 50%, -8px);
+                @include set-responsive-property("tablet", top, -80%, 25%);
+            }
+        }
+    }
+}
+
+table.grain-price-table {
+    td,
+    th {
+        text-align: center;
+    }
+
+    th {
+        background-color: $color-lighter-gray-2;
+
+        span {
+            font-family: AkzidenzGroteskBQ, Arial, Helvetica, sans-serif;
+            font-weight: 400;
+        }
+    }
+
+    td {
+        background-color: $color-white;
+    }
+
+    td:first-child,
+    th:first-child {
+        text-align: left;
+    }
+}

@@ -1,0 +1,26 @@
+﻿@using Castle.Core.Internal
+@model Gro.ViewModels.Pages.Machines.MachineAddModelList
+
+@{
+    var selectedModelName = Model != null && Model.SelectedModel != null ? Model.SelectedModel.Name : "Välj modell";
+    var selectedValue = Model != null && Model.SelectedModel != null ? Model.SelectedModel.Key : "";
+}
+<li class="showcase" id="drop-machine-model" data-value="@selectedValue">
+<input type="hidden" name="machineModel" value="@selectedValue"/>
+<a href="#">@selectedModelName</a>
+<ul class="dropdown">
+    @if (Model != null && !Model.ListModels.IsNullOrEmpty())
+    {
+        foreach (var machineModel in Model.ListModels)
+        {
+            var isSelected = Model.SelectedModel != null && Model.SelectedModel.Key == machineModel.Key;
+            <li data-value="@machineModel.Key" class='@(isSelected ? "selected" : "")'>
+                <a href="#">@machineModel.Name</a>
+            </li>
+        }
+    }
+    <li data-value="Annan">
+        <a href="#">Annan</a>
+    </li>
+</ul>
+<li/>

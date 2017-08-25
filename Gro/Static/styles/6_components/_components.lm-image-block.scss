@@ -1,0 +1,56 @@
+/// <reference path="../_references.scss" />
+
+.lm__image-block {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: $color-greyish-brown-40;
+
+    .lm__main-block {
+        text-align: center;
+        padding: 30px 0;
+
+        .lm__main-block-image {
+            display: inline-block;
+            padding: 25px;
+            background-color: $color-greyish-brown-20;
+            border-radius: 50%;
+
+            img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    }
+
+    a.lm__more-link {
+        padding: 20px;
+        display: block;
+        color: $fisrt-thumbnail-block-header-text-color;
+        background-color: rgba(black, 0.1);
+        font-size: $active-page-text-font-size;
+    }
+
+    &.blue-bg {
+        background-color: $color-dark-blue;
+
+        .lm__main-block .lm__main-block-image {
+            background-color: $color-light-blue;
+        }
+    }
+
+    &.purple-bg {
+        background-color: $color-dark-purple;
+
+        .lm__main-block .lm__main-block-image {
+            background-color: $color-light-purple;
+        }
+    }
+
+    i.fa {
+        float: right;
+        //margin-right: 100px;
+        font-size: em(24px);
+    }
+}

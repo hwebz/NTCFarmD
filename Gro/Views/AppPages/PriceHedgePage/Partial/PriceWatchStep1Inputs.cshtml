@@ -1,0 +1,97 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PriceHedgeViewModel
+
+@{ var agreementType = Model.PriceHedgeForm.AgreementType ?? AgreementType.SportAndForwardAvtal; }
+
+@if (agreementType.IsMemberOfList(AgreementType.SportAndForwardAvtal, AgreementType.PrissakringDepaavtal))
+{
+    <div class="layout__item u-1/1 lm__row-margin">
+        <label>Ange önskat övre pris (kr/ton)</label>
+        <div class="u-1/1 u-1/1-tablet u-1/4-desktop">
+            <input type="text" id="UpperPrice" name="UpperPrice" class="input3" value="@Model.PriceHedgeForm.UpperPrice" />
+        </div>
+    </div>
+
+
+    <div class="layout__item u-1/1 lm__row-margin">
+        <label>Ange önskat undre pris (kr/ton)</label>
+        <div class="u-1/1 u-1/1-tablet u-1/4-desktop">
+            <input type="text" id="LowerPrice" name="LowerPrice" class="input3" value="@Model.PriceHedgeForm.LowerPrice" />
+        </div>
+    </div>
+
+
+        <div class="layout__item u-1/1 lm__row-margin">
+            <label>Uppdraget giltigt t.o.m. (max 60 kalenderdagar)</label>
+            <div class="u-1/1 u-1/1-tablet u-1/4-desktop">
+                <div class="datepicker-container u-1/1 u-1/1-tablet u-1/1-desktop">
+                    <input type="text" id="PriceWatchEndDate" name="PriceWatchEndDate"
+                           value="@(Model.PriceHedgeForm.PriceWatchEndDate.ToString("yyyy-MM-dd"))">
+                </div>
+            </div>
+        </div>
+}
+
+
+@if (!agreementType.Equals(AgreementType.PrissakringDepaavtal))
+{
+    <div class="layout__item u-1/1 lm__row-margin">
+        <label>Ange kvantitet i ton (min @Model.CommitQuantityMin ton)</label>
+        <div class="u-1/1 u-1/1-tablet u-1/4-desktop">
+            <input type="text" id="CommitQuantity" name="CommitQuantity" class="input3" value="@Model.PriceHedgeForm.CommitQuantity" />
+        </div>
+    </div>
+}
+
+@if (!agreementType.Equals(AgreementType.PrissakringDepaavtal))
+{
+    <div class="layout__item u-1/1 lm__row-margin">
+        <label>Välj leveranssätt</label>
+        <div class="layout__item u-1/1">
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="DeliveryMode" value="1" />
+                <p>Egen transport. </p>
+            </div>
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="DeliveryMode" value="2" />
+                <p>G&#229;rdsh&#228;mtning.</p>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+{
+    <div class="layout__item u-1/1 lm__row-margin">
+        <label>Resultat av prisbevakning</label>
+        <div class="layout__item u-1/1">
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="TargetAction" value="A" />
+                <p>Teckna avtal.</p>
+            </div>
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="TargetAction" value="S" />
+                <p>Meddelande via SMS.</p>
+            </div>
+        </div>
+    </div>
+}
+
+@if (agreementType.Equals(AgreementType.PrissakringDepaavtal))
+{
+    <div class="layout__item u-1/1 lm__row-margin">
+        <label>Resultat av prisbevakning</label>
+        <div class="layout__item u-1/1">
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="TargetAction" value="S" />
+                <p>Meddelande via SMS</p>
+            </div>
+            <div class="lm__radio type-2 width-40">
+                <input type="radio" name="TargetAction" value="A" />
+                <p>Prissäkra Depå</p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://lantmannen.com/centralen/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://lantmannen.com/centralen/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://lantmannen.com/centralen/">
+      <s:element name="getIO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Typ" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getIOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getIOResult" type="tns:BookingOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BookingOrder">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Linenumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Item" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Torkat" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sort" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryAssuranceConfirmed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Supplier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryMode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getIOlist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Supplier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getIOlistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getIOlistResult" type="tns:ArrayOfDeleveryAssuranceList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDeleveryAssuranceList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DeleveryAssuranceList" nillable="true" type="tns:DeleveryAssuranceList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeleveryAssuranceList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Itemname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IOnumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getIOSoapIn">
+    <wsdl:part name="parameters" element="tns:getIO" />
+  </wsdl:message>
+  <wsdl:message name="getIOSoapOut">
+    <wsdl:part name="parameters" element="tns:getIOResponse" />
+  </wsdl:message>
+  <wsdl:message name="getIOlistSoapIn">
+    <wsdl:part name="parameters" element="tns:getIOlist" />
+  </wsdl:message>
+  <wsdl:message name="getIOlistSoapOut">
+    <wsdl:part name="parameters" element="tns:getIOlistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BokaServiceSoap">
+    <wsdl:operation name="getIO">
+      <wsdl:input message="tns:getIOSoapIn" />
+      <wsdl:output message="tns:getIOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIOlist">
+      <wsdl:input message="tns:getIOlistSoapIn" />
+      <wsdl:output message="tns:getIOlistSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BokaServiceSoap" type="tns:BokaServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIO">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getIO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIOlist">
+      <soap:operation soapAction="http://lantmannen.com/centralen/getIOlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BokaServiceSoap12" type="tns:BokaServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIO">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getIO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIOlist">
+      <soap12:operation soapAction="http://lantmannen.com/centralen/getIOlist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BokaService">
+    <wsdl:port name="BokaServiceSoap" binding="tns:BokaServiceSoap">
+      <soap:address location="http://sr02009/Centralen/BokaService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BokaServiceSoap12" binding="tns:BokaServiceSoap12">
+      <soap12:address location="http://sr02009/Centralen/BokaService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

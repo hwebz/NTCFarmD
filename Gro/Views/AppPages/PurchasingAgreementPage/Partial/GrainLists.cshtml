@@ -1,0 +1,23 @@
+﻿@model Gro.Core.DataModels.PurchasingAgreements.Product[]
+
+@{
+    var selectedItem = Model != null && Model.Any() ? Model[0] : null;
+}
+<ul class="lm__form-dropdown type-3 grainTypeDropdown">
+    <li class="showcase">
+        <a href="#" data-value="@(selectedItem != null ? selectedItem.GrainName : string.Empty)">
+            @(selectedItem != null ? selectedItem.GrainName : "Välj sort")
+        </a>
+        <ul class="dropdown">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <li data-value="@item.GrainName">
+                        <a href="#">@item.GrainName</a>
+                    </li>
+                }
+            }
+        </ul>
+    </li>
+</ul>

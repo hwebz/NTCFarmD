@@ -1,0 +1,75 @@
+{ "messages":[
+          {
+            "id": 1,
+            "isSelected": false,
+            "categoryId": 1,
+            "categoryName": "Category 1",
+            "header": "Header 1",
+            "content": "<h1>This is content 1</h1>",
+            "receivedDate": "2016-02-12",
+            "isUnRead": false,
+            "isStarred": false,
+            "isDeleted" : false
+          },
+          {
+              "id": 2,
+            "isSelected": false,
+            "categoryId": 1,
+            "categoryName": "Category 1",
+            "header": "Header 2",
+            "content": "This is content 2",
+            "receivedDate": "2016-02-13",
+            "isUnRead": true,
+            "isStarred": true,
+            "isDeleted" : false
+          },
+          {
+              "id": 3,
+            "isSelected": false,
+            "categoryId": 2,
+            "categoryName": "Category 2",
+            "header": "Header 3",
+            "content": "This is content 3",
+            "receivedDate": "2016-02-12",
+            "isUnRead": false,
+            "isStarred": true,
+            "isDeleted" : false
+          },
+          {
+              "id": 4,
+            "isSelected": false,
+            "categoryId": 3,
+            "categoryName": "Category 3",
+            "header": "Header 4",
+            "content": "This is content 4",
+            "receivedDate": "2016-02-14",
+            "isUnRead": true,
+            "isStarred": false,
+            "isDeleted" : false
+          },
+          {
+              "id": 5,
+            "isSelected": false,
+            "categoryId": 4,
+            "categoryName": "Category 4",
+            "header": "Header 5",
+            "content": "This is content 5",
+            "receivedDate": "2016-02-12",
+            "isUnRead": false,
+            "isStarred": false,
+            "isDeleted" : false
+          },
+          {
+              "id": 6,
+            "isSelected": false,
+            "categoryId": 4,
+            "categoryName": "Category 4",
+            "header": "Header 6",
+            "content": "<h2>This is rich content 6<h2>",
+            "receivedDate": "2016-02-15",
+            "isUnRead": true,
+            "isStarred": false,
+            "isDeleted" : false
+          }
+        ]
+}

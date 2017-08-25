@@ -1,0 +1,372 @@
+﻿/// <reference path="../_references.scss" />
+
+// ------------------------------------------------------------------------- //
+// #BUTTONS
+// ------------------------------------------------------------------------- //
+
+
+
+// Padding
+$btn-padding:               $base-spacing-unit;
+$btn-padding--tiny:         quarter($btn-padding);
+$btn-padding--small:        halve($btn-padding);
+$btn-padding--large:        double($btn-padding);
+$btn-padding--huge:         quadruple($btn-padding);
+
+
+/// Modifiers
+$enable-btn--secondary:     true;
+$enable-btn--tertiary:      true;
+$enable-btn--tiny:          false;
+$enable-btn--small:         false;
+$enable-btn--large:         true;
+$enable-btn--huge:          false;
+$enable-btn--full:          false;
+$enable-btn--pill:          false;
+$enable-btn--transparent:   false;
+$enable-btn--center:        false;
+$enable-btn--close:         false;
+
+
+// Settings
+$btn-border-width:          em(2px);
+$btn-border-style:          solid;
+$btn-border-round:          $base-round-unit;
+
+
+
+/**
+ * Button object
+ *
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ * 8. Border color will be set in modifier classes, we use transparent i base class.
+ */
+.btn,
+%btn {
+    display: inline-block; /* [1] */
+    padding: ($btn-padding--small - $btn-border-width) ($btn-padding--large - $btn-border-width); /* [7] */
+    margin: 0; /* [4] */
+    overflow: visible; /* [6] */
+    font: inherit; /* [3] */
+    text-align: center; /* [4] */
+    text-decoration: none; /* [4] */
+    background-color: transparent;
+    vertical-align: middle; /* [2] */
+    cursor: pointer; /* [5] */
+
+    @if ($btn-border-width != 0) {
+        border: em($btn-border-width) $btn-border-style transparent; /* [8] */
+    }
+    @else {
+        border: none; /* [4] */
+    }
+
+    @if ($btn-border-round != 0) {
+        border-radius: $btn-border-round;
+    }
+}
+
+/**
+ * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+ */
+.btn::-moz-focus-inner,
+%btn::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+
+/**
+ * Primary button
+ */
+.btn--primary,
+%btn--primary {
+    color: $color-btn-primary;
+    background-color: $color-btn-primary-background;
+
+    @if ($btn-border-width != 0) {
+        border-color: $color-btn-primary-border;
+    }
+
+    &:hover {
+        color: $color-btn-primary;
+        background-color: $color-btn-primary-hover-background;
+
+        @if ($btn-border-width != 0) {
+            border-color: $color-btn-primary-hover-border;
+        }
+    }
+
+    &:focus,
+    &:active {
+        color: $color-btn-primary-active;
+        background-color: $color-btn-primary-active-background;
+
+        @if ($btn-border-width != 0) {
+            border-color: $color-btn-primary-active-border;
+        }
+    }
+}
+
+
+
+@if ($enable-btn--secondary == true) {
+    /**
+     * Secondary button
+     */
+    .btn--secondary,
+    %btn--secondary {
+        color: $color-btn-secondary;
+        background-color: $color-btn-secondary-background;
+
+        @if ($btn-border-width != 0) {
+            border-color: $color-btn-secondary-border;
+        }
+
+        &:hover {
+            color: $color-btn-secondary;
+            background-color: $color-btn-secondary-hover-background;
+
+            @if ($btn-border-width != 0) {
+                border-color: $color-btn-secondary-hover-border;
+            }
+        }
+
+        &:focus,
+        &:active {
+            color: $color-btn-secondary-active;
+            background-color: $color-btn-secondary-active-background;
+
+            @if ($btn-border-width != 0) {
+                border-color: $color-btn-secondary-active-border;
+            }
+        }
+    }
+}
+
+
+
+@if ($enable-btn--tertiary == true) {
+    /**
+     * Tertiary button
+     */
+    .btn--tertiary,
+    %btn--tertiary {
+        color: $color-btn-tertiary;
+        background-color: $color-btn-tertiary-background;
+
+        @if ($btn-border-width != 0) {
+            border-color: $color-btn-tertiary-border;
+        }
+
+        &:hover {
+            color: $color-btn-tertiary;
+            background-color: $color-btn-tertiary-hover-background;
+
+            @if ($btn-border-width != 0) {
+                border-color: $color-btn-tertiary-hover-border;
+            }
+        }
+
+        &:focus,
+        &:active {
+            color: $color-btn-tertiary-active;
+            background-color: $color-btn-tertiary-active-background;
+
+            @if ($btn-border-width != 0) {
+                border-color: $color-btn-tertiary-active-border;
+            }
+        }
+    }
+}
+
+
+
+@if ($enable-btn--tiny == true) {
+    /**
+     * Tiny button
+     */
+    .btn--tiny,
+    %btn--tiny {
+        padding: ($btn-padding--tiny - $btn-border-width) ($btn-padding - $btn-border-width); /* [7] */
+    }
+}
+
+
+
+@if ($enable-btn--small == true) {
+    /**
+     * Small buttons.
+     */
+    .btn--small,
+    %btn--small {
+        padding: ($btn-padding--small - $btn-border-width) ($btn-padding--large - $btn-border-width); /* [7] */
+    }
+}
+
+
+
+@if ($enable-btn--large == true) {
+    /**
+     * Large buttons.
+     */
+    .btn--large,
+    %btn--large {
+        padding: ($btn-padding - $btn-border-width) ($btn-padding--huge - $btn-border-width); /* [7] */
+    }
+}
+
+
+
+@if ($enable-btn--huge == true) {
+    /**
+     * Huge buttons.
+     */
+    .btn--huge,
+    %btn--huge {
+        padding: ($btn-padding--large - $btn-border-width) ($btn-padding--huge - $btn-border-width); /* [7] */
+    }
+}
+
+
+
+@if ($enable-btn--full == true) {
+    /**
+     * Full-width buttons.
+     */
+    .btn--full,
+    %btn--full {
+        width: 100%;
+    }
+}
+
+
+
+@if ($enable-btn--pill == true) {
+    /**
+     * Round-ended buttons.
+     *
+     * 1. Overly-large value to ensure the radius rounds the whole end of the
+     *    button.
+     */
+    .btn--pill,
+    %btn--pill {
+        border-radius: 100px; /* [1] */
+    }
+}
+
+
+
+@if ($enable-btn--transparent == true) {
+    /**
+     * Transparent button
+     */
+    .btn--transparent,
+    %btn--transparent {
+        @include pseudo-classes(true) {
+            color: $color-base-text;
+            background-color: transparent;
+        }
+    }
+}
+
+
+
+@if ($enable-btn--center == true) {
+    /**
+     * Centered button
+     */
+    .btn--center,
+    %btn--center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+@if ($enable-btn--close == true) {
+    /**
+     * Close button
+     */
+    .btn--close {
+        @extend %btn;
+        @include font-size(14px, "none");
+        position: absolute;
+        top: $base-spacing-unit--tiny;
+        right: $base-spacing-unit--tiny;
+        padding-right: $base-spacing-unit--small;
+        padding-left: $base-spacing-unit--small;
+
+        &::after {
+            display: inline-block;
+            margin-left: em(10px);
+            content: $glyph-cross;
+        }
+    }
+}
+
+%anchor-link {
+    @include set-font($font-akzidenz-reg, 14px, 22px);
+    color: $color-light-green;
+    border-bottom: 1px solid transparent;
+
+    @include respond-to-min($tabletSize) {
+        @include set-font($font-akzidenz-reg, 16px, 24px);
+    }
+
+    &:hover {
+        color: $color-light-green;
+        border-bottom: 1px solid $color-light-green;
+    }
+
+    &:link,
+    &:visited {
+        color: $color-light-green;
+    }
+
+    &.no-state {
+        border-bottom: none;
+        color: $body-text-color;
+
+        &:hover {
+            border-bottom: none;
+        }
+    }
+
+    .ref-icon {
+        margin-left: 5px !important;
+    }
+}
+
+%arrow-right-icon {
+    text-indent: -9999px !important;
+    @include set-size(inline-block, 20px, 9px);
+    background-size: 100%;
+    @include set-absolute-position(50%, 0, auto, auto);
+    @include set-center-position(top, 50%);
+
+    &:before {
+        content: '';
+    }
+}
+
+%arrow-right-icon-black {
+    background: transparent url(../images/arrow-right.png) no-repeat center center;
+    @extend %arrow-right-icon;
+}
+
+%arrow-right-icon-white {
+    background: transparent url(../images/arrow-right-white.png) no-repeat center center;
+    @extend %arrow-right-icon;
+}

@@ -1,0 +1,53 @@
+﻿/// <reference path="../_references.scss" />
+
+// ------------------------------------------------------------------------- //
+// #WRAPPERS
+// ------------------------------------------------------------------------- //
+
+
+
+/**
+ * Wrapper object
+ */
+.wrapper {
+    width: $wrapper-width;
+    max-width: $wrapper-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 1em;
+    padding-left: 1em;
+    //text-align: center;
+}
+
+
+
+/**
+ * Content wrapper
+ */
+.wrapper--content,
+%wrapper--content {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $base-spacing-unit;
+    padding-left: $base-spacing-unit;
+
+    @include media-query("tablet") {
+        width: $wrapper-content-width-tablet;
+    }
+
+    @include media-query("laptop") {
+        width: $wrapper-content-width-laptop;
+    }
+
+    @include media-query("desktop") {
+        width: $wrapper-content-width-desktop;
+    }
+}
+
+
+/**
+ * Wrapper for internal pages
+ */
+.wrapper--full-width {
+    max-width: none;
+}

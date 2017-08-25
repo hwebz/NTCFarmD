@@ -1,0 +1,26 @@
+﻿@model Gro.ViewModels.Blocks.WeighinListBlockViewModel
+@using Gro.Helpers;
+
+<div class="lm__block item-listing-block">
+    <div class="lm__block-header white-background-header">
+        <h1>@Model.CurrentBlock.Heading</h1>
+    </div>
+    <section class="lm__news">
+        @if (Model.Deliveries != null)
+        {
+            foreach (var delivery in Model.Deliveries)
+            {
+                <article class="lm__news-item">
+                    <a>
+                        <p class="first-row"><span class="number">@delivery.OrderNr</span><span>@delivery.ItemDescription</span></p>
+                        <p class="second-row"><span class="volume">@delivery.DeliveredQuantity</span><span class="unit">kilo</span></p>
+                    </a>
+                </article>
+            }
+        }
+    </section>
+    <a href="@Url.ContentUrl(Model.CurrentBlock.ArchivePage)" class="lm__more-link">
+        @Model.CurrentBlock.LinkText
+        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+    </a>
+</div>

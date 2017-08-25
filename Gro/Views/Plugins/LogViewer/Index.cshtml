@@ -1,0 +1,65 @@
+﻿@using Gro.Business.Plugins;
+@using System.Globalization;
+@model LogViewerPluginViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    tr, th, td {
+        padding: 5px;
+        border: 1px solid darkgray;
+    }
+</style>
+
+<h3>Log Viewer</h3>
+
+<div>
+    <form method="get" action=".">
+        <div>
+            <label for="typeFilter">Log type</label>
+            <select name="typeFilter" id="typeFilter">
+                <option @(string.IsNullOrWhiteSpace(Model.TypeFilter) ? "selected" : "") value="">All</option>
+                <option @(Model.TypeFilter == "info" ? "selected" : "") value="info">Info</option>
+                <option @(Model.TypeFilter == "error" ? "selected" : "") value="error">Error</option>
+            </select>
+
+            <br />
+            <br />
+
+            <label for="fromFilter">From</label>
+            <input type="date" id="fromFilter" name="fromFilter" value="@Model.FromFilter" />
+
+            <label for="fromFilter" style="margin-left: 10px">To</label>
+            <input type="date" id="toFilter" name="toFilter" value="@Model.ToFilter" />
+
+            <input type="submit" value="Get Log Files" />
+        </div>
+    </form>
+</div>
+
+@if (Model.LogFiles != null)
+{
+    <table>
+        <tr>
+            <th class="epitableheading" scope="col">Server</th>
+            <th class="epitableheading" scope="col">File name</th>
+            <th class="epitableheading" scope="col">Size</th>
+            <th class="epitableheading" scope="col">Changed</th>
+            <th class="epitableheading" scope="col">Created</th>
+        </tr>
+        @foreach (var file in Model.LogFiles)
+        {
+            <tr>
+                <td>@Environment.MachineName</td>
+                <td>
+                    <a target="_blank" href="/custom-plugins/LogViewerPlugin/LogFile?filePath=@WebUtility.UrlEncode(file.FullName)">@file.Name</a>
+                </td>
+                <td>@(file.Length / 1000) KBs</td>
+                <td>@file.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@file.CreationTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+            </tr>
+        }
+    </table>
+}

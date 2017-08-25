@@ -1,0 +1,56 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.MyProfile.HandleSigInInformationViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till Mitt konto
+                </a>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block no-margin">
+                    <div class="lm__block-box no-padding-bottom">
+                        <h1 class="lm__page-title no-margin">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    </div>
+                </div>
+                <div class="lm__mina-avtal lm__block">
+                    <div style="padding-bottom: 30px">
+                        <h2 class="heading-title-2 no-margin">Inloggning med BankID</h2>
+                        <div class="bankid-block">
+                            <img src="/Static/dist/images/bank_id.svg" alt="BankID Logo" class="bank-id__logo">
+                            <p class="full-width">Lägg till ditt personnummer för att kunna logga in med BankID istället för din E-postadress och lösenord</p>
+                        </div>
+                    </div>
+                    @using (Html.BeginForm("UpdateSocialSecurityNumber", "HandleSignInInformation", FormMethod.Post, new {name = "updateSocialNumber", onsubmit = "return HandinSignInInformationPage.validateForm()", enctype = "multipart/form-data"}))
+                    {
+                        <div class="lm__block meddelanden-block">
+                            <label for="SocialSecurityNumber">Personnr</label>
+                            <div>
+                                <input type="hidden" id="hiddenSocialNumber" value="@Model.SocialSecurityNumber"/>
+                                <input multiple type="text" id="SocialSecurityNumber" name="SocialSecurityNumber" style="width: 50%; display: inline;"/>
+                                <div class="lm__checkbox style-3 lm__tick" style="display: none;">
+                                    <input type="checkbox" disabled="" checked="">
+                                    <label></label>
+                                </div>
+                            </div>
+                            <span style="color: red;" id="error-message">@TempData["SocialNumberInvalid"]</span>
+                            <div class="author-inform-form__input small-distance-top block-button-on-mobile align-right-text special-case two-buttons" style="padding: 0px">
+                                <a target="_self" class="lm__form-btn left-button" href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)">Avbryt</a>
+                                <input type="submit" class="lm__form-btn reverse-state" value="Uppdatera">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new {page = Model.CurrentPage});
+                }
+            </div>
+        </div>
+    </div>
+</section>

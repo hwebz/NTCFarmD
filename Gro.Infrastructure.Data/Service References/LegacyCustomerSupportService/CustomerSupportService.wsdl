@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CustomerSupportService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" />
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" />
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt.BaseClasses" />
+      <xsd:import schemaLocation="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SecurityServiceInt" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithCustomerNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserWithCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithCustomerNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserWithCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithCustomerNumber_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q1:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithCustomerNumberAutomatically_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserWithCustomerNumberAutomatically" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithCustomerNumberAutomatically_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserWithCustomerNumberAutomaticallyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithCustomerNumberAutomatically_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q2:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithoutCustomerNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserWithoutCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithoutCustomerNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserWithoutCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_RegisterUserWithoutCustomerNumber_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q3:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ResetPassword_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q4:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetInfoResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetInfoResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetInfoResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetInfoResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetInfoResetPassword_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q5:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserName" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUserName_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q6:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetInfoGetUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetInfoGetUserName" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetInfoGetUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetInfoGetUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetInfoGetUserName_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q7:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNewlyRegisteredUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewlyRegisteredUsers" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNewlyRegisteredUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewlyRegisteredUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNewlyRegisteredUsers_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q8:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNewRegisteredUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewRegisteredUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNewRegisteredUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewRegisteredUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNewRegisteredUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q9:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUserFromToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserFromToken" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUserFromToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserFromTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUserFromToken_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q10:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ActivateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateAccount" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ActivateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ActivateAccount_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q11:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ProxyRegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProxyRegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ProxyRegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProxyRegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ProxyRegisterUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q12:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUsersRegisterdBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersRegisterdBy" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUsersRegisterdBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersRegisterdByResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUsersRegisterdBy_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q13:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetAllUsersSorted_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersSorted" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetAllUsersSorted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersSortedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetAllUsersSorted_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q14:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q15:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetPrimaryRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryRoles" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetPrimaryRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetPrimaryRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q16:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNonPrimaryRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonPrimaryRoles" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNonPrimaryRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonPrimaryRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetNonPrimaryRoles_SecurityExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/SecurityServiceInt" name="detail" element="q17:SecurityExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerIssues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerIssues" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerIssues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerIssuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerIssues_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q18:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_UpdateNewRegisteredUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewRegisteredUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_UpdateNewRegisteredUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewRegisteredUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_UpdateNewRegisteredUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q19:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_UpdateUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q20:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_DeleteNewRegisteredUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNewRegisteredUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_DeleteNewRegisteredUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNewRegisteredUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_DeleteNewRegisteredUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q21:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_DeleteExistingUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExistingUser" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_DeleteExistingUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExistingUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_DeleteExistingUser_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q22:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomersDeliveryAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersDeliveryAddresses" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomersDeliveryAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersDeliveryAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomersDeliveryAddresses_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q23:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerInvoiceAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerInvoiceAddress" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerInvoiceAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerInvoiceAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerInvoiceAddress_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q24:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetStatusToNewApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetStatusToNewApproved" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetStatusToNewApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetStatusToNewApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetStatusToNewApproved_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q25:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUsersPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersPassword" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUsersPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetUsersPassword_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q26:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerSegments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerSegments" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomerSegments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerSegmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetRetailerCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRetailerCustomers" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetRetailerCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRetailerCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_Impersonate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Impersonate" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_Impersonate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImpersonateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_Impersonate_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q27:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ValidateImpersonation_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateImpersonation" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ValidateImpersonation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateImpersonationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_ValidateImpersonation_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q28:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetDeliverySettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliverySettings" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetDeliverySettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliverySettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetDeliverySettings_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q29:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetSmsNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSmsNotification" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetSmsNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSmsNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_GetSmsNotification_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q30:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetDeliverySettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDeliverySettings" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetDeliverySettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDeliverySettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetDeliverySettings_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q31:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetSmsNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSmsNotification" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetSmsNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSmsNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_SetSmsNotification_CustomerSupportExceptionInfoFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt" name="detail" element="q32:CustomerSupportExceptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerSupportService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICustomerSupportService">
+    <wsdl:operation name="RegisterUserWithCustomerNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumber" message="tns:ICustomerSupportService_RegisterUserWithCustomerNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumberResponse" message="tns:ICustomerSupportService_RegisterUserWithCustomerNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumberCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_RegisterUserWithCustomerNumber_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUserWithCustomerNumberAutomatically">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumberAutomatically" message="tns:ICustomerSupportService_RegisterUserWithCustomerNumberAutomatically_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumberAutomaticallyResponse" message="tns:ICustomerSupportService_RegisterUserWithCustomerNumberAutomatically_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumberAutomaticallyCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_RegisterUserWithCustomerNumberAutomatically_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUserWithoutCustomerNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithoutCustomerNumber" message="tns:ICustomerSupportService_RegisterUserWithoutCustomerNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithoutCustomerNumberResponse" message="tns:ICustomerSupportService_RegisterUserWithoutCustomerNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/RegisterUserWithoutCustomerNumberCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_RegisterUserWithoutCustomerNumber_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/ResetPassword" message="tns:ICustomerSupportService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/ResetPasswordResponse" message="tns:ICustomerSupportService_ResetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/ResetPasswordCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_ResetPassword_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInfoResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/SetInfoResetPassword" message="tns:ICustomerSupportService_SetInfoResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/SetInfoResetPasswordResponse" message="tns:ICustomerSupportService_SetInfoResetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/SetInfoResetPasswordCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_SetInfoResetPassword_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserName" message="tns:ICustomerSupportService_GetUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserNameResponse" message="tns:ICustomerSupportService_GetUserName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserNameCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetUserName_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInfoGetUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/SetInfoGetUserName" message="tns:ICustomerSupportService_SetInfoGetUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/SetInfoGetUserNameResponse" message="tns:ICustomerSupportService_SetInfoGetUserName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/SetInfoGetUserNameCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_SetInfoGetUserName_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewlyRegisteredUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNewlyRegisteredUsers" message="tns:ICustomerSupportService_GetNewlyRegisteredUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNewlyRegisteredUsersResponse" message="tns:ICustomerSupportService_GetNewlyRegisteredUsers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNewlyRegisteredUsersCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetNewlyRegisteredUsers_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewRegisteredUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNewRegisteredUser" message="tns:ICustomerSupportService_GetNewRegisteredUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNewRegisteredUserResponse" message="tns:ICustomerSupportService_GetNewRegisteredUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNewRegisteredUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetNewRegisteredUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserFromToken" message="tns:ICustomerSupportService_GetUserFromToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserFromTokenResponse" message="tns:ICustomerSupportService_GetUserFromToken_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserFromTokenCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetUserFromToken_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/ActivateAccount" message="tns:ICustomerSupportService_ActivateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/ActivateAccountResponse" message="tns:ICustomerSupportService_ActivateAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/ActivateAccountCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_ActivateAccount_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProxyRegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/ProxyRegisterUser" message="tns:ICustomerSupportService_ProxyRegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/ProxyRegisterUserResponse" message="tns:ICustomerSupportService_ProxyRegisterUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/ProxyRegisterUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_ProxyRegisterUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersRegisterdBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUsersRegisterdBy" message="tns:ICustomerSupportService_GetUsersRegisterdBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUsersRegisterdByResponse" message="tns:ICustomerSupportService_GetUsersRegisterdBy_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUsersRegisterdByCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetUsersRegisterdBy_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersSorted">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetAllUsersSorted" message="tns:ICustomerSupportService_GetAllUsersSorted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetAllUsersSortedResponse" message="tns:ICustomerSupportService_GetAllUsersSorted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetAllUsersSortedCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetAllUsersSorted_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUser" message="tns:ICustomerSupportService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserResponse" message="tns:ICustomerSupportService_GetUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetPrimaryRoles" message="tns:ICustomerSupportService_GetPrimaryRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetPrimaryRolesResponse" message="tns:ICustomerSupportService_GetPrimaryRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetPrimaryRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ICustomerSupportService_GetPrimaryRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNonPrimaryRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNonPrimaryRoles" message="tns:ICustomerSupportService_GetNonPrimaryRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNonPrimaryRolesResponse" message="tns:ICustomerSupportService_GetNonPrimaryRoles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetNonPrimaryRolesSecurityExceptionInfoFault" name="SecurityExceptionInfoFault" message="tns:ICustomerSupportService_GetNonPrimaryRoles_SecurityExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerIssues">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerIssues" message="tns:ICustomerSupportService_GetCustomerIssues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerIssuesResponse" message="tns:ICustomerSupportService_GetCustomerIssues_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerIssuesCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetCustomerIssues_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewRegisteredUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/UpdateNewRegisteredUser" message="tns:ICustomerSupportService_UpdateNewRegisteredUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/UpdateNewRegisteredUserResponse" message="tns:ICustomerSupportService_UpdateNewRegisteredUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/UpdateNewRegisteredUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_UpdateNewRegisteredUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/UpdateUser" message="tns:ICustomerSupportService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/UpdateUserResponse" message="tns:ICustomerSupportService_UpdateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/UpdateUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_UpdateUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNewRegisteredUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/DeleteNewRegisteredUser" message="tns:ICustomerSupportService_DeleteNewRegisteredUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/DeleteNewRegisteredUserResponse" message="tns:ICustomerSupportService_DeleteNewRegisteredUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/DeleteNewRegisteredUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_DeleteNewRegisteredUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExistingUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/DeleteExistingUser" message="tns:ICustomerSupportService_DeleteExistingUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/DeleteExistingUserResponse" message="tns:ICustomerSupportService_DeleteExistingUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/DeleteExistingUserCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_DeleteExistingUser_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersDeliveryAddresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomersDeliveryAddresses" message="tns:ICustomerSupportService_GetCustomersDeliveryAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomersDeliveryAddressesResponse" message="tns:ICustomerSupportService_GetCustomersDeliveryAddresses_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomersDeliveryAddressesCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetCustomersDeliveryAddresses_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInvoiceAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerInvoiceAddress" message="tns:ICustomerSupportService_GetCustomerInvoiceAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerInvoiceAddressResponse" message="tns:ICustomerSupportService_GetCustomerInvoiceAddress_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerInvoiceAddressCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetCustomerInvoiceAddress_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetStatusToNewApproved">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/SetStatusToNewApproved" message="tns:ICustomerSupportService_SetStatusToNewApproved_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/SetStatusToNewApprovedResponse" message="tns:ICustomerSupportService_SetStatusToNewApproved_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/SetStatusToNewApprovedCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_SetStatusToNewApproved_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUsersPassword" message="tns:ICustomerSupportService_GetUsersPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUsersPasswordResponse" message="tns:ICustomerSupportService_GetUsersPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetUsersPasswordCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetUsersPassword_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerSegments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerSegments" message="tns:ICustomerSupportService_GetCustomerSegments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerSegmentsResponse" message="tns:ICustomerSupportService_GetCustomerSegments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomer" message="tns:ICustomerSupportService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetCustomerResponse" message="tns:ICustomerSupportService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRetailerCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetRetailerCustomers" message="tns:ICustomerSupportService_GetRetailerCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetRetailerCustomersResponse" message="tns:ICustomerSupportService_GetRetailerCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Impersonate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/Impersonate" message="tns:ICustomerSupportService_Impersonate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/ImpersonateResponse" message="tns:ICustomerSupportService_Impersonate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/ImpersonateCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_Impersonate_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateImpersonation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/ValidateImpersonation" message="tns:ICustomerSupportService_ValidateImpersonation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/ValidateImpersonationResponse" message="tns:ICustomerSupportService_ValidateImpersonation_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/ValidateImpersonationCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_ValidateImpersonation_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliverySettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetDeliverySettings" message="tns:ICustomerSupportService_GetDeliverySettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetDeliverySettingsResponse" message="tns:ICustomerSupportService_GetDeliverySettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetDeliverySettingsCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetDeliverySettings_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/GetSmsNotification" message="tns:ICustomerSupportService_GetSmsNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/GetSmsNotificationResponse" message="tns:ICustomerSupportService_GetSmsNotification_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/GetSmsNotificationCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_GetSmsNotification_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDeliverySettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/SetDeliverySettings" message="tns:ICustomerSupportService_SetDeliverySettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/SetDeliverySettingsResponse" message="tns:ICustomerSupportService_SetDeliverySettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/SetDeliverySettingsCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_SetDeliverySettings_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSmsNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/SetSmsNotification" message="tns:ICustomerSupportService_SetSmsNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/SetSmsNotificationResponse" message="tns:ICustomerSupportService_SetSmsNotification_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICustomerSupportService/SetSmsNotificationCustomerSupportExceptionInfoFault" name="CustomerSupportExceptionInfoFault" message="tns:ICustomerSupportService_SetSmsNotification_CustomerSupportExceptionInfoFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerSupportService/Ping" message="tns:ICustomerSupportService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerSupportService/PingResponse" message="tns:ICustomerSupportService_Ping_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICustomerSupportService" type="tns:ICustomerSupportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUserWithCustomerNumber">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUserWithCustomerNumberAutomatically">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/RegisterUserWithCustomerNumberAutomatically" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUserWithoutCustomerNumber">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/RegisterUserWithoutCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfoResetPassword">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/SetInfoResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfoGetUserName">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/SetInfoGetUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewlyRegisteredUsers">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetNewlyRegisteredUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewRegisteredUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetNewRegisteredUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromToken">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetUserFromToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateAccount">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/ActivateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ProxyRegisterUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/ProxyRegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersRegisterdBy">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetUsersRegisterdBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersSorted">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetAllUsersSorted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryRoles">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetPrimaryRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonPrimaryRoles">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetNonPrimaryRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SecurityExceptionInfoFault">
+        <soap:fault use="literal" name="SecurityExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerIssues">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetCustomerIssues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewRegisteredUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/UpdateNewRegisteredUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNewRegisteredUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/DeleteNewRegisteredUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExistingUser">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/DeleteExistingUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersDeliveryAddresses">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetCustomersDeliveryAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInvoiceAddress">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetCustomerInvoiceAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetStatusToNewApproved">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/SetStatusToNewApproved" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersPassword">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetUsersPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerSegments">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetCustomerSegments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRetailerCustomers">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetRetailerCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Impersonate">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/Impersonate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateImpersonation">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/ValidateImpersonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliverySettings">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetDeliverySettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsNotification">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/GetSmsNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetDeliverySettings">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/SetDeliverySettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetSmsNotification">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/SetSmsNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomerSupportExceptionInfoFault">
+        <soap:fault use="literal" name="CustomerSupportExceptionInfoFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/ICustomerSupportService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerSupportService">
+    <wsdl:port name="BasicHttpBinding_ICustomerSupportService" binding="tns:BasicHttpBinding_ICustomerSupportService">
+      <soap:address location="http://sr02009/Apps/CustomerSupportServiceInt/CustomerSupportServiceInt.CustomerSupportService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

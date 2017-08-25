@@ -1,0 +1,37 @@
+﻿@using Gro.Helpers
+@using Gro.Business.Initialization
+<!-- Load resources from CDN -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+@if (!Html.IsDebug())
+{
+    @Html.Partial("_React");
+}
+
+<!-- Fallback if CDN's fails -->
+<script>
+    window.jQuery || document.write('<script src="/bower_components/jquery/dist/jquery.min.js">\x3C/script>');
+    window.jQuery.ui || document.write('<script src="/bower_components/jqueryui/jquery-ui.min.js">\x3C/script>');
+    window.Dygraph || document.write('<script src="/node_modules/dygraphs/dygraph-combined.js">\x3C/script>');
+</script>
+
+
+<!-- Custom scripts -->
+@if (HttpContext.Current.IsDebuggingEnabled)
+{
+    <script src="~/Static/dist/scripts/scripts.js"></script>
+}
+else
+{
+    <script src="~/Static/dist/scripts/scripts.min.js"></script>
+}
+
+<script>
+    window.endpoints = @Html.Raw(DependencyResolverInitialization.EndpointsSerialized);
+</script>

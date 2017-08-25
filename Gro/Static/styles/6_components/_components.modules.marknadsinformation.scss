@@ -1,0 +1,19 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.marknadsinformation-block {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        .lm__news-item {
+            .article-title {
+                padding-right: 20px;
+            }
+        }
+    }
+}

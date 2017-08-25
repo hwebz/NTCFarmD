@@ -1,0 +1,32 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.ekonomi-nav-block {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        .lm__news-item {
+            .article-title {
+                margin: 0;
+                position: relative;
+                padding-right: 20px;
+                font-family: $font-akzidenz-reg;
+
+                i {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+
+                    &.fa-file-pdf-o {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

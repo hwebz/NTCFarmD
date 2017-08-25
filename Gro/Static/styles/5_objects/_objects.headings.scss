@@ -1,0 +1,186 @@
+﻿/// <reference path="../_references.scss" />
+
+// ------------------------------------------------------------------------- //
+// #HEADINGS
+//
+// Headings 1–6’s corresponding Greek-alphabet abstract classes for
+// double-stranded heading hierarchy:
+// http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+//
+// Use these helper classes to cause other elements to adopt the styling
+// of the respective heading, e.g.:
+//
+// <h2 class="alpha">Lorem ipsum</h2>
+// ------------------------------------------------------------------------- //
+
+
+
+/**
+ * Heading 1 corresponding class
+ */
+.alpha,
+%alpha {
+    @extend %h1;
+}
+
+
+
+/**
+ * Heading 2 corresponding class
+ */
+.beta,
+%beta {
+    @extend %h2;
+}
+
+
+
+/**
+ * Heading 3 corresponding class
+ */
+.gamma,
+%gamma {
+    @extend %h3;
+}
+
+
+
+/**
+ * Heading 4 corresponding class
+ */
+.delta,
+%delta {
+    @extend %h4;
+}
+
+
+
+/**
+ * Heading 5 corresponding class
+ */
+.epsilon,
+%epsilon {
+    @extend %h5;
+}
+
+
+
+/**
+ * Heading 6 corresponding class
+ */
+.zeta,
+%zeta {
+    @extend %h6;
+}
+
+/*
+    Heading title
+*/
+
+%heading-title {
+    @include set-font($font-clarendonurw-reg !important, 22px !important, 30px);
+
+    @include media-query('tablet') {
+        @include set-font($font-clarendonurw-reg !important, 28px !important, 36px);
+    }
+}
+
+%heading-title-2 {
+    @include set-font($font-clarendonurw-reg !important, 18px !important, 26px);
+
+    @include media-query('tablet') {
+        @include set-font($font-clarendonurw-reg !important, 22px !important, 30px);
+    }
+}
+
+%heading-title-3 {
+    @include set-font($font-clarendonurw-reg !important, 16px !important, 24px);
+
+    @include media-query('tablet') {
+        @include set-font($font-clarendonurw-reg !important, 18px !important, 26px);
+    }
+}
+
+%heading-title-4 {
+    @include set-font($font-akzidenz-medium !important, 14px !important, 22px);
+
+    @include media-query('tablet') {
+        @include set-font($font-akzidenz-medium !important, 16px !important, 24px);
+    }
+}
+
+%heading-title-5 {
+    @include set-font($font-akzidenz-medium !important, 12px !important, 16px);
+}
+
+%heading-title-6 {
+    @include set-font($font-akzidenz-medium !important, 10px !important, 14px);
+}
+
+.heading-title {
+    @extend %heading-title;
+}
+
+.heading-title-2 {
+    @extend %heading-title-2;
+}
+
+.heading-title-3 {
+   @extend %heading-title-3;
+}
+
+.heading-title-4 {
+    @extend %heading-title-4;
+}
+
+.heading-title-5 {
+    @extend %heading-title-5;
+}
+
+.heading-title-6 {
+    @extend %heading-title-6;
+}
+
+h1 {
+    @include set-font($font-clarendonurw-reg, 22px, 30px);
+
+    @include media-query('tablet') {
+        @include set-font($font-clarendonurw-reg, 28px, 36px);
+    }
+}
+
+h2 {
+    @include set-font($font-clarendonurw-reg, 18px, 26px);
+
+    @include media-query('tablet') {
+        @include set-font($font-clarendonurw-reg, 22px, 30px);
+    }
+}
+
+h3 {
+    @include set-font($font-clarendonurw-reg, 16px, 24px);
+
+    @include media-query('tablet') {
+        @include set-font($font-clarendonurw-reg, 18px, 26px);
+    }
+}
+
+h4 {
+    @include set-font($font-akzidenz-medium, 14px, 22px);
+
+    @include media-query('tablet') {
+        @include set-font($font-akzidenz-medium, 16px, 24px);
+    }
+}
+
+h5 {
+    @include set-font($font-akzidenz-medium, 12px, 16px);
+}
+
+h6 {
+    @include set-font($font-akzidenz-medium, 10px, 14px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}

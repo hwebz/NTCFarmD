@@ -1,0 +1,42 @@
+﻿@using EPiServer.Editor;
+@model Gro.ViewModels.PageViewModel<Gro.Core.ContentTypes.Pages.StartPages.EkonomiIframeStartPage>
+
+
+<style type="text/css">
+    .page-container {
+        position: relative;
+        padding-bottom: 177.5%;
+        padding-top: 35px;
+        height: 0px;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: visible;
+        overflow-y: hidden;
+    }
+
+        .page-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*margin-top: -160px;*/
+        }
+</style>
+
+<section class="lm__contents">
+    <div>
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <div id="luciapage"></div>
+                @if (!string.IsNullOrWhiteSpace(Model.CurrentPage.IFrameUrl))
+                {
+                    <div id="luciapage"></div>
+                    <script type="text/javascript" src="//pym.nprapps.org/pym.v1.min.js"></script>
+                    <script>
+                    var pymParent = new pym.Parent('luciapage', '@Model.CurrentPage.IFrameUrl?payload=@ViewData["payload"]', {});
+                    </script>
+                }
+            </div>
+        </div>
+    </div>
+</section>

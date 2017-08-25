@@ -1,0 +1,92 @@
+﻿@model Gro.ViewModels.Pages.InternalPages.CustomerCardPageViewModel
+
+<div class="layout layout--large">
+    <div class="lm__block-box">
+        <div class="layout__item u-1/1 u-1/2-mobile u-1/4-desktop">
+            @if (Model.Customer != null)
+            {
+                <div class="lm__gray-block">
+                    <h3 class="heading-title-3">Kund</h3>
+                    <p>Kundnamn: @Model.Customer.CustomerName</p>
+                    <p>Organisationsnr: @Model.Customer.OrganizationNumber</p>
+                    <input type="hidden" id="customer-no" value="@Model.Customer.CustomerNumber" />
+                    <div class="group-checkboxes">
+                        <p class="no-margin">
+                            LM<sup>2</sup>
+                        </p>
+                        <div class="lm__checkbox lm__switcher">
+                            <input type="checkbox" checked />
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="switched-content">
+                        <p>Aktiverat kundnummer: @Model.Customer.CustomerNumber</p>
+                        <div class="confirm-box hidden">
+                            <span class="alert-icon warning"></span>
+                            <p>Genom att klicka på spara inaktiveras kundkontot från LM2.</p>
+                            <div class="align-center-text layout layout--small">
+                                <div class="layout__item u-1/2 no-padding">
+                                    <input type="reset" class="lm__form-btn width-100" value="Avbryt" />
+                                </div>
+                                <div class="layout__item u-1/2">
+                                    <input type="button" class="lm__form-btn reverse-state width-100" value="Spara" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="lm__icon-btn no-margin width-100 small-distance-top">Se ändringslogg för kund</a>
+            }
+
+        </div>
+        <div class="layout__item u-1/1 u-1/2-mobile u-1/4-desktop">
+            <div class="lm__white-block">
+                <h3 class="heading-title-3">Ägare</h3>
+                @if (Model.Owner != null)
+                {
+                    <p><a href="#" class="lm__link">@Model.Owner.Name</a></p>
+                    <p>@Model.Owner.Email</p>
+                    <p>Telefon: @Model.Owner.Phone</p>
+                    <p>Mobil: @Model.Owner.Mobile</p>
+                    @*<p class="faded-datetime">Senast inloggad: 2017-02-03 kl.13.37</p>*@
+                    <p class="setting-link big-distance-top">
+                        <i class="fa fa-cog"></i>
+                        <a href="" class="lm__link">Meddelandeinställningar</a>
+                    </p>
+                }
+
+            </div>
+        </div>
+        <div class="layout__item u-1/1 u-1/2-mobile u-1/4-desktop">
+            <div class="lm__white-block">
+                <h3 class="heading-title-3">Fakturaadress</h3>
+                @if (Model.InvoiceAddress != null)
+                {
+                    var city = Model.InvoiceAddress.AddressRow3;
+
+                    if (!string.IsNullOrEmpty(Model.InvoiceAddress.AddressRow3) && Model.InvoiceAddress.AddressRow3.Contains((" ")))
+                    {
+                        var infoSplitedBySpace = Model.InvoiceAddress.AddressRow3.Trim().Split(' ');
+                        city = infoSplitedBySpace[infoSplitedBySpace.Length - 1];
+                    }
+                    <p>Gatuadress: @Model.InvoiceAddress.AddressRow1</p>
+                    <p>Postnr: @Model.InvoiceAddress.ZipCode</p>
+                    <p>Ort: @city</p>
+                }
+
+            </div>
+        </div>
+        <div class="layout__item u-1/1 u-1/2-mobile u-1/4-desktop">
+            <div class="lm__white-block">
+                <h3 class="heading-title-3">Kontaktuppgifter</h3>
+                @if (Model.Customer != null)
+                {
+                    <p>Telefon: @Model.Customer.Phone1</p>
+                    <p>Mobil: @Model.Customer.MobilePhone</p>
+                    <p>E-post: @Model.Customer.Email</p>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

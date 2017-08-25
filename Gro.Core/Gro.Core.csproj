@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F84F02B-E447-4C8D-9E6D-D496174E87D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gro.Core</RootNamespace>
+    <AssemblyName>Gro.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GRO EPiLyftet|AnyCPU'">
+    <OutputPath>bin\GRO EPiLyftet\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModels\AgreementDtos\Agreement.cs" />
+    <Compile Include="DataModels\AgreementDtos\DryAgreement.cs" />
+    <Compile Include="DataModels\AgreementDtos\FarmSample.cs" />
+    <Compile Include="DataModels\AgreementDtos\PriceHedging.cs" />
+    <Compile Include="DataModels\AgreementDtos\SeedAssurance.cs" />
+    <Compile Include="DataModels\Boka\BaseReservationDto.cs" />
+    <Compile Include="DataModels\Boka\BookingOrder.cs" />
+    <Compile Include="DataModels\Boka\CustomerDto.cs" />
+    <Compile Include="DataModels\Boka\CustomerSearch\Customer.cs" />
+    <Compile Include="DataModels\Boka\CustomerSearch\DeleveryAssuranceList.cs" />
+    <Compile Include="DataModels\Boka\CustomerSearch\MakeReservationFormData.cs" />
+    <Compile Include="DataModels\Boka\DateTimeDto\DateTimeObj.cs" />
+    <Compile Include="DataModels\Boka\DeleteReservation\DeleReservationResultDto.cs" />
+    <Compile Include="DataModels\Boka\DeleteReservation\ErrorMessage.cs" />
+    <Compile Include="DataModels\Boka\DeleteReservation\DeleteReservationResult.cs" />
+    <Compile Include="DataModels\Boka\DropDownDto.cs" />
+    <Compile Include="DataModels\Boka\IODto.cs" />
+    <Compile Include="DataModels\Boka\ListingBoka\RequestSearchBookings.cs" />
+    <Compile Include="DataModels\Boka\ListingBoka\ResponseSearchBookings.cs" />
+    <Compile Include="DataModels\Boka\ListingBoka\SearchBookingsDto.cs" />
+    <Compile Include="DataModels\Boka\LoadResourceGroups\ResourceGroup.cs" />
+    <Compile Include="DataModels\Boka\LoadResourceGroups\ResourceGroupList.cs" />
+    <Compile Include="DataModels\Boka\LoadResourceGroups\Visibility.cs" />
+    <Compile Include="DataModels\Boka\MakeReservationDto.cs" />
+    <Compile Include="DataModels\Boka\MakeReservationResult.cs" />
+    <Compile Include="DataModels\Boka\ReservationResultDto.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupTimes\ReservationItem.cs" />
+    <Compile Include="DataModels\Boka\ReservationStopDto.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupItemDto.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupItemsDto.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupTimes\ResourceGroupTimes.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupTimes\RequestGroupTime.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupTimes\Reservation.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupTimes\ResourceGroupTime.cs" />
+    <Compile Include="DataModels\Boka\UpdateReservation\ChangeReservationResult.cs" />
+    <Compile Include="DataModels\Boka\ResourceGroupTypeDto.cs" />
+    <Compile Include="DataModels\Boka\ResourceItemDto.cs" />
+    <Compile Include="DataModels\Boka\SearchResultDto.cs" />
+    <Compile Include="DataModels\Boka\TimeReservationDto.cs" />
+    <Compile Include="DataModels\Boka\UpdateReservation\UpdateReservationDto.cs" />
+    <Compile Include="DataModels\Contacts\GarageWorkshop.cs" />
+    <Compile Include="DataModels\Contacts\SalesPerson.cs" />
+    <Compile Include="DataModels\CustomerSupport\Customer.cs" />
+    <Compile Include="DataModels\CustomerSupport\CustomerInfo.cs" />
+    <Compile Include="DataModels\MessageHubDtos\DeliveryAddress.cs" />
+    <Compile Include="DataModels\MessageHubDtos\ExternalMessage.cs" />
+    <Compile Include="DataModels\MessageHubDtos\DeliveryInformation.cs" />
+    <Compile Include="DataModels\MessageHubDtos\PlannedDeliveries.cs" />
+    <Compile Include="DataModels\MessageHubDtos\PlannedDelivery.cs" />
+    <Compile Include="DataModels\MessageHubDtos\UserMessageInfo.cs" />
+    <Compile Include="DataModels\Organization\CustomerProfile.cs" />
+    <Compile Include="DataModels\Organization\CustomerRegistration.cs" />
+    <Compile Include="DataModels\Organization\ExistingUserRegistration.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\DryingAgreement.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\PoolAgreement.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\PriceProtectStorageAgreement.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\PriceWatch.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\Product.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\SpotAndForwardAgreement.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\AgreementResponse.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\Customer.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\PriceArea.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\PricePeriod.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\PurchaseAgreement.cs" />
+    <Compile Include="DataModels\PurchasingAgreements\StorageAgreement.cs" />
+    <Compile Include="DataModels\SearchTransport\Annoncement.cs" />
+    <Compile Include="DataModels\SearchTransport\OrderRowResponse.cs" />
+    <Compile Include="DataModels\SearchTransport\ShipmentResponse.cs" />
+    <Compile Include="DataModels\Security\Company.cs" />
+    <Compile Include="DataModels\Security\OrganizationUser.cs" />
+    <Compile Include="Interfaces\IBokaRepository.cs" />
+    <Compile Include="Interfaces\IContactRepository.cs" />
+    <Compile Include="Interfaces\ICustomerSupportRepository.cs" />
+    <Compile Include="Interfaces\IFileRepository.cs" />
+    <Compile Include="DataModels\Grain\AgreementsDeliverysDto.cs" />
+    <Compile Include="DataModels\DeliveryAssuranceDtos\DeliveryAddress.cs" />
+    <Compile Include="DataModels\DeliveryAssuranceDtos\DeliveryAssurance.cs" />
+    <Compile Include="DataModels\DeliveryAssuranceDtos\DeliveryAssuranceList.cs" />
+    <Compile Include="DataModels\DeliveryAssuranceDtos\DeliveryAssurances.cs" />
+    <Compile Include="DataModels\DeliveryAssuranceDtos\Item.cs" />
+    <Compile Include="DataModels\DeliveryAssuranceDtos\Supplier.cs" />
+    <Compile Include="DataModels\DeliveryNoteDtos\AnalysGruppResponse.cs" />
+    <Compile Include="DataModels\DeliveryNoteDtos\BulkfoderLeveransResponse.cs" />
+    <Compile Include="DataModels\DeliveryNoteDtos\FabricItemResponse.cs" />
+    <Compile Include="DataModels\DeliveryNoteDtos\FoljesedelResponse.cs" />
+    <Compile Include="DataModels\Grain\AgreementsDeliverys.cs" />
+    <Compile Include="DataModels\Grain\Deliverys.cs" />
+    <Compile Include="DataModels\GrobarhetDtos\GrobarhetResponse.cs" />
+    <Compile Include="DataModels\Machine\Machine.cs" />
+    <Compile Include="DataModels\Machine\MachineBrand.cs" />
+    <Compile Include="DataModels\Machine\MachineCategory.cs" />
+    <Compile Include="DataModels\Machine\MachineDocument.cs" />
+    <Compile Include="DataModels\Machine\MachineGroup.cs" />
+    <Compile Include="DataModels\Machine\MachineImage.cs" />
+    <Compile Include="DataModels\Machine\MachineMedia.cs" />
+    <Compile Include="DataModels\Machine\MachineModel.cs" />
+    <Compile Include="DataModels\Machine\MachineVideo.cs" />
+    <Compile Include="DataModels\MessageHubDtos\Category.cs" />
+    <Compile Include="DataModels\MessageHubDtos\EnvTypes.cs" />
+    <Compile Include="DataModels\MessageHubDtos\Message.cs" />
+    <Compile Include="DataModels\MessageHubDtos\MessageExtended.cs" />
+    <Compile Include="DataModels\MessageHubDtos\MessageRights.cs" />
+    <Compile Include="DataModels\MessageHubDtos\MessageSettings.cs" />
+    <Compile Include="DataModels\MessageHubDtos\MessageSettingsDisplay.cs" />
+    <Compile Include="DataModels\MessageHubDtos\MessageSettingTab.cs" />
+    <Compile Include="DataModels\MessageHubDtos\MsgType.cs" />
+    <Compile Include="DataModels\MyProfile\UserMessage.cs" />
+    <Compile Include="DataModels\Organization\DeliveryReceiver.cs" />
+    <Compile Include="DataModels\Organization\CustomerBaseAddress.cs" />
+    <Compile Include="DataModels\Organization\CustomerDeliveryAddress.cs" />
+    <Compile Include="DataModels\Organization\CustomerInvoiceAddress.cs" />
+    <Compile Include="DataModels\Organization\OrganisationInformation.cs" />
+    <Compile Include="DataModels\Organization\OrganisationPicture.cs" />
+    <Compile Include="DataModels\Organization\BusinessProfile.cs" />
+    <Compile Include="DataModels\Organization\ProfileField.cs" />
+    <Compile Include="DataModels\Organization\ProfileRow.cs" />
+    <Compile Include="DataModels\Organization\SiloItem.cs" />
+    <Compile Include="DataModels\PriceGraph\PriceGraphDisplay.cs" />
+    <Compile Include="DataModels\Security\Profile.cs" />
+    <Compile Include="DataModels\Security\ProfileRole.cs" />
+    <Compile Include="DataModels\Security\ResponseUser.cs" />
+    <Compile Include="DataModels\Security\User.cs" />
+    <Compile Include="DataModels\Security\UserCore.cs" />
+    <Compile Include="DataModels\Security\CustomerBasicInfo.cs" />
+    <Compile Include="DataModels\Security\Role.cs" />
+    <Compile Include="DataModels\Security\SecurityExceptionInfo.cs" />
+    <Compile Include="DataModels\Security\UserProfile.cs" />
+    <Compile Include="DataModels\Security\UserRights.cs" />
+    <Compile Include="DataModels\Security\UserRole.cs" />
+    <Compile Include="DataModels\ShippingDtos\DeliveryFeeRequest.cs" />
+    <Compile Include="DataModels\ShippingDtos\DeliveryFeeResponse.cs" />
+    <Compile Include="DataModels\WeighInDtos\AnalyzeList.cs" />
+    <Compile Include="DataModels\WeighInDtos\Overview.cs" />
+    <Compile Include="DataModels\WeighInDtos\WeighIn.cs" />
+    <Compile Include="DataModels\WeighInDtos\WeighInExtended.cs" />
+    <Compile Include="DataModels\WeighInDtos\WeighInSumAgreementDto.cs" />
+    <Compile Include="Interfaces\IAccountRepository.cs" />
+    <Compile Include="Interfaces\IPurchasingAgreementRepository.cs" />
+    <Compile Include="Interfaces\IGrainRepository.cs" />
+    <Compile Include="Interfaces\IMachineRepository.cs" />
+    <Compile Include="Interfaces\IMessageAdministrationRepository.cs" />
+    <Compile Include="Interfaces\IOrganizationRepository.cs" />
+    <Compile Include="Interfaces\IOrganizationUserRepository.cs" />
+    <Compile Include="Interfaces\ISearchTransportRepository.cs" />
+    <Compile Include="Interfaces\IShippingRepository.cs" />
+    <Compile Include="Interfaces\IDeliveryAssuranceRepository.cs" />
+    <Compile Include="Interfaces\IDeliveryNoteRepository.cs" />
+    <Compile Include="Interfaces\IGrobarhetRepository.cs" />
+    <Compile Include="Interfaces\IAgreementRepository.cs" />
+    <Compile Include="Interfaces\IPrisgrafRepository.cs" />
+    <Compile Include="Interfaces\IUserTermsOfUseRepository.cs" />
+    <Compile Include="Interfaces\IUserMessageRepository.cs" />
+    <Compile Include="Interfaces\IUserMessageSettingsRepository.cs" />
+    <Compile Include="Interfaces\IWeighInRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\ISecurityRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataModels\PriceMonitoring\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

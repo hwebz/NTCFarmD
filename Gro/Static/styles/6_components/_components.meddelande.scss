@@ -1,0 +1,527 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.lm__meddelanden {
+    background: none;
+    font-family: $font-akzidenz-reg;
+    color: $body-text-color;
+
+    a {
+        color: $body-text-color;
+    }
+
+    ul, li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .lm__meddelanden-tabs {
+
+        li {
+            display: inline-block;
+            margin-right: 2px;
+            position: relative;
+
+            a {
+                padding: 10px 20px;
+                display: block;
+                background: $tab-background-color;
+                font-family: $font-akzidenz-medium;
+                text-indent: -9999px;
+
+                span {
+                    font-family: $font-akzidenz-medium;
+                    display: inline-block;
+                    font-size: 12px;
+                    color: $body-text-color;
+                    margin-left: 5px;
+                }
+            }
+
+            i {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                font-size: 18px;
+            }
+
+            &:hover {
+                a {
+                    background: $tab-active-background-color;
+                }
+            }
+
+            &.active {
+                a {
+                    background: $tab-active-background-color;
+                    color: $tab-active-text-color;
+                    text-indent: 0;
+                }
+
+                i {
+                    display: none;
+                }
+            }
+        }
+
+        @include media-query("desktop") {
+            li {
+                text-indent: 0;
+
+                a {
+                    text-indent: 0;
+                    padding: 20px 30px;
+                }
+
+                i {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .lm__meddelanden-contents {
+        background-color: $color-white;
+        padding: 15px;
+        display: none;
+        margin-top: -1px;
+
+        @include media-query("tablet") {
+            padding: 30px 20px 70px;
+        }
+
+        .layout__item {
+            overflow: inherit;
+        }
+
+        .lm__meddelanden-filters {
+            h3 {
+                @include set-font($font-akzidenz-medium, $body-font-size, 1);
+                margin: 0;
+                padding: 15px 0;
+
+                @include set-responsive-property("tablet", border-bottom, none, 1px solid #ececec);
+            }
+
+            .lm__meddelanden-filters-list {
+                position: relative;
+                margin-top: -41px;
+                padding: 0 0 40px 0;
+                width: 215px;
+
+                @include media-query("tablet") {
+                    margin-top: 0;
+                    width: auto;
+                }
+
+                @include respond-to-max($phoneLandscape) {
+                    width: auto;
+                }
+
+                .toggle-filter {
+                    text-indent: -9999px;
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    background: #f2f2f2 url(../images/chevron-down.png) no-repeat center center;
+                    background-size: 60%;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+
+                    @include media-query("tablet") {
+                        display: none;
+                    }
+
+                    &.showed {
+                        background: #5a9b25 url(../images/chevron-down-active.png) no-repeat center center;
+                        background-size: 60%;
+                    }
+                }
+
+
+
+                nav {
+                    position: absolute;
+                    right: 0;
+                    top: 40px;
+                    z-index: 10;
+                    @extend %shadow-box;
+                    background-color: $color-white;
+                    display: none;
+
+                    li {
+                        a {
+                            display: block;
+                            padding: 20px 15px 20px 50px;
+                            position: relative;
+                            min-width: 200px;
+
+                            &:after {
+                                content: "";
+                                background: $color-white;
+                                border: 1px solid $color-gray-7;
+                                border-radius: 3px;
+                                width: 20px;
+                                height: 20px;
+                                display: block;
+                                position: absolute;
+                                left: 15px;
+                                top: 50%;
+                                -webkit-transform: translate(0, -50%);
+                                transform: translate(0, -50%);
+                                padding-left: 1px;
+                            }
+                        }
+
+                        &.active {
+                            a {
+                                font-family: $font-akzidenz-medium;
+
+                                &:after {
+                                    content: "";
+                                    @include set-size(inline-block, 20px, 20px);
+                                    background: transparent url(../images/table-toggle-tick.png) no-repeat center center;
+                                    background-size: 85%;
+                                }
+                            }
+                        }
+                    }
+
+                    @include media-query("tablet") {
+                        position: initial;
+                        box-shadow: none;
+                        display: block;
+
+                        li {
+                            min-width: auto;
+
+                            a {
+                                padding: 10px 15px;
+
+                                &:after {
+                                    border: none;
+                                    left: auto;
+                                    background: none;
+                                }
+                            }
+
+                            &.active {
+                                a {
+                                    background-color: $filter-active-background-color;
+
+                                    &:after {
+                                        content: "";
+                                        position: absolute;
+                                        right: 15px;
+                                        @include set-size(inline-block, 20px, 20px);
+                                        background: transparent url(../images/table-toggle-tick.png) no-repeat center center;
+                                        background-size: 80%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .lm__meddelanden-setting-btn {
+                @extend .lm__link;
+                position: absolute;
+                right: -15px;
+                top: -47px;
+                width: 20px;
+                height: 25px;
+                overflow: hidden;
+
+                &:hover {
+                    border-color: #ececec;
+
+                    @include media-query("tablet") {
+                        text-decoration: underline;
+                    }
+                }
+
+                @include media-query("tablet") {
+                    top: -68px;
+                }
+
+                i {
+                    font-size: 20px;
+                    color: #b4b4b4;
+                    display: inline-block;
+
+                    @include media-query("tablet") {
+                        font-size: 30px;
+                    }
+                }
+
+                @include media-query("tablet") {
+                    padding: 15px 0;
+                    border-top: 1px solid #ececec;
+                    border-bottom: 1px solid #ececec;
+                    @include set-size(block, auto, auto);
+                    position: initial;
+
+                    i {
+                        font-size: 24px;
+                        margin-right: 10px;
+                        vertical-align: bottom;
+                        color: $body-text-color;
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .lm__meddelanden-messages {
+            .lm__meddelanden-actions {
+                text-align: right;
+                margin-right: 20px;
+                display: none;
+
+                @include media-query("desktop") {
+                    display: block;
+                }
+
+                a.disabled {
+                    pointer-events: none;
+                    @include set-opacity(0.4);
+                }
+
+                .lm__meddelanden-action-btn {
+                    margin-left: 10px;
+                }
+
+                .lm__meddelanden-checkbox {
+                    margin-left: 20px;
+                    vertical-align: top;
+                    margin-top: 15px;
+                }
+            }
+
+            .messages-table {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    right: -45px;
+                    display: inline-block;
+                    height: 100%;
+                    width: 30px;
+                    -webkit-box-shadow: -8px 0 15px -9px rgba(127,127,127,.74);
+                    -moz-box-shadow: -8px 0 15px -9px rgba(127,127,127,.74);
+                    box-shadow: -8px 0 15px -9px rgba(127,127,127,.74);
+                    background-color: white;
+                    content: "";
+
+                    @include media-query("tablet") {
+                        right: -50px;
+                    }
+
+                    @include media-query("desktop") {
+                        display: none;
+                    }
+                }
+
+                table {
+                    min-width: 768px;
+                }
+            }
+        }
+
+        &#inkorg {
+            display: block;
+        }
+    }
+}
+
+.messages-table {
+    table {
+        border: none;
+        margin: 0;
+        width: 200%;
+
+        @include media-query("tablet") {
+            width: 100%;
+        }
+
+        tbody tr {
+            border-left: 5px solid transparent;
+        }
+
+        th, td {
+            padding: 5px;
+
+            @include media-query("desktop") {
+                padding: 15px 20px;
+            }
+        }
+
+        a {
+            border: none;
+        }
+
+        th {
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f7f5;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: $color-white;
+        }
+
+        tbody tr td:nth-last-child(2) {
+            min-width: 130px;
+        }
+
+        tbody tr td:last-child {
+            text-align: right;
+        }
+
+        tr td:last-child,
+        tr th:last-child {
+            display: none;
+
+            @include media-query("desktop") {
+                display: block;
+            }
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            border-left: 5px solid $color-light-green-3;
+
+            *:not(.lm__meddelanden-checkbox), *:not(.lm__meddelanden-checkbox):hover {
+                border: none;
+            }
+        }
+    }
+}
+
+.lm__meddelanden-actions {
+    .lm__meddelanden-action-btn {
+        @extend .lm__icon-btn;
+    }
+}
+
+.lm__meddelanden-checkbox,
+.lm__meddelanden-radio,
+.lm__meddelanden-favorite {
+    cursor: pointer;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+}
+
+.lm__meddelanden-checkbox {
+    border: 1px solid #ddd9d1;
+    border-radius: 3px;
+    @include set-size(inline-block, 20px, 20px);
+    position: relative;
+    vertical-align: middle;
+    margin: 0 5px;
+
+    &.checked {
+        background: transparent url(../images/table-toggle-tick.png) no-repeat center center;
+        background-size: 80%;
+    }
+}
+
+.lm__meddelanden-checkbox_input {
+    position: relative;
+    @include set-size(inline-block, 20px, 20px);
+
+    input, input + p {
+        border: 1px solid #ddd9d1;
+        border-radius: 3px;
+        @include set-size(inline-block, 20px, 20px);
+        @include set-absolute-position(0, auto, auto, 0);
+        vertical-align: middle;
+        margin: 0 5px;
+        z-index: 1;
+    }
+
+    input {
+        @include set-opacity(0);
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    input:checked + p {
+        background: transparent url(../images/table-toggle-tick.png) no-repeat center center;
+        background-size: 80%;
+    }
+}
+
+.lm__meddelanden-radio,
+.radio-icon {
+    width: 20px;
+    height: 26px;
+    display: inline-block;
+    position: relative;
+
+    &:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        border: 1px solid #ddd9d1;
+        border-radius: 50%;
+    }
+}
+
+.radio-icon {
+    width: 10px;
+    height: 17px;
+    margin-right: 10px;
+
+    &:before {
+        left: 0;
+    }
+
+    &.unread:before {
+        background-color: $unread-dot-color;
+        border: none;
+    }
+}
+
+.lm__meddelanden-favorite {
+    @include set-size(inline-block, 20px, 20px);
+    background: transparent url(../images/fa-star.png) no-repeat center center;
+    text-indent: -9999px;
+    background-size: contain !important;
+
+    &.marked {
+        background: transparent url(../images/fa-star-active.png) no-repeat center center;
+        background-size: contain !important;
+    }
+
+    &.gray {
+        background: transparent url(../images/fa-star-gray.png) no-repeat center center;
+        background-size: contain !important;
+    }
+}
+
+.unread {
+    .lm__meddelanden-radio:before {
+        background-color: $unread-dot-color;
+        border: none;
+    }
+
+    a {
+        font-family: $font-akzidenz-medium;
+    }
+}

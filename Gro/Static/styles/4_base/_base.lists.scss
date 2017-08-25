@@ -1,0 +1,30 @@
+/// <reference path="../_references.scss" />
+
+// ------------------------------------------------------------------------- //
+// #LISTS
+// ------------------------------------------------------------------------- //
+
+
+
+/**
+ * 1. Remove extra vertical spacing when nesting lists.
+ */
+li {
+    > ul,
+    > ol {
+        margin-bottom: 0; /* [1] */
+    }
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+    letter-spacing: -5px;
+    list-style: none;
+
+    li {
+        letter-spacing: normal;
+        white-space: normal;
+    }
+}

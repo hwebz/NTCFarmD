@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://lantmannenlantbruk.se/1.0.0.0/" elementFormDefault="qualified" targetNamespace="http://lantmannenlantbruk.se/1.0.0.0/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfCommon" />
+  <xs:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://sr02009/Apps/LogiWebServiceInt/LogiWebServiceInt.LogiWebService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/LogiWebServiceInt.Models" />
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByCustomerNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="todate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByCustomerNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByCustomerNumberResult" nillable="true" type="tns:ArrayOfOrderRowResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfOrderRowResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderRowResponse" nillable="true" type="tns:OrderRowResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderRowResponse" nillable="true" type="tns:ArrayOfOrderRowResponse" />
+  <xs:complexType name="OrderRowResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Arrived" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delivered" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeliveredQty" type="xs:int" />
+      <xs:element minOccurs="0" name="DispatcherNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSchenkerDelivery" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Item" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoOfAnnouncements" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderRow" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderedQty" type="xs:int" />
+      <xs:element minOccurs="0" name="PlannedArrival" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Warehouse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WarehouseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WaybillNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderRowResponse" nillable="true" type="tns:OrderRowResponse" />
+  <xs:complexType name="LantmannenLantbrukWcfException">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfCommon" minOccurs="0" name="Code" type="q1:WcfErrorCode" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LantmannenLantbrukWcfException" nillable="true" type="tns:LantmannenLantbrukWcfException" />
+  <xs:element name="SearchByShipmentIdMX">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shipmentIdMX" type="xs:int" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByShipmentIdMXResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByShipmentIdMXResult" nillable="true" type="tns:ArrayOfShipmentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfShipmentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShipmentResponse" nillable="true" type="tns:ShipmentResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShipmentResponse" nillable="true" type="tns:ArrayOfShipmentResponse" />
+  <xs:complexType name="ShipmentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Carrier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanedDepartureDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShipmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="ShipmentIdMX" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShipmentResponse" nillable="true" type="tns:ShipmentResponse" />
+  <xs:element name="SearchByOrderNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByOrderNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByOrderNumberResult" nillable="true" type="tns:ArrayOfOrderRowResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByCustomerOrderNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerOrderNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByCustomerOrderNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByCustomerOrderNumberResult" nillable="true" type="tns:ArrayOfOrderRowResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByWaybillNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="waybillNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByWaybillNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByWaybillNumberResult" nillable="true" type="tns:ArrayOfShipmentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByCarrier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carrier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="todate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByCarrierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByCarrierResult" nillable="true" type="tns:ArrayOfShipmentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderRowsByShipmentIdMX">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shipmentIdMX" type="xs:int" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderRowsByShipmentIdMXResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOrderRowsByShipmentIdMXResult" nillable="true" type="tns:ArrayOfOrderRowResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipmentsdByOrderNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipmentsdByOrderNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetShipmentsdByOrderNumberResult" nillable="true" type="tns:ArrayOfShipmentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipmentsdByCustomerOrderNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerOrderNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUsersCustomerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipmentsdByCustomerOrderNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetShipmentsdByCustomerOrderNumberResult" nillable="true" type="tns:ArrayOfShipmentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarriers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarriersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCarriersResult" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnnoncements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderRowId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnnoncementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAnnoncementsResult" nillable="true" type="tns:ArrayOfAnnoncement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfAnnoncement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Annoncement" nillable="true" type="tns:Annoncement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnnoncement" nillable="true" type="tns:ArrayOfAnnoncement" />
+  <xs:complexType name="Annoncement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SentBySMS" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SentTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Annoncement" nillable="true" type="tns:Annoncement" />
+  <xs:element name="GetOrderStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOrderStatusResult" nillable="true" type="tns:ArrayOfOrderStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfOrderStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderStatus" nillable="true" type="tns:ArrayOfOrderStatus" />
+  <xs:complexType name="OrderStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+  <xs:element name="GetLoadingPlaces">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoadingPlacesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLoadingPlacesResult" nillable="true" type="tns:ArrayOfLoadingPlace" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfLoadingPlace">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoadingPlace" nillable="true" type="tns:LoadingPlace" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoadingPlace" nillable="true" type="tns:ArrayOfLoadingPlace" />
+  <xs:complexType name="LoadingPlace">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrorageNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoadingPlace" nillable="true" type="tns:LoadingPlace" />
+  <xs:element name="GetReportData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="transportPayer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromStorageId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="orderRowStatus" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LogiWebServiceInt.Models" minOccurs="0" name="GetReportDataResult" nillable="true" type="q3:ArrayOfReportItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEsalesUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEsalesUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEsalesUrlResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

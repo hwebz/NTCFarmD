@@ -1,0 +1,119 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using EPiServer.Editor
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PurchasingAgreementViewModel
+
+@{
+    var productItemName = Model.SelectedAgreement == null ? string.Empty : Model.SelectedAgreement.ProductItemName;
+    var grainType = Model.SelectedAgreement == null ? string.Empty : Model.SelectedAgreement.GrainType;
+}
+
+<div class="lm__block lm__mina-avtal has-separator no-margin lm__block-contain-float">
+    <div class="u-1/1">
+        <h1 class="lm__page-title">
+            @Model.CurrentPage.Heading
+            <a href="#" class="lm__info link-to-open-popup" id="agrement-info"><i class="fa fa-info-circle fa-info-page-title"></i></a>
+        </h1>
+        <div class="lm__modal__wrapper hidden" id="agreement-introduce">
+            <div class="mask"></div>
+            <div class="lm__wide-modal author-inform-form">
+                <h3 class="lm__wide-modal__title">
+                    @Model.CurrentPage.Heading
+                </h3>
+                @Html.PropertyFor(x => x.CurrentPage.Introduce)
+                <div class="lm__wide-modal__close-btn">
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="layout layout--large">
+            <div class="layout__item u-1/1 ">
+                <div class="author-inform-form__column author-inform-form__column-full">
+                    @*Display the agreement information here*@
+                </div>
+            </div>
+            <div class="layout__item u-1/1 ">
+                <div class="author-inform-form__column author-inform-form__column-half solid-padding-box gray-background">
+                    <span class="lm__control-label no-margin"> Prisområde: </span><span class="no-margin">@Model.SelectedPriceArea.PriceAreaName</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 ">
+                <div class="layout layout--small">
+                    <div class="layout__item u-1/1 u-1/1-tablet u-1/3-desktop lm__row-margin agreement-element">
+                        <span>Avtal</span>
+                        @if (Model.StorageAgreements.Any())
+                        {
+                            <ul class="lm__form-dropdown type-3 avtalDropdown">
+                                <li class="showcase">
+                                    @if (Model.SelectedAgreement != null)
+                                    {
+                                        <a href="#">@string.Format("{0} {1} {2}", Model.SelectedAgreement.AgreementId, Model.SelectedAgreement.ProductItemName, Model.SelectedAgreement.GrainType) </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#">Välj avtal</a>
+                                    }
+
+                                    @if (Model.StorageAgreements.Any())
+                                    {
+                                        <ul class="dropdown">
+                                            @foreach (var item in Model.StorageAgreements)
+                                            {
+                                                <li data-value="@item.AgreementId">
+                                                    <a href="#" data-text="@(string.Format("{0} {1}", item.ProductItemName, item.GrainType))" class="agreement-item"
+                                                       data-productItemId="@item.ProductItemId" data-priceAreaId="@item.PriceArea"
+                                                       data-agreementid="@item.AgreementId" data-grainType="@item.GrainType" data-productItemName="@item.ProductItemName">
+                                                        @string.Format("{0} {1} {2}", item.AgreementId, item.ProductItemName, item.GrainType)
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                        <input type="hidden" class="form-element" name="AgreementAvtal" id="AgreementAvtal" />
+                                    }
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="agreement-loader" class="loader-wrapper" style="display: none;">
+        <div class="loader"></div>
+    </div>
+</div>
+
+<div class="lm__block-contain-float lm__middle-block padding-top-normal hidden" id="area-sort-overview">
+    <div class="author-inform-form__column author-inform-form__column-full lm__gray-box gray-background">
+        <div class="u-1/1 ">
+            <span class="lm__control-label no-margin">Gröda:</span><span id="product-item-name" class="no-margin">@productItemName</span>
+        </div>
+        <div class="u-1/1 lm__row-margin">
+            <span class="lm__control-label no-margin">Sort:</span><span id="grain-type" class="no-margin">@grainType</span>
+        </div>
+    </div>
+</div>
+
+<div class="lm__block-contain-float lm__middle-block">
+    <div class="u-1/1 u-1/1-tablet u-1/3-desktop lm__row-margin agreement-element disabled">
+        <span>Leveransperiod</span>
+        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top" id="price-periods">
+            @Html.Partial("~/Views/AppPages/PurchasingAgreementPage/Partial/PricePeriodsList.cshtml", Model.Periods)
+        </div>
+    </div>
+</div>
+
+@*<div class="lm__block-contain-float lm__middle-block">
+    <div class="small-distance-top">
+        <span class="lm__control-label no-margin">Indikativt pris för vald gröda och period (SEK)</span>
+    </div>
+    <div class="author-inform-form__column author-inform-form__column-full lm__gray-box gray-background">
+        <div class="u-1/1 ">
+            <span class="lm__control-label no-margin">
+                @Model.ReferencePrice
+            </span>
+        </div>
+    </div>
+</div>*@
+
+@Html.Partial("~/Views/AppPages/PurchasingAgreementPage/Partial/AgreementForms.cshtml", Model)
+

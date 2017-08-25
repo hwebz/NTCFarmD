@@ -1,0 +1,32 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.kundtjanst-block {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        background-color: $kundtjanst-background-color;
+        color: $color-white;
+        padding-top: 20px;
+        padding-bottom: 30px;
+
+        .lm__news-item {
+            border-color: transparent;
+
+            .phone_number {
+                font-family: $font-clarendonurw-reg;
+            }
+        }
+    }
+
+    .lm__more-link {
+        background-color: $kundtjanst-link-background-color;
+        color: $color-white;
+        text-align: left;
+    }
+}

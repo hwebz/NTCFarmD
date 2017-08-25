@@ -1,0 +1,54 @@
+﻿@model Gro.ViewModels.Navigation.RightNavigationModel
+@if (Model == null || Model.ListNavigationItems == null || !Model.ListNavigationItems.Any())
+{
+    return;
+}
+@if (!Model.IsNavWithHeader)
+{
+    <div class="lm__block category-sidebar navigation-block">
+        <nav class="lm__category-nav">
+            <ul>
+                @foreach (var item in Model.ListNavigationItems)
+                {
+                    var activeClass = item.IsActive ? " class=active " : string.Empty;
+                    <li @activeClass>
+                        <a href="@Url.ContentUrl(item.ContentLink)">@item.Text</a>
+
+                        @if (item.Children != null && item.Children.Any())
+                        {
+                            <ul class="lm_sub-category">
+                                @foreach (var subItem in item.Children)
+                                {
+                                    activeClass = subItem.IsActive ? " class=active " : string.Empty;
+                                    <li @activeClass>
+                                        <a href="@Url.ContentUrl(subItem.ContentLink)">@subItem.Text</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+}
+else
+{
+    <div class="lm__block navigation-block">
+        <div class="lm__block-header gray-background-header">
+            <h1>@Model.Header</h1>
+        </div>
+        <section class="lm__news with-animation">
+            @foreach (var item in Model.ListNavigationItems)
+            {
+                <article class="lm__news-item @(item.IsActive ? "active" : string.Empty)">
+                    <a href="@Url.ContentUrl(item.ContentLink)">
+                        <h4 class="article-title right-icon-pos">
+                            @item.Text <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </h4>
+                    </a>
+                </article>
+            }
+        </section>
+    </div>
+}

@@ -1,0 +1,83 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.Grobarhet.GrobarhetPageViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet big-distance-top">
+                <div class="lm__mina-avtal lm__foljesedlar lm__sok-grobarhet">
+                    <h1 class="lm__page-title">@Model.CurrentPage.Heading</h1>
+                    <a href="#" class="lm__info"><i class="fa fa-info-circle"></i> Förklaring</a>
+                    @Html.PropertyFor(x => x.CurrentPage.Body)
+                    <p class="small-distance-top"><strong @Html.EditAttributes(x => x.CurrentPage.SearchHeader)>@Model.CurrentPage.SearchHeader</strong></p>
+                    <form action="#" method="get">
+                        <table class="no-margin small-distance-bottom">
+                            <tbody>
+                                <tr>
+                                    <td><input class="search-text" type="text" name="term" value="@ViewData["searchTerm"]" /></td>
+                                    <td><p>Ex på referensnummer (ref.nr): SWE201510850, F15-1761</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="block-button-on-mobile full-width">
+                            <input type="submit" class="lm__form-btn reverse-state no-margin" value="Sök" />
+                        </div>
+                    </form>
+
+                    @if ((bool)ViewData["searching"])
+                    {
+                        <p class="table-caption">Välj kolumner som skall visas</p>
+                        <div class="lm__table-wrapper">
+                            <table class="tablesaw" data-tablesaw-mode="columntoggle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist">Referensnummer</th>
+                                        <th scope="col" data-tablesaw-priority="1">Benämning</th>
+                                        <th scope="col" data-tablesaw-priority="2">Grobarhet</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.SearchItems)
+                                    {
+                                        <tr>
+                                            <td class="weighInSort">@item.Reference</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Grobarhet</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @if (!Model.SearchItems.Any())
+                            {
+                                <div class="lm__message-closable">
+                                    <p class="message">Inga träffar på sökningen: <span class="keyword">@ViewData["searchTerm"]</span></p>
+                                    <a class="close-btn" href="#"><i class="fa fa-times"></i></a>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <div class="lm__modal-alert">
+                        <div class="lm__modal-contents">
+                            <a class="modal-close" href="#"><i class="fa fa-times"></i></a>
+
+                            <div class="modal-header-title">
+                                <h3 @Html.EditAttributes(m => m.CurrentPage.ExplanationHeader)>@Model.CurrentPage.ExplanationHeader</h3>
+                            </div>
+                            <div class="modal-content xhtml-content">
+                                @Html.PropertyFor(m => m.CurrentPage.ExplanationBody)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>

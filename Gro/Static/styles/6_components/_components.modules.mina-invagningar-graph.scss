@@ -1,0 +1,70 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.mina-invagningar-graph-block {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+
+    .lm__news {
+        background-color: $sidebar-market-report-header-background-color;
+        padding-top: 15px;
+
+        .lm__news-item {
+            border-color: transparent;
+            text-align: center;
+            color: $color-white;
+
+            @include respond-to-min-max($tabletSize, $desktopSize) {
+                padding-right: 5px;
+            }
+
+            .circle-progress {
+                margin: 0 auto;
+
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    -webkit-transform: scale(0.65);
+                    -moz-transform: scale(0.65);
+                    transform: scale(0.65);
+                    -webkit-transform-origin: 30% center;
+                    -moz-transform-origin: 30% center;
+                    transform-origin: 30% center;
+                }
+            }
+
+            .mina-title {
+                text-align: center;
+                font-size: $body-font-size;
+                font-family: $font-akzidenz-reg;
+                margin: 0;
+            }
+
+            .mina-summary {
+                @extend %heading-title;
+                margin: 0;
+            }
+
+            .mina-secondary {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .lm__more-link {
+        background-color: $mina-link-background-color;
+        color: $color-white;
+        position: relative;
+
+        i {
+            @extend %arrow-right-icon-white;
+            right: 15px;
+        }
+
+        &:hover {
+            background-color: $color-darker-blue;
+        }
+    }
+}

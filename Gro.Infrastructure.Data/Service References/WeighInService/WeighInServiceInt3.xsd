@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WeighInServiceInt.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WeighInServiceInt.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfWeighInSumAgreementDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WeighInSumAgreementDto" nillable="true" type="tns:WeighInSumAgreementDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWeighInSumAgreementDto" nillable="true" type="tns:ArrayOfWeighInSumAgreementDto" />
+  <xs:complexType name="WeighInSumAgreementDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artikelnamn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Avtalsnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Leverantorsnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Skordear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Summa" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeighInSumAgreementDto" nillable="true" type="tns:WeighInSumAgreementDto" />
+</xs:schema>

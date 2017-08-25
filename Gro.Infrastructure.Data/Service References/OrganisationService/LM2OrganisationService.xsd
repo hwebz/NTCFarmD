@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:complexType name="ExistingUserRegistration">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Files" nillable="true" type="q1:ArrayOfKeyValuePairOfstringbase64Binary" />
+      <xs:element minOccurs="0" name="User_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExistingUserRegistration" nillable="true" type="tns:ExistingUserRegistration" />
+  <xs:complexType name="CustomerRegistration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Account_AllowAutogiro" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Account_ClearingNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Account_Giro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Account_Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BoardProtocolFile" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="BoardProtocolFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contact_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contact_Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contact_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerExists" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CustomerNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customer_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customer_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customer_SocialSecurity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customer_VATNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddr_City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddr_Directions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddr_Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddr_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddr_Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryAddr_ZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EServiceAgrFile" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="EServiceAgrFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCopyFile" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="IdCopyFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceAddr_City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceAddr_Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceAddr_ZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrivateCompany" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Profile" nillable="true" type="tns:Profile" />
+      <xs:element minOccurs="0" name="Purchase_FarmCredit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Purchase_For" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Purchase_MachineCredit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegistrationFile" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="RegistrationFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_SocialSecurity" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerRegistration" nillable="true" type="tns:CustomerRegistration" />
+  <xs:complexType name="Profile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rows" nillable="true" type="tns:ArrayOfProfileRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Profile" nillable="true" type="tns:Profile" />
+  <xs:complexType name="ArrayOfProfileRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfileRow" nillable="true" type="tns:ProfileRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfileRow" nillable="true" type="tns:ArrayOfProfileRow" />
+  <xs:complexType name="ProfileRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfProfileField" />
+      <xs:element minOccurs="0" name="RowNr" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfileRow" nillable="true" type="tns:ProfileRow" />
+  <xs:complexType name="ArrayOfProfileField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfileField" nillable="true" type="tns:ProfileField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfileField" nillable="true" type="tns:ArrayOfProfileField" />
+  <xs:complexType name="ProfileField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfileField" nillable="true" type="tns:ProfileField" />
+  <xs:complexType name="ArrayOfOrganisationPicture">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationPicture" nillable="true" type="tns:OrganisationPicture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationPicture" nillable="true" type="tns:ArrayOfOrganisationPicture" />
+  <xs:complexType name="OrganisationPicture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="PictureId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PictureURL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationPicture" nillable="true" type="tns:OrganisationPicture" />
+  <xs:complexType name="OrganisationInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganisationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationInformation" nillable="true" type="tns:OrganisationInformation" />
+  <xs:complexType name="ArrayOfDeliveryReceiver">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryReceiver" nillable="true" type="tns:DeliveryReceiver" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryReceiver" nillable="true" type="tns:ArrayOfDeliveryReceiver" />
+  <xs:complexType name="DeliveryReceiver">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeliveryReceiver" nillable="true" type="tns:DeliveryReceiver" />
+</xs:schema>

@@ -1,0 +1,46 @@
+﻿@using Gro.ViewModels.Contacts
+@using Gro.Core.ContentTypes.Pages.Contacts
+@model SalePersonDetailPageViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="?" target="_self" class="lm__back-link small-distance-bottom">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till alla Säljare
+                </a>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block min-profil-block">
+                    <div class="author-inform" id="saleperson-form">
+                        <img data-img-source="@Model.SalesPerson.Picturl" data-placeholder="/Static/images/user-avatar__default.jpg"
+                             alt="User's Avatar" class="author-inform__avatar"/>
+                        <div class="author-inform__infor">
+                            <h3 class="author-inform__name align-left-text">@(Model.SalesPerson.Name + " " + Model.SalesPerson.Surname)</h3>
+                            <ul class="author-inform__title">
+                                <li class="lm__bold-title">Säljare, @ViewData["category"]</li>
+                                <li>
+                                    <a class="lm__link" href="#">@Model.SalesPerson.City</a>
+                                </li>
+                            </ul>
+                            <div class="detail-information">
+                                <p>
+                                    <span class="lm__bold-title">Direkt</span>@Model.SalesPerson.Phone</p>
+                                <p>
+                                    <span class="lm__bold-title">Mobil</span>@Model.SalesPerson.Cellphone</p>
+                                <p>
+                                    <span class="lm__bold-title">E-post</span>
+                                    <a class="lm__link" href="mailto:@Model.SalesPerson.Email">@Model.SalesPerson.Email</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @Html.Action("GetRightNav", "Navigation", new {page = Model.CurrentPage, minLevel = 2, pageTypes = new[] {typeof(SalesPersonPage)}})
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+﻿@model List<Gro.Core.DataModels.PurchasingAgreements.PricePeriod>
+    
+@if (Model != null && Model.Count > 0)
+{
+    <div class="layout  layout--large">
+        <div class="layout__item u-1/1 u-1/1-tablet u-1/2-desktop lm__row-margin">
+            <p>Senast uppdaterad: @Model[0].PriceType</p>
+        </div>
+        <div class="layout__item u-1/1 u-1/1-tablet u-1/2-desktop lm__row-margin u-align-right ">
+            <p>*Förändring sedan föregående prisnotering</p>
+        </div>
+    </div>
+    <table class="grain-price-table">
+        <thead>
+            <tr>
+                <th scope="col">@Model[0].ProductItemDescription</th>
+                @if (Model[0].Prices.Length > 0)
+                {
+                    for (var i = 0; i < Model[0].Prices.Length; i += 2)
+                    {
+                        <th scope="col">@Html.Raw(Model[0].Prices[i].Replace("<br>", "*<br><span>") + "</span>")</th>
+                    }
+                }
+            </tr>
+        </thead>
+        <colgroup>
+            <col width="auto">
+            <col width="auto">
+            <col width="auto">
+        </colgroup>
+        <tbody>
+            @for (var i = 1; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <h3>@Model[i].ProductItemDescription</h3>
+                    </td>
+                    @if (Model[i].Prices.Length > 0)
+                    {
+                        for (var j = 0; j < Model[i].Prices.Length; j += 2)
+                        {
+                            var trend = Model[i].Prices[j + 1];
+                            var trendClass = trend == "Neutral" ? "lm__btn-decor neutral-btn" : (trend == "Up" ? "lm__btn-decor positive-btn" : (trend == "Down" ? "lm__btn-decor negative-btn" : string.Empty));
+                            <td><span class="@trendClass">@Model[i].Prices[j]</span></td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

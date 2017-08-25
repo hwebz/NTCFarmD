@@ -1,0 +1,424 @@
+/// <reference path="../_references.scss" />
+
+.lm__grid {
+    overflow: hidden;
+
+    .lm__item {
+        float: left;
+        padding: 20px;
+
+        &.paragraph-col {
+            box-sizing: border-box;
+            border-top: 1px solid #f0ece5;
+            border-bottom: 1px solid #f0ece5;
+            padding: 20px;
+            margin-top: 20px;
+
+            .lm__bold-title {
+                font-size: 18px;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.fright {
+    float: right;
+}
+
+.fleft {
+    float: left;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.lm__link-no-state {
+    color: #262626;
+
+    p {
+        word-break: break-all;
+    }
+}
+
+
+.colorRed {
+    color: $color-red;
+}
+
+.registerNumberButton {
+    padding-left: 5px;
+
+    button {
+        width: 100%;
+        padding: 10px 5px !important;
+        height: 46px;
+        margin: 0 0 0 10px !important;
+    }
+}
+
+
+.form-add-machine {
+    .lm__block {
+        overflow: initial;
+
+        &:before, &:after {
+            clear: both;
+        }
+
+        clear: both;
+
+        input {
+            margin-top: 0;
+        }
+
+        button + button {
+            margin-left: 10px;
+        }
+    }
+
+    .branch-block, .model-block {
+        input[type="text"] {
+            display: none;
+        }
+    }
+}
+
+
+
+/**===================================================================================**/
+
+.machine-list {
+    overflow: hidden;
+
+    .machine-item {
+        @include set-responsive-property("tablet", margin-bottom, 15px, 20px);
+        height: 110px;
+        position: relative;
+        overflow: inherit;
+
+        @include respond-to-min(480px) {
+            height: 165px;
+        }
+
+        a {
+            color: $body-text-color;
+            //box-shadow: 0 .0625em .1875em rgba(0,0,0,.12),0 .0625em .125em rgba(0,0,0,.24);
+            display: block;
+            height: 100%;
+            background: $color-lighter-gray;
+            -webkit-transition: box-shadow 0.15s ease-in;
+            -moz-transition: box-shadow 0.15s ease-in;
+            transition: box-shadow 0.15s ease-in;
+            overflow: hidden;
+
+            &:hover {
+                box-shadow: 0 .625em 1.25em rgba(0,0,0,.19),0 .375em .375em rgba(0,0,0,.23);
+            }
+        }
+
+        .machine-item__description-wrapper {
+            margin-top: 20px;
+
+            .list-item {
+                display: none;
+            }
+        }
+    }
+
+    .list-item-ext {
+        display: none;
+    }
+
+    .lm__link {
+        color: $body-text-color;
+
+        &:hover {
+            border: none;
+        }
+    }
+
+    &.list-view {
+
+        .lm__block-box {
+            padding: 0;
+
+            &.has-separator {
+                border-bottom-width: 1px;
+            }
+
+            .heading-title-2 {
+                @extend .lm__accordion-link;
+                @extend .gray-background;
+
+
+                &:before, &:after {
+                    display: none;
+                }
+            }
+
+            > .layout {
+                overflow: hidden;
+                overflow-x: visible;
+            }
+        }
+
+        .machine-item {
+            width: 100% !important;
+            height: auto;
+            /*border-bottom: 1px solid $color-light-pink;*/
+            margin: 0;
+            min-width: 480px;
+
+            &:last-child {
+                border: none;
+                margin-bottom: 5px;
+            }
+
+            &:hover {
+                .machine-item__description-wrapper .lm__bold-title + p {
+                    text-decoration: underline;
+                }
+            }
+
+            > a {
+                background: #fafafa;
+                box-shadow: none;
+                height: auto;
+                margin: 5px 5px 0 5px;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+
+            .list-item-ext {
+                display: block;
+
+                a {
+                    margin: 0;
+                    background: $color-white;
+
+                    &:hover {
+                        background: $color-white;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .machine-item__thumbnail-wrapper {
+                display: none;
+            }
+
+            .machine-item__description-wrapper {
+                width: 100% !important;
+                margin: 0 0 0 20px;
+                @include set-responsive-property("tablet", padding, 15px, 15px 30px);
+                clear: both;
+
+                > * {
+                    @include set-size(inline-block, 25%, auto);
+                    float: left;
+                    margin: 0;
+                    min-height: 1px;
+                }
+
+                .list-item {
+                    display: inline-block;
+                }
+
+                .grid-item {
+                    display: none;
+                }
+
+                .lm__bold-title + p {
+                    color: $color-light-green;
+
+                    .lm__link {
+                        color: $color-light-green;
+                    }
+                }
+            }
+
+            .height-100 {
+                height: auto !important;
+            }
+        }
+    }
+}
+
+.list-item-ext {
+    @include set-size(inline-block, auto, auto);
+    @include set-absolute-position(0, 0, auto, auto);
+    @include set-center-position(top, 50%);
+    @include set-responsive-property("tablet", right, 15px, 30px);
+    clear: both;
+    border: 1px solid $color-gray-7;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    @include set-size(inline-block, 35px, 35px);
+    overflow: hidden;
+    background: $color-white;
+
+    .link_format {
+        padding: 5px 5px 5px 0;
+        line-height: 1.3;
+        border: none;
+        @include set-size(block, 143px, 35px);
+        margin: 0;
+
+        i {
+            margin: 0 10px 0 0;
+        }
+
+        span {
+            font-family: $font-akzidenz-medium;
+            vertical-align: bottom;
+        }
+    }
+
+    .lm__link {
+        @extend .lm__link;
+        display: inline-block;
+        border: none !important;
+
+        &:hover {
+            border: none !important;
+        }
+    }
+
+    &:hover {
+        width: 150px;
+        background: $color-white;
+
+        a {
+            background: $color-white;
+        }
+    }
+
+    i {
+        margin: 5px 0 0 10px;
+    }
+}
+
+.machine-item__thumbnail-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .machine-item__thumbnail {
+        position: absolute;
+
+        &.horizontal-img {
+            width: 100%;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -moz-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+        }
+
+        &.vertical-img {
+            height: 100%;
+            max-width: initial;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0);
+            -moz-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+        }
+    }
+}
+
+.machine-detail {
+    .machine-detail__bottom-btn {
+        padding: 10px 15px;
+    }
+
+    .machine-detail__header {
+        position: relative;
+        @include set-responsive-property("tablet", padding, 66px 15px 0px, 15px 20px);
+
+        * {
+            margin: 0;
+        }
+
+        .lm__link {
+            @include set-responsive-property("tablet", margin-left, 15px, 30px);
+        }
+
+        .machine-detail__header-right {
+            @include set-absolute-position(10px, 7px, auto, auto);
+            @include set-responsive-property("tablet", position, absolute, initial);
+            @include set-responsive-property("tablet", width, 100%, auto);
+
+            a:first-child {
+                @include set-absolute-position(0, auto, auto, 35px);
+                @include set-responsive-property("tablet", position, absolute, initial);
+            }
+        }
+    }
+
+    .machine-detail__information {
+        > .layout {
+            margin: 0;
+            @include set-responsive-property("tablet", padding, 15px, 0);
+
+            .machine-item__thumbnail-wrapper,
+            .machine-detail__description-wrapper,
+            .machine-detail__block-wrapper {
+                height: 190px;
+
+                @include respond-to-min(480px) {
+                    height: 280px;
+                }
+
+                @include respond-to-min($tabletSize) {
+                    height: 350px;
+                }
+            }
+
+            .lm__avatar,
+            .machine-detail__description-wrapper,
+            .machine-detail__block-wrapper {
+                @include set-responsive-property("tablet", margin-bottom, 15px, 0);
+            }
+        }
+
+        .machine-detail__description-wrapper {
+            background: $color-white-gray-2;
+            height: 100%;
+            text-align: center;
+            padding: 0;
+            position: relative;
+
+            .center-description {
+                display: block;
+                width: 100%;
+                color: $color-white;
+                @include set-center-position(top, 50%);
+
+                * {
+                    text-align: center;
+                }
+            }
+        }
+
+        .machine-detail__block-wrapper {
+            @include set-responsive-property("tablet", padding-left, 0, 20px);
+        }
+
+        .machine-detail__inform-wrapper {
+            @include set-responsive-property("tablet", padding, 0, 20px 15px);
+        }
+    }
+}
+
+.seller-input {
+    margin: 5px 0;
+}

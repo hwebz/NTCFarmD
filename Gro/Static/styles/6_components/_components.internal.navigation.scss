@@ -1,0 +1,93 @@
+﻿/// <reference path="../_references.scss" />
+
+
+.internal-navigation {
+    background-color: $color-green-middle;
+    height: 100vh;
+    position: fixed;
+}
+
+.internal-navigation__link {
+    @include font-size(14px, "none");
+    @include ellipsis;
+    padding: em(12px);
+    line-height: 35px;
+    display: block;
+
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+        color: #fff;
+    }
+
+    &.is-expanded {
+        background-color: $color-darker-green2;
+    }
+}
+
+.internal-navigation__list--sub-level {
+    background-color: $color-darker-green2;
+    display: none;
+
+    &.is-expanded {
+        display: block;
+    }
+
+    .internal-navigation__link {
+        padding-top: em(7px);
+        padding-bottom: em(7px);
+        -webkit-transition: padding-left .2s ease-in;
+        transition: padding-left .2s ease-in;
+
+        &:hover {
+            padding-left: em(25px);
+        }
+
+        &.is-active {
+            background-color: $color-green-middle;
+        }
+    }
+}
+
+.internal-navigation__list-item {
+    &:first-child {
+        margin-bottom: 60px;
+    }
+}
+
+.internal-navigation__icon {
+    display: inline-block;
+    background-color: $color-darker-green2;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: bottom;
+    margin-right: $base-spacing-unit;
+
+    .is-expanded & {
+        background-color: $color-green-middle2;
+    }
+}
+
+.internal-navigation__icon--start {
+    background-image: url("../images/internal-home.png");
+}
+
+.internal-navigation__icon--avtal {
+    background-image: url("../images/internal-avtal.png");
+}
+
+.internal-navigation__icon--spannmal {
+    background-image: url("../images/internal-spannmal.png");
+}
+
+.internal-navigation__icon--transport {
+    background-image: url("../images/internal-transport.png");
+}
+
+.internal-navigation__icon--mer {
+    background-image: url("../images/internal-more.png");
+}

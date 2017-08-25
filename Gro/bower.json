@@ -1,0 +1,12 @@
+{
+  "name": "lantmannen.gro",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "3.3.6",
+    "jquery": "2.1.4",
+    "jqueryui": "1.11.2",
+    "html5shiv": "3.7.3",
+    "respondJs": "1.4.2"
+  }
+}

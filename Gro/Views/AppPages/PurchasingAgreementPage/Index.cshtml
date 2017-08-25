@@ -1,0 +1,85 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using EPiServer.Editor
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PurchasingAgreementViewModel
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <div class="lm__block-box author-inform-form">
+                        <h1 class="heading-title-1">@Model.CurrentPage.Heading</h1>
+                        <input type="hidden" id="CurrentUrl" name="CurrentUrl" value="@Url.ContentUrl(Model.CurrentPage.ContentLink)" />
+                        <div id="agreement-loader" class="loader-wrapper" style="display: none;">
+                            <div class="loader"></div>
+                        </div>
+                        <div class="author-inform-form__column author-inform-form__column-half ">
+                            <span>Välj avtal*</span>
+                            <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__row-margin">
+                                @if (Model.StorageAgreements.Any())
+                                {
+                                    <ul class="lm__form-dropdown type-3">
+                                        <li class="showcase">
+                                            @if (Model.SelectedAgreement != null)
+                                            {
+                                                <a href="#">@string.Format("{0} {1} {2}", Model.SelectedAgreement.AgreementId, Model.SelectedAgreement.ProductItemName, Model.SelectedAgreement.GrainType) </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#">Välj avtal</a>
+                                            }
+
+                                            @if (Model.StorageAgreements.Any())
+                                            {
+                                                <ul class="dropdown">
+                                                    @foreach (var item in Model.StorageAgreements)
+                                                    {
+                                                        <li data-value="@item.AgreementId">
+                                                            <a href="#" data-text="@(string.Format("{0} {1}", item.ProductItemName, item.GrainType))"
+                                                               onclick="PurchaseAgreement.getProtectAgreement('@item.AgreementId')">
+                                                                @string.Format("{0} {1} {2}", item.AgreementId, item.ProductItemName, item.GrainType)
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                      @Html.Partial("~/Views/AppPages/PurchasingAgreementPage/Partial/AgreementForms.cshtml", Model)
+                    </div>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+
+            @if (!PageEditing.PageIsInEditMode && TempData["Saved"] != null && (bool)TempData["Saved"])
+            {
+              // display the success save message.
+            }
+
+            @if (!PageEditing.PageIsInEditMode && TempData["Error"] != null && (bool)TempData["Error"])
+            {
+                 <!-- Modal for showing error or information after event -->
+                <div class="lm__modal__wrapper">
+                    <div class="mask"></div>
+                    <div class="lm__wide-modal">
+                        <h3 class="lm__wide-modal__title"></h3>
+                        <p>Felmeddelande!</p>
+                        <div class="lm__wide-modal__close-btn">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>

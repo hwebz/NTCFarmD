@@ -1,0 +1,99 @@
+﻿@model Gro.ViewModels.Pages.AppPages.DeliveryNote.DeliveryNotePageViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <div class="lm__mina-avtal">
+                    <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    @Html.PropertyFor(x => x.CurrentPage.Body)
+
+                    @if (Model.ListDeliveries != null && Model.ListDeliveries.Any())
+                    {
+                        <p class="table-caption">Välj kolumner som skall visas</p>
+                        <div class="lm__table-wrapper">
+                            <table class="tablesaw deliveryNote" data-tablesaw-mode="columntoggle">
+                                <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/ordernr")</th>
+                                    <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/radnr")</th>
+                                    <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/artikelnr")</th>
+                                    <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/benamning")</th>
+                                    <th scope="col" data-tablesaw-priority="4">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/utlastad")</th>
+                                    <th scope="col" data-tablesaw-priority="5">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/best_kvant")</th>
+                                    <th scope="col" data-tablesaw-priority="6">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/lev_kvant")</th>
+                                    <th scope="col" data-tablesaw-priority="7">@Html.Translate("/lantBruk/deliverynotes/deliverytable/header/lev_fabrik")</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @if (Model.ListDeliveries != null && Model.ListDeliveries.Any())
+                                {
+                                    foreach (var rowItem in Model.ListDeliveries)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a cdata-orderNumber="@rowItem.OrderNumber"
+                                                   cdata-fabricID="@rowItem.FabricID"
+                                                   cdata-activePdf="@rowItem.ActivatedPDF.ToString()"
+                                                   cdata-rowNumber="@rowItem.RowNumber"
+                                                   cdata-customerNumber="@rowItem.CustomerNumber"
+                                                   cdata-system="@rowItem.System"
+                                                   class="showPdf" href="javascript:void(0);">
+                                                    @rowItem.DisplayOrderNumber</a>
+                                            </td>
+                                            <td>@rowItem.RowNumber</td>
+                                            <td>@rowItem.ArticleNumber</td>
+                                            <td>@rowItem.Description</td>
+                                            <td>@string.Format("{0: yyyy-MM-dd HH:mm}", rowItem.LoadingDate)</td>
+                                            <td>@rowItem.OrderedQuantity</td>
+                                            <td>@rowItem.DeliveredQuantity</td>
+                                            <td>@rowItem.FabricDescription</td>
+                                        </tr>
+                                    }
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>@Html.Translate("/lantBruk/deliverynotes/no_item_message")</p>
+                    }
+
+                    <div class="lm__additional">
+                        <div class="lm__pagination">
+                            @*@Html.Partial("_Pager", Model.Pager)*@
+                        </div>
+                        @*@if (Model.Pager != null && Model.Pager.TotalItems > 0)
+                            {
+                                var endItems = Model.Pager.TotalItems >= 20 ? Model.Pager.CurrentPage*20 : Model.Pager.TotalItems;
+                                <span class="foljesedlar-summary">
+                                    @string.Format("Visar {0}-{1} av {2}", (Model.Pager.CurrentPage - 1)*20 + 1, endItems, Model.Pager.TotalItems)
+                                </span>
+                            }*@
+                    </div>
+
+                    <div class="lm__modal-alert pdf-getting-error">
+                        <div class="lm__modal-dialog">
+                            <div class="modal-content-inform">
+                                <span class="alert-icon warning"></span>
+                                <h3 class="success-header-title"></h3>
+                                <div class="lm__information-modal__close-btn">
+                                    <a href=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="layout__item u-1/1 u-1/3-tablet">
+                    @if (Model.CurrentPage.GetLevel() >= 3)
+                    {
+                        @Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))
+                        Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                    }
+                </div>*@
+        </div>
+    </div>
+</section>

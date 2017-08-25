@@ -1,0 +1,264 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.redigera-block {
+
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .author-inform,
+    .author-inform-form__input {
+        padding: 15px;
+        border-bottom: 2px solid $body-background-color;
+
+        @include media-query("tablet") {
+            padding: 30px;
+        }
+    }
+
+    .author-inform {
+        img {
+            @include rounded-avatar($settings-avatar-size);
+        }
+
+        .author-inform__links {
+            display: inline-block;
+            margin-left: 25px;
+            vertical-align: middle;
+
+            li {
+                a {
+                    @extend %anchor-link;
+                }
+            }
+        }
+    }
+}
+
+.author-inform-form__input {
+    position: relative;
+}
+
+.author-inform-form {
+    &.style-2 {
+        .author-inform-form__input .author-inform-form__column {
+            label {
+                color: $body-text-color;
+            }
+
+            input, textarea {
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .author-inform-form__input {
+        font-size: 0;
+
+        * {
+            @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+
+            &.fa {
+                font-family: FontAwesome;
+            }
+        }
+
+        &:last-child {
+            border: none;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        label {
+            color: $body-text-color;
+            margin: 10px 0;
+            display: block;
+        }
+
+        ul li {
+            line-height: 2;
+        }
+
+        input[type="text"] {
+            padding: 15px 10px;
+            border: 1px solid $settings-input-color;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input.fullwidth-input {
+            @include media-query("tablet") {
+                width: 80% !important;
+            }
+        }
+
+        input.inline-block-input {
+            @include media-query("tablet") {
+                width: 60% !important;
+                display: inline-block;
+            }
+        }
+
+        textarea {
+            min-height: 150px;
+            width: 100%;
+            resize: none;
+        }
+
+        .author-inform-form__btn {
+            @extend .lm__form-btn;
+        }
+
+        .create-new {
+            margin-top: 25px;
+        }
+    }
+}
+
+.author-inform-form__column {
+    @include set-responsive-property("mobile", padding-right, 0, 15px);
+    display: inline-block;
+    vertical-align: top;
+    @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+    position: relative;
+
+    &.has-padding {
+        padding-right: 15px;
+    }
+
+    &.lm__inform-box {
+        margin-bottom: 15px;
+    }
+
+    &.solid-padding-box {
+        padding: 20px 15px;
+        margin: 3px 0;
+        position: relative;
+        
+        span {
+            margin: 0 10px 10px 0;
+        }
+    }
+
+    &.silos-box {
+        padding: 20px 15px;
+        margin: 3px 0;
+        position: relative;
+        @include set-responsive-property("mobile", padding, 50px 15px 20px 15px, 20px 15px);
+
+        span, input, .lm__form-dropdown {
+            display: inline-block;
+            vertical-align: text-bottom;
+        }
+
+        span {
+            margin: 0 10px 10px 0;
+        }
+
+        input {
+            @include set-responsive-property("mobile", width, 100%, 50px);
+            @include set-responsive-property("mobile", margin, 0 0 15px, 0 15px 0 0);
+        }
+
+        .lm__form-dropdown {
+            @include set-responsive-property("mobile", width, 100%, 200px);
+
+            @include respond-to-min-max($tabletSize, $desktopSize) {
+                width: 110px;
+            }
+        }
+
+        .silos-box__delete-btn {
+            display: block;
+            @include set-center-position(top, 50%);
+            right: 15px;
+            @include set-size(block, 25px, 25px);
+            background: transparent url(../images/close-btn.png) no-repeat center center;
+            background-size: contain;
+            @include set-responsive-property("mobile", top, 30px, 50%);
+        }
+    }
+
+    &.author-inform-form__column-large,
+    &.author-inform-form__column-half,
+    &.author-inform-form__column-custom-1,
+    &.author-inform-form__column-custom-2,
+    &.author-inform-form__column-custom-3,
+    &.author-inform-form__column-custom-4,
+    &.author-inform-form__column-full {
+        width: 100% !important;
+    }
+
+    @include media-query("mobile") {
+        &.author-inform-form__column-large {
+            width: 40% !important;
+        }
+
+        &.author-inform-form__column-half {
+            width: 50% !important;
+        }
+
+        &.author-inform-form__column-custom-1 {
+            width: 29% !important;
+        }
+
+        &.author-inform-form__column-custom-2 {
+            width: 20% !important;
+        }
+
+        &.author-inform-form__column-custom-3 {
+            width: 25% !important;
+        }
+
+        &.author-inform-form__column-custom-4 {
+            width: 60% !important;
+        }
+    }
+
+    .single-form-description {
+        @include set-responsive-property("tablet", margin, 30px 0, 0);
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul li {
+            line-height: 2;
+
+            &:before {
+                content: "-";
+                margin-right: 5px;
+            }
+        }
+    }
+
+    input.lm__form-btn {
+        margin-top: 3px;
+        @include set-responsive-property("tablet", margin, 0, 5px);
+        @include set-responsive-property("tablet", width, 100%, auto);
+    }
+
+    button.lm__form-btn {
+        margin-top: 3px;
+        @include set-responsive-property("tablet", margin, 0, 5px);
+        @include set-responsive-property("tablet", width, 100%, auto);
+    }
+}
+
+.ui-datepicker-header {
+    .ui-datepicker-title {
+        select.ui-datepicker-month {
+            width: 48%;
+            float: left;
+        }
+
+        select.ui-datepicker-year {
+            width: 48%;
+            float: right;
+        }
+    }
+}

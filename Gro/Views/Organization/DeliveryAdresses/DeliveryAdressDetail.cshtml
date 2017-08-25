@@ -1,0 +1,235 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.Organization.SingleDeliveryAddressViewModel
+
+@{
+    var actionName = Model.IsEdit ? "UpdateAddress" : "Index";
+    var address = Model.DeliveryAddress;
+
+    var controlerName = Model.IsEdit ? "HandleDeliveryAddresses" : "AddDeliveryAddress";
+}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        function validateSilos() {
+            var isValid = true;
+            $("input.silo-number").each(function(idx, item) {
+                var $item = $(item);
+                var numberValue = $item.val();
+                var valid = !!numberValue && numberValue.toString() !== "";
+                if (!valid) {
+                    isValid = false;
+                    $item.addClass("error");
+                } else if ($item.hasClass("error")) {
+                    $item.removeClass("error");
+                }
+            });
+            return isValid;
+        }
+
+        $("ul.errors-list li").each(function(idx,item) {
+            $(item).hide();
+        });
+
+        if (jQuery.validator) {
+            $('#editDeliveryAddress').validate({
+                ignore: [],
+                errorElementClass: 'error',
+                errorClass: 'error-item',
+                errorElement: 'span',
+                rules: {
+                    AdressStreet: "required",
+                    ZipCode: {
+                        required: true,
+                        zipCode: true
+                    },
+                    Place: {
+                        required: true
+                    },
+                    SilosName: {
+                        "subItemRequired": validateSilos
+                    },
+                    MobileNumber: {
+                        required: true,
+                        mobileSE: true
+                    }
+                },
+                messages: {
+                    AdressStreet: "Du måste ange Gatuadress",
+                    ZipCode: {
+                        required: window["validationMessage"].zipCode.required,
+                        zipCode: window["validationMessage"].zipCode.valid
+                    },
+                    Place: {
+                        required: "Du måste ange Ort"
+                    },
+                    SilosList: {
+                    },
+                    MobileNumber: {
+                        required: window["validationMessage"].mobileSE.required,
+                        mobileSE: window["validationMessage"].mobileSE.valid
+                    }
+                },
+                highlight: function(element, errorClass, validClass) {
+                    console.log("jquery validation");
+                    $('ul.errors-list').show();
+                    $('li#li_' + $(element).attr('id')).show();
+                    $(element).addClass(this.settings.errorElementClass).removeClass(errorClass);
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    if ($(element).hasClass("silo-number")) {
+                        return;
+                    }
+                    $(element).removeClass(this.settings.errorElementClass).removeClass(errorClass);
+                    $('li#li_' + $(element).attr('id')).hide();
+                    if ($('ul.errors-list').find('li[id^="li"]').is(":visible") === false) {
+                        $('ul.errors-list').hide();
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+@using (Html.BeginForm(actionName, controlerName, FormMethod.Post, new {id = "editDeliveryAddress", name = "editDeliveryAddress", @class = "author-inform-form", enctype = "multipart/form-data"}))
+{
+    <div class="author-inform-form__input">
+        <ul class="errors-list" style="display: none">
+            <li class="errors-list__header">Du måste se över</li>
+            <li id="li_addressstreet">Gatuadress (Fakturaadress)</li>
+            <li id="li_zipcode">Postnr</li>
+            <li id="li_place">Ort</li>
+            <li id="li_mobilenumber">Mobilnr</li>
+            <li id="li_silos">Silos</li>
+        </ul>
+
+        @*Fields not in the form but needed for updating the address*@
+        <input type="hidden" name="AddressRow2" value="@address.AddressRow2"/>
+        <input type="hidden" name="AddressRow4" value="@address.AddressRow4"/>
+        <input type="hidden" name="CustomerName" value="@address.CustomerName"/>
+        <input type="hidden" name="CustomerNumber" value="@address.CustomerNumber"/>
+        <input type="hidden" name="Country" value="@address.Country"/>
+        <input type="hidden" name="FaxNumber" value="@address.FaxNumber"/>
+        <input type="hidden" name="AddressNumber" value="@address.AddressNumber"/>
+
+        <h3 class="author-inform-form__input-title lm__bold-title">Adress</h3>
+        <div class="author-inform-form__column author-inform-form__column-custom-1">
+            <label for="AdressStreet">Gatuadress*</label>
+            <input id="addressstreet" type="text" name="AdressStreet" class="gatuadress" value="@address.AdressStreet"/>
+        </div>
+        <div class="author-inform-form__column author-inform-form__column-custom-2">
+            <label for="ZipCode">Postnummer*</label>
+            <input id="zipcode" type="text" name="ZipCode" class="postnummer" value="@address.ZipCode"/>
+        </div>
+        <div class="author-inform-form__column author-inform-form__column-custom-1">
+            <label for="Place">Ort*</label>
+            <input id="place" type="text" name="Place" class="ort " value="@address.Place"/>
+        </div>
+        <div class="author-inform-form__column author-inform-form__column-custom-1">
+            <label for="PhoneNumber">Telefon</label>
+            <input type="text" name="PhoneNumber" class="telegonnummer" value="@address.PhoneNumber"/>
+        </div>
+        <div class="author-inform-form__column author-inform-form__column-custom-1">
+            <label for="MobileNumber">Mobil*</label>
+            <input id="mobilenumber" type="text" name="MobileNumber" class="mobil" value="@address.MobileNumber"/>
+        </div>
+
+        <h3 class="author-inform-form__input-title lm__bold-title">Koordinater</h3>
+        <div class="author-inform-form__column author-inform-form__column-custom-1">
+            <label for="Latitude">Lattitud</label>
+            <input type="text" name="Latitude" class="latitud" placeholder="" value="@address.Latitude"/>
+        </div>
+        <div class="author-inform-form__column author-inform-form__column-custom-1">
+            <label for="Longitude">Longitud</label>
+            <input type="text" name="Longitude" class="longitud" placeholder="" value="@address.Longitude"/>
+        </div>
+    </div>
+    <div class="author-inform-form__input">
+        <h3 class="author-inform-form__input-title lm__bold-title">Silos</h3>
+        @*<input type="text" name="SilosName" id="silos" />*@
+        <input type="hidden" name="SilosName" id="silos"/>
+        <div class="silo-container">
+            @if (Model.IsEdit && address.Silos != null && address.Silos.Any())
+            {
+                for (var i = 0; i < address.Silos.Count; i++)
+                {
+                    var siloItem = address.Silos.ElementAt(i);
+                    <div class="author-inform-form__column author-inform-form__column-full silos-box gray-background">
+                        <a href="#" class="silos-box__delete-btn"></a>
+                        <span>Silo nr*</span>
+                        <input type="number" name="Silos[@i].Number" class="silos silo-number" placeholder="12" value="@siloItem.Number"/>
+                        <span>Framkomlighet*</span>
+                        <ul class="lm__form-dropdown type-3" style="margin-left: 10px;">
+                            <li class="showcase" data-value="@siloItem.Accessibility">
+                                <a href="#" id="selected-silor">@siloItem.Accessibility.Substring(0, 2) meter</a>
+                                <ul class="dropdown">
+                                    <li data-value="10M">
+                                        <a href="#">10 meter</a>
+                                    </li>
+                                    <li data-value="12M">
+                                        <a href="#">12 meter</a>
+                                    </li>
+                                    <li data-value="24M" class="selected">
+                                        <a href="#">24 meter</a>
+                                    </li>
+                                </ul>
+                                <input type="hidden" class="form-element silo-accessibility" name="Silos[@i].Accessibility" value="@siloItem.Accessibility"/>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            }
+
+        </div>
+        <a href="#" id="btn-add-silo" class="accordion-control">Lägg till silo</a>
+    </div>
+    <div class="author-inform-form__input">
+        <h3 class="author-inform-form__input-title lm__bold-title">Vägbeskrivning</h3>
+        <div class="author-inform-form__column author-inform-form__column-full">
+            <textarea name="Direction" class="vagbeskrivning"> @address.Direction</textarea>
+        </div>
+    </div>
+
+    if (Model.IsEdit)
+    {
+        <div class="author-inform-form__input">
+            <h3 class="author-inform-form__input-title lm__bold-title">Leveransavsieringar</h3>
+            <p>Välj vilka användare som ska få leveransaviseringar för denna leveransadress. De valda användarna får avisering via SMS och kan själva välja att även ta emot dessa aviseringen via Epost i sina Meddelandeinställningar.</p>
+            <h3 class="lm__bold-title big-distance-top">Användare vid @Model.CustomerName</h3>
+            <div class="small-margin">
+                @for (var i = 0; i < Model.DeliveryAddress.Receivers.Count; i++)
+                {
+                    var receiver = Model.DeliveryAddress.Receivers[i];
+                    var choosen = Model.DeliveryAddress.Notifications.Any(item => item.UserId.Equals(receiver.Id));
+                    <div class="sub-type">
+                        <div class="lm__checkbox lm__tick">
+                            <input type="hidden" value="@receiver.Id" name="NotificationReceiverModels[@i].UserId"/>
+                            <input class="notification-receiver-handler" type="checkbox" @(choosen ? "checked" : "") value="@choosen.ToString()" name="NotificationReceiverModels[@i].Choosen"/>
+                            <label></label>
+                        </div>
+                        <p class="title lm__bold-title">@receiver.Name</p>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    <div class="author-inform-form__input align-right-text block-button-on-mobile with-icon-btn two-buttons">
+        @{
+            var myAccountUrl = ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink);
+        }
+        @if (Model.IsEdit && Model.CanDelete)
+        {
+            <a href="#" id="del-delivery-address" class="lm__icon-btn left-button"><i class="fa fa-trash-2" aria-hidden="true"></i> <span class="lm__bold-title">Ta bort leveransadress</span></a>
+            <input type="hidden" value="@address.AddressNumber" id="addressNumber"/>
+        }
+        @if (!Model.IsEdit)
+        {
+            <a class="lm__form-btn" href="@myAccountUrl">Avbryt</a>
+            <input type="submit" class="lm__form-btn reverse-state" value="Lägg till"/>
+        }
+        else
+        {
+            <a class="lm__form-btn " href="@myAccountUrl">Avbryt</a>
+            <input type="submit" class="lm__form-btn reverse-state" value="Uppdatera"/>
+        }
+    </div>
+}

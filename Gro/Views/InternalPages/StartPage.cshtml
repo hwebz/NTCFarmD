@@ -1,0 +1,238 @@
+﻿@using Gro.ViewModels.Pages.InternalPages;
+@model InternalStartPageViewModel
+
+@{
+    Layout = "~/Views/InternalPages/_Internal_Layout.cshtml";
+}
+
+@{
+    var customers = Model.Customers.ToArray();
+}
+<section class="lm__contents">
+    <div class="wrapper no-padding">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-5/7-tablet">
+                <div class="lm__block">
+                    <div class="lm__block-box">
+                        <div class="layout layout--large">
+                            <div class="layout__item u-1/1 u-1/2-mobile u-1/1-tablet u-1/2-laptop">
+                                <h3 class="lm__page-title no-margin">Väntar på aktivering</h3>
+                            </div>
+                            <div class="layout__item u-1/1 u-1/2-mobile u-1/1-tablet u-1/2-laptop">
+                                <form class="author-inform-form layout layout--large" method="get" action="?">
+                                    <div class="author-inform-form__input no-padding layout__item u-2/5 text-top align-center-text">
+                                        <span>Filtrera listan</span>
+                                    </div>
+                                    <div class="author-inform-form__input layout__item u-3/5">
+                                        <div class="author-inform-form__column author-inform-form__column-full no-padding">
+                                            <input type="text" name="query" class="searchText no-margin" placeholder="Sök organisationsnr" />
+                                            <button type="submit" class="search-btn no-margin">Sök</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__block-box relative-position">
+                        <div class="lm__table-wrapper">
+                            @if (!customers.Any())
+                            {
+                                <div class="lm__block">
+                                    <div class="lm__block-box align-center-text">
+                                        <p>
+                                            Organisationsnummer @ViewData["query"] hittades inte.
+                                            <br />
+                                            Vänligen försök igen eller visa hela listan.
+                                        </p>
+
+                                        <a target="_self" href="?" class="lm__blue-btn">Visa lista</a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="lm__badget">
+                                    @customers.Length i kö just nu
+                                </p>
+                                <table border="0" class="lm__internal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ägare</th>
+                                            <th>Organisationsnr</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <colgroup>
+                                        <col width="20%" />
+                                        <col width="20%" />
+                                        <col width="10%" />
+                                        <col width="35%" />
+                                        <col width="15%" />
+                                    </colgroup>
+                                    <tbody id="customer-table">
+
+                                        @foreach (var customer in customers)
+                                        {
+                                            <tr id="org_@(customer.OrganizationNumber)"
+                                                data-orgnumber="@customer.OrganizationNumber">
+                                                <td>@customer.OwnerName</td>
+                                                <td>@customer.OrganizationNumber</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" class="active-customer" checked
+                                                               data-orgnumber="@customer.OrganizationNumber" />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div style="display: none; text-align: center" id="inactive_@(customer.OrganizationNumber)">
+                                                        Om du sparar nu inaktiveras kundens temporära LM<sup>2</sup>-konto
+                                                    </div>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin"
+                                                         id="active_@(customer.OrganizationNumber)">
+                                                        <label for="ange-kundnummer">Ange kundnummer</label>
+                                                        <input type="number" name="ange-kundnummer" class="ange-kundnummer width-100 customer-number" />
+                                                        <p class="input-err" style="color: orange"></p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width update-button"
+                                                            data-form-id="org_@(customer.OrganizationNumber)">
+                                                        Spara
+                                                    </button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                                if (ViewData["query"] != null)
+                                {
+                                    <div class="lm__block-box align-center-text" style="padding: 0">
+                                        <a target="_self" href="?" class="lm__blue-btn">Visa lista</a>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="lm__block">
+                    @Html.PropertyFor(x => x.CurrentPage.BottomArea)
+                </div>
+            </div>
+
+            <div class="layout__item  u-1/1  u-2/7-tablet">
+                @Html.PropertyFor(x => x.CurrentPage.RightArea)
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="lm__modal-alert" id="error-message">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title">Kunddata stämmer inte.</h3>
+            <p id="error-text">Försök igen eller avvakta med aktiveringsprocessen för denna kund.</p>
+            <div class="button-confirm wider-buttons align-center-text">
+                <button class="success-confirm-inform reverse-state yes">Ok</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".customer-number").on("keypress", function (evt) {
+            if (evt.which < 48 || evt.which > 57) {
+                evt.preventDefault();
+            }
+        });
+
+        var table = $("#customer-table");
+        var deleteTableRowWithAnimation = function (cellButton) {
+            var row = $(cellButton).closest('tr').addClass('deleted').children('td');
+            setTimeout(function () {
+                $(row)
+                    .animate({ paddingTop: 0, paddingBottom: 0 }, 500)
+                    .wrapInner('<div />')
+                    .children()
+                    .slideUp(500, function () { $(this).closest('tr').remove(); });
+            },
+                1000);
+        }
+
+        $(".update-button").on('click',
+            function (ev) {
+                var button = ev.target;
+                const formId = $(ev.target).data('formId');
+                const form = $("#" + formId);
+                const orgNumber = form.data('orgnumber');
+                const isActive = form.find(".active-customer").is(':checked');
+                const customerNumber = form.find(".customer-number")[0].value;
+                if (!customerNumber || customerNumber.trim().length === 0) {
+                    return;
+                }
+
+                table.css("pointer-events", "none");
+                table.css("opacity", 0.6);
+
+                var tr = $("#org_" + orgNumber);
+                $.ajax({
+                    type: "POST",
+                    url: "/api/customer-support/update",
+                    data: {
+                        organizationNumber: orgNumber,
+                        customerNumber: customerNumber,
+                        isActive: isActive
+                    },
+                    success: function (xhr) {
+                        table.css("pointer-events", "auto");
+                        table.css("opacity", 1);
+
+                        console.log(xhr);
+                        if (xhr.error) {
+                            tr.css("outline", "thin solid orange");
+                            tr.find(".input-err").html(xhr.error);
+                            return;
+                        }
+
+                        tr.find(".input-err").html("");
+                        tr.css("outline", "none");
+                        deleteTableRowWithAnimation(button);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        table.css("pointer-events", "auto");
+                        table.css("opacity", 1);
+                        tr.find(".input-err").html("");
+                        $("#error-message").css("display", "block");
+                    },
+                    dataType: "json"
+                });
+            });
+
+        $(".active-customer").on('change',
+            function (ev) {
+                const active = $(ev.target).is(':checked');
+                const orgNumber = $(ev.target).data('orgnumber');
+                if (active) {
+                    $("#inactive_" + orgNumber).css('display', 'none');
+                    $("#active_" + orgNumber).css('display', 'block');
+                } else {
+                    $("#inactive_" + orgNumber).css('display', 'block');
+                    $("#active_" + orgNumber).css('display', 'none');
+                }
+            });
+    });
+</script>

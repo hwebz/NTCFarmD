@@ -1,0 +1,566 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__navigation {
+    clear: both;
+    height: 50px;
+    background-color: $component-background-color;
+    position: relative;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    z-index: 99;
+    @include set-font-settings($font-akzidenz-reg, 14px, $base-font-size, 22px, 24px);
+
+    > .wrapper > .layout > .layout__item {
+        position: inherit;
+    }
+
+    @include media-query("desktop") {
+        > .wrapper > .layout > .layout__item {
+            position: relative;
+        }
+    }
+
+    .lm__active-page {
+        .lm__page-title {
+            @include set-font($font-akzidenz-medium, 16px !important, 50px);
+            color: $active-text-color;
+            margin: 0;
+            display: inline;
+            vertical-align: top;
+            margin-top: 15px;
+
+            &.no-dotted {
+                border: none;
+            }
+        }
+
+        .lm__user-settings {
+            display: inline-block;
+            margin-right: 11px;
+
+            > ul {
+                list-style: none;
+                height: 50px;
+
+                > li {
+                    display: inline-block;
+                    position: relative;
+
+                    > a {
+                        display: block;
+                        min-width: 25px;
+                        height: 50px;
+                        padding: 0 20px;
+                        color: $color-white;
+                        font-family: $font-akzidenz-medium;
+
+                        @include media-query("tablet") {
+                            padding: 0 20px 0 50px;
+                        }
+                    }
+                }
+            }
+
+            ul {
+                li {
+                    position: relative;
+
+                    nav {
+                        position: absolute;
+                        left: 0;
+                        z-index: 3;
+                        display: none;
+                        width: 100%;
+                        text-align: center;
+                        overflow: hidden;
+                        overflow-y: visible;
+                        background-color: $color-gray-6;
+                        @extend %shadow-box;
+
+                        @include media-query("mobile") {
+                            width: auto;
+                        }
+
+                        ul {
+                            list-style: none;
+                            padding: 15px;
+                            letter-spacing: normal;
+                            width: 100%;
+
+                            @include media-query("mobile") {
+                                padding: 7px 7px 0px;
+                                width: auto;
+                            }
+
+                            li {
+                                display: inline-block;
+                                text-align: center;
+                                background-color: $settings-nav-li-background-color;
+                                overflow: hidden;
+                                position: relative;
+                                display: block;
+                                width: 100%;
+                                background-repeat: no-repeat;
+                                background-position: 20px 50%;
+                                background-size: 35px;
+
+                                @include media-query("mobile") {
+                                    background-position: 50% 30%;
+                                    background-size: auto;
+                                }
+
+                                img {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 5%;
+                                    transform: translate(-5%, -50%);
+                                    -webkit-transform: translate(-5%, -50%);
+                                    pointer-events: none;
+                                    height: 70%;
+
+                                    @include media-query("mobile") {
+                                        top: 30%;
+                                        left: 50%;
+                                        height: auto;
+                                        transform: translate(-50%, -30%);
+                                        -webkit-transform: translate(-50%, -30%);
+                                    }
+                                }
+
+                                a {
+                                    text-decoration: none;
+                                    color: #262626;
+                                    font-family: $font-akzidenz-medium;
+                                    vertical-align: bottom;
+                                    padding: 0;
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 50px;
+                                    text-align: left;
+                                    padding-left: 65px;
+                                    border-bottom: 1px solid #efeeec;
+
+                                    @include media-query("mobile") {
+                                        line-height: 25px;
+                                        width: 110px;
+                                        height: 110px;
+                                        display: table-cell;
+                                        padding: 0 0 15px 0;
+                                        border-bottom: none;
+                                        text-align: center;
+                                    }
+                                }
+
+                                @include media-query("mobile") {
+                                    display: inline-block;
+                                    width: 110px;
+                                    float: inherit;
+                                    margin: 2px;
+                                }
+
+                                &.spannmal {
+                                    background-image: url(../images/spannmal.png);
+                                }
+
+                                &.odling {
+                                    background-image: url(../images/odling.png);
+                                }
+
+                                &.foder {
+                                    background-image: url(../images/foder.png);
+                                }
+
+                                &.maskiner {
+                                    background-image: url(../images/maskiner.png);
+                                }
+
+                                &.ekonomi {
+                                    background-image: url(../images/ekonomi.png);
+                                }
+
+                                &:hover {
+                                    background-color: $component-background-color;
+
+                                    a {
+                                        color: $color-white;
+                                    }
+
+                                    &.spannmal {
+                                        background-image: url(../images/spannmal_hover.png);
+                                    }
+
+                                    &.odling {
+                                        background-image: url(../images/odling_hover.png);
+                                    }
+
+                                    &.foder {
+                                        background-image: url(../images/foder_hover.png);
+                                    }
+
+                                    &.maskiner {
+                                        background-image: url(../images/maskiner_hover.png);
+                                    }
+
+                                    &.ekonomi {
+                                        background-image: url(../images/ekonomi_hover.png);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .lm__settings {
+                background: $color-dark-green url(../../images/settings_over.png) no-repeat 13px center;
+                position: inherit;
+
+                @include media-query("mobile") {
+                    position: relative;
+                }
+
+                &:hover {
+                    background: $color-lighter-green url(../../images/settings_over.png) no-repeat 13px center;
+                }
+
+                &.active {
+                    > a {
+                        color: $checkbox-checked-color;
+                    }
+
+                    background: $color-gray-6 url(../../images/settings_open.png) no-repeat 13px center;
+                }
+            }
+        }
+    }
+
+    .lm__main-navigation {
+        font-family: $font-akzidenz-medium;
+        font-size: 16px;
+        line-height: 50px;
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        > ul {
+            text-align: left;
+            min-width: 320px;
+            background: #ffffff;
+            position: absolute;
+            right: 0;
+            display: none;
+            z-index: 2;
+            box-shadow: -1px 3px 4px rgba(0,0,0,.2);
+            
+            @include respond-to-max($tabletSize) {
+                max-height: calc(100vh - 100px);
+                overflow: hidden;
+                overflow-y: visible;
+            }
+
+            @include media-query("desktop") {
+                position: relative;
+                display: inline-block;
+                background: none;
+                box-shadow: none;
+            }
+
+            > li {
+                display: block;
+                padding: 0;
+                font-family: $font-akzidenz-reg;
+
+                @include media-query("desktop") {
+                    display: inline-block;
+                    position: relative;
+                    padding: 0 15px;
+                }
+
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    padding: 0;
+                }
+
+                &:last-child ul {
+                    left: auto;
+                    right: 0;
+                }
+
+                a {
+                    color: $body-text-color;
+                    text-decoration: none;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border-bottom: 1px solid #efeeec;
+                    padding: 0 15px;
+                    white-space: normal;
+
+                    @include media-query("desktop") {
+                        color: $main-navigation-text-color;
+                        border: none;
+                    }
+                }
+
+                &.active {
+                    @include set-responsive-property("desktop", background-color, $color-gray-5, $color-lighter-green);
+                }
+
+                &:hover {
+                    @include set-responsive-property("desktop", background-color, $color-gray-5, $main-navigation-hover-background-color);
+
+                    > a {
+                        @include set-responsive-property("desktop", color, $body-text-color, $main-navigation-hover-text-color);
+                    }
+
+                    ul {
+                        display: none;
+                    }
+                }
+
+                ul {
+                    @include set-responsive-property("desktop", position, inherit, absolute);
+                    box-shadow: none;
+
+                    @include media-query("desktop") {
+                        box-shadow: 2px 3px 4px rgba(0,0,0,.2);
+                    }
+
+                    li {
+                        a {
+                            @include set-responsive-property("desktop", padding-left, 40px, 15px);
+                            position: relative;
+
+                            .toggle-icon {
+                                display: none;
+                                @include set-absolute-position(50%, 14px, auto, auto);
+                                @include set-center-position(top, 50%);
+                                //@include set-size(inline-block, 20px, 20px);
+                            }
+
+                            &.plus-sign,
+                            &.minus-sign {
+                                background-image: none !important;
+                            }
+                        }
+
+                        .lm__child-sub-navigation {
+                            position: initial;
+
+                            li {
+                                @include set-responsive-property("desktop", background, $color-white, $color-white-1);
+
+                                a {
+                                    @include set-responsive-property("desktop", padding-left, 60px, 30px);
+
+                                    &:hover {
+                                        @include set-responsive-property("desktop", padding-left, 75px, 45px);
+                                    }
+                                }
+
+                                &.active {
+                                    background-color: $color-gray-5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            ul {
+                position: absolute;
+                left: 0;
+                text-align: left;
+	            min-width: 320px;
+                background-color: #ffffff;
+                font-family: $font-akzidenz-reg;
+                display: none;
+                z-index: 2;
+                @extend %shadow-box;
+
+                li {
+                    @include set-responsive-property("desktop", background-color, $color-white-1, $color-white);
+
+                    a {
+                        display: block;
+                        color: $body-text-color;
+                        text-decoration: none;
+                        border-bottom: 1px solid $main-navigation-submenu-border-bottom-color;
+                        padding: 0 15px;
+                        -webkit-transition: padding-left 0.2s ease-in;
+                        -moz-transition: padding-left 0.2s ease-in;
+                        transition: padding-left 0.2s ease-in;
+
+                        &:hover {
+                            @include set-responsive-property("desktop", padding-left, 55px, 30px);
+                        }
+                    }
+
+                    &.active {
+                        background-color: $color-gray-5;
+                    }
+
+                    &:last-child {
+                        a {
+                            border: none;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $color-gray-5;
+                    }
+                }
+            }
+        }
+
+        > .lm_toggle-menu {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0 15px;
+            display: inline-block;
+            height: 50px;
+
+            @include media-query("desktop") {
+                display: none;
+            }
+
+            .text {
+                @include set-opacity(0);
+                margin: 0 -5px 0 0;
+                width: 0;
+                display: inline-block;
+
+                @include respond-to-min-max($phoneLandscape, $laptopSize) {
+                    @include set-opacity(1);
+                    margin-right: 5px;
+                    width: auto;
+                }
+            }
+
+            &:hover {
+                background-color: #ffffff;
+                color: $main-navigation-hover-text-color;
+
+                .humb {
+                    .humb-icon {
+                        border-color: $main-navigation-hover-text-color;
+                    }
+                }
+            }
+
+            &.active {
+                background-color: #ffffff;
+                color: $main-navigation-hover-text-color;
+
+                .humb {
+                    .humb-icon {
+                        border-color: $main-navigation-hover-text-color;
+                    }
+                }
+            }
+
+            .humb {
+                display: inline-block;
+                width: 30px;
+                vertical-align: middle;
+                margin-left: 0;
+                //margin-top: 14px;
+                @include media-query("desktop") {
+                    margin-left: 10px;
+                    margin-top: 0;
+                }
+
+                .humb-icon {
+                    border: 2px solid $main-navigation-text-color;
+                    display: block;
+                    width: auto;
+                    margin-top: 5px;
+                    height: auto;
+                    transition: all 0.5s ease-in-out;
+                    transform-origin: center center;
+                }
+
+                &.open {
+                    .humb-icon:first-child {
+                        transform: rotate(45deg) translateY(6px) translateX(6px);
+                    }
+
+                    .humb-icon:last-child {
+                        transform: rotate(-45deg) translateX(6px) translateY(-7px);
+                    }
+
+                    .humb-icon:nth-child(2) {
+                        opacity: 0;
+                    }
+                }
+
+                .humb-icon:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 8;
+
+        @include media-query("desktop") {
+            > .wrapper > .layout > .layout__item {
+                position: relative;
+            }
+        }
+    }
+}
+
+.lm__navigation-wrapper {
+    min-height: 50px;
+    position: relative;
+
+    &.showed-menu:before {
+        position: absolute;
+        top: 50px;
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.4);
+        z-index: 3;
+    }
+}
+
+.plus-sign {
+    @include respond-to-max($laptopSize) {
+        background: transparent url(../images/menu-plus-sign.png) no-repeat 95% center;
+        background-size: 20px;
+    }
+
+    &.always-show {
+        background: transparent url(../images/menu-plus-sign.png) no-repeat 95% center;
+        background-size: 20px;
+    }
+}
+
+.minus-sign {
+    @include respond-to-max($laptopSize) {
+        background: transparent url(../images/menu-minus-sign.png) no-repeat 95% center;
+        background-size: 20px;
+    }
+
+    &.always-show {
+        background: transparent url(../images/menu-minus-sign.png) no-repeat 95% center;
+        background-size: 20px;
+    }
+}
+
+.hide-icon {
+    background: none !important;
+}

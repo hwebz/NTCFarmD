@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="svenska" id="sv">
+    <lantBruk>
+      <leveransForsakran>
+        <errorMessages>
+          <error>Felmeddelande!</error>
+          <notLoggedIn>Du är inte påloggad, vänligen logga in för att få fullständig funktionalitet</notLoggedIn>
+          <noSelectedLines>Inga rader är valda!</noSelectedLines>
+          <multiSelectError>Du kan endast godkänna leveransförsäkran med samma artikel, datum och leveransvillkor</multiSelectError>
+          <createError>Leveranförsäkran kan inte skapas under lagringsperiod</createError>
+          <depaError>Inget depåavtal valt. Om vald leveranstyp är Depåavtal behöver ett depåavtal också väljas från listan.</depaError>
+          <lorryError>Valt leveranssätt kan ej ta angiven kvantitet. Välj annat leveranssätt med större kapacitet.</lorryError>
+        </errorMessages>
+        <createDeliveryAssuranceButton>Skapa leveransförsäkran</createDeliveryAssuranceButton>
+
+        <delete>Ta bort</delete>
+        <deliveryAssurance>Leveransförsäkran</deliveryAssurance>
+        <approve>Godkänna</approve>
+        <approveManyMessage>Du godkänner flera leveransförsäkran</approveManyMessage>
+        <approveSelected>Godkänn valda</approveSelected>
+        <commonHeader>Mina leveransförsäkran</commonHeader>
+        <forApproval>För godkännande</forApproval>
+        <approvalMustBeDone>Godkännande måste ske inom 48h</approvalMustBeDone>
+        <itemName>Artikelnamn</itemName>
+        <numberOfRows>Totalt: {0} rader</numberOfRows>
+        <sentButNotDeliverd>Skickade/godkända men ej levererade</sentButNotDeliverd>
+        <print>Skriv ut</print>
+        <change>Ändra</change>
+        <edit>Redigera</edit>
+        <send>Skicka</send>
+        <useToCreateNew>Kopiera</useToCreateNew>
+        <useToCopy>Kopiera</useToCopy>
+        <bookDelivery>Boka tid för leverans</bookDelivery>
+        <useToCreateNewTableRow>Kopiera</useToCreateNewTableRow>
+        <bookDeliveryTableRow>Boka tid</bookDeliveryTableRow>
+        <bookDeliveryButton>Boka tid för leverans</bookDeliveryButton>
+        <deliveredPastMonths>Levererade (De senaste 12 månaderna)</deliveredPastMonths>
+        <bookTime>Tidsbokning</bookTime>
+        <numberOfNew>Ange antal nya utöver denna: </numberOfNew>
+
+        <create>
+          <name>Företagsnamn</name>
+          <supplierNumber>Leverantörsnummer</supplierNumber>
+          <supplier>Leverantör</supplier>
+          <supplierAddress>Leverantörsadress</supplierAddress>
+          <farmCollection>Gårdshämtning</farmCollection>
+          <lorryType>Leveranssätt</lorryType>
+          <transportType>Transportsätt*</transportType>
+          <ownTransport>Egen transport</ownTransport>
+          <deliveryAddress>Leveransadress*</deliveryAddress>
+          <deliveryDate>Leveransdatum*</deliveryDate>
+          <deliveryDateBetween>Från {0} till {1}</deliveryDateBetween>
+          <farmCollectionText>Vid val av gårdshämtining sker beställning av hämtning i samband med denna leveransförsäkran.</farmCollectionText>
+          <deliveryDateDescription>För gårdshämtning gäller angivet datum som första möjliga hämtningsdag. För egen transport ange förväntad leveransdag.</deliveryDateDescription>
+          <supplierChoice>Leverantörens val</supplierChoice>
+
+
+          <chooseItem>-- Välj artikel --</chooseItem>
+          <item>Artikel*</item>
+          <sort>Sort</sort>
+          <chooseAgreement>Välj depåavtal</chooseAgreement>
+          <agreementExists>A = avtal finns</agreementExists>
+          <quantity>Kvantitet (ton)*</quantity>
+          <warehouse>Mottagningsplats*</warehouse>
+          <agreement>Depåavtal</agreement>
+
+          <dried>Varmluftstorkat*</dried>
+          <red>Leveransen uppfyller kraven för RED*</red>
+          <glyfosat>Glyfosat</glyfosat>
+          <strafork>Stråförkortning*</strafork>
+          <slam>Slammat*</slam>
+          <harvestYear>Skördeår*</harvestYear>
+          <supposedToBeHarvested>Leveransen avser vara skördad</supposedToBeHarvested>
+          <otherInfo>Övrig information</otherInfo>
+          <notAvailable>Ej möjligt att ändra längre på denna leveransförsäkran.</notAvailable>
+
+          <customerOrderNumber>Kundordernummer</customerOrderNumber>
+          <ghg>GHG P/T</ghg>
+          <typeDelivery>Överleverans*</typeDelivery>
+          <TermsOfDelivery>Leveransvillkor</TermsOfDelivery>
+          <deliveryTermsLantbruk>Lantmännen Lantbruks leveransvillkor godkänns</deliveryTermsLantbruk>
+        </create>
+        <list>
+          <deliveryAssurance>Lev.försäkran</deliveryAssurance>
+          <deliveryDate>Lev.datum</deliveryDate>
+          <bookTime>Tidsbokn.</bookTime>
+        </list>
+        <overview>
+          <name>Företagsnamn</name>
+          <supplierNumber>Leverantörsnummer</supplierNumber>
+          <supplier>Leverantör</supplier>
+          <supplierAddress>Leverantörsadress</supplierAddress>
+          <farmCollection>Gårdshämtning</farmCollection>
+          <lorryType>Leveranssätt</lorryType>
+          <transportType>Transportsätt</transportType>
+          <ownTransport>Egen transport</ownTransport>
+          <deliveryAddress>Leveransadress</deliveryAddress>
+          <deliveryDate>Leveransdatum</deliveryDate>
+          <deliveryDateBetween>Från {0} till {1}</deliveryDateBetween>
+          <farmCollectionText>Vid val av gårdshämtining sker beställning av hämtning i samband med denna leveransförsäkran.</farmCollectionText>
+          <deliveryDateDescription>För gårdshämtning gäller angivet datum som första möjliga hämtningsdag. För egen transport ange förväntad leveransdag.</deliveryDateDescription>
+          <supplierChoice>Leverantörens val</supplierChoice>
+          <chooseItem>Välj artikel</chooseItem>
+          <item>Artikel</item>
+          <sort>Sort</sort>
+          <chooseAgreement>Välj depåavtal</chooseAgreement>
+          <agreementExists>A = avtal finns</agreementExists>
+          <quantity>Kvantitet (ton)</quantity>
+          <warehouse>Mottagningsplats</warehouse>
+          <agreement>Depåavtal</agreement>
+          <dried>Varmluftstorkat</dried>
+          <red>Leveransen uppfyller kraven för RED</red>
+          <glyfosat>Glyfosat</glyfosat>
+          <strafork>Stråförkortning</strafork>
+          <slam>Slammat</slam>
+          <harvestYear>Skördeår</harvestYear>
+          <supposedToBeHarvested>Leveransen avser vara skördad</supposedToBeHarvested>
+          <otherInfo>Övrig information</otherInfo>
+          <notAvailable>Ej möjligt att ändra längre på denna leveransförsäkran.</notAvailable>
+          <customerOrderNumber>Kundordernummer</customerOrderNumber>
+          <ghg>GHG P/T</ghg>
+          <typeDelivery>Överleverans</typeDelivery>
+          <TermsOfDelivery>Leveransvillkor</TermsOfDelivery>
+          <deliveryTermsLantbruk>Lantmännen Lantbruks leveransvillkor godkänns</deliveryTermsLantbruk>
+          <createPdf>Skapa PDF (möjlig att skriva ut)</createPdf>
+          <createNewSimilar>Skapa en ny likadan leveransförsäkran direkt efter jag klickat på skicka</createNewSimilar>
+        </overview>
+        <approve>
+          <warehouseSubType>Denna leveransförsäkran är kopplad till en direktleverans. Vänligen skriv ut och överlämna vid leverans.</warehouseSubType>
+        </approve>
+        <yes>Ja</yes>
+        <no>Nej</no>
+        <deliveryTerms>Se leveransvillkor</deliveryTerms>
+        <agreementDescription>Välj om din leverans ska avräknas mot depåavtal eller spontanleverans när alla ev. termins, pool och spotavtal är fyllda.</agreementDescription>
+        <agreementDepaDescription>Välj vilket depåavtal din leverans ska hamna på.</agreementDepaDescription>
+        <deliveryFeeHeader>Beräkna fraktpris</deliveryFeeHeader>
+        <deliveryFee>Fraktpris</deliveryFee>
+        <clear>Rensa</clear>
+        <next>Nästa</next>
+        <noWarehouse>
+          <header>Tillfälligt fel</header>
+        </noWarehouse>
+      </leveransForsakran>
+    </lantBruk>
+  </language>
+</languages>

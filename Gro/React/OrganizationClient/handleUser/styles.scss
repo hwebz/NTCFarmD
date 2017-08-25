@@ -1,0 +1,30 @@
+.inactive-area{
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.lm__handle-user-box__inform{
+    cursor:pointer;
+
+    &:hover{
+        background-color: lightgray; 
+    }
+
+    &.user-inactive{
+        background-color: lightgrey;
+        opacity: 0.6;
+    }
+}
+
+.lm__bold-title{
+    color: #444444;
+}
+
+.user-email-link{
+    display: block;
+    color: #539d17;
+    
+    &:hover{
+        text-decoration: underline !important;
+    }
+}

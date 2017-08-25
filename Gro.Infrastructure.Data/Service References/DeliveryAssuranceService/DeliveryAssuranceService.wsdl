@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeliveryAssuranceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DeliveryAssuranceServiceInt.Models" />
+      <xsd:import schemaLocation="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeliveryAssuranceService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplier" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDeliveryAssurances_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAssurances" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDeliveryAssurances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAssurancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDeliveryAssurance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAssurance" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDeliveryAssurance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAssuranceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_DeleteIO_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIO" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_DeleteIO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteIOResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetLorryTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLorryTypes" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetLorryTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLorryTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDeliveryAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAddresses" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDeliveryAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAgreementItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementItems" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAgreementItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetItemList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemList" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetItemList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAllItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllItems" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAllItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAllOpenItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOpenItems" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAllOpenItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOpenItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetWareHouses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWareHouses" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetWareHouses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWareHousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetWarehouseList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseList" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetWarehouseList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetWarehouseSubtype_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSubtype" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetWarehouseSubtype_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSubtypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDepaAvtal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepaAvtal" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDepaAvtal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepaAvtalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDepaAvtalDelAss_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepaAvtalDelAss" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDepaAvtalDelAss_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepaAvtalDelAssResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetYears_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetYears" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetYears_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetYearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDefaultvalues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultvalues" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetDefaultvalues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultvaluesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesForRadioButton_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesForRadioButton" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesForRadioButton_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesForRadioButtonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAgreementItemsDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementItemsDate" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetAgreementItemsDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgreementItemsDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesRED_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesRED" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesRED_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesREDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesSlam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesSlam" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesSlam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesSlamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesGlyfosat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesGlyfosat" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesGlyfosat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesGlyfosatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesStraforkortat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesStraforkortat" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesStraforkortat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesStraforkortatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesTorkat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesTorkat" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_GetM3ValuesTorkat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetM3ValuesTorkatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_SaveNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNew" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_SaveNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAssuranceService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDeliveryAssuranceService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/Ping" message="tns:IDeliveryAssuranceService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/PingResponse" message="tns:IDeliveryAssuranceService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetSupplier" message="tns:IDeliveryAssuranceService_GetSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetSupplierResponse" message="tns:IDeliveryAssuranceService_GetSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAssurances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAssurances" message="tns:IDeliveryAssuranceService_GetDeliveryAssurances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAssurancesResponse" message="tns:IDeliveryAssuranceService_GetDeliveryAssurances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAssurance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAssurance" message="tns:IDeliveryAssuranceService_GetDeliveryAssurance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAssuranceResponse" message="tns:IDeliveryAssuranceService_GetDeliveryAssurance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/DeleteIO" message="tns:IDeliveryAssuranceService_DeleteIO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/DeleteIOResponse" message="tns:IDeliveryAssuranceService_DeleteIO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLorryTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetLorryTypes" message="tns:IDeliveryAssuranceService_GetLorryTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetLorryTypesResponse" message="tns:IDeliveryAssuranceService_GetLorryTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAddresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAddresses" message="tns:IDeliveryAssuranceService_GetDeliveryAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAddressesResponse" message="tns:IDeliveryAssuranceService_GetDeliveryAddresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAgreementItems" message="tns:IDeliveryAssuranceService_GetAgreementItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAgreementItemsResponse" message="tns:IDeliveryAssuranceService_GetAgreementItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetItemList" message="tns:IDeliveryAssuranceService_GetItemList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetItemListResponse" message="tns:IDeliveryAssuranceService_GetItemList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAllItems" message="tns:IDeliveryAssuranceService_GetAllItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAllItemsResponse" message="tns:IDeliveryAssuranceService_GetAllItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOpenItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAllOpenItems" message="tns:IDeliveryAssuranceService_GetAllOpenItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAllOpenItemsResponse" message="tns:IDeliveryAssuranceService_GetAllOpenItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWareHouses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetWareHouses" message="tns:IDeliveryAssuranceService_GetWareHouses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetWareHousesResponse" message="tns:IDeliveryAssuranceService_GetWareHouses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetWarehouseList" message="tns:IDeliveryAssuranceService_GetWarehouseList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetWarehouseListResponse" message="tns:IDeliveryAssuranceService_GetWarehouseList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSubtype">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetWarehouseSubtype" message="tns:IDeliveryAssuranceService_GetWarehouseSubtype_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetWarehouseSubtypeResponse" message="tns:IDeliveryAssuranceService_GetWarehouseSubtype_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepaAvtal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDepaAvtal" message="tns:IDeliveryAssuranceService_GetDepaAvtal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDepaAvtalResponse" message="tns:IDeliveryAssuranceService_GetDepaAvtal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepaAvtalDelAss">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDepaAvtalDelAss" message="tns:IDeliveryAssuranceService_GetDepaAvtalDelAss_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDepaAvtalDelAssResponse" message="tns:IDeliveryAssuranceService_GetDepaAvtalDelAss_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYears">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetYears" message="tns:IDeliveryAssuranceService_GetYears_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetYearsResponse" message="tns:IDeliveryAssuranceService_GetYears_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultvalues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDefaultvalues" message="tns:IDeliveryAssuranceService_GetDefaultvalues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetDefaultvaluesResponse" message="tns:IDeliveryAssuranceService_GetDefaultvalues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesForRadioButton">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesForRadioButton" message="tns:IDeliveryAssuranceService_GetM3ValuesForRadioButton_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesForRadioButtonResponse" message="tns:IDeliveryAssuranceService_GetM3ValuesForRadioButton_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementItemsDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAgreementItemsDate" message="tns:IDeliveryAssuranceService_GetAgreementItemsDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetAgreementItemsDateResponse" message="tns:IDeliveryAssuranceService_GetAgreementItemsDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesRED">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesRED" message="tns:IDeliveryAssuranceService_GetM3ValuesRED_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesREDResponse" message="tns:IDeliveryAssuranceService_GetM3ValuesRED_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesSlam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesSlam" message="tns:IDeliveryAssuranceService_GetM3ValuesSlam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesSlamResponse" message="tns:IDeliveryAssuranceService_GetM3ValuesSlam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesGlyfosat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesGlyfosat" message="tns:IDeliveryAssuranceService_GetM3ValuesGlyfosat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesGlyfosatResponse" message="tns:IDeliveryAssuranceService_GetM3ValuesGlyfosat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesStraforkortat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesStraforkortat" message="tns:IDeliveryAssuranceService_GetM3ValuesStraforkortat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesStraforkortatResponse" message="tns:IDeliveryAssuranceService_GetM3ValuesStraforkortat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesTorkat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesTorkat" message="tns:IDeliveryAssuranceService_GetM3ValuesTorkat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesTorkatResponse" message="tns:IDeliveryAssuranceService_GetM3ValuesTorkat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/SaveNew" message="tns:IDeliveryAssuranceService_SaveNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/SaveNewResponse" message="tns:IDeliveryAssuranceService_SaveNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/Update" message="tns:IDeliveryAssuranceService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAssuranceService/UpdateResponse" message="tns:IDeliveryAssuranceService_Update_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDeliveryAssuranceService" type="tns:IDeliveryAssuranceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplier">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAssurances">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAssurances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAssurance">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAssurance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIO">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/DeleteIO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLorryTypes">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetLorryTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAddresses">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetDeliveryAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementItems">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetAgreementItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemList">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllItems">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetAllItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOpenItems">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetAllOpenItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWareHouses">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetWareHouses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseList">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetWarehouseList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSubtype">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetWarehouseSubtype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepaAvtal">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetDepaAvtal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepaAvtalDelAss">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetDepaAvtalDelAss" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYears">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetYears" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultvalues">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetDefaultvalues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesForRadioButton">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesForRadioButton" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgreementItemsDate">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetAgreementItemsDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesRED">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesRED" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesSlam">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesSlam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesGlyfosat">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesGlyfosat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesStraforkortat">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesStraforkortat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetM3ValuesTorkat">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/GetM3ValuesTorkat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNew">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/SaveNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAssuranceService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeliveryAssuranceService">
+    <wsdl:port name="BasicHttpBinding_IDeliveryAssuranceService" binding="tns:BasicHttpBinding_IDeliveryAssuranceService">
+      <soap:address location="http://sr02009/Apps/DeliveryAssuranceServiceInt/DeliveryAssuranceServiceInt.DeliveryAssuranceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

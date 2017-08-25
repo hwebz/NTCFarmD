@@ -1,0 +1,116 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.IPageViewModel<Gro.Core.ContentTypes.Pages.MyProfile.UserAgreementsPage>
+
+@{
+    var accepted = Model.User != null && Model.User.AcceptedAgreementVersion >= Model.CurrentPage.Version;
+    ViewData["InUserAgreement"] = true;
+    ViewData["AgreementAccepted"] = accepted;
+}
+
+@section Header{
+    @Html.Partial("_HeaderInternal", Model)
+}
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            @if (Model.User != null && accepted)
+            {
+                <div class="layout__item u-1/1">
+                    <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="lm__back-link small-distance-bottom">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        Till Mitt konto
+                    </a>
+                </div>
+            }
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block no-margin">
+                    <div class="lm__block-box no-padding-bottom">
+                        <h1 class="lm__page-title no-margin">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    </div>
+                </div>
+                <div class="lm__main-content">
+                    <div class="lm__content-header">
+                        <h1 class="content-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                        @if (Model.User != null && Model.User.UserId > 0 && !accepted)
+                        {
+                            // incase the user has already been existed
+                            <div class="lm__gray-box">
+                                <p class="content-summary">
+                                    @Html.PropertyFor(x => x.CurrentPage.UpdateInstructionText)
+                                </p>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="lm__content-detail xhtml-content">
+                        @Html.PropertyFor(x => x.CurrentPage.MainBody)
+                        <br />
+                        @if (Model.User != null && !accepted)
+                        {
+                            <div class="group-btns align-right-text">
+                                <form action="." method="post">
+                                    <input type="button" id="term-of-use-no" class="bank-id__btn custom lm__form-btn" value="Nej">
+                                    <input type="hidden" hidden id="term-identity" value="@Model.CurrentPage.ContentGuid.ToString()" />
+                                    <input type="hidden" hidden name="version" id="term-version" value="@Model.CurrentPage.Version" />
+                                    <input type="submit" id="term-of-use-yes" class="bank-id__btn custom lm__form-btn reverse-state" value="Godkänn">
+                                </form>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="lm__modal-alert" id="dialog-first-reject">
+                        <div class="lm__modal-dialog">
+                            <div class="modal-content-inform">
+                                <span class="alert-icon warning"></span>
+                                <h3 class="success-header-title">Du har valt att inte godkänna användningsvillkoren för LM<sup>2</sup> och kommer därför inte att kunna använda LM<sup>2</sup>.</h3>
+                                <p>Väljer du Avsluta lämnar du LM<sup>2</sup> och kommer inte kunna använda LM<sup>2</sup>-tjänsterna.</p>
+                                <p>Väljer du Ångra kommer du tillbaka till villkoren igen och kan välja att godkänna dem.</p>
+                                <div class="button-confirm align-right-text">
+                                    <button class="success-confirm-inform reject">Avsluta</button>
+                                    <button class="success-confirm-inform back-to-term">Ångra - läs igen</button>
+                                </div>
+                                <div class="lm__information-modal__close-btn">
+                                    <a href=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="lm__modal-alert" id="dialog-reconfirm-reject">
+                        <div class="lm__modal-dialog">
+                            <div class="modal-content-inform">
+                                <h3 class="success-header-title">Du har valt att inte använda LM<sup>2</sup>.</h3>
+                                <p>Om du redan är KundID-ägare kommer varesig du eller de användare som är kopplade till dig att fortsättningsvis kunna använda LM<sup>2</sup>.</p>
+                                <p>Väljer du Ångra kommer du tillbaka till villkoren igen och kan välja att godkänna dem. Annars utestängs du från LM<sup>2</sup>.</p>
+                                <form action="." method="post" class="button-confirm align-right-text" id="rejectForm">
+                                    <input type="hidden" hidden name="version" value="-1" />
+                                    <input type="hidden" hidden id="logoutRedirect" name="logoutRedirect" />
+                                    <button class="success-confirm-inform reject">Avsluta</button>
+                                    <button class="success-confirm-inform back-to-term">Ångra - läs igen</button>
+                                </form>
+                                <script type="text/javascript">
+                                    document.getElementById("logoutRedirect").value =
+                                        location.origin + '@System.Configuration.ConfigurationManager.AppSettings["LogoutRedirect"]';
+                                </script>
+                                <div class="lm__information-modal__close-btn">
+                                    <a href=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (accepted)
+            {
+                <div class="layout__item u-1/1 u-1/3-tablet">
+                    @if (Model.CurrentPage.GetLevel() >= 3)
+                    {
+                        Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</section>

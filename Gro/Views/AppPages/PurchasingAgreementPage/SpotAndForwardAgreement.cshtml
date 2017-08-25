@@ -1,0 +1,46 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using EPiServer.Editor
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PurchasingAgreementViewModel
+
+<section class="lm__contents no-overflow">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                @using (Html.BeginForm("SaveAgreement", "PurchasingAgreementPage", FormMethod.Post, new { id = "agreementForm", name = "priceHegeForm", @class = "lm__add-user-form author-inform-form", enctype = "multipart/form-data" }))
+                {
+                    <input type="hidden" id="CommitQuantityMin" value="@Model.CommitQuantityMin" />
+                    <input type="hidden" id="PriceLow" value="@Model.MinPrice" />
+                    <input type="hidden" id="AgreementId" name="AgreementId" value="@(Model.SelectedAgreement == null ? 0 : int.Parse(Model.SelectedAgreement.AgreementId))"/>
+                    <input type="hidden" name="PriceArea" value="@Model.SelectedPriceArea.PriceAreaId" />
+                    <input type="hidden" name="AgreementType" id="AgreementType" value="@Model.CurrentPage.AgreementType" />
+
+                    if (PageEditing.PageIsInEditMode || (ViewData["NotLoggedIn"] == null || !(bool)ViewData["NotLoggedIn"]))
+                    {
+                        <div id="pStep1">
+                            @Html.Partial("Partial/SpotAndForwardAgreementStep1", Model)
+                        </div>
+
+                        <div class="hidden" id="pStep2">
+                            @Html.Partial("Partial/ProtectStorageAgreementStep2", Model)
+                        </div>
+                    }
+                }
+                <div class="lm__block lm__mina-avtal layout__item has-separator">
+                    @Html.PropertyFor(x=>x.CurrentPage.Body)
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    @*@Html.Partial("_RightNavigation", NavigationHelpers.GetRightNavModel(Model.CurrentPage))*@
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+                @Html.PropertyFor(x=>x.CurrentPage.RightContent)
+            </div>
+
+            @Html.Partial("~/Views/AppPages/PurchasingAgreementPage/Partial/MessageDialogs.cshtml", Model.CurrentPage.AgreementType)
+
+           
+        </div>
+    </div>
+</section>

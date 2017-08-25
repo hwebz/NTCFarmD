@@ -1,0 +1,34 @@
+﻿@model Gro.ViewModels.Navigation.InternalNavigationItemModel
+
+<div class="layout__item  u-1/1  u-1/8-tablet">
+    <!-- START NAVIGATION -->
+    <nav class="internal-navigation expanded" role="navigation" aria-label="Navigering">
+        <ul class="internal-navigation__list  list-bare">
+            <li class="internal-navigation__list-item">
+                <a class="internal-navigation__link" href="@Url.PageUrl(Model.Page.LinkURL)">
+                    <i class="internal-navigation__icon  internal-navigation__icon--start"></i> @Model.Page.PageName
+                </a>
+            </li>
+            @foreach (var topItem in Model.SubItems)
+            {
+                <li class="internal-navigation__list-item">
+                    <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                        <i class="internal-navigation__icon  internal-navigation__icon--@topItem.CssClass"></i> @topItem.Page.Name
+                    </a>
+                    <ul class="internal-navigation__list--sub-level  list-bare">
+                        @foreach (var subItem in topItem.SubItems)
+                        {
+                            <li>
+                                <a class="internal-navigation__link@(subItem.IsActive ? " active": "")" href="@Url.PageUrl(subItem.Page.LinkURL)">
+                                    @subItem.Page.PageName
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+
+    </nav>
+    <!-- END NAVIGATION -->
+</div>

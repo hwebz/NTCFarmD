@@ -1,0 +1,16 @@
+﻿@using Gro.Core.DataModels.SearchTransport
+@model Annoncement[]
+
+@if (Model != null)
+{
+    foreach (var t in Model)
+    {
+        <tr>
+            <td>@string.Format("{0: yyyy-mm-dd HH:MM:ss}", t.SentTime)</td>
+            <td>@t.Message</td>
+            <td>@t.Recipient</td>
+        </tr>
+    }
+}
+
+

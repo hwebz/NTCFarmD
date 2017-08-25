@@ -1,0 +1,138 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.CalculateDeliveryFee.CalculateDeliveryFeePageViewModel
+
+<section class="lm__contents no-overflow">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+
+                <div class="lm__form-controls">
+                    <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    @Html.PropertyFor(x => x.CurrentPage.Body)
+                    @if (!string.IsNullOrWhiteSpace((string)ViewData["supplier"]))
+                    {
+                        <form class="lm__form" id="calculateForm">
+                            <div class="layout  layout--large">
+                                <div class="layout__item u-1/1 lm__form">
+                                    <div class="layout">
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-1/3-desktop lm__row-margin">
+                                            <input type="hidden" class="calculate_supplier" value="@Model.SupplierId" />
+                                            <span>@Html.Translate("/lantBruk/leveransForsakran/create/lorryType")</span>
+                                            <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                <ul class="lm__form-dropdown type-3">
+                                                    <li class="showcase">
+                                                        <a href="#">
+                                                            @(Model.ListLorryTypesItems.Any() ? Model.ListLorryTypesItems.FirstOrDefault().Value : string.Empty)
+                                                        </a>
+                                                        <ul class="dropdown">
+                                                            @foreach (var item in Model.ListLorryTypesItems)
+                                                            {
+                                                                <li data-value="@item.Key">
+                                                                    <a href="javascript:void(0)">@item.Value</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                        <input type="hidden" class="form-element" id="LorryType" name="LorryType" />
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="layout__item u-1/1 u-1/1-tablet u-1/3-desktop lm__row-margin">
+                                                <span>@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryAddress")</span>
+                                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+
+                                                    <ul class="lm__form-dropdown type-3">
+                                                        <li class="showcase" data-value="@(Model.ListDeliveryAddressesItems.Any() ? Model.ListDeliveryAddressesItems.FirstOrDefault().Key : string.Empty)">
+                                                            <a href="#">
+                                                                @(Model.ListDeliveryAddressesItems.Any() ? Model.ListDeliveryAddressesItems.FirstOrDefault().Value : string.Empty)
+                                                            </a>
+                                                            <ul class="dropdown">
+                                                                @foreach (var item in Model.ListDeliveryAddressesItems)
+                                                                {
+                                                                    <li data-value="@item.Key">
+                                                                        <a href="javascript:void(0)">@item.Value</a>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                            <input type="hidden" class="form-element" id="DeliveryAdress" name="DeliveryAdress" value="@(Model.ListDeliveryAddressesItems.Any() ? Model.ListDeliveryAddressesItems.FirstOrDefault().Key : string.Empty)" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layout__item u-1/1 lm__form">
+                                    <div class="layout">
+                                        <div class="layout__item u-1/1 u-1/4-mobile u-1/5-desktop lm__row-margin">
+                                            <span>@Html.Translate("/lantBruk/leveransForsakran/overview/quantity")</span>
+                                            <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                <input type="text" class="calculate_quantity" name="Quantity" id="Quantity" />
+                                            </div>
+                                        </div>
+                                        <div class="layout__item u-1/1 u-1/3-mobile u-1/4-desktop lm__row-margin">
+                                            <span>@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryDate")</span>
+                                            <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                <input type="text" class="datepicker calculate_deliveryDate calendar-icon" name="DeliveryDate" id="DeliveryDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layout__item u-1/1 lm__form">
+                                    <div class="layout">
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-1/1-desktop lm__row-margin">
+                                            <span>@Html.Translate("/lantBruk/leveransForsakran/overview/chooseItem")</span>
+                                            <div class="layout">
+                                                <div class="layout__item u-1/1-tablet u-1/3-desktop u-1/1 lm__element-margin-top">
+
+                                                    <ul class="lm__form-dropdown type-3">
+                                                        <li class="showcase">
+                                                            <a href="#">
+                                                                Välj artikel
+                                                            </a>
+                                                            <ul class="dropdown">
+                                                                @foreach (var item in Model.ListMergedItems)
+                                                                {
+                                                                    <li data-value="@item.Key">
+                                                                        <a href="javascript:void(0)">@item.Value</a>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                            <input type="hidden" class="form-element" id="Artikel_Frakt" name="Artikel_Frakt" />
+                                                        </li>
+                                                    </ul>
+                                                    <span class="additional-text">A = avtal finns</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="layout__item u-1/1 u-1/1-tablet  u-1/5-desktop lm__form small-distance-top">
+                                    <div class="lm__row-margin full-width">
+                                        <a href="#" id="calculate_delivery_fee" class="lm__form-btn  width-100 no-margin">@Html.Translate("/lantBruk/fraktPris/calculate")  </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    }
+                    <div id="loaderCalculation" class="loader-wrapper" style="display: none;">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="calculate_result lm__row-margin"></div>
+                </div>
+
+            </div>
+
+
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>

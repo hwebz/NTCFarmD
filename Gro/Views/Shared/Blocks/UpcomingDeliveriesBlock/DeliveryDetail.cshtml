@@ -1,0 +1,47 @@
+﻿@model Gro.ViewModels.Blocks.DeliveryCard
+
+<div class="lm__modal-dialog">
+    <div class="modal-content-inform">
+        <h3 class="success-header-title">Ordernummer @Model.OrderNo</h3>
+        <div class="modal-content">
+            <div id="table-data no-margin">
+                <table class="lm__information-table type-3 no-margin" border="0">
+                    <tbody>
+                        <tr>
+                            <td>Rad:</td>
+                            <td>@Model.OrderLine</td>
+                        </tr>
+                        <tr>
+                            <td>Artikel:</td>
+                            <td>@Model.ItemName</td>
+                        </tr>
+                        <tr>
+                            <td>Best. kvantitet:</td>
+                            <td>@Model.OrderQuantity</td>
+                        </tr>
+                        @if (!Model.IsFromCustomer)
+                        {
+                            <tr>
+                                <td>Silo:</td>
+                                <td>@Model.Container</td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td>@(Model.IsFromCustomer ? "Plan.hämtning" : "Planerat lev.datum"):</td>
+                            <td>@Model.PlannedDeliveryDate</td>
+                        </tr>
+                        <tr>
+                            <td>@(Model.IsFromCustomer ? "Leveraras till" : "Från fabrik"):</td>
+                            <td>@Model.Warehouse</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="lm__information-modal__close-btn">
+            <a href=""></a>
+        </div>
+    </div>
+</div>

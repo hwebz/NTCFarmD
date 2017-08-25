@@ -1,0 +1,907 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>News detail</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="../fonts/font-awesome.min.css" />
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+<body class="internal-page">
+
+<div class="layout  layout--large  layout--flush  layout--equal-height">
+    <div class="layout__item  u-1/1  u-1/8-tablet">
+        <!-- START NAVIGATION -->
+        <nav class="internal-navigation expanded" role="navigation" aria-label="Navigering">
+            <ul class="internal-navigation__list  list-bare">
+                <li class="internal-navigation__list-item">
+                    <a class="internal-navigation__link" href="/">
+                        <i class="internal-navigation__icon  internal-navigation__icon--start"></i> Start
+                    </a>
+                </li>
+                <li class="internal-navigation__list-item">
+                    <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                        <i class="internal-navigation__icon  internal-navigation__icon--avtal"></i> Avtal
+                    </a>
+                    <ul class="internal-navigation__list--sub-level  list-bare">
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Leveransförsäkring
+                            </a>
+                        </li>
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Analysanmodan
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="internal-navigation__list-item">
+                    <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                        <i class="internal-navigation__icon  internal-navigation__icon--spannmal"></i> Spannmål
+                    </a>
+                    <ul class="internal-navigation__list--sub-level  list-bare">
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Leveransförsäkring
+                            </a>
+                        </li>
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Analysanmodan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Invägningar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Prisutveckling
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="internal-navigation__list-item">
+                    <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                        <i class="internal-navigation__icon  internal-navigation__icon--transport"></i> Transport
+                    </a>
+                    <ul class="internal-navigation__list--sub-level  list-bare">
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Leveransförsäkring
+                            </a>
+                        </li>
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Analysanmodan
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="internal-navigation__list-item">
+                    <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                        <i class="internal-navigation__icon  internal-navigation__icon--mer"></i> Mer
+                    </a>
+                    <ul class="internal-navigation__list--sub-level  list-bare">
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Leveransförsäkring
+                            </a>
+                        </li>
+                        <li>
+                            <a class="internal-navigation__link" href="/">
+                                Analysanmodan
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- END NAVIGATION -->
+    </div>
+    <div class="layout__item  u-1/1  u-7/8-tablet">
+        <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+        <div class="wrapper  wrapper--full-width">
+            <header class="lm__header internal-page">
+                <div class="sticky-header">
+                    <div class="lm__top-header">
+                        <div class="wrapper">
+                            <div class="layout  layout--small">
+                                <div class="layout__item lm__logo">
+                                    <label>Välj kund</label>
+                                </div>
+                                <div class="layout__item u-1/1 u-4/5-mobile">
+                                    <div class="author-inform-form__input layout layout--large">
+                                        <div class="author-inform-form__column layout__item u-1/1 u-1/5-mobile">
+                                            <ul class="lm__form-dropdown type-3">
+                                                <li class="showcase">
+                                                    <a href="#">Sök kundnummer</a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="#">Sök kundnummer</a></li>
+                                                        <li><a href="#">Sök företagsnamn</a></li>
+                                                        <li><a href="#">Sök organisationsummer</a></li>
+                                                        <li><a href="#">Sök användarens namn</a></li>
+                                                        <li><a href="#">Sök användar-ID (e-post)</a></li>
+                                                        <li><a href="#">Sök personnummer</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="author-inform-form__column layout__item u-1/1 u-2/5-mobile second no-padding">
+                                            <input type="text" name="searchText" class="searchText no-margin" placeholder="Sök.."/>
+                                            <button class="search-btn">Sök</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-message open">
+                        <div class="lm__top-header message-popup">
+                            <div class="respond-message">
+                                <div class="wrapper">
+                                    <div class="layout  layout--small">
+                                        <div class="layout__item u-1/1">
+                                            <h3 class="heading-title-3 akzidenz-reg-font">TEAM MÄLARDALEN <span>KUNDNR. 123456789029</span></h3>
+                                            <p class="no-margin"><a href="#"><span>Se kundkort</span> <i class="fa fa-arrow-right"></i></a></p>
+                                            <a class="close-btn" href="#">Avsluta <i></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header> <!-- End of header -->
+            <!-- END OF HEADER -->
+            <!-- START MAIN CONTENT -->
+            <section class="lm__contents">
+                <div class="wrapper no-padding">
+                    <div class="layout  layout--large">
+                        <div class="layout__item u-1/1">
+                            <div class="lm__block with-border no-margin">
+                                <div class="layout layout--large">
+                                    <div class="lm__block-box">
+                                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-desktop">
+                                            <div class="lm__checkbox-block">
+                                                <h1 class="heading-title-1">Team Mälardalen</h1>
+                                                <p>Kundnummer: 10101010</p>
+                                                <p>Organisationsnr: 8305051935</p>
+                                                <div class="group-checkboxes">
+                                                    <div class="lm__checkbox lm__switcher no-margin">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                    <h3 class="no-margin clarendonurw-reg-font">LM<sup>2</sup></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-desktop">
+                                            <div class="lm__white-block">
+                                                <h1 class="heading-title-1">&nbsp;</h1>
+                                                <h2 class="heading-title-2 akzidenz-reg-font">Fakturaadesss & kontaktuppgifter</h2>
+                                                <p>Gatuadress: Lantgatan 1</p>
+                                                <p>Postnr: 317 89</p>
+                                                <p>Tel: +46 3100990</p>
+                                                <p>Mob: +46 704 433 556</p>
+                                                <p>E-post: team.malardalen@exempel.com</p>
+                                                <p><a href="#" class="lm__link">Leveransadresser</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-desktop">
+                                            <div class="lm__white-block">
+                                                <h1 class="heading-title-1">&nbsp;</h1>
+                                                <a href="#" class="lm__link"><h2 class="heading-title-2 akzidenz-reg-font float-element">Alexander Andersson</h2></a>
+                                                <p>1957-04-15 9358</p>
+                                                <p>Tel: +46 8 1234567</p>
+                                                <p>Mob: +46 702894481</p>
+                                                <p>E-post: <a href="#" class="lm__link">alexander.andersson@exempelmail.com</a></p>
+                                                <p class="setting-link big-distance-top">
+                                                    <i class="fa fa-cog-2"></i>
+                                                    <a href="" class="lm__bold-title text-top">Meddelandeinställningar</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1">
+                            <div class="lm__block with-border no-border-top">
+                                <div class="layout layout--large">
+                                    <div class="layout__item u-3/4">
+                                        <div class="lm__block-box">
+                                            <div class="lm__listing-block">
+                                                <div class="lm__listing-block__header">
+                                                    <h2 class="heading-title-2 akzidenz-reg-font">Användare</h2>
+                                                    <a href="#" class="lm__blue-btn no-margin">
+                                                        <i class="fa fa-plus"></i>
+                                                        Lägg till användare
+                                                    </a>
+                                                </div>
+                                                <div class="lm__listing-block__items">
+                                                    <div class="lm__table-wrapper">
+                                                        <table border="0">
+                                                            <colgroup>
+                                                                <col width="50%" />
+                                                                <col width="40%" />
+                                                                <col width="10%" />
+                                                            </colgroup>
+                                                            <tbody>
+                                                            <tr style="display: none;" class="lm__listing-block__add-item">
+                                                                <td colspan="3">
+                                                                    <div class="add-item-form">
+                                                                        <a href="#" class="close-btn"><i class="fa fa-times"></i></a>
+                                                                        <h2 class="heading-title-2">Lägg till användare till kundID</h2>
+                                                                        <form class="author-inform-form" action="#" method="post">
+                                                                            <div class="gray-background small-distance-bottom">
+                                                                                <p class="no-margin">Fyll i användarens E-postadress för att kontrollera om</p>
+                                                                                <p>personen redan är registrerad på LM2</p>
+
+                                                                                <div class="author-inform-form__input">
+                                                                                    <div class="author-inform-form__column author-inform-form__column-large">
+                                                                                        <label for="epost">E-post</label>
+                                                                                        <input type="text" name="epost" class="epost" id="epost"/>
+                                                                                    </div>
+                                                                                    <div class="author-inform-form__column author-inform-form__column-custom-1">
+                                                                                        <label for="check-btn">Kontrollera</label>
+                                                                                        <button id="check-btn" class="lm__form-btn no-margin">Kontrollera</button>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="existing-user">
+                                                                                    <h3 class="heading-title-3">Användaren finns redan i LM2</h3>
+                                                                                    <p>Linda Pettersson</p>
+                                                                                    <p>Telefon: 12345678</p>
+                                                                                    <p>Mobil: 07012345678</p>
+                                                                                    <p>E-post: linda.pettersson@mail.com</p>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="gray-background small-distance-bottom">
+                                                                                <div class="author-inform-form__input">
+                                                                                    <div class="author-inform-form__column author-inform-form__column-large">
+                                                                                        <label for="user-type">Välj användarens profil och behörigheter</label>
+                                                                                        <ul id="user-type" class="lm__form-dropdown type-3">
+                                                                                            <li class="showcase">
+                                                                                                <a href="#">Administrator</a>
+                                                                                                <ul class="dropdown">
+                                                                                                    <li><a href="#">Administratör</a></li>
+                                                                                                    <li><a href="#">Anställd</a></li>
+                                                                                                    <li><a href="#">Anpassad profil</a></li>
+                                                                                                    <li><a href="#">Driftsansvarig</a></li>
+                                                                                                    <li><a href="#">Ekonomiansvarig</a></li>
+                                                                                                    <li><a href="#">Revisor</a></li>
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p>En bekräftelse kommer skickas till den nya användarens e-post.</p>
+                                                                            <button type="submit" class="lm__form-btn reverse-state">Lägg till</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lm__listing-block__item">
+                                                                <td>
+                                                                    <p><a href="#" class="lm__link">Lisa Larsson</a></p>
+                                                                    <p>E-post: lisa@exempel.com</p>
+                                                                    <p>Mobil: +46 731 234 567</p>
+                                                                    <p class="faded-datetime small-distance-top">Senast inloggad: 2017-02-10 kl. 14.15</p>
+                                                                </td>
+                                                                <td>
+                                                                    <ul class="lm__form-dropdown type-3">
+                                                                        <li class="showcase">
+                                                                            <a href="#">Administratör</a>
+                                                                            <ul class="dropdown">
+                                                                                <li><a href="#">Administratör</a></li>
+                                                                                <li><a href="#">Anställd</a></li>
+                                                                                <li><a href="#">Anpassad profil</a></li>
+                                                                                <li><a href="#">Driftsansvarig</a></li>
+                                                                                <li><a href="#">Ekonomiansvarig</a></li>
+                                                                                <li><a href="#">Revisor</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <p class="setting-link small-distance-top">
+                                                                        <i class="fa fa-cog"></i>
+                                                                        <a href="" class="lm__link">Meddelandeinställningar</a>
+                                                                    </p>
+                                                                    <div class="loader-wrapper">
+                                                                        <div class="loader"></div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#" class="lm__icon-btn"><i class="fa fa-trash-2"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lm__listing-block__item">
+                                                                <td>
+                                                                    <p><a href="#" class="lm__link">Alexander Alexandersson</a></p>
+                                                                    <p>E-post: alex@exempel.com</p>
+                                                                    <p>Mobil: +46 701 007 007</p>
+                                                                    <p class="faded-datetime small-distance-top">Senast inloggad: 2017-02-12 kl. 12.51</p>
+                                                                </td>
+                                                                <td>
+                                                                    <ul class="lm__form-dropdown type-3">
+                                                                        <li class="showcase">
+                                                                            <a href="#">Anställd</a>
+                                                                            <ul class="dropdown">
+                                                                                <li><a href="#">Administratör</a></li>
+                                                                                <li><a href="#">Anställd</a></li>
+                                                                                <li><a href="#">Anpassad profil</a></li>
+                                                                                <li><a href="#">Driftsansvarig</a></li>
+                                                                                <li><a href="#">Ekonomiansvarig</a></li>
+                                                                                <li><a href="#">Revisor</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <p class="setting-link small-distance-top">
+                                                                        <i class="fa fa-cog"></i>
+                                                                        <a href="" class="lm__link">Meddelandeinställningar</a>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#" class="lm__icon-btn"><i class="fa fa-trash-2"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lm__listing-block__item">
+                                                                <td>
+                                                                    <p><a href="#" class="lm__link">Karin Karamell</a></p>
+                                                                    <p>E-post: karamell@exempel.com</p>
+                                                                    <p>Mobil: +46 78 123 987</p>
+                                                                    <p class="faded-datetime small-distance-top">Senast inloggad: 2017-02-15 kl. 18.20</p>
+                                                                </td>
+                                                                <td>
+                                                                    <ul class="lm__form-dropdown type-3">
+                                                                        <li class="showcase">
+                                                                            <a href="#">Administratör</a>
+                                                                            <ul class="dropdown">
+                                                                                <li><a href="#">Administratör</a></li>
+                                                                                <li><a href="#">Anställd</a></li>
+                                                                                <li><a href="#">Anpassad profil</a></li>
+                                                                                <li><a href="#">Driftsansvarig</a></li>
+                                                                                <li><a href="#">Ekonomiansvarig</a></li>
+                                                                                <li><a href="#">Revisor</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <div class="small-distance-top">
+                                                                        <a href="#" class="lm__form-btn no-margin width-100">Visa behörigheter</a>
+                                                                        <div class="confirm-box align-center-text layout layout--small hidden">
+                                                                            <div class="layout__item u-1/2 no-padding">
+                                                                                <input type="reset" class="lm__form-btn width-100" value="Avbryt"/>
+                                                                            </div>
+                                                                            <div class="layout__item u-1/2">
+                                                                                <input type="button" class="lm__form-btn reverse-state width-100" value="Spara"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="setting-link small-distance-top">
+                                                                        <i class="fa fa-cog"></i>
+                                                                        <a href="" class="lm__link">Meddelandeinställningar</a>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#" class="lm__icon-btn"><i class="fa fa-trash-2"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lm__listing-block__item__options">
+                                                                <td colspan="3">
+                                                                    <div class="lm__block customer-id-block">
+                                                                        <div class="lm__block-box">
+                                                                            <h3 class="heading-title-3">Välj behörigheter till anpassad profil</h3>
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" checked />
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title">Basfunktioner <a class="link-to-open-popup" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></h3>
+                                                                                <div class="lm__information-modal__wrapper hidden">
+                                                                                    <div class="mask"></div>
+                                                                                    <div class="lm__information-modal">
+                                                                                        <h3 class="lm__information-modal__title">Leveransinformation</h3>
+                                                                                        <p>Här kan du göra utskickinställnignar för olika typer av leveransmeddelanden. De övergripande valen ovan påverkar om du kan välja viss typ av avisering (SMS/E-post) för olika levernasmeddelandena.</p>
+                                                                                        <p>Levernsinformation som skickas till dig är kopplad till den eller de leveransadresser som administratören för detta kundid har angett för dig.</p>
+                                                                                        <div class="lm__information-modal__close-btn">
+                                                                                            <a href=""></a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="lm__block-box">
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" checked id="demo"/>
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title">Ekonomi <a class="link-to-open-popup" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></h3>
+                                                                            </div>
+                                                                            <div class="sub-checkbox">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="ekonomi" />
+                                                                                            <p>Kan se</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="ekonomi" checked />
+                                                                                            <p>Fullständig behörighet</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="lm__block-box">
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" />
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title gray-text">Maskiner</h3>
+                                                                            </div>
+                                                                            <div class="sub-checkbox uncheck-all">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="maskiner" />
+                                                                                            <p>Kan se</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="maskiner" checked />
+                                                                                            <p>Fullständig behörighet</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="lm__block-box">
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" checked />
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title">Spannmålsavtal <a class="link-to-open-popup" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></h3>
+                                                                            </div>
+                                                                            <div class="sub-checkbox">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="spannmal" />
+                                                                                            <p>Kan se</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="spannmal" checked />
+                                                                                            <p>Fullständig behörighet</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="lm__block-box">
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" checked />
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title">Beställningar e-handel <a class="link-to-open-popup" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></a></h3>
+                                                                            </div>
+                                                                            <div class="sub-checkbox">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="ehandel" />
+                                                                                            <p>Kan se</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="ehandel" checked />
+                                                                                            <p>Fullständig behörighet</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="lm__block-box">
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" checked />
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title">Leveransinformation <a class="link-to-open-popup" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></h3>
+                                                                            </div>
+                                                                            <div class="sub-checkbox">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="leveransinformation" />
+                                                                                            <p>Kan se</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="leveransinformation" checked />
+                                                                                            <p>Fullständig behörighet</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="lm__block-box">
+                                                                            <div class="parent-checkbox">
+                                                                                <div class="lm__checkbox style-3 lm__tick">
+                                                                                    <input type="checkbox" checked />
+                                                                                    <label></label>
+                                                                                </div>
+                                                                                <h3 class="lm__bold-title">Prenumerationstjänster <a class="link-to-open-popup" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></h3>
+                                                                            </div>
+                                                                            <div class="sub-checkbox">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="prenumeration" />
+                                                                                            <p>Kan se</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <div class="lm__radio type-4">
+                                                                                            <input type="radio" name="prenumeration" checked />
+                                                                                            <p>Fullständig behörighet</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="layout__item u-1/1 u-1/2-tablet">
+                            <div class="lm__block redigera-block">
+                                <div class="lm__block-header lighter-gray-background-header">
+                                    <h1>Leveransadresser</h1>
+                                </div>
+                                <div class="lm__accordion-wrapper">
+                                    <h3 class="lm__bold-title lm__accordion-link has-separator">Lantgatan 1</h3>
+                                    <div class="lm__accordion-content author-inform-form">
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box ">
+                                                <h4 class="lm__bold-title">Adress</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Gatuadress:</td>
+                                                        <td>Åkervägen 1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Postnummer:</td>
+                                                        <td>12345</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ort:</td>
+                                                        <td>Ýtad</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telefon:</td>
+                                                        <td>+46 8 123 45</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mobil</td>
+                                                        <td>+4670 123 4567</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Koordinater</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Latttud:</td>
+                                                        <td>1657189,000000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Longitud:</td>
+                                                        <td>5944115,000000</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Silos- Framkomlighet</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Silo 1:</td>
+                                                        <td>24m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silo 2:</td>
+                                                        <td>12m</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Vägbeskrivning</h4>
+                                                <p>Sväng vänster efter det röda huset in på grusvägen.</p>
+                                            </div>
+                                        </div>
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box no-margin">
+                                                <h4 class="lm__bold-title">Leveransavisering till</h4>
+                                                <p><a href="#" class="lm__link">Karl Turesson</a></p>
+                                                <p><a href="#" class="lm__link">Lars Turesson</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lm__accordion-wrapper">
+                                    <h3 class="lm__bold-title lm__accordion-link has-separator">Åkervägen 1</h3>
+                                    <div class="lm__accordion-content author-inform-form">
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box ">
+                                                <h4 class="lm__bold-title">Adress</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Gatuadress:</td>
+                                                        <td>Åkervägen 1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Postnummer:</td>
+                                                        <td>12345</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ort:</td>
+                                                        <td>Ýtad</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telefon:</td>
+                                                        <td>+46 8 123 45</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mobil</td>
+                                                        <td>+4670 123 4567</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Koordinater</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Latttud:</td>
+                                                        <td>1657189,000000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Longitud:</td>
+                                                        <td>5944115,000000</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Silos- Framkomlighet</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Silo 1:</td>
+                                                        <td>24m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silo 2:</td>
+                                                        <td>12m</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Vägbeskrivning</h4>
+                                                <p>Sväng vänster efter det röda huset in på grusvägen.</p>
+                                            </div>
+                                        </div>
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box no-margin">
+                                                <h4 class="lm__bold-title">Leveransavisering till</h4>
+                                                <p><a href="#" class="lm__link">Karl Turesson</a></p>
+                                                <p><a href="#" class="lm__link">Lars Turesson</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lm__accordion-wrapper">
+                                    <h3 class="lm__bold-title lm__accordion-link has-separator">Kornstigen 67</h3>
+                                    <div class="lm__accordion-content author-inform-form">
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box ">
+                                                <h4 class="lm__bold-title">Adress</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Gatuadress:</td>
+                                                        <td>Åkervägen 1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Postnummer:</td>
+                                                        <td>12345</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ort:</td>
+                                                        <td>Ýtad</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telefon:</td>
+                                                        <td>+46 8 123 45</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mobil</td>
+                                                        <td>+4670 123 4567</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Koordinater</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Latttud:</td>
+                                                        <td>1657189,000000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Longitud:</td>
+                                                        <td>5944115,000000</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Silos- Framkomlighet</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Silo 1:</td>
+                                                        <td>24m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silo 2:</td>
+                                                        <td>12m</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Vägbeskrivning</h4>
+                                                <p>Sväng vänster efter det röda huset in på grusvägen.</p>
+                                            </div>
+                                        </div>
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box no-margin">
+                                                <h4 class="lm__bold-title">Leveransavisering till</h4>
+                                                <p><a href="#" class="lm__link">Karl Turesson</a></p>
+                                                <p><a href="#" class="lm__link">Lars Turesson</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lm__accordion-wrapper">
+                                    <h3 class="lm__bold-title lm__accordion-link has-separator">Lantgatan 3</h3>
+                                    <div class="lm__accordion-content author-inform-form">
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box ">
+                                                <h4 class="lm__bold-title">Adress</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Gatuadress:</td>
+                                                        <td>Åkervägen 1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Postnummer:</td>
+                                                        <td>12345</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ort:</td>
+                                                        <td>Ýtad</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Telefon:</td>
+                                                        <td>+46 8 123 45</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mobil</td>
+                                                        <td>+4670 123 4567</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Koordinater</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Latttud:</td>
+                                                        <td>1657189,000000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Longitud:</td>
+                                                        <td>5944115,000000</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Silos- Framkomlighet</h4>
+                                                <table border="0" class="lm__information-table type-3 no-margin">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Silo 1:</td>
+                                                        <td>24m</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silo 2:</td>
+                                                        <td>12m</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box">
+                                                <h4 class="lm__bold-title">Vägbeskrivning</h4>
+                                                <p>Sväng vänster efter det röda huset in på grusvägen.</p>
+                                            </div>
+                                        </div>
+                                        <div class="author-inform-form__input gray-background">
+                                            <div class="author-inform-form__column author-inform-form__column-half lm__inform-box no-margin">
+                                                <h4 class="lm__bold-title">Leveransavisering till</h4>
+                                                <p><a href="#" class="lm__link">Karl Turesson</a></p>
+                                                <p><a href="#" class="lm__link">Lars Turesson</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+            <!-- END OF MAIN CONTENT OF WEBPAGE -->
+        </div>
+        <!-- END OF MAIN CONTENT OF WEBPAGE -->
+    </div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="scripts/scripts.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using EPiServer.Editor
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PurchasingAgreementViewModel
+
+@{
+    var agreementType = Model.CurrentPage.AgreementType;
+}
+
+<div class="lm__block lm__mina-avtal has-separator no-margin lm__block-contain-float">
+    <div class="u-1/1">
+        <h1 class="lm__page-title">Granska ifyllda uppgifter</h1>
+        <div class="layout layout--large">
+            <div class="layout__item u-1/1">
+                <div class="author-inform-form__column author-inform-form__column-half  solid-padding-box gray-background">
+                    <span class="lm__control-label no-margin">Prisområde:</span><span class="no-margin">@Model.SelectedPriceArea.PriceAreaName</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 ">
+                <div class="author-inform-form__column author-inform-form__column-full solid-padding-box gray-background">
+                    @if (agreementType.Equals(AgreementType.PrissakringDepaavtal))
+                    {
+                        <div class="u-1/1 ">
+                            <span class="lm__control-label no-margin">Avtal:</span><span class="no-margin" id="span_Avtal"></span>
+                        </div>
+                        <div class="u-1/1 lm__row-margin">
+                            <span class="lm__control-label no-margin">Gröda:</span><span class="no-margin" id="span_Groda"></span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="u-1/1">
+                            <span class="lm__control-label no-margin">Gröda:</span><span class="no-margin" id="span_Groda"></span>
+                        </div>
+                    }
+
+                    <div class="u-1/1 lm__row-margin">
+                        <span class="lm__control-label no-margin">Sort:</span><span class="no-margin" id="span_Sort"></span>
+                    </div>
+                    <div class="u-1/1 lm__row-margin">
+                        <span class="lm__control-label no-margin">Leveransperiod:</span><span class="no-margin" id="span_Leveransperiod"></span>
+                    </div>
+                    <div class="u-1/1 lm__row-margin">
+                        <span class="lm__control-label no-margin">Övre pris:</span><span class="no-margin"><span id="span_UpperPrice" class="no-margin"></span> SEK</span>
+                    </div>
+                    <div class="u-1/1 lm__row-margin">
+                        <span class="lm__control-label no-margin">Undre pris:</span><span class="no-margin"><span id="span_UnderPrice" class="no-margin"></span> SEK</span>
+                    </div>
+                    @if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+                    {
+                        <div class="u-1/1 lm__row-margin">
+                            <span class="lm__control-label no-margin">Transportsätt:</span><span class="no-margin" id="span_TransportType"></span>
+                        </div>
+                                <div class="u-1/1 lm__row-margin">
+                                    <span class="lm__control-label no-margin">Kvantitet:</span><span class="no-margin"><span id="span_Quantity" class="no-margin"></span> ton</span>
+                                </div>
+                    }
+
+                    <div class="u-1/1 lm__row-margin">
+                        <span class="lm__control-label no-margin">Prissäkra:</span><span class="no-margin" id="span_Prissakra"></span>
+                    </div>
+                    <div class="u-1/1 lm__row-margin">
+                        <span class="lm__control-label no-margin">Bevakning giltig tom:</span>
+                        <span class="no-margin" id="span_AgreementDate">Lorem ipsum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lm__block lm__mina-avtal layout__item has-separator">
+    <div class="layout">
+        <div class="layout__item u-1/1">
+            <h2 class="heading-title-2 no-margin">Användningsvillkor</h2>
+        </div>
+        <div class="layout__item u-1/1 lm__row-margin">
+            <div class="lm__checkbox lm__tick">
+                <input type="checkbox" id="approveAgreementTerm" />
+                <label></label>
+            </div>
+            <span class="middle-vertical" data-id="4229496" href="#">Jag godkänner <a href="@Url.ContentUrl(Model.CurrentPage.PurchaseTermAndConditionPage)" target="_blank" class="lm__link">Lantmännen Lantbruks villkor för spannmål och oljeväxter</a></span>
+        </div>
+        <div class="layout__item u-1/1 u-1/1-tablet u-1/4-desktop lm__row-margin">
+            <input type="button" id="move-to-step1" class="lm__form-btn width-100 no-margin" value="Avbryt" />
+        </div>
+        <div class="layout__item u-1/1 u-1/1-tablet u-1/4-desktop lm__row-margin">
+            <input type="button" id="agreementSaveBtn" class="lm__form-btn width-100 disabled green-dimmed no-margin submit" value="Bekräfta avtal" />
+        </div>
+    </div>
+</div>

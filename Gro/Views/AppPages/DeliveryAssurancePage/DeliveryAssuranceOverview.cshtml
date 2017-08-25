@@ -1,0 +1,252 @@
+﻿@using Gro.Constants
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.DeliveryAssurance.DeliveryAssuranceOverviewViewModel
+
+<!-- START MAIN CONTENT -->
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+
+            <div class="layout__item u-1/1 u-2/3-tablet">
+
+                <div class="lm__block lm__mina-avtal layout__item has-separator no-margin">
+                    <div class="u-1/1">
+                        @if (string.IsNullOrEmpty(Model.DeliveryAssurance.Action))
+                        {
+
+                            <h1 class="lm__page-title">@Html.PropertyFor(x => x.CurrentPage.OverviewHeader)</h1>
+                        }
+                        else
+                        {
+                            <h1 class="lm__page-title">Granska leveransförsäkran</h1>
+                        }
+
+                    </div>
+                    <div class="lm__block lm__relative-block">
+                        <form class="" action="#" method="post">
+                            @if (string.IsNullOrEmpty(Model.DeliveryAssurance.Action) && Model.DeliveryAssurance.Status <= 35)
+                            {
+                                <a href="@Model.ChangeUrl" class="lm__edit-with-content-btn"></a>
+                            }
+
+                            @if (string.IsNullOrEmpty(Model.DeliveryAssurance.Action) || !Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Create))
+                            {
+                                <div class="u-1/1 lm__float-left-element lm__row-margin">
+                                    <div class="lm__float-left-element lm__control-label">
+                                        <h3 class="no-margin">@Html.Translate("/lantBruk/leveransForsakran/deliveryAssurance")</h3>
+                                    </div>
+                                    <div class="u-1/1 u-1/1-tablet u-1/3-desktop lm__float-left-element">
+                                        <h3 class="no-margin">@Model.DeliveryAssurance.IONumber</h3>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class=" lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/name")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.CustomerName</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/supplierNumber")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.CustomerNumber</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/deliveryAddress")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.DeliveryAddress</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/transportType")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.TransportType</span>
+                                </div>
+                            </div>
+                            @if (Model.DeliveryAssurance.Gardshamtning)
+                            {
+                                <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                    <div class="lm__float-left-element lm__control-label">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/overview/lorryType") </span>
+                                    </div>
+                                    <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                        <span>@Model.DeliveryAssurance.LorryTypeDesc</span>
+                                    </div>
+                                </div>
+                            }
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/item")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.ItemName</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/quantity")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.Quantity</span>
+                                </div>
+                            </div>
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/harvestYear")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.HarvestYear</span>
+                                </div>
+                            </div>
+                            @if (!Model.DeliveryAssurance.Gardshamtning)
+                            {
+                                <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                    <div class="lm__float-left-element lm__control-label">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/overview/warehouse")</span>
+                                    </div>
+                                    <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                        <span>@Model.DeliveryAssurance.WarehouseDesc</span>
+                                    </div>
+                                </div>
+                            }
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/typeDelivery")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.DeliveryTypeDesc</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/dried")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.TorkatDesc</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/red")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.RedDesc</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/strafork")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.StraforkortatDesc</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/slam")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 u-1/1-tablet u-1/3-desktop">
+                                    <span>@Model.DeliveryAssurance.SlamDesc</span>
+                                </div>
+                            </div>
+
+                            <div class="u-1/1  lm__float-left-element lm__row-margin">
+                                <div class="lm__float-left-element lm__control-label">
+                                    <span>@Html.Translate("/lantBruk/leveransForsakran/overview/otherInfo")</span>
+                                </div>
+                                <div class="lm__float-left-element u-1/1 lm__text-block__no-margin">
+                                    @Html.Raw(Model.DeliveryAssurance.OtherInfo)
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.DeliveryAssurance.Action))
+                {
+                    <div>
+                        @using (Html.BeginForm("Save", "DeliveryAssurancePage", FormMethod.Post, new { id = "deliveryAssuranceFormStep2", name = "deliveryAssuranceFormStep2", @class = "lm__form-input", enctype = "multipart/form-data" }))
+                        {
+                            <input type="hidden" name="IONumber" value="@Model.DeliveryAssurance.IONumber" />
+                            <input type="hidden" name="action" value="@Model.DeliveryAssurance.Action" />
+                            <div class="lm__block lm__mina-avtal layout__item has-separator">
+
+                                @if (!Model.IsMultiApprove)
+                                {
+                                    <div class="u-1/1  ">
+                                        <div class="lm__checkbox lm__tick">
+                                            <input type="checkbox" id="createPdf" name="createPdf" value="1"/>
+                                            <label></label>
+                                        </div>
+                                        <span class="middle-vertical" >@Html.Translate("/lantBruk/leveransForsakran/overview/createPdf")</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="u-1/1  ">
+                                        <span class="middle-vertical" style="color: #32cd32;">@Html.Translate("/lantBruk/leveransForsakran/approveManyMessage")</span>
+                                    </div>
+                                }
+
+
+                                @if (Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Create))
+                                {
+                                    <div class="u-1/1  ">
+                                        <div class="lm__checkbox lm__tick">
+                                            <input type="checkbox" id="createNew" name="createNew" value="1"/>
+                                            <label></label>
+                                        </div>
+                                        <span class="middle-vertical">@Html.Translate("/lantBruk/leveransForsakran/overview/createNewSimilar")</span>
+                                    </div>
+
+                                    <div class="u-2/5-tablet u-2/5-desktop u-2/5 author-inform-form__column" style="display: none;">
+                                        <span>@Html.Translate("/lantBruk/leveransForsakran/numberOfNew")</span>
+                                        <input type="text" id="noOfNew" name="noOfNew" class="lm__row-margin "/>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="lm__block lm__mina-avtal">
+                                <div class="lm__block ">
+                                    <div class="align-right-text">
+                                        @*<input type="button" class="lm__form-btn reverse-state " value="@Html.Translate("/lantBruk/leveransForsakran/change")" />*@
+                                        <a class="lm__form-btn" href="@Model.ChangeUrl">@Html.Translate("/lantBruk/leveransForsakran/change")</a>
+
+                                        <input type="submit" class="lm__form-btn reverse-state"
+                                               value="@(Model.DeliveryAssurance.Action.Equals(DeliveryAssuranceAction.Create) ? "Skapa och skicka": Html.Translate("/lantBruk/leveransForsakran/send"))" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END OF MAIN CONTENT OF WEBPAGE -->

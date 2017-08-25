@@ -1,0 +1,1571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gro.Infrastructure.Data</RootNamespace>
+    <AssemblyName>Gro.Infrastructure.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GRO EPiLyftet|AnyCPU'">
+    <OutputPath>bin\GRO EPiLyftet\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ApplicationModules, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data.Cache, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Data.Cache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Enterprise, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.Enterprise.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Events, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ImageLibrary, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Licensing, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.LinkAnalyzer, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.8.3\lib\net45\EPiServer.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Version=9.8.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.8.3\lib\net45\EPiServer.XForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.6.186, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.186\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.6.186, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web-signed.3.1.6.186\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheOptions.cs" />
+    <Compile Include="Caching\IMemoryCache.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Interceptors\AsyncInterceptor.cs" />
+    <Compile Include="Interceptors\Attributes\CacheAttribute.cs" />
+    <Compile Include="Interceptors\Attributes\CacheInvalidateAttribute.cs" />
+    <Compile Include="Interceptors\ErrorInterceptor.cs" />
+    <Compile Include="Interceptors\ErrorInterceptorExtension.cs" />
+    <Compile Include="Interceptors\CacheInterceptor.cs" />
+    <Compile Include="Interceptors\CacheInterceptorExtension.cs" />
+    <Compile Include="Interceptors\MethodParameterFormatter.cs" />
+    <Compile Include="MediaConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\BookingContactRepository.cs" />
+    <Compile Include="Repositories\BokaRepository.cs" />
+    <Compile Include="Repositories\CustomerSupportRepository.cs" />
+    <Compile Include="Repositories\DeliveryAssuranceRepository.cs" />
+    <Compile Include="Repositories\DeliveryNoteRepository.cs" />
+    <Compile Include="Repositories\AgreementRepository.cs" />
+    <Compile Include="Repositories\GrainRepository.cs" />
+    <Compile Include="Repositories\GrobarhetRepository.cs" />
+    <Compile Include="Repositories\MachineRepository.cs" />
+    <Compile Include="Repositories\MessageAdministrationRepository.cs" />
+    <Compile Include="Repositories\OrganizationRepository.cs" />
+    <Compile Include="Repositories\OrganizationUserRepository.cs" />
+    <Compile Include="Repositories\PriceGraphRepository.cs" />
+    <Compile Include="Repositories\PurchasingAgreementRepository.cs" />
+    <Compile Include="Repositories\SearchTransportRepository.cs" />
+    <Compile Include="Repositories\SecurityRepository.cs" />
+    <Compile Include="Repositories\ShippingRepository.cs" />
+    <Compile Include="Repositories\UserMessageRepository.cs" />
+    <Compile Include="Repositories\UserMessageSettingsRepository.cs" />
+    <Compile Include="Repositories\UserTermsOfUseRepository.cs" />
+    <Compile Include="Repositories\WeighInRepository.cs" />
+    <Compile Include="Service References\AgreementService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BokaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Boka\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Centralen_Customer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Centralen_Items\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DeliveryAssuranceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DeliveryNoteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EmailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GrainService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GrobarhetService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LegacyCustomerSupportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Lm2CustomerSupportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LogiWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MachineAddNewServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MachineDetailById\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MachineDetailByReg\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MachineRemoveService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MachineService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MessageHubService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrganisationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PrisgrafService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PurchasingAgreementService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PurchasingMobileService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RequestService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SecurityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SessionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ShippingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UserTermsOfUseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WeighInService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TicketProvider.cs" />
+    <Compile Include="RepositoryBuilder.cs" />
+    <Compile Include="WsRequestModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gro.Core.ContentTypes\Gro.Core.ContentTypes.csproj">
+      <Project>{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}</Project>
+      <Name>Gro.Core.ContentTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gro.Core\Gro.Core.csproj">
+      <Project>{0F84F02B-E447-4C8D-9E6D-D496174E87D3}</Project>
+      <Name>Gro.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.AgreementDtos.Agreement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.AgreementDtos.DryAgreement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.AgreementDtos.FarmSample.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.AgreementDtos.PriceHedging.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.AgreementDtos.SeedAssurance.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Boka.BookingOrder.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Boka.CustomerSearch.DeleveryAssuranceList.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.CustomerSupport.Customer.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.CustomerSupport.CustomerExtendedInfo.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryAssuranceDtos.DeliveryAddress.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryAssuranceDtos.DeliveryAssurance.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryAssuranceDtos.DeliveryAssurances.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryAssuranceDtos.Item.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryAssuranceDtos.Supplier.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryNoteDtos.AnalysGruppResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryNoteDtos.BulkfoderLeveransResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryNoteDtos.FabricItemResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.DeliveryNoteDtos.FoljesedelResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Grain.AgreementsDeliverys.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Grain.Deliverys.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.GrobarhetDtos.GrobarhetResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.Category.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.DeliveryAddress.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.DeliveryInformation.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.EnvTypes.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.Message.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.MessageExtended.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.MessageRights.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.MessageSettings.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.MessageSettingsDisplay.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.PlannedDeliveries.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MessageHubDtos.UserMessageInfo.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MyProfile.Organisation.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MyProfile.User.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.MyProfile.UserMessage1.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.CustomerDeliveryAddress.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.CustomerInvoiceAddress.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.CustomerProfile.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.CustomerRegistration.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.DeliveryReceiver.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.ExistingUserRegistration.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.OrganisationInformation.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.OrganisationPicture.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.Profile.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.Profile1.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Organization.SiloItem.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.AgreementResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.Customer.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.DryingAgreement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.PriceArea.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.PricePeriod.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.PriceProtectedStorageAgreement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.PriceWatch.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.Product.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.PurchaseAgreement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.PurchasingAgreements.StorageAgreement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.SearchTransport.Annoncement.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.SearchTransport.OrderRowResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.SearchTransport.ShipmentResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.Company.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.CustomerBasicInfo.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.CustomerList.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.Profile.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.ProfileRole.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.ResponseUser.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.Role.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.User.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.UserProfile.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.UserRight.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.UserRights1.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.Security.UserRole.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.ShippingDtos.DeliveryFeeResponse.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.WeighInDtos.AnalyzeList.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.WeighInDtos.Overview.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.WeighInDtos.WeighIn.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.WeighInDtos.WeighInExtended.datasource" />
+    <None Include="Properties\DataSources\Gro.Core.DataModels.WeighInDtos.WeighInSumAgreementDto.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
+    <None Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
+    <None Include="Service References\AgreementService\LM_Farmday_MinaAvtalService_Virtual.wsdl" />
+    <None Include="Service References\BokaService\BokaService.wsdl" />
+    <None Include="Service References\BokaService\Gro.Infrastructure.Data.BokaService.getIOlistResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BokaService\Gro.Infrastructure.Data.BokaService.getIOResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Boka.wsdl" />
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.ChangeReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.DeleteReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetMakeReservationFormDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetReservationListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetResourceGroupItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetResourceGroupListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetResourceGroupTimesOutsideResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetResourceGroupTimesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.GetResourceGroupVehicleTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Boka\Gro.Infrastructure.Data.Boka.MakeReservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Customer.wsdl" />
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getAttributenumbersOnIOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getAttributenumbersToFlagResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCarrierResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerAddress_notExpiredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerMoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getCustomerTeamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getFreightValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getGHGvardeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getKund_BokaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getOcusmaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.getZoneForAddressOnIOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.ServiceAliveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.SetCustomerAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.SetCustomerDiscountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Customer\Gro.Infrastructure.Data.Centralen_Customer.SetCustomerNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.GetAPIATPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getAvtalZpagrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getCsytabResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getDeliveryAgreementItemsNewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getDeliveryAgreementItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getDeliveryAssuranceItemsNewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getDeliveryAssuranceItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getDepaAvtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.GetInControlArttyperResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.GetInControlKodformsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.GetInControlKodforms_faltResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.GetInControl_kodLagerStResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.GetInControl_kodSaljomradeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getInkopsAvtalFraktServiceM3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getInkopsAvtalFraktServiceM3testResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getInvagnExtendedInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getInvagningAvtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getInvagningResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getItemAvailableBalanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getItemGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getItemQuantityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getItemTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getLagerstalleLevforsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getLagerstalleLevforsTestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getLagerstalleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getLagerstalle_ExtResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getLoadLogResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMinaAvtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMinaOdlingsAvtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMinaTorkAvtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMITAFOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMITATPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMITBALResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMITPLOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getMPAGRHResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getOCUSASResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getOpenItemsDepa431Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getOpenItemsOffert404Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getOpenItemsPool401Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getOrtsjusteringResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getProductGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getSalesAreaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getSPMLLevsattResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getTerminsavtal_avtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getTP_InkopsAvtalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getTP_InkopsAvtal_BokaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getWarehouseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getZaffwResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getZaffw_HistResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.getZWDPRIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.get_InkopsOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Gro.Infrastructure.Data.Centralen_Items.ServiceAliveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Centralen_Items\Items.wsdl" />
+    <None Include="Service References\DeliveryAssuranceService\DeliveryAssuranceService.wsdl" />
+    <None Include="Service References\DeliveryAssuranceService\DeliveryAssuranceServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryAssuranceService\DeliveryAssuranceServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryAssuranceService\DeliveryAssuranceServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryAssuranceService\DeliveryAssuranceServiceInt3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryNoteService\FoljesedelService.wsdl" />
+    <None Include="Service References\DeliveryNoteService\FoljesedelServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryNoteService\FoljesedelServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryNoteService\FoljesedelServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeliveryNoteService\FoljesedelServiceInt3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService.wsdl" />
+    <None Include="Service References\EmailService\EmailService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrainService\LM_Farmday_GrainService_Virtual.wsdl" />
+    <None Include="Service References\GrobarhetService\GrobarhetService.wsdl" />
+    <None Include="Service References\GrobarhetService\GrobarhetServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrobarhetService\GrobarhetServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrobarhetService\GrobarhetServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportService.wsdl" />
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\CustomerSupportServiceInt6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.CustomerIssuesDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.DeliverySettingsDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.GetAllUsersSortedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.GetCustomerIssuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.GetNewlyRegisteredUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.ImpersonationDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.ProxyRegisterUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.RegisterUserDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.ResponseUserDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.SmsNotificationDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LegacyCustomerSupportService\Gro.Infrastructure.Data.LegacyCustomerSupportService.UserTokenDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Lm2CustomerSupportService\Gro.Infrastructure.Data.Lm2CustomerSupportService.Customer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Lm2CustomerSupportService\Gro.Infrastructure.Data.Lm2CustomerSupportService.GetCustomerLM2IdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Lm2CustomerSupportService\Gro.Infrastructure.Data.Lm2CustomerSupportService.GetCustomersByOrgNrResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Lm2CustomerSupportService\Gro.Infrastructure.Data.Lm2CustomerSupportService.SaveCustomerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Lm2CustomerSupportService\LMFD_TST_CustomerSupportService_VS.wsdl" />
+    <None Include="Service References\LogiWebService\Gro.Infrastructure.Data.LogiWebService.LoadingPlace.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogiWebService\Gro.Infrastructure.Data.LogiWebService.OrderStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogiWebService\Gro.Infrastructure.Data.LogiWebService.ReportItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogiWebService\LogiWebService.wsdl" />
+    <None Include="Service References\LogiWebService\LogiWebServiceInt.wsdl" />
+    <None Include="Service References\LogiWebService\LogiWebServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogiWebService\LogiWebServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogiWebService\LogiWebServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogiWebService\LogiWebServiceInt3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogiWebService\LogiWebServiceInt4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MachineAddNewServer\Gro.Infrastructure.Data.MachineAddNewServer.individSaveOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineAddNewServer\Gro.Infrastructure.Data.MachineAddNewServer.updateMachineForCustomerIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineAddNewServer\LMMA_MAS_C4_updateMachineForCustomerId.wsdl" />
+    <None Include="Service References\MachineDetailById\Gro.Infrastructure.Data.MachineDetailById.dt_singularMachineOut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineDetailById\Gro.Infrastructure.Data.MachineDetailById.GetMachineBySysIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineDetailById\LMMA_MAS_C4_GetMachineBySysId_VS.wsdl" />
+    <None Include="Service References\MachineDetailByReg\Gro.Infrastructure.Data.MachineDetailByReg.dt_singularMachineOut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineDetailByReg\Gro.Infrastructure.Data.MachineDetailByReg.GetMachineByRegNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineDetailByReg\LMMA_MAS_C4_GetMachineByRegNumber.wsdl" />
+    <None Include="Service References\MachineRemoveService\Gro.Infrastructure.Data.MachineRemoveService.deleteMachineForCustomerIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineRemoveService\Gro.Infrastructure.Data.MachineRemoveService.individSaveOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineRemoveService\LMMA_MAS_C4_deleteMachineForCustomerId.wsdl" />
+    <None Include="Service References\MachineService\Gro.Infrastructure.Data.MachineService.GetAllMachinesForCustomerIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MachineService\LMMA_MAS_C4_GetAllMachinesForCustomerId.wsdl" />
+    <None Include="Service References\MessageHubService\LM_Farmday_MessagehubService_Virtual1.wsdl" />
+    <None Include="Service References\OrganisationService\LM2OrganisationService.wsdl" />
+    <None Include="Service References\OrganisationService\LM2OrganisationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganisationService\LM2OrganisationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganisationService\LM2OrganisationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganisationService\LM2OrganisationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganisationService\LM2OrganisationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganisationService\LM2OrganisationService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.addRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.addRolesToPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.createPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.deletePersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.getAccountsByOwnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.getAuthorizedPersonProfilesForCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.getAuthorizedServicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.getFilteredAccountsByOwnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.getFilteredAuthorizedServicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.getPersonRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.modifyPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.removeRoleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.removeRolesFromPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.restorePersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.searchPersonsFromRootResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.searchPersonsWithITIMAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.suspendPersonAdvancedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.synchGeneratedPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.synchPasswordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.transferPersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.WSAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.WSPerson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.WSRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.WSRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\Gro.Infrastructure.Data.PersonService.WSService.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonService\WSPersonService.wsdl" />
+    <None Include="Service References\PrisgrafService\PrisgrafService.wsdl" />
+    <None Include="Service References\PrisgrafService\PrisgrafServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrisgrafService\PrisgrafServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrisgrafService\PrisgrafServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PurchasingAgreementService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PurchasingAgreementService\PurchasingAgreementServiceInt.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PurchasingAgreementService\service.wsdl" />
+    <None Include="Service References\PurchasingAgreementService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PurchasingAgreementService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.BookServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.Garage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetCustomerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetGarageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetGaragesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetItemsListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetItemsPriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetItemsPriceStatResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetLMStarGarageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetMarketInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetNearestGarageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetSalesmanResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetSalesMenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetSalesMen_FarmdayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.GetStarGarageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.RemoveStarGarageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.Salesman.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.SearchSalesman_FarmdayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\Gro.Infrastructure.Data.PurchasingMobileService.SetStarGarageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PurchasingMobileService\LM_Farmday_PurchasingMobileService_Virtual.wsdl" />
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.getActivitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.getChildProcessesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.getCompletedRequestsPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.getCompletedRequestsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.getPendingRequestsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.WSActivity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.WSRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\Gro.Infrastructure.Data.RequestService.WSSearchResultsWrapper.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RequestService\WSRequestService.wsdl" />
+    <None Include="Service References\SecurityService\Gro.Infrastructure.Data.SecurityService.CreateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecurityService\Gro.Infrastructure.Data.SecurityService.FindUsersByEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecurityService\Gro.Infrastructure.Data.SecurityService.FindUsersByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecurityService\Gro.Infrastructure.Data.SecurityService.GetAllUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecurityService\SecurityService1.wsdl" />
+    <None Include="Service References\SessionService\Gro.Infrastructure.Data.SessionService.getChallengeQuestionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionService\Gro.Infrastructure.Data.SessionService.lostPasswordLoginDirectEntryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionService\Gro.Infrastructure.Data.SessionService.lostPasswordLoginResetPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionService\Gro.Infrastructure.Data.SessionService.WSSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionService\Gro.Infrastructure.Data.SessionService.WSVersionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionService\WSSessionService.wsdl" />
+    <None Include="Service References\UserTermsOfUseService\UserTermsOfUseService.wsdl" />
+    <None Include="Service References\UserTermsOfUseService\UserTermsOfUseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserTermsOfUseService\UserTermsOfUseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WeighInService\WeighInService.wsdl" />
+    <None Include="Service References\WeighInService\WeighInServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WeighInService\WeighInServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WeighInService\WeighInServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WeighInService\WeighInServiceInt3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AgreementService\" />
+    <WCFMetadataStorage Include="Service References\BokaService\" />
+    <WCFMetadataStorage Include="Service References\Boka\" />
+    <WCFMetadataStorage Include="Service References\Centralen_Customer\" />
+    <WCFMetadataStorage Include="Service References\Centralen_Items\" />
+    <WCFMetadataStorage Include="Service References\DeliveryAssuranceService\" />
+    <WCFMetadataStorage Include="Service References\DeliveryNoteService\" />
+    <WCFMetadataStorage Include="Service References\EmailService\" />
+    <WCFMetadataStorage Include="Service References\GrainService\" />
+    <WCFMetadataStorage Include="Service References\GrobarhetService\" />
+    <WCFMetadataStorage Include="Service References\LegacyCustomerSupportService\" />
+    <WCFMetadataStorage Include="Service References\Lm2CustomerSupportService\" />
+    <WCFMetadataStorage Include="Service References\LogiWebService\" />
+    <WCFMetadataStorage Include="Service References\MachineAddNewServer\" />
+    <WCFMetadataStorage Include="Service References\MachineDetailById\" />
+    <WCFMetadataStorage Include="Service References\MachineDetailByReg\" />
+    <WCFMetadataStorage Include="Service References\MachineRemoveService\" />
+    <WCFMetadataStorage Include="Service References\MachineService\" />
+    <WCFMetadataStorage Include="Service References\MessageHubService\" />
+    <WCFMetadataStorage Include="Service References\OrganisationService\" />
+    <WCFMetadataStorage Include="Service References\PersonService\" />
+    <WCFMetadataStorage Include="Service References\PrisgrafService\" />
+    <WCFMetadataStorage Include="Service References\PurchasingAgreementService\" />
+    <WCFMetadataStorage Include="Service References\PurchasingMobileService\" />
+    <WCFMetadataStorage Include="Service References\RequestService\" />
+    <WCFMetadataStorage Include="Service References\SecurityService\" />
+    <WCFMetadataStorage Include="Service References\SessionService\" />
+    <WCFMetadataStorage Include="Service References\ShippingService\" />
+    <WCFMetadataStorage Include="Service References\UserTermsOfUseService\" />
+    <WCFMetadataStorage Include="Service References\WeighInService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShippingService\FraktService.wsdl" />
+    <None Include="Service References\ShippingService\FraktServiceInt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ShippingService\FraktServiceInt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ShippingService\FraktServiceInt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WeighInService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeighInService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeighInService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgreementService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgreementService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgreementService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeliveryNoteService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeliveryNoteService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeliveryNoteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrobarhetService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrobarhetService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrobarhetService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrisgrafService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrisgrafService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrisgrafService\Reference.svcmap" />
+    <None Include="Service References\DeliveryAssuranceService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeliveryAssuranceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeliveryAssuranceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShippingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShippingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShippingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MessageHubService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MessageHubService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MessageHubService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmailService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmailService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecurityService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserTermsOfUseService\UserTermsOfUseService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserTermsOfUseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserTermsOfUseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserTermsOfUseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganisationService\LM2OrganisationService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganisationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganisationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganisationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrainService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrainService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrainService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineAddNewServer\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineAddNewServer\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineAddNewServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineRemoveService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineRemoveService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineRemoveService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineDetailByReg\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineDetailByReg\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineDetailByReg\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PurchasingMobileService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PurchasingMobileService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PurchasingMobileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RequestService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RequestService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RequestService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineDetailById\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineDetailById\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MachineDetailById\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogiWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogiWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogiWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BokaService\BokaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BokaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BokaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BokaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Boka\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Boka\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Boka\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Items\Items.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Items\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Items\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Items\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Customer\Customer.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Customer\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Customer\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Centralen_Customer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Boka\Boka.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PurchasingAgreementService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PurchasingAgreementService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PurchasingAgreementService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Lm2CustomerSupportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Lm2CustomerSupportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Lm2CustomerSupportService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LegacyCustomerSupportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LegacyCustomerSupportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LegacyCustomerSupportService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

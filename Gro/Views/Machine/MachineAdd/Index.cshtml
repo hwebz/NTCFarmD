@@ -1,0 +1,146 @@
+﻿@model Gro.ViewModels.Pages.Machines.MachineAddPageViewModel
+@using Gro.Core.DataModels.Machine
+@using Gro.ViewModels.Pages.Machines
+@using Newtonsoft.Json
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout layout--large">
+            <div class="layout__item u-1/1">
+                <h1 class="lm__page-title">Mina maskiner</h1>
+            </div>
+
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block lm__grid">
+                    <div class="loader-wrapper" id="loader" style="display: none;">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="lm__item u-1/2-desktop u-1/1">
+                        <ul class="errors-list" id="machine-add-error-list" hidden="hidden">
+                            <li class="errors-list__header">Du måste ange</li>
+                            <li>Välj meddelandeområde</li>
+                            <li>Lägg till mottagare</li>
+                            <li>Avsändare SMS-meddelande</li>
+                            <li>Rubik</li>
+                        </ul>
+                        @using (Html.BeginForm("Index", "MachineAdd", FormMethod.Post, new {@class = "form-add-machine", @id = "form-adding-machine"}))
+                        {
+                            <div class="lm__block not-overflow category-block">
+                                <p>Välj typ av maskin att lägga till</p>
+                                <div class="u-1/1 u-4/5-tablet">
+                                    <ul class="lm__form-dropdown type-3">
+                                        <li class="showcase" id="drop-machine-category">
+                                            <input type="hidden" name="machineCategory"/>
+                                            <a href="#">Välj typ</a>
+                                            <ul class="dropdown">
+                                                @foreach (var item in Model.CategoryList)
+                                                {
+                                                    <li data-value="@item.Key">
+                                                        <a href="#">@item.Name</a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <input type="text" class="success" name="other-cate-name" style="display: none"/>
+                                    <span class="error-item" hidden="hidden">Du måste ange typ</span>
+                                </div>
+                            </div>
+
+                            <!-- Temporarily hidden until implemented
+                            <div class="lm__block">
+                                <p>Registreringsnummer</p>
+                                <div class="u-3/5 u-4/5-mobile fleft">
+                                    <input type="text" name="Registreringsnummer" class="success with-bg" id="registration"/>
+                                </div>
+                                <div class="u-2/5 u-1/5-mobile fleft registerNumberButton">
+                                    <button type="button" class="btn lm__form-btn" id="machine-registration-button">Hämta</button>
+                                </div>
+                            </div>
+                            -->
+
+                            <div class="lm__block not-overflow branch-block">
+                                <p>Märke*</p>
+                                <div class="u-1/1 u-4/5-tablet">
+                                    <ul class="lm__form-dropdown branch-dropdown type-3">
+                                        <li class="showcase" id="drop-machine-brand">
+                                            <input type="hidden" name="machineBrand"/>
+                                            <a href="#">Välj märke</a>
+                                            <ul class="dropdown">
+                                                @foreach (var item in Model.BrandList)
+                                                {
+                                                    @*<li data-value="@item.Key" ><a href="#" class="brandLink" onclick ="MachineAddPage.brandClick(this)">@item.Name</a></li>*@
+                                                    <li data-value="@item.Key">
+                                                        <a href="#" class="brandLink">@item.Name</a>
+                                                    </li>
+                                                }
+                                                <li data-value="Annan">
+                                                    <a href="#">Annan</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <input type="text" class="success" name="branch-input"/>
+                                    <span class="error-item" hidden="hidden">Du måste ange märke</span>
+                                </div>
+                            </div>
+
+                            <div class="lm__block not-overflow model-block">
+                                <p>Modell*</p>
+                                <div class="u-1/1 u-4/5-tablet">
+                                    <ul class="lm__form-dropdown model-dropdown type-3 model-dd-container">
+                                        @Html.Partial("~/Views/Machine/MachineAdd/ModelLists.cshtml", new MachineAddModelList())
+                                    </ul>
+                                    <input type="text" class="success" name="model-input"/>
+                                    <span class="error-item" hidden="hidden">Du måste ange modell</span>
+                                </div>
+                            </div>
+
+                            <!-- Temporarily hidden until implemented
+                            <div class="lm__block">
+                                <p>Serienummer (VIN - Vehicle Id Number)</p>
+                                <div class="u-1/1 u-4/5-tablet">
+                                    <input type="text" class="success" name="seriNumber" id="serial-number" disabled="disabled"/>
+                                </div>
+                            </div>
+                            -->
+
+                            <div class="lm__block alignRight">
+                                <button type="button" class="btn lm__form-btn" id="add-machine-cancel">Avbryt</button>
+                                <button type="submit" class="btn lm__form-btn reverse-state fright">Lägg till</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="lm__item paragraph-col u-1/1 u-1/2-tablet">
+                        @Html.PropertyFor(x=>x.CurrentPage.Instruction)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="lm__modal-alert">
+    <div class="lm__modal-dialog">
+        <div class="modal-content-inform">
+            <span class="alert-icon warning"></span>
+            <h3 class="success-header-title">Det verkar som om du kanske har skrivit in fel uppgifter?</h3>
+            <p>Det kan också vara så att du inte står som registrerad ägare på maskinen. Kontrollera dina uppgifter och försök igen, eller kontakta din säljare för ägarbyte.</p>
+            <div class="button-confirm">
+                <button class="success-confirm-inform width-40">Ok</button>
+            </div>
+            <div class="lm__information-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#add-machine-cancel').click(function() {
+            var url = @Html.Raw(JsonConvert.SerializeObject(this.Model.UrlMaskinStarPage));
+            location.href = url;
+        });
+    });
+</script>

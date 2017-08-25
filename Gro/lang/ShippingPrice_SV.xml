@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"  standalone="yes"?>
+<languages>
+  <language name="svenska" id="sv">
+    <lantBruk>
+      <fraktPris>
+        <deliveryFee>Frakt inkl ortsjustering:</deliveryFee>
+        <bestCity>Bästa ort</bestCity>
+        <kmAway>Antal km</kmAway>
+        <calculate>Beräkna</calculate>
+      </fraktPris>
+    </lantBruk>
+  </language>
+</languages>

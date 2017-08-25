@@ -1,0 +1,37 @@
+﻿@using Gro.Helpers
+@model IEnumerable<Gro.Core.DataModels.AgreementDtos.PriceHedging>
+
+
+<div class="modal-header-title">
+    <h3>@Html.Translate("/lantBruk/avtal/priceHedging/priceHedgings")</h3>
+</div>
+<div class="modal-content" data-role="page">
+    @Html.Translate("/lantBruk/avtal/priceHedging/description")
+    <div class="lm__table-wrapper">
+        <table border="0" class="priceHedging tablesaw" data-tablesaw-mode="columntoggle">
+            <thead>
+                <tr>
+                    <th scope="col" data-tablesaw-priority="persist">@Html.Translate("/lantBruk/avtal/priceHedging/inputPriceHedging")</th>
+                    <th scope="col" data-tablesaw-priority="1">@Html.Translate("/lantBruk/avtal/priceHedging/agreementDate")</th>
+                    <th scope="col" data-tablesaw-priority="2">@Html.Translate("/lantBruk/avtal/priceHedging/quantity")</th>
+                    <th scope="col" data-tablesaw-priority="3">@Html.Translate("/lantBruk/avtal/priceHedging/price")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.InputPriceHedging</td>
+                            <td>@item.AgreementDate.ToStandardDateTimeString()</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price</td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+   </div>
+</div>

@@ -1,0 +1,8 @@
+.no-checkbox{
+    &::before{
+        opacity: 0 !important;
+    }
+    &::after{
+        opacity: 0 !important;
+    }
+}

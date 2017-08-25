@@ -1,0 +1,48 @@
+﻿/// <reference path="../_references.scss" />
+
+.user-type__sub-types {
+    display: none;
+}
+
+.sub-type {
+    position: relative;
+    display: block;
+    margin: 30px 0;
+
+    .lm__checkbox {
+        vertical-align: -10px;
+    }
+
+    p {
+        margin: 10px 10px 10px 20px !important;
+    }
+
+    .title {
+        display: inline-block;
+
+        .link-to-open-popup {
+            @include set-absolute-position(0, 0, auto, auto);
+            @include set-center-position(top, 50%);
+        }
+    }
+
+    .sub-title {
+        @include set-absolute-position(auto, auto, -25px, 35px);
+    }
+
+    .type-of-sub-type {
+        margin-left: 25px;
+
+        .lm__radio {
+            p {
+                padding: 10px 10px 10px 50px;
+            }
+        }
+    }
+}
+
+.small-margin {
+    .sub-type {
+        margin: 5px 0;
+    }
+}

@@ -1,0 +1,33 @@
+{ "categories":[
+          {
+            "id": 1,
+            "name":"Category 1",
+            "isSelected": false
+          },
+          {
+            "id": 2,
+            "name":"Category 2",
+            "isSelected": false
+          },
+          {
+            "id": 3,
+            "name":"Category 3",
+            "isSelected": false
+          },
+          {
+            "id": 4,
+            "name":"Category 4",
+            "isSelected": false
+          },
+          {
+            "id": 5,
+            "name":"Category 5",
+            "isSelected": false
+          },
+          {
+            "id": 6,
+            "name":"Category 6",
+            "isSelected": false
+          }
+        ]
+}

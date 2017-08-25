@@ -1,0 +1,88 @@
+﻿@using EPiServer.Core
+@using Gro.Constants
+@using Gro.Core.ContentTypes.Utils
+@using Gro.Core.DataModels.MessageHubDtos
+@using Gro.Helpers
+@model Gro.ViewModels.Pages.Messages.PlannedDeliveryPageViewModel
+
+
+@helper RenderDeliveryTable(string[] listHeaders, PlannedDelivery[] deliveries)
+{
+    <p class="table-caption">Välj kolumner som skall visas</p>
+    <div class="lm__table-wrapper">
+        <table border="0" class="tablesaw" data-tablesaw-mode="columntoggle">
+            <thead>
+                <tr>
+                    @for (var i = 0; i < listHeaders.Length; i++)
+                    {
+                        <th scope="col" data-tablesaw-priority="@(i==0?"persist":i.ToString())">@listHeaders[i]</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (deliveries != null)
+                {
+                    foreach (var delivery in deliveries)
+                    {
+                        <tr>
+                            @foreach (var td in listHeaders)
+                            {
+                                <td>@DeliveryMessageHelper.MappingMsgInforByName(delivery, td)</td>
+                            }
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+}
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="@ContentExtensions.GetStartPageUrl()" class="lm__back-link small-distance-bottom"><i class="fa fa-arrow-left" aria-hidden="true"></i>Till startsidan</a>
+            </div>
+            <div class="layout__item u-1/1">
+                <div class="lm__block">
+                    <div class="lm__block-box">
+                        <h1 class="heading-title">@Model.CurrentPage.Heading</h1>
+                        <p>Senast uppdaterad:@string.Format(" {0} kl. 05.00", Model.LastUpdated.ToString("yyyy-MM-dd"))</p>
+                        <p>Lantmännen Lantbruk har följande leveranser och hämtningar till @(Model.ActiveCustomer != null ? Model.ActiveCustomer.CustomerName : string.Empty)</p>
+                        @if (Model.PlannedDeliveriesList.Any())
+                        {
+                            var headersToCustomers = new[]
+                                       {
+                                    DeliveryItemHeader.Sandning, DeliveryItemHeader.SummaKvantitet,
+                                    DeliveryItemHeader.AntalOrderrader, DeliveryItemHeader.Planeradankomst,
+                                    DeliveryItemHeader.FranFabrikLager, DeliveryItemHeader.Transportor,
+                                    DeliveryItemHeader.TelTransportor
+                                };
+                            var headersFromCustomers = new[]
+                                       {
+                                    DeliveryItemHeader.LevForsakran, DeliveryItemHeader.Sandningsnr,
+                                    DeliveryItemHeader.Artikel, DeliveryItemHeader.Summa,
+                                    DeliveryItemHeader.Planeradankomst, DeliveryItemHeader.TillLager,
+                                    DeliveryItemHeader.Transportor, DeliveryItemHeader.TelTransportor
+                                };
+
+                            foreach (var plannedDeliveriese in Model.PlannedDeliveriesList)
+                            {
+                                if (plannedDeliveriese == null) { continue; }
+                                <div class="table-data big-distance-top big-distance-bottom">
+                                    <p>Leveranser planerade till @plannedDeliveriese.DeliveryAddress</p>
+                                    @RenderDeliveryTable(headersToCustomers, plannedDeliveriese.ToCustomer)
+                                </div>
+
+                                <div class="table-data big-distance-top big-distance-bottom">
+                                    <p>Hämtningar från @plannedDeliveriese.DeliveryAddress</p>
+                                    @RenderDeliveryTable(headersFromCustomers, plannedDeliveriese.FromCustomer)
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

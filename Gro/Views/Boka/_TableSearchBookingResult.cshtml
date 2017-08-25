@@ -1,0 +1,85 @@
+﻿@using Gro.Core.DataModels.Boka.ListingBoka
+@model Dictionary<string, List<SearchBookingsDto>>
+
+@if (Model != null && Model.Count > 0)
+{
+    foreach (var group in Model)
+    {
+        <div class="u-1/1  lm__block">
+            <p class="no-margin"><strong>Datum:</strong> @group.Key</p>
+            <p class="no-margin">@group.Value[0].ResourceGroupName @group.Value[0].ResourceName</p>
+
+            <p class="table-caption">Välj kolumner som skall visas</p>
+            <div class="lm__table-wrapper">
+                <table border="0" class="tablesaw" data-tablesaw-mode="columntoggle">
+                    <thead>
+                    <tr>
+                        <th scope="col" data-tablesaw-priority="persist">Bokn.nr</th>
+                        <th scope="col" data-tablesaw-priority="1">Tid</th>
+                        <th scope="col" data-tablesaw-priority="2">Ank avvik (min)</th>
+                        <th scope="col" data-tablesaw-priority="3">Kund</th>
+                        <th scope="col" data-tablesaw-priority="4">Bokad av</th>
+                        <th scope="col" data-tablesaw-priority="5">Artikel</th>
+                        <th scope="col" data-tablesaw-priority="6">Regnr</th>
+                        <th scope="col" data-tablesaw-priority="7">Kvantitet</th>
+                        <th scope="col" data-tablesaw-priority="8">Last/Loss</th>
+                        <th scope="col" data-tablesaw-priority="9">Lev nr</th>
+                        <th scope="col" data-tablesaw-priority="10">Förs nr / Sändn nr</th>
+                        <th scope="col" data-tablesaw-priority="11">Ändra</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in group.Value)
+                    {
+                        <tr title="@item.ToolTip">
+                            <td id="reservationId"><a href="#">@item.ReservationId</a></td>
+                            <td>@item.FromTime-@item.ToTime</td>
+                            <td>@item.ArrivalTimeDifference</td>
+                            <td id="customer-number">@item.CustomerNo</td>
+                            <td id="owner">@item.Owner</td>
+                            <td id="itemNo">@item.ItemNo-@item.ItemName</td>
+                            <td id="licensePlateNo">@item.LicensePlateNo</td>
+                            <td id="weight">@item.Quantity @item.UnitName</td>
+                            <td>@(item.Loading ? "Lasta" : "Lossa")</td>
+                            <td id="leveransforsakransnr">@item.Leveransforsakransnr</td>
+                            <td>
+                                <input type="hidden" id="from-date" value="@item.FromDate"/>
+                                <input type="hidden" id="from-time" value="@item.FromTime"/>
+                                <input type="hidden" id="note" value="@item.Note"/>
+                                <input type="hidden" id="reminderMinutesBefore" value="@item.ReminderMinutesBefore"/>
+                                <input type="hidden" id="emailAddress" value="@item.EmailAddress"/>
+                                <input type="hidden" id="mobileNo" value="@item.MobileNo"/>
+                                <input type="hidden" id="speditorNo" value="@item.SpeditorNo"/>
+                                <input type="hidden" id="customer-name" value="@item.CustomerName"/>
+                                <input type="hidden" id="transportOrderNo" value="@item.TransportOrderNo"/>
+                                <input type="hidden" id="contractNo" value="@item.ContractNo"/>
+                                <input type="hidden" id="reminderEmail" value="@item.ReminderEmail.ToString()"/>
+                                <input type="hidden" id="reminderSms" value="@item.ReminderSMS.ToString()"/>
+                                <input type="hidden" id="itemName" value="@item.ItemName"/>
+                                <input type="hidden" id="resourceName" value="@item.ResourceName"/>
+                                <input type="hidden" id="dateRegistered" value="@(item.FromDate + " " + item.FromTime)" />
+                            </td>
+                            <td class="min-width-75px centerd-column">
+                                @if (item.UserCanChange)
+                                {
+                                    <a href="#" class="lm__inline-edit-btn lm__float-left-element boka-listing-editBtn"></a>
+                                    <a href="#" class="lm__inline-delete-btn lm__float-right-element boka-listing-deleteBtn"></a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    <div class="u-1/1  lm__block">
+        <div class="lm__meddelanden-actions small-distance-top small-distance-bottom">
+            <a href="#" id="printLink" class="lm__meddelanden-action-btn"><i class="fa fa-print"></i>Skriv ut</a>
+        </div>
+    </div>
+}
+else
+{
+    <h3>Hittade inga bokningar.</h3>
+}

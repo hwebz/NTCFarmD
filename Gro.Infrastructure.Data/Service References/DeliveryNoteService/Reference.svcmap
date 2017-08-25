@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e2d1fce0-ed29-434c-9e8b-396a3bd35d19" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://SR02009/apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FoljesedelServiceInt.xsd" MetadataType="Schema" ID="d72e371f-1cbd-4569-a397-aa11bb7480a4" SourceId="1" SourceUrl="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FoljesedelServiceInt1.xsd" MetadataType="Schema" ID="337b97b8-a6dd-4630-a4cb-39dbc020e83f" SourceId="1" SourceUrl="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FoljesedelServiceInt2.xsd" MetadataType="Schema" ID="02774029-c4ea-4c5e-adcf-028fd7f23ebd" SourceId="1" SourceUrl="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FoljesedelService.wsdl" MetadataType="Wsdl" ID="9f04b42c-0a8d-4894-91f4-90dac3fedde8" SourceId="1" SourceUrl="http://sr02009/apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?wsdl" />
+    <MetadataFile FileName="FoljesedelServiceInt3.xsd" MetadataType="Schema" ID="801f43a0-2ae9-40fe-b809-3d933315c3d1" SourceId="1" SourceUrl="http://sr02009/Apps/FoljesedelServiceInt/FoljesedelServiceInt.FoljesedelService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

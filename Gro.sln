@@ -1,0 +1,115 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gro.Web", "Gro\Gro.Web.csproj", "{6486AE58-EC44-49DE-B81B-2679FD770165}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C} = {3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gro.Core.ContentTypes", "Gro.Core.ContentTypes\Gro.Core.ContentTypes.csproj", "{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gro.Core", "Gro.Core\Gro.Core.csproj", "{0F84F02B-E447-4C8D-9E6D-D496174E87D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gro.Infrastructure.Data", "Gro.Infrastructure.Data\Gro.Infrastructure.Data.csproj", "{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gro.Infrastructure.Tests", "Gro.Infrastructure.Tests\Gro.Infrastructure.Tests.csproj", "{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		FarmDayDevTest|Any CPU = FarmDayDevTest|Any CPU
+		FarmDayProd|Any CPU = FarmDayProd|Any CPU
+		FarmDayStg|Any CPU = FarmDayStg|Any CPU
+		FarmDaySysTest|Any CPU = FarmDaySysTest|Any CPU
+		FarmDayUAT|Any CPU = FarmDayUAT|Any CPU
+		GRO EPiLyftet|Any CPU = GRO EPiLyftet|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayDevTest|Any CPU.ActiveCfg = FarmDayDevTest|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayDevTest|Any CPU.Build.0 = FarmDayDevTest|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayProd|Any CPU.ActiveCfg = FarmDayProd|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayProd|Any CPU.Build.0 = FarmDayProd|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayStg|Any CPU.ActiveCfg = FarmDayStg|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayStg|Any CPU.Build.0 = FarmDayStg|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDaySysTest|Any CPU.ActiveCfg = FarmDayStg|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDaySysTest|Any CPU.Build.0 = FarmDayStg|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayUAT|Any CPU.ActiveCfg = FarmDayUAT|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.FarmDayUAT|Any CPU.Build.0 = FarmDayUAT|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.GRO EPiLyftet|Any CPU.ActiveCfg = Release|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.GRO EPiLyftet|Any CPU.Build.0 = Release|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6486AE58-EC44-49DE-B81B-2679FD770165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayDevTest|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayDevTest|Any CPU.Build.0 = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayProd|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayProd|Any CPU.Build.0 = Debug|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayStg|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayStg|Any CPU.Build.0 = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDaySysTest|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDaySysTest|Any CPU.Build.0 = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayUAT|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.FarmDayUAT|Any CPU.Build.0 = Debug|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.GRO EPiLyftet|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.GRO EPiLyftet|Any CPU.Build.0 = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCC0F89-58B2-4A19-8BA3-B1ADCEB4643C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayDevTest|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayDevTest|Any CPU.Build.0 = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayProd|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayProd|Any CPU.Build.0 = Debug|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayStg|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayStg|Any CPU.Build.0 = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDaySysTest|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDaySysTest|Any CPU.Build.0 = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayUAT|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.FarmDayUAT|Any CPU.Build.0 = Debug|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.GRO EPiLyftet|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.GRO EPiLyftet|Any CPU.Build.0 = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84F02B-E447-4C8D-9E6D-D496174E87D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayDevTest|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayDevTest|Any CPU.Build.0 = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayProd|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayProd|Any CPU.Build.0 = Debug|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayStg|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayStg|Any CPU.Build.0 = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDaySysTest|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDaySysTest|Any CPU.Build.0 = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayUAT|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.FarmDayUAT|Any CPU.Build.0 = Debug|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.GRO EPiLyftet|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.GRO EPiLyftet|Any CPU.Build.0 = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA01E5C-C69F-4D52-9690-575DDFD5DC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayDevTest|Any CPU.ActiveCfg = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayDevTest|Any CPU.Build.0 = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayProd|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayProd|Any CPU.Build.0 = Debug|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayStg|Any CPU.ActiveCfg = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayStg|Any CPU.Build.0 = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDaySysTest|Any CPU.ActiveCfg = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDaySysTest|Any CPU.Build.0 = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayUAT|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.FarmDayUAT|Any CPU.Build.0 = Debug|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.GRO EPiLyftet|Any CPU.ActiveCfg = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.GRO EPiLyftet|Any CPU.Build.0 = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB275B24-5CAF-4E7F-A6A5-91CC2259A8E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

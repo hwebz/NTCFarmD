@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>News detail</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+
+<body>
+
+    <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+    <header class="lm__header">
+        <div class="lm__top-header">
+            <div class="wrapper">
+                <div class="layout  layout--small">
+                    <div class="layout__item u-1/3 u-1/2-tablet lm__logo">
+                        <a href="#"><img src="images/logo.png" alt="LM2 Logo" class="lm__logo-item"></a>
+                        <span class="lm__slogan">Verktyget för jordens entreprenörer</span>
+                    </div>
+                    <div class="layout__item u-2/3 u-1/2-tablet lm__utility">
+                        <nav class="lm__user-settings">
+                            <ul>
+                                <li class="lm__star"><a href="#"></a></li>
+                                <li class="lm__messages"><a href="#"><span class="lm__messages-count">2</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="lm__user-profile">
+                            <div class="user-info-wrapper">
+                                <a class="lm__user-info" href="#">
+                                    <h4 class="lm__user-id">32008145</h4>
+                                    <p class="lm__user-summary">Nilsson Lantbruk AB</p>
+                                </a>
+                                <div class="sub__user-profile">
+                                    <div class="user-id__wrapper lm__radio type-3">
+                                        <input type="radio" name="user_id" checked />
+                                        <div class="user-id__label">
+                                            <h4>32008145</h4>
+                                            <p>Nilsson Lantbruk AB</p>
+                                        </div>
+                                    </div>
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" />
+                                        <div class="user-id__label">
+                                            <h4>3208007</h4>
+                                            <p>Karlssons Gård</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__user-avatar-wrapper">
+                                <a href="#" class="lm__user-avatar"><img src="images/user-avatar.jpg" alt="User Avatar"></a>
+                                <div class="sub-settings-panel">
+                                    <div class="inform-panel">
+                                        <img src="images/user-avatar.jpg" alt="User Avatar">
+                                        <div class="inform-detail">
+                                            <h3>Lars Karlsson</h3>
+                                            <p>Administratör vid Nilsson lantbruk AB</p>
+                                        </div>
+                                        <a href="#" class="mitt-konto__btn">Mitt konto</a>
+                                    </div>
+                                    <div class="logout-btn__wrapper">
+                                        <a href="#" class="logout-btn">Logga ut</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lm__navigation-wrapper">
+            <div class="lm__navigation">
+                <div class="wrapper">
+                    <div class="layout  layout--small">
+                        <div class="layout__item u-1/1">
+                            <div class="lm__active-page">
+                                <nav class="lm__user-settings">
+                                    <ul>
+                                        <li class="lm__settings">
+                                            <a href="#"></a>
+                                            <nav class="lm_sub-settings">
+                                                <ul>
+                                                    <li class="spannmal"><a href="#">Spannmål</a></li>
+                                                    <li class="odling"><a href="#">Odling</a></li>
+                                                    <li class="foder"><a href="#">Foder</a></li>
+                                                    <li class="maskiner"><a href="#">Maskiner</a></li>
+                                                    <li class="ekonomi"><a href="#">Ekonomi</a></li>
+                                                    <div class="cleafix"></div>
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <h1 class="lm__page-title">Spannmål</h1>
+                            </div>
+                            <nav class="lm__main-navigation">
+                                <a class="lm_toggle-menu" href="#" alt="Humberger Icon">
+                                    <span class="text"></span>
+                                    <span class="humb">
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li><a href="#">Sälja fysisk spannmål</a></li>
+                                    <li>
+                                        <a href="#">Lämna spannmål</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">Marknadsinformation</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blanketter</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End of header -->
+    <!-- END OF HEADER -->
+
+    <!-- START MAIN CONTENT -->
+    <section class="lm__contents">
+        <div class="wrapper">
+            <div class="layout  layout--large">
+                <div class="layout__item u-1/1 u-2/3-tablet">
+                    <form class="lm__form-input" action="#" method="post">
+                        <div class="lm__form lm__block lm__mina-avtal has-separator no-margin">
+                            <div class="lm__block">
+                                <div class="u-1/1">
+                                    <h1 class="lm__page-title">Tidsbokning</h1>
+                                </div>
+                                <div class="u-1/1  ">
+                                    <div class="author-inform-form__column u-1/1 u-1/1-tablet  u-1/5-desktop lm__row-margin">
+                                        <span>Datum</span>
+                                        <div class="datepicker-container">
+                                            <input type="text" class="datepicker-blank-default calculate_deliveryDate lm__element-margin-top" value=" ">
+                                            <span class="lm__error hidden">Please provide valid date time</span>
+                                        </div>
+                                    </div>
+                                    <div class="author-inform-form__column u-1/1 u-1/1-tablet  u-1/5-desktop lm__row-margin">
+                                        <span>Till</span>
+                                        <div class="datepicker-container">
+                                            <input type="text" class="datepicker-blank-default calculate_deliveryDate lm__element-margin-top" value=" ">
+                                            <span class="lm__error hidden">Please provide valid date time</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-1/1  lm__form">
+                                    <div class="author-inform-form__column author-inform-form__column-large lm__row-margin">
+                                        <span>Anläggning</span>
+                                        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                            <ul class="lm__form-dropdown type-3">
+                                                <li class="showcase">
+                                                    <a href="#">Agroetanol (Norrköping) - Spannmålsa..</a>
+                                                    <ul class="dropdown">
+                                                        <li data-value="1"><a href="#">Type 1</a></li>
+                                                        <li data-value="2"><a href="#">Type 2</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="author-inform-form__column author-inform-form__column-custom-2 lm__row-margin">
+                                        <span>Regnr</span>
+                                        <input type="text" class="lm__element-margin-top" value="" placeholder="">
+                                    </div>
+                                    <div class="u-1/4-tablet u-1/5-desktop u-1/1 author-inform-form__column lm__row-margin">
+                                        <div class="u-1/1">
+                                            <span>&nbsp;</span>
+                                        </div>
+                                        <input type="submit " class="lm__form-btn reverse-state " value="Sök " />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lm__block lm__mina-avtal has-separator no-margin">
+                            <div class="lm__block has-separator ">
+                                <div class="u-1/1  lm__block">
+                                    <p class="no-margin"><strong>Datum:</strong> 2016-12-01</p>
+                                    <p class="no-margin">Linköping Intag 1</p>
+                                    <div class="lm__table-wrapper">
+                                        <table border="0" class="tablesaw" data-tablesaw-mode="columntoggle">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" data-tablesaw-priority="persist">Bokn.nr</th>
+                                                    <th scope="col" data-tablesaw-priority="1">Tid</th>
+                                                    <th scope="col" data-tablesaw-priority="2" style="min-width:100px">Ank avvik (min)</th>
+                                                    <th scope="col" data-tablesaw-priority="3">Kund</th>
+                                                    <th scope="col" data-tablesaw-priority="4">Bokad av</th>
+                                                    <th scope="col" data-tablesaw-priority="5">Artikel</th>
+                                                    <th scope="col" data-tablesaw-priority="6">Regnr</th>
+                                                    <th scope="col" data-tablesaw-priority="7">Kvantitet</th>
+                                                    <th scope="col" data-tablesaw-priority="8">Last/Loss</th>
+                                                    <th scope="col" data-tablesaw-priority="9">Lev nr</th>
+                                                    <th scope="col" data-tablesaw-priority="10" style="min-width:85px">Förs nr / Sändn nr</th>
+                                                    <th scope="col" data-tablesaw-priority="11" style="min-width:85px">Ändra</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">366821</a></td>
+                                                    <td>07:30-07:45</td>
+                                                    <td></td>
+                                                    <td>1000</td>
+                                                    <td>1000</td>
+                                                    <td>100064-Grynhavre</td>
+                                                    <td>25</td>
+                                                    <td>5 Ton</td>
+                                                    <td>Losaa</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <a href="#" class="lm__inline-edit-btn lm__float-left-element"></a>
+                                                        <a href="#" class="lm__inline-delete-btn lm__float-right-element"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="u-1/1  lm__block">
+                                    <div class="lm__meddelanden-actions small-distance-bottom small-distance-top">
+                                        <a href="#" class="lm__meddelanden-action-btn"><i class="fa fa-print"></i>Skriv ut</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lm__block">
+                                <strong class="no-margin">Ändra bokning genom att ändra uppgifter nedan och klicka Uppdatera bokning.</strong>
+                                <p class="no-margin">Tid: 07:30, Kund: 1000000 Testkund Team Mälardalen, Bokningsnr: 370042, Artikel: 100038 Oljeväxter</p>
+                                <p class="no-margin">Oljeväxter 2 Ton</p>
+                                <p class="no-margin">Resurs: Vågen</p>
+
+                                <div class="u-1/1  ">
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1 lm__row-margin lm__float-left-element">
+                                        <span>Lev försäkr nr / Sändnnr</span>
+                                        <input type="text" class="lm__element-margin-top" value="" placeholder="">
+                                    </div>
+
+                                    <div class="author-inform-form__column author-inform-form__column-custom-2 lm__row-margin ">
+                                        <span>Regnr</span>
+                                        <input type="text" class="lm__element-margin-top" value="" placeholder="">
+                                    </div>
+
+                                    <div class="author-inform-form__column author-inform-form__column-half lm__row-margin ">
+                                        <span>Övrigt</span>
+                                        <input type="text" class="lm__element-margin-top" value="" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="u-1/1  ">
+                                    <div class="author-inform-form__column author-inform-form__column-large lm__row-margin ">
+                                        <span>Epost</span>
+                                        <input type="text" class="lm__element-margin-top" value="petter.kjellen@lantmannen.com" placeholder="">
+                                    </div>
+
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1 lm__row-margin ">
+                                        <span>Mobil (sms)</span>
+                                        <input type="text" class="lm__element-margin-top" value="+46 701000000" placeholder="">
+                                    </div>
+
+                                    <div class="author-inform-form__column author-inform-form__column-custom-1 lm__row-margin ">
+                                        <span>Skicka påminnelse</span>
+                                        <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                            <ul class="lm__form-dropdown type-3">
+                                                <li class="showcase">
+                                                    <a href="#">- Ingen påminnelse -</a>
+                                                    <ul class="dropdown">
+                                                        <li data-value="1"><a href="#">Type 1</a></li>
+                                                        <li data-value="2"><a href="#">Type 2</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__row-margin author-inform-form__column-full clearfix">
+                                <div class="author-inform-form__column author-inform-form__column-half ">
+                                    <input type="submit " class="lm__form-btn reverse-state" value="Rensa formulär" />
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-half lm__float-right-element align-right-text">
+                                    <input type="reset " class="lm__form-btn reverse-state " value="Uppdatera bokning" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="layout__item u-1/1 u-1/3-tablet ">
+                    <div class="lm__block category-sidebar ">
+                        <nav class="lm__category-nav ">
+                            <ul>
+                                <li><a href="# ">Redigera personlig information</a></li>
+                                <li><a href="# ">Ändra lösenord</a></li>
+                                <li class="active "><a href="# ">Meddelandeinställnignar Lantbruk & Maskin</a></li>
+                                <li><a href="# ">Meddelandeinställnignar leveransinformation</a></li>
+                                <li><a href="# ">Användarvillkor</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF MAIN CONTENT OF WEBPAGE -->
+
+    <!-- START FOOTER -->
+    <footer class="lm__footer">
+        <div class="wrapper">
+            <div class="layout layout--large">
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="lm__intro">
+                        <p>Lantmännen är ett lantbrukskooperativ och norra Eropas ledande aktör inom lantbruk, maskin, bionergi och livsmedel. Vi ägs av 27 000 svenska lantbrukare, har 10 000 anställda, verksamhet i ett 20-tal länder och omsätter 37 miljarder kronor.</p>
+                    </div>
+                </div>
+
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="layout layout--large">
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Kontakt</h3>
+                                <ul>
+                                    <li><a href="#">Lantmännen.ek.för</a></li>
+                                    <li><a href="#">Lantmännen Lantbruk</a></li>
+                                    <li><a href="#">Lantmännen Maskin</a></li>
+                                    <li><a href="#">Lantmännen Finans</a></li>
+                                    <li><a href="#">Växtråd</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                    <li><a href="#">Medlemsavdelningen</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Hjälp</h3>
+                                <ul>
+                                    <li><a href="#">Kundtjänst och support</a></li>
+                                    <li><a href="#">Vanliga frågor</a></li>
+                                </ul>
+                            </div>
+                            <div class="lm__more-info">
+                                <h3>Hitta säljare</h3>
+                                <ul>
+                                    <li><a href="#">Växtodling</a></li>
+                                    <li><a href="#">Maskin</a></li>
+                                    <li><a href="#">Nötfor</a></li>
+                                    <li><a href="#">Piggfor</a></li>
+                                    <li><a href="#">Pullfor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Anläggningar</h3>
+                                <ul>
+                                    <li><a href="#">Verkstäder och serviceställen</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js "></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="scripts/scripts.min.js "></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+﻿@model Gro.ViewModels.Pages.AppPages.Agreement.AgreementAnalyzeViewModel
+
+<div class="modal-header-title">
+    <h3>@Html.Translate("/lantBruk/avtal/analyze/farmsamples")</h3>
+</div>
+<div class="modal-content" data-role="page">
+    <div>
+        @Html.Translate("/lantBruk/avtal/analyze/description")
+        <label id="AgrementNumberLabel">@Model.AgreementNumber</label>
+    </div>
+
+    <div class="lm__table-wrapper">
+        <table border="0" class="priceHedging tablesaw" data-tablesaw-mode="columntoggle">
+            <thead>
+            <tr>
+                <th scope="col" data-tablesaw-priority="persist"></th>
+                @if (Model.AnalysisProvNrs != null)
+                {
+                    foreach (var prov in Model.AnalysisProvNrs)
+                    {
+                        <th scope="col" data-tablesaw-priority="1">@prov</th>
+                    }
+                }
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.DictResultByAnalyskod != null && Model.DictResultByAnalyskod.Any())
+            {
+                foreach (var item in Model.DictResultByAnalyskod)
+                {
+                    <tr>
+                        <td>@item.Key</td>
+                        @foreach (var clmItem in item.Value)
+                        {
+                            <td>@clmItem</td>
+                        }
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

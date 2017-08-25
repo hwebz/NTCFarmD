@@ -1,0 +1,11 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__block.vaxtline-sidebar {
+    .lm__block-header {
+        background: none;
+
+        h1 {
+            color: $body-text-color;
+        }
+    }
+}

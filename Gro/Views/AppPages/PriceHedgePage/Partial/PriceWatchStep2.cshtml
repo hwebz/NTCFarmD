@@ -1,0 +1,139 @@
+﻿@using Gro.Core.ContentTypes.Utils
+@using Gro.Helpers
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PriceHedgeViewModel
+
+@{
+    var agreementType = Model.PriceHedgeForm.AgreementType ?? AgreementType.SportAndForwardAvtal;
+}
+<div class="lm__breadcrums">
+    <div class="lm__step-inform">
+        <h2 class="heading-title">Steg 2</h2>
+        <h3 class="heading-title-2">Godkännande</h3>
+    </div>
+    <ul class="lm__form-progress">
+        <span class="lm__form-progress__line"></span>
+        <li class="done">
+            <a href="#">1</a>
+        </li>
+        <li class="active">
+            <a href="#">2</a>
+        </li>
+        <li>
+            <a href="#">3</a>
+        </li>
+    </ul>
+</div>
+<form action="#" method="post" class="lm__add-user-form author-inform-form">
+    <div class="author-inform-form__input">
+        <h2 class="heading-title-2">@Model.AgreementHeading - översikt</h2>
+        <div class="layout__item u-1/1 lm__row-margin">
+            <span class="lm__control-label">Prisområde: </span>
+            <span>@Model.SelectedPriceArea.PriceAreaName</span>
+        </div>
+        <div class="layout__item u-1/1 lm__row-margin">
+            <span class="lm__control-label">Avtalstyp</span>
+            <span>@Model.AgreementTypeName</span>
+        </div>
+        @if (agreementType.Equals(AgreementType.PrissakringDepaavtal))
+        {
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Avtalsnr </span>
+                <span>@Model.PriceHedgeForm.AgreementId</span>
+            </div>
+        }
+        <div class="layout__item u-1/1 lm__row-margin">
+            <span class="lm__control-label">Skördeår</span>
+            <span>@Model.PriceHedgeForm.HarvestYear</span>
+        </div>
+        @if (agreementType.IsMemberOfList(AgreementType.SportAndForwardAvtal, AgreementType.PrissakringDepaavtal))
+        {
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Önskat övre pris</span>
+                <span id="span_UpperPrice">@Model.PriceHedgeForm.UpperPrice</span><span> kr/ton</span>
+            </div>
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Önskat undre pris</span>
+                <span id="span_LowerPrice">@Model.PriceHedgeForm.LowerPrice</span><span> kr/ton</span>
+            </div>
+            if (agreementType.Equals(AgreementType.SportAndForwardAvtal))
+            {
+                <div class="layout__item u-1/1 lm__row-margin">
+                    <span class="lm__control-label">Uppdraget giltigt t.o.m</span>
+                    <span id="span_AgreementValidDate">@Model.PriceHedgeForm.PriceWatchEndDate</span>
+                </div>
+            }
+        }
+
+        @if (agreementType.Equals(AgreementType.Depaavtal) || agreementType.Equals(AgreementType.Poolavtal))
+        {
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Artikel</span>
+                <span id="span_Artikel">@Model.ProductItemName</span>
+            </div>
+        }
+        @if (!agreementType.Equals(AgreementType.PrissakringDepaavtal))
+        {
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Kvantitet</span>
+                <span id="span_CommitQuantity">@Model.PriceHedgeForm.CommitQuantity</span><span> ton (min @Model.CommitQuantityMin ton)</span>
+            </div>
+        }
+
+        <div class="layout__item u-1/1 lm__row-margin">
+            <span class="lm__control-label">Leveransperiod</span>
+            <span>@Model.DeliveryPeriod</span>
+        </div>
+        @if (!agreementType.Equals(AgreementType.PrissakringDepaavtal))
+        {
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Leveranssätt</span>
+                <span id="span_DeliveryMode">@Model.PriceHedgeForm.DeliveryMode</span>
+            </div>
+        }
+
+        @if (agreementType.IsMemberOfList(AgreementType.SportAndForwardAvtal, AgreementType.PrissakringDepaavtal))
+        {
+            <div class="layout__item u-1/1 lm__row-margin">
+                <span class="lm__control-label">Aktivitet</span>
+                <span id="span_targetaction"></span>
+            </div>
+        }
+        <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+            <h2 class="heading-title-2 small-distance-top">Registrerat av</h2>
+        </div>
+
+        @Html.Partial("Partial/CustomerInformation", Model)
+
+        <div class="u-1/1 u-1/1-tablet  u-1/5-desktop lm__float-left-element lm__row-margin">
+            <div class="lm__meddelanden-actions small-distance-top small-distance-bottom">
+                <a href="javascript:window.print()" class="lm__meddelanden-action-btn full-width"><i class="fa fa-print"></i>Skriv ut</a>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="lm__block lm__mina-avtal layout__item has-separator no-print">
+        <div class="lm__checkbox lm__tick disabled">
+            <input type="checkbox" id="approvePurchaseTermInStep2" />
+            <label></label>
+        </div>
+        <span class="middle-vertical" data-id="4229496">Villkoren har godkänts</span>
+    </div>
+    <div class="author-inform-form__input block-button-on-mobile author-inform-form__column-full">
+        <div class="layout u-align-right">
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/5-desktop lm__float-left-element">
+                <a href="@Model.PurchaseAgreementUrl" class="author-inform-form__btn  width-100">Avbryt</a>
+            </div>
+
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/5-desktop">
+                <a id="btnBackToStep1" class="author-inform-form__btn reverse-state width-100" href="javascript:void(0)">@Html.Translate("/lantBruk/leveransForsakran/change")</a>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/3-desktop lm__float-right-element">
+                <input type="submit" id="btnMoveToStep3"
+                       class="author-inform-form__btn reverse-state  width-100 disabled"
+                       value="Registrera @(agreementType.IsMemberOfList(AgreementType.Poolavtal, AgreementType.Depaavtal) ? "avtal" : "uppdrag")" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>

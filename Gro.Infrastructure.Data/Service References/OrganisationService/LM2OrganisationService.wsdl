@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LM2OrganisationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LM2OrganisationService.Model" />
+      <xsd:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CustomerSupportServiceInt.Models" />
+      <xsd:import schemaLocation="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILM2OrganisationService_TestCustomerRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCustomerRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestCustomerRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCustomerRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestProfile" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestCreateCust2_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCreateCust2" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestCreateCust2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCreateCust2Response" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestCreateCust_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCreateCust" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestCreateCust_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCreateCustResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SendTemporaryPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendTemporaryPassword" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SendTemporaryPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendTemporaryPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SaveExistingCustomerRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExistingCustomerRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SaveExistingCustomerRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExistingCustomerRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetCustomerRegistrationContainer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerRegistrationContainer" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetCustomerRegistrationContainer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerRegistrationContainerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SaveCustomerRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SaveCustomerRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCustomerRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_FindMachinePictures_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindMachinePictures" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_FindMachinePictures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindMachinePicturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetMachinePicURL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMachinePicURL" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetMachinePicURL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMachinePicURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateMachinePicURL_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMachinePicURL" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateMachinePicURL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMachinePicURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteMachinePicURL_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMachinePicURL" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteMachinePicURL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMachinePicURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetOrganisationProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationProfile" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetOrganisationProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateOrganisationProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationProfile" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateOrganisationProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SaveOrganisationProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveOrganisationProfile" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_SaveOrganisationProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveOrganisationProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddressSilo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressSilo" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddressSilo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressSiloResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_UpdateDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_UpdateDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetCustomersDeliveryAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersDeliveryAddresses" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetCustomersDeliveryAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersDeliveryAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestUpdateOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestUpdateOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_TestUpdateOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestUpdateOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_UpdateOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_UpdateOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddressReceivers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressReceivers" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddressReceivers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressReceiversResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddressReceiver_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressReceiver" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_CreateDeliveryAddressReceiver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeliveryAddressReceiverResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteDeliveryAddressReceivers_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddressReceivers" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteDeliveryAddressReceivers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddressReceiversResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteDeliveryAddressReceiver_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddressReceiver" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_DeleteDeliveryAddressReceiver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddressReceiverResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetDeliveryAddressReceivers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAddressReceivers" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_GetDeliveryAddressReceivers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAddressReceiversResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_ContactCustomerService_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContactCustomerService" />
+  </wsdl:message>
+  <wsdl:message name="ILM2OrganisationService_ContactCustomerService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContactCustomerServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILM2OrganisationService">
+    <wsdl:operation name="TestCustomerRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestCustomerRegistration" message="tns:ILM2OrganisationService_TestCustomerRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestCustomerRegistrationResponse" message="tns:ILM2OrganisationService_TestCustomerRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestProfile" message="tns:ILM2OrganisationService_TestProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestProfileResponse" message="tns:ILM2OrganisationService_TestProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestCreateCust2">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestCreateCust2" message="tns:ILM2OrganisationService_TestCreateCust2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestCreateCust2Response" message="tns:ILM2OrganisationService_TestCreateCust2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestCreateCust">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestCreateCust" message="tns:ILM2OrganisationService_TestCreateCust_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestCreateCustResponse" message="tns:ILM2OrganisationService_TestCreateCust_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTemporaryPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/SendTemporaryPassword" message="tns:ILM2OrganisationService_SendTemporaryPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/SendTemporaryPasswordResponse" message="tns:ILM2OrganisationService_SendTemporaryPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveExistingCustomerRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/SaveExistingCustomerRegistration" message="tns:ILM2OrganisationService_SaveExistingCustomerRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/SaveExistingCustomerRegistrationResponse" message="tns:ILM2OrganisationService_SaveExistingCustomerRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerRegistrationContainer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetCustomerRegistrationContainer" message="tns:ILM2OrganisationService_GetCustomerRegistrationContainer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetCustomerRegistrationContainerResponse" message="tns:ILM2OrganisationService_GetCustomerRegistrationContainer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/SaveCustomerRegistration" message="tns:ILM2OrganisationService_SaveCustomerRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/SaveCustomerRegistrationResponse" message="tns:ILM2OrganisationService_SaveCustomerRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindMachinePictures">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/FindMachinePictures" message="tns:ILM2OrganisationService_FindMachinePictures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/FindMachinePicturesResponse" message="tns:ILM2OrganisationService_FindMachinePictures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinePicURL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetMachinePicURL" message="tns:ILM2OrganisationService_GetMachinePicURL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetMachinePicURLResponse" message="tns:ILM2OrganisationService_GetMachinePicURL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMachinePicURL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateMachinePicURL" message="tns:ILM2OrganisationService_CreateMachinePicURL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateMachinePicURLResponse" message="tns:ILM2OrganisationService_CreateMachinePicURL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMachinePicURL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteMachinePicURL" message="tns:ILM2OrganisationService_DeleteMachinePicURL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteMachinePicURLResponse" message="tns:ILM2OrganisationService_DeleteMachinePicURL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetOrganisationProfile" message="tns:ILM2OrganisationService_GetOrganisationProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetOrganisationProfileResponse" message="tns:ILM2OrganisationService_GetOrganisationProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisationProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateOrganisationProfile" message="tns:ILM2OrganisationService_CreateOrganisationProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateOrganisationProfileResponse" message="tns:ILM2OrganisationService_CreateOrganisationProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrganisationProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/SaveOrganisationProfile" message="tns:ILM2OrganisationService_SaveOrganisationProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/SaveOrganisationProfileResponse" message="tns:ILM2OrganisationService_SaveOrganisationProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddressSilo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressSilo" message="tns:ILM2OrganisationService_CreateDeliveryAddressSilo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressSiloResponse" message="tns:ILM2OrganisationService_CreateDeliveryAddressSilo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddress" message="tns:ILM2OrganisationService_CreateDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressResponse" message="tns:ILM2OrganisationService_CreateDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/UpdateDeliveryAddress" message="tns:ILM2OrganisationService_UpdateDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/UpdateDeliveryAddressResponse" message="tns:ILM2OrganisationService_UpdateDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddress" message="tns:ILM2OrganisationService_DeleteDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressResponse" message="tns:ILM2OrganisationService_DeleteDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersDeliveryAddresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetCustomersDeliveryAddresses" message="tns:ILM2OrganisationService_GetCustomersDeliveryAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetCustomersDeliveryAddressesResponse" message="tns:ILM2OrganisationService_GetCustomersDeliveryAddresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetOrganisation" message="tns:ILM2OrganisationService_GetOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetOrganisationResponse" message="tns:ILM2OrganisationService_GetOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestUpdateOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestUpdateOrganisation" message="tns:ILM2OrganisationService_TestUpdateOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/TestUpdateOrganisationResponse" message="tns:ILM2OrganisationService_TestUpdateOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/UpdateOrganisation" message="tns:ILM2OrganisationService_UpdateOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/UpdateOrganisationResponse" message="tns:ILM2OrganisationService_UpdateOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddressReceivers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressReceivers" message="tns:ILM2OrganisationService_CreateDeliveryAddressReceivers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressReceiversResponse" message="tns:ILM2OrganisationService_CreateDeliveryAddressReceivers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddressReceiver">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressReceiver" message="tns:ILM2OrganisationService_CreateDeliveryAddressReceiver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressReceiverResponse" message="tns:ILM2OrganisationService_CreateDeliveryAddressReceiver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddressReceivers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressReceivers" message="tns:ILM2OrganisationService_DeleteDeliveryAddressReceivers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressReceiversResponse" message="tns:ILM2OrganisationService_DeleteDeliveryAddressReceivers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddressReceiver">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressReceiver" message="tns:ILM2OrganisationService_DeleteDeliveryAddressReceiver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressReceiverResponse" message="tns:ILM2OrganisationService_DeleteDeliveryAddressReceiver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAddressReceivers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetDeliveryAddressReceivers" message="tns:ILM2OrganisationService_GetDeliveryAddressReceivers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/GetDeliveryAddressReceiversResponse" message="tns:ILM2OrganisationService_GetDeliveryAddressReceivers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactCustomerService">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILM2OrganisationService/ContactCustomerService" message="tns:ILM2OrganisationService_ContactCustomerService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILM2OrganisationService/ContactCustomerServiceResponse" message="tns:ILM2OrganisationService_ContactCustomerService_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILM2OrganisationService" type="tns:ILM2OrganisationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestCustomerRegistration">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/TestCustomerRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestProfile">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/TestProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCreateCust2">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/TestCreateCust2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestCreateCust">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/TestCreateCust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTemporaryPassword">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/SendTemporaryPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveExistingCustomerRegistration">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/SaveExistingCustomerRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerRegistrationContainer">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/GetCustomerRegistrationContainer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerRegistration">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/SaveCustomerRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMachinePictures">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/FindMachinePictures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachinePicURL">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/GetMachinePicURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMachinePicURL">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/CreateMachinePicURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMachinePicURL">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/DeleteMachinePicURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationProfile">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/GetOrganisationProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisationProfile">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/CreateOrganisationProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrganisationProfile">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/SaveOrganisationProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddressSilo">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressSilo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/UpdateDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersDeliveryAddresses">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/GetCustomersDeliveryAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/GetOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestUpdateOrganisation">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/TestUpdateOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisation">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/UpdateOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddressReceivers">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressReceivers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDeliveryAddressReceiver">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/CreateDeliveryAddressReceiver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddressReceivers">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressReceivers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddressReceiver">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/DeleteDeliveryAddressReceiver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryAddressReceivers">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/GetDeliveryAddressReceivers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactCustomerService">
+      <soap:operation soapAction="http://tempuri.org/ILM2OrganisationService/ContactCustomerService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LM2OrganisationService">
+    <wsdl:port name="BasicHttpBinding_ILM2OrganisationService" binding="tns:BasicHttpBinding_ILM2OrganisationService">
+      <soap:address location="http://sr02009/Farmday/LM2OrganisationServiceInt/LM2OrganisationService.LM2OrganisationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

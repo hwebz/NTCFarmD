@@ -1,0 +1,41 @@
+/// <reference path="../_references.scss" />
+
+.datepicker-container {
+    position: relative;
+
+    &::after {
+        background-image: url(../images/calendar-icon.png);
+        background-repeat: no-repeat;
+        background-position: 8px 12px;
+        background-size: inherit;
+        display: block;
+        width: 30px;
+        height: 46px;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 10px;
+        cursor: pointer;
+    }
+}
+
+.calendar-icon {
+   background: transparent url(../images/calendar-icon.png) no-repeat calc(100% - 12px) 12px;
+   cursor: pointer;
+}
+
+.small-input {
+    input {
+        max-width: 65px;
+    }
+}
+
+.lm__mina-avtal {
+    .lm__block {
+        .lm__table-wrapper {
+            table.tablesaw {
+                @include set-responsive-property("desktop", margin, 40px 0 0 0, 0);
+            }
+        }
+    }
+}

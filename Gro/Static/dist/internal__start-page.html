@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>News detail</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="../fonts/font-awesome.min.css" />
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+<body class="internal-page">
+
+<div class="wrapper no-margin no-padding">
+    <div class="layout  layout--large">
+        <div class="layout__item  u-1/1  u-1/8-tablet">
+            <!-- START NAVIGATION -->
+            <nav class="internal-navigation expanded" role="navigation" aria-label="Navigering">
+                <ul class="internal-navigation__list  list-bare">
+                    <li class="internal-navigation__list-item">
+                        <a class="internal-navigation__link" href="/">
+                            <i class="internal-navigation__icon  internal-navigation__icon--start"></i> Start
+                        </a>
+                    </li>
+                    <li class="internal-navigation__list-item">
+                        <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                            <i class="internal-navigation__icon  internal-navigation__icon--avtal"></i> Avtal
+                        </a>
+                        <ul class="internal-navigation__list--sub-level  list-bare">
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Leveransförsäkring
+                                </a>
+                            </li>
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Analysanmodan
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="internal-navigation__list-item">
+                        <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                            <i class="internal-navigation__icon  internal-navigation__icon--spannmal"></i> Spannmål
+                        </a>
+                        <ul class="internal-navigation__list--sub-level  list-bare">
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Leveransförsäkring
+                                </a>
+                            </li>
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Analysanmodan
+                                </a>
+                            </li>
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Invägningar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Prisutveckling
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="internal-navigation__list-item">
+                        <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                            <i class="internal-navigation__icon  internal-navigation__icon--transport"></i> Transport
+                        </a>
+                        <ul class="internal-navigation__list--sub-level  list-bare">
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Leveransförsäkring
+                                </a>
+                            </li>
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Analysanmodan
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="internal-navigation__list-item">
+                        <a class="internal-navigation__link  js-internal-navigation-category" href="/">
+                            <i class="internal-navigation__icon  internal-navigation__icon--mer"></i> Mer
+                        </a>
+                        <ul class="internal-navigation__list--sub-level  list-bare">
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Leveransförsäkring
+                                </a>
+                            </li>
+                            <li>
+                                <a class="internal-navigation__link" href="/">
+                                    Analysanmodan
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+            <!-- END NAVIGATION -->
+        </div>
+        <div class="layout__item  u-1/1  u-7/8-tablet no-padding">
+            <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+            <div class="wrapper  wrapper--full-width">
+                <header class="lm__header internal-page">
+                    <div class="sticky-header">
+                        <div class="lm__top-header">
+                            <div class="wrapper">
+                                <div class="layout  layout--small">
+                                    <div class="layout__item lm__logo">
+                                        <label>Välj kund</label>
+                                    </div>
+                                    <div class="layout__item u-1/1 u-4/5-mobile">
+                                        <div class="author-inform-form__input layout layout--large">
+                                            <div class="author-inform-form__column layout__item u-1/1 u-1/5-mobile">
+                                                <ul class="lm__form-dropdown type-3">
+                                                    <li class="showcase">
+                                                        <a href="#">Sök kundnummer</a>
+                                                        <ul class="dropdown">
+                                                            <li><a href="#">Sök kundnummer</a></li>
+                                                            <li><a href="#">Sök företagsnamn</a></li>
+                                                            <li><a href="#">Sök organisationsummer</a></li>
+                                                            <li><a href="#">Sök användarens namn</a></li>
+                                                            <li><a href="#">Sök användar-ID (e-post)</a></li>
+                                                            <li><a href="#">Sök personnummer</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="author-inform-form__column layout__item u-1/1 u-2/5-mobile second no-padding">
+                                                <input type="text" name="searchText" class="searchText no-margin" placeholder="Sök.."/>
+                                                <button class="search-btn">Sök</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overflow-message open">
+                            <div class="lm__top-header message-popup">
+                                <div class="respond-message">
+                                    <div class="wrapper">
+                                        <div class="layout  layout--small">
+                                            <div class="layout__item u-1/1">
+                                                <h3 class="heading-title-3 akzidenz-reg-font">TEAM MÄLARDALEN <span>KUNDNR. 123456789029</span></h3>
+                                                <p class="no-margin"><a href="#"><span>Se kundkort</span> <i class="fa fa-arrow-right"></i></a></p>
+                                                <a class="close-btn" href="#">Avsluta <i></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header> <!-- End of header -->
+                <!-- START MAIN CONTENT -->
+                <section class="lm__contents">
+                    <div class="layout  layout--large">
+                        <div class="layout__item u-1/1 u-5/7-tablet">
+                            <!-- NO RESULT FOUND -->
+                            <div class="lm__block">
+                                <div class="lm__block-box">
+                                    <div class="gray-background big-padding">
+                                        <h2 class="akzidenz-reg-font no-margin align-center-text">Kundnummer 1010101 hittades inte. Vänligen försök igen.</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END OF NO RESULT FOUND -->
+                            <div class="lm__block">
+                                <div class="lm__block-box">
+                                    <div class="layout layout--large">
+                                        <div class="layout__item u-1/1 u-1/2-mobile u-1/1-tablet u-1/2-laptop">
+                                            <h3 class="lm__page-title no-margin">Väntar på aktivering</h3>
+                                        </div>
+                                        <div class="layout__item u-1/1 u-1/2-mobile u-1/1-tablet u-1/2-laptop">
+                                            <div class="author-inform-form layout layout--large">
+                                                <div class="author-inform-form__input no-padding layout__item u-2/5 text-top align-right-text">
+                                                    <span>Filtrera listan</span>
+                                                </div>
+                                                <div class="author-inform-form__input layout__item u-3/5">
+                                                    <div class="author-inform-form__column author-inform-form__column-full no-padding">
+                                                        <input type="text" name="searchText" class="searchText no-margin" placeholder="Sök organisationsnr" />
+                                                        <button class="search-btn">Sök</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lm__block-box relative-position">
+                                    <p class="lm__badget">
+                                        10 i kö
+                                    </p>
+                                    <div class="lm__table-wrapper">
+                                        <table border="0" class="lm__internal-table">
+                                            <thead>
+                                            <tr>
+                                                <th>Ägare</th>
+                                                <th>Organisationnr</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <colgroups>
+                                                <col width="20%" />
+                                                <col width="20%" />
+                                                <col width="10%" />
+                                                <col width="35%" />
+                                                <col width="15%" />
+                                            </colgroups>
+                                            <tbody>
+                                            <tr>
+                                                <td>Jörgen Jönsson</td>
+                                                <td>750328-2093</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">Ange kundnummer</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ann Karlsson</td>
+                                                <td>7777777-007</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lars Andersson</td>
+                                                <td>553399-1010</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sven Svensson</td>
+                                                <td>999999-9999</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>111111-1111</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>222222-2222</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>333333-3333</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>444444-4444</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>555555-5555</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>666666-6666</td>
+                                                <td>
+                                                    <div class="lm__checkbox lm__switcher">
+                                                        <input type="checkbox" checked />
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="author-inform-form__column author-inform-form__column-full reset-padding-margin">
+                                                        <label for="ange-kundnummer">E-post</label>
+                                                        <input type="text" name="ange-kundnummer" class="ange-kundnummer width-100" />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="lm__form-btn reverse-state width">Spara</button>
+                                                </td>
+                                                <td colspan="5" class="deleted-message">
+                                                    <span class="alert-icon success"></span>
+                                                    <span>Kundens status är nu: Aktiverad - ny</span>
+
+
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="layout__item u-1/1 u-2/7-tablet">
+                            <div class="lm__block">
+                                <div class="lm__block-header white-background-header">
+                                    <h1>Länkar</h1>
+                                </div>
+                                <section class="lm__news with-animation">
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Episerver <i class="fa fa-external-link" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Administrera meddelanden <i class="fa fa-external-link" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Rapporter <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                </section>
+                            </div>
+                            <div class="lm__block">
+                                <div class="lm__block-header white-background-header">
+                                    <h1>Mest använda appar</h1>
+                                </div>
+                                <section class="lm__news with-animation">
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Leveransförsäkran <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Boka tid <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">InControl <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Teckna avtal termin och spot <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Teckna avtal pool <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Teckna avtal depå <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Teckna avtal tork <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Mina avtal <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Prissäkra befintligt avtal <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                    <article class="lm__news-item">
+                                        <a href="#">
+                                            <h4 class="article-title right-icon-pos">Refernspris <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </article>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END OF MAIN CONTENT -->
+            </div>
+            <!-- END OF MAIN CONTENT OF WEBPAGE -->
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="scripts/scripts.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c2b7a019-a938-45ff-a968-ff2d647ca1cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Gro.Core" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://SR02009/apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WeighInServiceInt.xsd" MetadataType="Schema" ID="f8a8cceb-2ce3-40e6-b1a9-9c1197d02aae" SourceId="1" SourceUrl="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WeighInServiceInt1.xsd" MetadataType="Schema" ID="9fd1b0d2-ed6a-454c-a77a-54655e1f21cb" SourceId="1" SourceUrl="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WeighInServiceInt2.xsd" MetadataType="Schema" ID="77553b73-d6f4-4249-b740-c9e803939de4" SourceId="1" SourceUrl="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WeighInServiceInt3.xsd" MetadataType="Schema" ID="d274d279-bb4e-45cd-9be9-91c344ef47dd" SourceId="1" SourceUrl="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WeighInService.wsdl" MetadataType="Wsdl" ID="74b41760-5273-4e59-af7a-bee4bb3695b2" SourceId="1" SourceUrl="http://sr02009/apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

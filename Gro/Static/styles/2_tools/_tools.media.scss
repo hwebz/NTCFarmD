@@ -1,0 +1,40 @@
+﻿$phonePortrait: 480px;
+$phoneLandscape: 640px;
+$tabletSize: 769px;
+$desktopSize: 992px;
+$laptopSize: 1101px;
+$midLaptopSize: 1650px;
+
+$bigScreen: 1900px;
+
+@mixin respond-to-min($width) {
+	@media only screen and (min-width: $width)  { @content; }
+}
+
+@mixin respond-to-max($width) {
+	@media only screen and (max-width: $width - 1px)  { @content; }
+}
+
+@mixin respond-to-min-max($min-width, $max-width) {
+	@media only screen and (min-width: $min-width) and (max-width: $max-width)   { @content; }
+}
+
+@mixin respond-to-min-orientation($width,$orientation) {
+	@media only screen and (min-width: $width) and (orientation: $orientation)   { @content; }
+}
+
+@mixin respond-to-max-orientation($width,$orientation) {
+	@media only screen and (max-width: $width - 1px) and (orientation: $orientation)  { @content; }
+}
+
+@mixin respond-to-min-max-orientation($min-width, $max-width,$orientation) {
+	@media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: $orientation)   { @content; }
+}
+
+@mixin respond-to-ipad($orientation,$retina) {
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : $orientation) and (-webkit-min-device-pixel-ratio: $retina)
+    {
+        @content
+	}
+}
+

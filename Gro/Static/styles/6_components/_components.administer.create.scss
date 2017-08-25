@@ -1,0 +1,294 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__administrera-meddelanden {
+    table {
+        border: none;
+    }
+
+    .lm__administrera-wrapper {
+        width: 100%;
+
+        @include media-query("desktop") {
+            width: 70%;
+        }
+
+        h4 {
+            @extend %heading-title-4;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .lm__administrera-form__input {
+            padding: 30px 0;
+
+            &:after {
+                content: "";
+                display: block;
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                background: $body-background-color;
+                margin-top: 30px;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            .lm__administrera-form__column {
+                padding: 10px 0;
+
+                label {
+                    color: $body-text-color;
+
+                    &[for="sms"] {
+                        margin-top: 30px;
+                    }
+                }
+
+                .epost-meddelande {
+                    height: 250px;
+                }
+
+                .sms {
+                    height: 100px;
+                }
+            }
+        }
+
+        .meddelande-types,
+        .file-upload-wrapper,
+        .meddelanden-accordion textarea,
+        .phone_number,
+        .rubrik {
+            width: 100%;
+
+            @include media-query("tablet") {
+                width: 50%;
+            }
+        }
+
+        .lm__administrera-form__btn {
+            border: none;
+            font-family: $font-akzidenz-medium;
+            padding: 10px 15px;
+            cursor: pointer;
+
+            @include media-query("tablet") {
+                padding: 10px 30px;
+            }
+
+            &:hover {
+                background: #58a618;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+.accordion-content {
+    @include set-responsive-property("tablet", padding, 15px, 30px);
+    background: $accordion-content-background;
+    //display: none;
+    &.static {
+        display: block;
+        padding: 0;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    label {
+        color: $body-text-color;
+        margin-bottom: 10px;
+    }
+
+    &.reset {
+        padding: 0;
+        background: $color-white;
+    }
+
+    .accept-term-checkbox {
+        .lm__checkbox {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
+}
+
+.accordion-control {
+    display: block;
+    @include set-responsive-property("mobile", padding, 15px 15px 15px 40px, 30px 30px 30px 40px);
+    background: transparent url(../images/accordion-expanded.png) no-repeat left center;
+    background-size: 30px;
+    @extend %heading-title-4;
+    color: $accordion-control-color;
+
+    &:hover {
+        color: $accordion-control-color;
+    }
+
+    &.expanded {
+        background: transparent url(../images/menu-minus-sign.png) no-repeat left center;
+        background-size: 30px;
+    }
+
+    &.type-2 {
+        @include set-responsive-property("tablet", padding, 15px 15px 15px 40px, 20px 20px 0 40px);
+        color: $body-text-color;
+        @extend %heading-title-2;
+
+        &, &.expanded {
+            @include set-responsive-property("tablet", background-position, lef top, left bottom);
+        }
+    }
+}
+
+.file-upload-wrapper,
+.attachment-wrapper {
+    $defaultColor: #e2e1e0;
+    $height: 45px;
+
+    position: relative;
+    width: 100%;
+    height: $height;
+    margin-bottom: 5px;
+
+    &:after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        padding: 10px 15px;
+        display: block;
+        width: calc(100% - 80px);
+        pointer-events: none;
+        z-index: 2;
+        height: $height;
+        line-height: $height - 20px;
+        color: $body-text-color;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    &:before {
+        content: "Välj fil";
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        height: $height;
+        background: $defaultColor;
+        color: $body-text-color;
+        font-family: $font-akzidenz-medium;
+        z-index: 3;
+        font-size: 16px;
+        line-height: $height;
+        padding: 0 15px;
+        pointer-events: none;
+        border-radius: 5px;
+    }
+
+    &:hover {
+        &:before {
+            background: #58a618;
+            color: $color-white;
+        }
+    }
+
+    input {
+        @include set-opacity(0);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        height: $height;
+        margin: 0;
+        padding: 0;
+        display: block;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .attachment-files {
+        @extend %reset-list;
+
+        i {
+            margin-left: 5px;
+        }
+    }
+}
+
+.attachment-wrapper {
+    min-height: 30px;
+
+    input {
+        width: 100px;
+        top: -10px;
+        left: auto;
+    }
+
+    &:after {
+        display: none;
+    }
+
+    &:before {
+        content: "Bifoga fil";
+        cursor: pointer;
+    }
+
+    .jFiler-input {
+        text-indent: -9999px;
+        width: 90px;
+        position: absolute;
+        right: 0;
+    }
+
+    .jFiler-items-list {
+        list-style: none;
+
+        .jFiler-item-info {
+            display: block;
+            width: 100%;
+
+            .jFiler-item-title {
+                display: inline-block;
+                vertical-align: text-bottom;
+            }
+
+            .jFiler-item-others {
+                display: none;
+            }
+
+            .jFiler-item-assets {
+                display: inline-block;
+                margin-left: 10px;
+
+                .icon-jfi-trash:before {
+                    color: $body-text-color;
+                    content: "\f057";
+                    font-family: FontAwesome;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-file-upload-button {
+    cursor: pointer;
+}

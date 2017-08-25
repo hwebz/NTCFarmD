@@ -1,0 +1,9 @@
+﻿@model IDictionary<string, string>
+
+<h3>Mail till ny användare för Kund:@Model["organizationName"] </h3>
+<p>Du har lagts till som @Model["profileTitle"] vid @Model["organizationName"] i LM<sup>2</sup>. </p>
+<p> Följ länken nedan för att ställa in lösenord </p>
+<a href="@Model["resetPasswordLink"]">Välj lösenord</a>
+<br />
+<p style="margin-bottom:0">Med vänliga hälsningar,</p>
+<p style="margin-top:0">Lantmännen</p>

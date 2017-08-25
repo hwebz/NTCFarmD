@@ -1,0 +1,116 @@
+﻿@using Gro.ViewModels.Contacts
+@using Gro.Core.ContentTypes.Utils
+@model WorkshopDetailPageViewModel
+@{
+    var salesMenGroups = Model.SalesMen.GroupBy(sm => sm.Description);
+    var bookServiceLink = ContentExtensions.GetPageUnderSettingUrl(s => s.BookServicePage) + "?city=" + Model.Workshop.City + "&reference=facility";
+}
+
+<style>
+    .inactive-view {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+</style>
+
+<section class="lm__contents">
+    <input type="hidden" hidden name="siteUserId" id="siteUserId" value="@ViewData["userName"]" />
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1">
+                <a href="?" class="lm__back-link" style="margin-bottom: 30px;">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Till Alla verkstäder och serviceställen
+                </a>
+            </div>
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <div class="lm__block">
+                    <div class="lm__block-box relative-position has-separator">
+                        <h2 class="heading-title-2 no-margin">
+                            <div class="workshop-star lm__meddelanden-favorite @(Model.Workshop.OwnStar ? "marked" : string.Empty)"
+                                 data-city="@Model.Workshop.City" data-star="@Model.Workshop.OwnStar">
+                            </div>
+                            <span> @Model.Workshop.City </span>
+                        </h2>
+                        <a href="@bookServiceLink" class="lm__blue-btn right-element">Boka service</a>
+                    </div>
+                    <div class="lm__block-box">
+                        <div class="layout  layout--large">
+                            <div class="layout__item u-1/1 u-1/2-tablet">
+                                <div class="address-block has-separator-line">
+                                    <div class="address-sections">
+                                        <h3 class="lm__bold-title">Besöksadress</h3>
+                                        <p>@Model.Workshop.Address</p>
+                                        <p>@ViewData["zipCode"] @Model.Workshop.City</p>
+                                        <p class="margin-15">@ViewData["telephone"]</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layout__item u-1/1 u-1/2-tablet">
+                                @foreach (var group in salesMenGroups)
+                                {
+                                    <div class="address-block has-separator-line ">
+                                        <h3 class="lm__bold-title">@group.Key</h3>
+                                        @foreach (var salesMan in group)
+                                        {
+                                            <div class="address-sections has-margin">
+                                                <p class="margin-bottom-15">@(salesMan.Name + " " + salesMan.Surname) </p>
+                                                <p>
+                                                    <span class="lm__bold-title">Telefon</span>@salesMan.Phone
+                                                </p>
+                                                <p>
+                                                    <span class="lm__bold-title">Mobil</span>@salesMan.Cellphone
+                                                </p>
+                                                <p>
+                                                    <span class="lm__bold-title">E-post</span>
+                                                    <a class="lm__link" href="mailto:@salesMan.Email" target="_self">@salesMan.Email</a>
+                                                </p>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @Html.Action("GetRightNav", "Navigation", new { page = Model.CurrentPage, minLevel = 2 })
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var siteUserName = document.getElementById("siteUserId").value;
+        if (!siteUserName || siteUserName.trim().length === 0) {
+            return;
+        }
+
+        $(".workshop-star").click(function (event) {
+            if (!siteUserName || !siteUserName.trim()) {
+                return;
+            }
+
+            $("section.lm__contents").addClass("inactive-view");
+            $.ajax({
+                type: "POST",
+                url: "/api/workshop/setstar",
+                data: {
+                    city: event.target.dataset.city,
+                    newStarValue: event.target.dataset.star === "True" ? "False" : "True"
+                },
+                dataType: "json",
+                cache: false,
+                success: function (responseData) {
+                    $(event.target).toggleClass("marked");
+                }
+            }).fail(function () {
+                location.reload();
+            }).always(function () {
+                $("section.lm__contents").removeClass("inactive-view");
+            });
+        });
+    });
+</script>

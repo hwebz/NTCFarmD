@@ -1,0 +1,170 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__contents {
+    margin: 20px 0;
+    @include set-font($font-akzidenz-reg, 16px, 24px);
+    min-height: 70vh;
+
+    .lm__page-title {
+        font-family: $font-clarendonurw-reg;
+        @include set-responsive-property("tablet", font-size, 22px, 28px);
+        @include set-responsive-property("tablet", line-height, 30px, 36px);
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+
+    .lm__main-content {
+        background: $section-background-color;
+        padding: $main-content-padding;
+        margin-bottom: 20px;
+
+        @include media-query("desktop") {
+            margin-bottom: 0;
+        }
+
+        @include respond-to-max($phoneLandscape) {
+            padding: $main-content-padding-mobile;
+        }
+
+        .lm__content-header {
+            .content-title {
+                @include set-font($font-clarendonurw-reg, 30px, 1);
+                margin-top: 5px;
+                margin-bottom: 20px;
+
+                @include media-query("tablet") {
+                    font-size: 36px;
+                }
+            }
+        }
+
+        .lm__content-detail {
+            line-height: 24px;
+            overflow: hidden;
+            overflow-x: visible;
+
+            p {
+                margin: 20px 0;
+
+                &.content-summary {
+                    @extend .lm__bold-title;
+                }
+            }
+
+            h1 {
+                @extend %heading-title;
+            }
+
+            h2 {
+                @extend %heading-title-2;
+            }
+
+            iframe {
+                outline: none;
+                border: none;
+                margin: 20px 0;
+                height: 250px !important;
+
+                @include media-query("tablet") {
+                    height: 350px !important;
+                }
+
+                @include media-query("desktop") {
+                    height: 450px !important;
+                }
+            }
+
+            img {
+                max-width: 100%;
+
+                &.left, &.right {
+                    margin: 0;
+                    width: 100%;
+                }
+
+                &.full {
+                    width: 100%;
+                    display: block;
+                    margin: 20px 0;
+                }
+
+                @include media-query("tablet") {
+                    &.left, &.right {
+                        width: auto;
+                    }
+
+                    &.left {
+                        float: left;
+                        margin-right: 20px;
+                    }
+
+                    &.right {
+                        float: right;
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            table {
+                width: 100%;
+                border: none;
+                border-collapse: collapse;
+
+                thead {
+                    font-family: $font-akzidenz-medium;
+                }
+
+                th, td {
+                    padding: 10px;
+                    text-align: center;
+
+                    @include media-query("tablet") {
+                        padding: 10px 20px;
+                    }
+                }
+            }
+
+            a {
+                @extend %anchor-link;
+            }
+
+            ul, ol {
+                white-space: normal;
+                margin-left: 40px;
+                list-style-type: disc;
+            }
+
+            ol {
+                list-style-type: decimal;
+            }
+
+            .terms-and-conditions {
+                @extend %reset-list;
+            }
+        }
+    }
+
+    > .wrapper {
+        > .layout {
+            overflow: hidden;
+
+            > .layout__item.u-1\/3-tablet {
+                .navigation-block {
+                    @include respond-to-max($tabletSize) {
+                        display: none;
+                    }
+                }
+
+                .lm__block {
+                    .lm__more-link {
+                        text-align: left !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &.no-overflow > .wrapper > .layout {
+        overflow: initial;
+    }
+}

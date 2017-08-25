@@ -1,0 +1,102 @@
+﻿@using EPiServer.Core
+@using Gro.Business.Messages
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.IPageViewModel<Gro.Core.ContentTypes.Pages.BasePages.SitePageBase>
+
+@{
+    var userViewMessagePage = MessageSetting.GetUserViewPage();
+    var userViewUrl = ContentReference.IsNullOrEmpty(userViewMessagePage) ? string.Empty : string.Format("{0}#/{1}", Url.ContentUrl(userViewMessagePage), "messages");
+    var profilePictureUrl = Model.User != null && !string.IsNullOrEmpty(Model.User.ProfilePicUrl) ? Model.User.ProfilePicUrl : "/Static/images/user-avatar__default.jpg";
+    var isInUserAgreement = ViewData["InUserAgreement"] != null && ViewData["InUserAgreement"].ToString().ToLower() == "true";
+    var isAggreementAccepted = ViewData["AgreementAccepted"] != null && ViewData["AgreementAccepted"].ToString().ToLower() == "true";
+}
+
+<header class="lm__header">
+    <div class="lm__top-header">
+        <div class="wrapper">
+            <div class="layout  layout--small">
+                <div class="layout__item u-1/3 u-1/2-tablet lm__logo">
+                    <a href="@Url.ContentUrl(Model.Layout.StartPageReference)"><img src="~/Static/images/logo.png" alt="LM2 Logo" class="lm__logo-item"></a>
+                    <span class="lm__slogan">Verktyget för jordens entreprenörer</span>
+                </div>
+                @if (!isInUserAgreement || isAggreementAccepted)
+                {
+                    <div class="layout__item u-2/3 u-1/2-tablet lm__utility">
+                        <nav class="lm__user-settings">
+                            <ul>
+                                @if (Model.User != null)
+                                {
+                                    <li class="lm__messages">
+                                        <a href="@userViewUrl">
+                                            <span id="totalUnread">
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                        <div class="lm__user-profile">
+                            @if (Model.User != null)
+                            {
+                                Html.RenderAction("RenderCustomerNumbers", "UserManagement");
+                                <div class="lm__user-avatar-wrapper">
+
+                                    <a href="#" class="lm__user-avatar">
+                                        <img class="header_user_avatar" data-img-source="@profilePictureUrl" alt="User Avatar"
+                                             data-placeholder="/Static/images/user-avatar__default.jpg">
+                                    </a>
+
+                                    <div class="sub-settings-panel">
+                                        <div class="inform-panel">
+                                            <img class="header_user_avatar" data-img-source="@profilePictureUrl" alt="User Avatar"
+                                                 data-placeholder="/Static/images/user-avatar__default.jpg">
+                                            <div class="inform-detail">
+                                                <h3>@string.Format("{0} {1}", Model.User.FirstName, Model.User.LastName)</h3>
+                                                <p>@Model.User.UserName</p>
+                                            </div>
+                                            <a href="@ContentExtensions.GetPageUnderSettingUrl(x => x.MyAccountLink)" class="mitt-konto__btn">Mitt konto</a>
+                                        </div>
+                                        <form action="/p/Logout" method="post" class="logout-btn__wrapper">
+                                            <input type="hidden" hidden id="logoutRedirect" name="logoutRedirect" />
+                                            <input type="submit" class="logout-btn" value="Logga ut" />
+                                            <script type="text/javascript">
+                                                document.getElementById("logoutRedirect").value = location.origin + '@System.Configuration.ConfigurationManager.AppSettings["LogoutRedirect"]';
+                                            </script>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    @if (!isInUserAgreement || isAggreementAccepted)
+    {
+        <div class="lm__navigation-wrapper">
+            <div class="lm__navigation">
+                <div class="wrapper">
+                    <div class="layout  layout--small">
+
+
+                        <div class="layout__item u-1/1">
+                            <div class="lm__active-page">
+                                @Html.Action("GetTopNav", "Navigation", new { page = Model.CurrentPage })
+                                @*@{ Html.RenderAction("GetTopNav", "Navigation", new { page = Model.CurrentPage }); }*@
+                            </div>
+                            @if (!isInUserAgreement)
+                            {
+                                <nav class="lm__main-navigation">
+                                    @Html.Action("GetSubNav", "Navigation", new { page = Model.CurrentPage })
+                                    @*@{  Html.RenderAction("GetSubNav", "Navigation", new { page = Model.CurrentPage }); }*@
+                                </nav>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</header>

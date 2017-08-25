@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WeighInServiceInt" />
+  <xs:import schemaLocation="http://sr02009/Apps/WeighInServiceInt/WeighInServiceInt.WeighInService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WeighInServiceInt.Models" />
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WeighInServiceInt" minOccurs="0" name="GetWeighInListResult" nillable="true" type="q1:ArrayOfWeighIn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="agreementNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WeighInServiceInt" minOccurs="0" name="GetWeighInResult" nillable="true" type="q2:WeighIn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnalyzeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliveryNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnalyzeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WeighInServiceInt" minOccurs="0" name="GetAnalyzeListResult" nillable="true" type="q3:ArrayOfAnalyzeList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoreInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliveryNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoreInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WeighInServiceInt" minOccurs="0" name="GetMoreInfoResult" nillable="true" type="q4:ArrayOfWeighInExtended" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOverViewList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" type="xs:int" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOverViewListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WeighInServiceInt" minOccurs="0" name="GetOverViewListResult" nillable="true" type="q5:ArrayOfOverview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserInExtendedRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserInExtendedRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsUserInExtendedRoleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInSumAgreement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skordear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="leverantorsnummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInSumAgreementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WeighInServiceInt.Models" minOccurs="0" name="GetWeighInSumAgreementResult" nillable="true" type="q6:ArrayOfWeighInSumAgreementDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInSumAgreementAllHarvestYear">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="leverantorsnummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWeighInSumAgreementAllHarvestYearResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WeighInServiceInt.Models" minOccurs="0" name="GetWeighInSumAgreementAllHarvestYearResult" nillable="true" type="q7:ArrayOfWeighInSumAgreementDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

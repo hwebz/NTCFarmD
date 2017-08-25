@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>News detail</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="../fonts/font-awesome.min.css" />
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+<body>
+
+    <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+    <header class="lm__header">
+        <div class="lm__top-header">
+            <div class="wrapper">
+                <div class="layout  layout--small">
+                    <div class="layout__item u-1/3 u-1/2-tablet lm__logo">
+                        <a href="#"><img src="images/logo.png" alt="LM2 Logo" class="lm__logo-item"></a>
+                        <span class="lm__slogan">Verktyget för jordens entreprenörer</span>
+                    </div>
+                    <div class="layout__item u-2/3 u-1/2-tablet lm__utility">
+                        <nav class="lm__user-settings">
+                            <ul>
+                                <li class="lm__star"><a href="#"></a></li>
+                                <li class="lm__messages"><a href="#"><span class="lm__messages-count">2</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="lm__user-profile">
+                            <div class="user-info-wrapper">
+                                <a class="lm__user-info" href="#">
+                                    <h4 class="lm__user-id">32008145</h4>
+                                    <p class="lm__user-summary">Nilsson Lantbruk AB</p>
+                                </a>
+                                <div class="sub__user-profile">
+                                    <div class="user-id__wrapper lm__radio type-3">
+                                        <input type="radio" name="user_id" checked />
+                                        <div class="user-id__label">
+                                            <h4>32008145</h4>
+                                            <p>Nilsson Lantbruk AB</p>
+                                        </div>
+                                    </div>
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" />
+                                        <div class="user-id__label">
+                                            <h4>3208007</h4>
+                                            <p>Karlssons Gård</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__user-avatar-wrapper">
+                                <a href="#" class="lm__user-avatar"><img src="images/user-avatar.jpg" alt="User Avatar"></a>
+                                <div class="sub-settings-panel">
+                                    <div class="inform-panel">
+                                        <img src="images/user-avatar.jpg" alt="User Avatar">
+                                        <div class="inform-detail">
+                                            <h3>Lars Karlsson</h3>
+                                            <p>Administratör vid Nilsson lantbruk AB</p>
+                                        </div>
+                                        <a href="#" class="mitt-konto__btn">Mitt konto</a>
+                                    </div>
+                                    <div class="logout-btn__wrapper">
+                                        <a href="#" class="logout-btn">Logga ut</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lm__navigation-wrapper">
+            <div class="lm__navigation">
+                <div class="wrapper">
+                    <div class="layout  layout--small">
+                        <div class="layout__item u-1/1">
+                            <div class="lm__active-page">
+                                <nav class="lm__user-settings">
+                                    <ul>
+                                        <li class="lm__settings">
+                                            <a href="#"></a>
+                                            <nav class="lm_sub-settings">
+                                                <ul>
+                                                    <li class="spannmal"><a href="#">Spannmål</a></li>
+                                                    <li class="odling"><a href="#">Odling</a></li>
+                                                    <li class="foder"><a href="#">Foder</a></li>
+                                                    <li class="maskiner"><a href="#">Maskiner</a></li>
+                                                    <li class="ekonomi"><a href="#">Ekonomi</a></li>
+                                                    <div class="cleafix"></div>
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <h1 class="lm__page-title">Spannmål</h1>
+                            </div>
+                            <nav class="lm__main-navigation">
+                                <a class="lm_toggle-menu" href="#" alt="Humberger Icon">
+                                    <span class="text"></span>
+                                    <span class="humb">
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li><a href="#">Sälja fysisk spannmål</a></li>
+                                    <li>
+                                        <a href="#">Lämna spannmål</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">Marknadsinformation</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blanketter</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End of header -->
+    <!-- END OF HEADER -->
+
+    <!-- START MAIN CONTENT -->
+    <section class="lm__contents">
+        <div class="wrapper">
+            <div class="layout  layout--large">
+                <div class="layout__item u-1/1 u-2/3-tablet">
+                    <div class="lm__block">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=1000x300&w=1000&h=300" alt="Placeholder" class="width-100" />
+                    </div>
+                    <div>
+                        <div class="has-header">
+                            <div class="lm__block-arrow-header">
+                                <h2 class="heading-title-2">Kommande leveranser</h2>
+                                <span class="content-datetime">Senast uppdaterad: 2017-06-20 15:43</span>
+                            </div>
+
+                            <div class="lm__block">
+                                <div class="lm__carousel-block">
+                                    <h3 class="heading-title-3">Planerad leverans till gården</h3>
+                                    <section class="lm__carousel__content">
+                                        <article class="lm__carousel__item active" data-item="1">
+                                            <a href="#">
+                                                <div class="lm__carousel__item__content">
+                                                    <img src="images/foder.png" alt="Odling icon" class="lm__carousel__icon" />
+                                                    <p class="lm__carousel__datetime">2017-06-26</p>
+                                                    <h3 class="heading-title-3 lm__carousel__title">Komplett Maxa 275 Komplett Maxa</h3>
+                                                    <p class="lm__carousel__description">Lev.försäkran: 4312824</p>
+                                                    <p class="lm__carousel__tag">Ej levererad</p>
+                                                    <p class="lm__blue-btn">Info</p>
+                                                </div>
+                                            </a>
+                                        </article>
+                                        <article class="lm__carousel__item" data-item="1">
+                                            <a href="#">
+                                                <div class="lm__carousel__item__content">
+                                                    <img src="images/odling.png" alt="Odling icon" class="lm__carousel__icon" />
+                                                    <p class="lm__carousel__datetime">2017-06-26</p>
+                                                    <h3 class="heading-title-3 lm__carousel__title">Komplett Maxa 275</h3>
+                                                    <p class="lm__blue-btn">Info</p>
+                                                </div>
+                                            </a>
+                                        </article>
+                                        <article class="lm__carousel__item" data-item="1">
+                                            <a href="#">
+                                                <div class="lm__carousel__item__content">
+                                                    <img src="images/odling.png" alt="Odling icon" class="lm__carousel__icon" />
+                                                    <p class="lm__carousel__datetime">2017-06-27</p>
+                                                    <h3 class="heading-title-3 lm__carousel__title">Komplett Maxa 275</h3>
+                                                    <p class="lm__blue-btn">Info</p>
+                                                </div>
+                                            </a>
+                                        </article>
+                                        <article class="lm__carousel__item" data-item="1">
+                                            <a href="#">
+                                                <div class="lm__carousel__item__content">
+                                                    <img src="images/odling.png" alt="Odling icon" class="lm__carousel__icon" />
+                                                    <p class="lm__carousel__datetime">2017-06-26</p>
+                                                    <h3 class="heading-title-3 lm__carousel__title">Komplett Maxa 275</h3>
+                                                    <p class="lm__blue-btn">Info</p>
+                                                </div>
+                                            </a>
+                                        </article>
+                                        <article class="lm__carousel__item" data-item="1">
+                                            <a href="#">
+                                                <div class="lm__carousel__item__content">
+                                                    <img src="images/odling.png" alt="Odling icon" class="lm__carousel__icon" />
+                                                    <p class="lm__carousel__datetime">2017-06-26</p>
+                                                    <h3 class="heading-title-3 lm__carousel__title">Komplett Maxa 275</h3>
+                                                    <p class="lm__carousel__tag">Ej levererad</p>
+                                                    <p class="lm__blue-btn">Info</p>
+                                                </div>
+                                            </a>
+                                        </article>
+                                        <article class="lm__carousel__item more-deliveries" data-item="1">
+                                            <a href="#" class="lm__carousel__item__content">
+                                                <img src="images/calendar.png" alt="Calendar icon" class="lm__carousel__icon" />
+                                                <p class="lm__carousel__description">Gå till din leveransplan</p>
+                                            </a>
+                                        </article>
+                                    </section>
+                                </div>
+                                <a href="#" class="lm__more-link">Gå till leveransplan <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="lm__block">
+                            <div class="lm__carousel-block second-block">
+                                <h3 class="heading-title-3">Planerad leverans till gården</h3>
+                                <section class="lm__carousel__content">
+                                    <article class="lm__carousel__item" data-item="1">
+                                        <a href="#">
+                                            <div class="lm__carousel__item__content">
+                                                <img src="images/spannmal.png" alt="Spannmal icon" class="lm__carousel__icon" />
+                                                <p class="lm__carousel__datetime">2017-06-23</p>
+                                                <h3 class="heading-title-3 lm__carousel__title">Höstvete agroetanol</h3>
+                                                <p class="lm__carousel__description">Lev.försäkran: 4312824</p>
+                                                <p class="lm__blue-btn">Info</p>
+                                            </div>
+                                        </a>
+                                    </article>
+                                    <article class="lm__carousel__item" data-item="1">
+                                        <a href="#">
+                                            <div class="lm__carousel__item__content">
+                                                <img src="images/spannmal.png" alt="Spannmal icon" class="lm__carousel__icon" />
+                                                <p class="lm__carousel__datetime">2017-06-23</p>
+                                                <h3 class="heading-title-3 lm__carousel__title">Höstvete agroetanol</h3>
+                                                <p class="lm__carousel__description">Lev.försäkran: 4312824</p>
+                                                <p class="lm__blue-btn">Info</p>
+                                            </div>
+                                        </a>
+                                    </article>
+                                    <article class="lm__carousel__item" data-item="1">
+                                        <a href="#">
+                                            <div class="lm__carousel__item__content">
+                                                <img src="images/spannmal.png" alt="Spannmal icon" class="lm__carousel__icon" />
+                                                <p class="lm__carousel__datetime">2017-06-23</p>
+                                                <h3 class="heading-title-3 lm__carousel__title">Höstvete agroetanol</h3>
+                                                <p class="lm__carousel__description">Lev.försäkran: 4312824</p>
+                                                <p class="lm__blue-btn">Info</p>
+                                            </div>
+                                        </a>
+                                    </article>
+                                    <article class="lm__carousel__item" data-item="1">
+                                        <a href="#">
+                                            <div class="lm__carousel__item__content">
+                                                <img src="images/spannmal.png" alt="Spannmal icon" class="lm__carousel__icon" />
+                                                <p class="lm__carousel__datetime">2017-06-23</p>
+                                                <h3 class="heading-title-3 lm__carousel__title">Höstvete agroetanol</h3>
+                                                <p class="lm__carousel__description">Lev.försäkran: 4312824</p>
+                                                <p class="lm__blue-btn">Info</p>
+                                            </div>
+                                        </a>
+                                    </article>
+                                    <article class="lm__carousel__item" data-item="1">
+                                        <a href="#">
+                                            <div class="lm__carousel__item__content">
+                                                <img src="images/spannmal.png" alt="Spannmal icon" class="lm__carousel__icon" />
+                                                <p class="lm__carousel__datetime">2017-06-23</p>
+                                                <h3 class="heading-title-3 lm__carousel__title">Höstvete agroetanol</h3>
+                                                <p class="lm__carousel__description">Lev.försäkran: 4312824</p>
+                                                <p class="lm__blue-btn">Info</p>
+                                            </div>
+                                        </a>
+                                    </article>
+                                    <article class="lm__carousel__item more-deliveries" data-item="1">
+                                        <a href="#" class="lm__carousel__item__content">
+                                            <img src="images/calendar.png" alt="Calendar icon" class="lm__carousel__icon" />
+                                            <p class="lm__carousel__description">Gå till din leveransplan</p>
+                                        </a>
+                                    </article>
+                                </section>
+                            </div>
+                            <a href="#" class="lm__more-link">Gå till leveransplan <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+
+                        <div class="has-header">
+                            <div class="lm__block-arrow-header has-separator">
+                                <h2 class="heading-title-2">Kommande leveranser</h2>
+                                <span class="content-datetime">Senast uppdaterad: 2017-06-20 15:43</span>
+                            </div>
+                            <div class="lm__block">
+                                <div class="lm__block-box has-separator align-center-text">
+                                    <a href="#" class="lm__blue-btn no-item">
+                                        <h3 class="heading-title-3 align-center-text">Till gården</h3>
+                                        <p class="align-center-text">Du har för tillfället inga planerade leveranser till gården</p>
+                                    </a>
+                                </div>
+                                <div class="lm__block-box has-separator align-center-text">
+                                    <a href="#" class="lm__blue-btn no-item">
+                                        <h3 class="heading-title-3 align-center-text">Från gården</h3>
+                                        <p class="align-center-text">Du har för tillfället inga planerade leveranser till gården</p>
+                                    </a>
+                                </div>
+                                <a href="#" class="lm__more-link align-right-text">Gå till leveransplan <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="lm__block">
+                            <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=1000x300&w=1000&h=300" alt="Placeholder" class="width-100" />
+                        </div>
+
+                        <div id="upcoming-detail" class="lm__modal-alert type-2">
+                            <div class="lm__modal-dialog">
+                                <div class="modal-content-inform">
+                                    <h3 class="success-header-title">Ordernummer 001412133</h3>
+                                    <div class="modal-content">
+                                        <div id="table-data no-margin">
+                                            <table class="lm__information-table type-3 no-margin" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Ordernr:</td>
+                                                        <td>001412133</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rad:</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Artikel:</td>
+                                                        <td>Komplett Maxa 275</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Best. kvantitet:</td>
+                                                        <td>3000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Silo:</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Planerat lev.datum:</td>
+                                                        <td>2017-02-26</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Från fabrik:</td>
+                                                        <td>Falkenberg</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="lm__information-modal__close-btn">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout__item u-1/1 u-1/3-tablet">
+                    <div class="lm__block mina-avtal">
+                        <div class="lm__block-header">
+                            <h1 class="align-center-text">Mina avtal</h1>
+                        </div>
+                        <section class="lm__news">
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title">Du har inga öppna avtal att visa för tillfället</h4>
+                                </a>
+                            </article>
+                            <a href="#" class="lm__more-link">See alla mina avtal<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </section>
+                    </div>
+
+                    <div class="lm__block agreement">
+                        <div class="lm__block-header">
+                            <h1 class="align-center-text">Mina avtal</h1>
+                        </div>
+                        <section class="lm__news">
+                            <h2 class="heading-title-2 odling">Öppna spannmålsavtal</h2>
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title">Kvarnvete Julius</h4>
+                                    <table border="0">
+                                        <tr>
+                                            <td width="50%">Giltigt t.o.m.</td>
+                                            <td width="50%">2017-10-25</td>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <div class="detail-information">
+                                    <table border="0">
+                                        <tr>
+                                            <td width="50%">Giltigt från:</td>
+                                            <td width="50%">2017-10-08</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Avtralsnummer:</td>
+                                            <td>31858866</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kvantitet:</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Invägt:</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Avtalstyp:</td>
+                                            <td>Poolavtal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pris:</td>
+                                            <td>1060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Leveransvillkor:</td>
+                                            <td>Frakt inkluderad i pris</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </article>
+                            <article class="lm__news-item open">
+                                <a href="#">
+                                    <h4 class="article-title">Kvarnvete Julius</h4>
+                                    <table border="0">
+                                        <tr>
+                                            <td width="50%">Giltigt t.o.m.</td>
+                                            <td width="50%">2017-10-25</td>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <div class="detail-information">
+                                    <table border="0">
+                                        <tr>
+                                            <td width="50%">Giltigt från:</td>
+                                            <td width="50%">2017-10-08</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Avtralsnummer:</td>
+                                            <td>31858866</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kvantitet:</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Invägt:</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Avtalstyp:</td>
+                                            <td>Poolavtal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pris:</td>
+                                            <td>1060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Leveransvillkor:</td>
+                                            <td>Frakt inkluderad i pris</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </article>
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title">Kvarnvete Julius</h4>
+                                    <table border="0">
+                                        <tr>
+                                            <td width="50%">Giltigt t.o.m.</td>
+                                            <td width="50%">2017-10-25</td>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <div class="detail-information">
+                                    <table border="0">
+                                        <tr>
+                                            <td width="50%">Giltigt från:</td>
+                                            <td width="50%">2017-10-08</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Avtralsnummer:</td>
+                                            <td>31858866</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kvantitet:</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Invägt:</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Avtalstyp:</td>
+                                            <td>Poolavtal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pris:</td>
+                                            <td>1060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Leveransvillkor:</td>
+                                            <td>Frakt inkluderad i pris</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </article>
+                            <a href="#" class="lm__more-link">See alla mina avtal<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF MAIN CONTENT OF WEBPAGE -->
+
+    <!-- START FOOTER -->
+    <footer class="lm__footer">
+        <div class="wrapper">
+            <div class="layout layout--large">
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="lm__intro">
+                        <p>Lantmännen är ett lantbrukskooperativ och norra Eropas ledande aktör inom lantbruk, maskin, bionergi och livsmedel. Vi ägs av 27 000 svenska lantbrukare, har 10 000 anställda, verksamhet i ett 20-tal länder och omsätter 37 miljarder kronor.</p>
+                    </div>
+                </div>
+
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="layout layout--large">
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Kontakt</h3>
+                                <ul>
+                                    <li><a href="#">Lantmännen.ek.för</a></li>
+                                    <li><a href="#">Lantmännen Lantbruk</a></li>
+                                    <li><a href="#">Lantmännen Maskin</a></li>
+                                    <li><a href="#">Lantmännen Finans</a></li>
+                                    <li><a href="#">Växtråd</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                    <li><a href="#">Medlemsavdelningen</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Hjälp</h3>
+                                <ul>
+                                    <li><a href="#">Kundtjänst och support</a></li>
+                                    <li><a href="#">Vanliga frågor</a></li>
+                                </ul>
+                            </div>
+                            <div class="lm__more-info">
+                                <h3>Hitta säljare</h3>
+                                <ul>
+                                    <li><a href="#">Växtodling</a></li>
+                                    <li><a href="#">Maskin</a></li>
+                                    <li><a href="#">Nötfor</a></li>
+                                    <li><a href="#">Piggfor</a></li>
+                                    <li><a href="#">Pullfor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Anläggningar</h3>
+                                <ul>
+                                    <li><a href="#">Verkstäder och serviceställen</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+    <script src="scripts/scripts.min.js"></script>
+</body>
+</html>

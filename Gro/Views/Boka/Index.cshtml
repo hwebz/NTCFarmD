@@ -1,0 +1,334 @@
+﻿@using Gro.Constants
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.Boka.BokaPageView
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1 u-2/3-tablet">
+                <form class="lm__form-input" id="form-time-booking" action="#" method="post">
+                    <div class="lm__form lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="layout  layout--large">
+                            <div class="layout__item u-1/1">
+                                <h1 class="lm__page-title">@(string.IsNullOrWhiteSpace(Model.CurrentPage.Heading) ? "Tidsbokning" : Model.CurrentPage.Heading)</h1>
+                            </div>
+                            <div class="layout__item u-1/1">
+                                <div class="layout__item u-1/1 lm__block-box gray-background">
+                                    <p>@Html.Raw(Model.CurrentPage.Introduction)</p>
+                                </div>
+                            </div>
+                            <div class="layout__item u-1/1 lm__row-margin">
+                                <div class="author-inform-form__column u-1/1-tablet u-1/5-desktop u-1/1 lm__float-left-element ">
+                                    <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                        @if (Model.SearchTypes != null && Model.SearchTypes.Count > 0)
+                                        {
+                                            <ul class="lm__form-dropdown type-3">
+                                                <li class="showcase" id="search-option" data-value="@Model.SearchTypes[0].Value">
+                                                    <input type="hidden" name="" value="@Model.SearchTypes[0].Value" />
+                                                    <a href="#">@Model.SearchTypes[0].Name</a>
+                                                    <ul class="dropdown">
+                                                        @foreach (var item in Model.SearchTypes)
+                                                        {
+                                                            <li data-value="@item.Value"><a href="#">@item.Name</a></li>
+                                                        }
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="u-1/1-tablet u-1/5-desktop u-1/1 lm__float-left-element author-inform-form__column">
+                                    <input type="text" class="lm__element-margin-top" value="@Model.SeachValue" id="seachFieldTxt" placeholder="@(Model.SearchTypes != null && Model.SearchTypes.Count > 0 ? "Ange " + Model.SearchTypes[0].Name.ToLower() : string.Empty)">
+                                </div>
+                                <div class="u-1/1-tablet u-1/5-desktop u-1/1 lm__float-left-element author-inform-form__column  full-width">
+                                    <button type="button" class="lm__form-btn makeToButton" id="searcFieldhBtn">Hämta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lm__form lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="layout  layout--large">
+                            <div class="layout__item u-1/1 lm__form">
+                                <div class="layout">
+                                    <div class="layout__item u-1/1  lm__control-label lm__float-left-element">
+                                        <span>Företag</span>
+                                    </div>
+                                </div>
+                                <div class="layout">
+                                    <div class="layout__item  u-1/1-tablet u-1/1-desktop u-1/1">
+                                        <div class="layout">
+                                            @{
+                                                for (var i = 0; i < Model.ListCompany.Count; i++)
+                                                {
+                                                    <div class="lm__radio type-2 layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                                        <input type="radio" name="companySelected" @(i == 0 ? "checked" : string.Empty) value="@Model.ListCompany[i].Key" />
+                                                        <p>@Model.ListCompany[i].Value</p>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layout__item u-1/1  lm__form">
+                                <div class="layout">
+                                    <div class="layout__item u-1/1 u-1/1-tablet u-3/5-desktop lm__form">
+                                        <div class="layout">
+                                            <div class="layout__item u-1/1 u-1/1-tablet u-1/2-desktop lm__row-margin">
+                                                <span>Anläggning*</span>
+                                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                    <ul class="lm__form-dropdown type-3">
+                                                        <li class="showcase searchSlotRequired" id="resourceDrp" data-value="">
+                                                            <a href="#">Välj anläggning</a>
+                                                            <ul class="dropdown">
+                                                                @if (Model.ResourceItemList != null)
+                                                                {
+                                                                    foreach (var item in Model.ResourceItemList)
+                                                                    {
+                                                                        <li data-value="@item.Value" regNoMandatory="@item.RegNoMandatory.ToString()"><a href="#">@item.Display</a></li>
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="layout__item u-1/1 u-1/1-tablet u-1/2-desktop lm__row-margin">
+                                                <span>Fordonstyp*</span>
+                                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                    <ul class="lm__form-dropdown type-3">
+                                                        <li class="showcase searchSlotRequired" id="veichleTypeDrp" data-value="">
+                                                            <a href="#">Välj fordon</a>
+                                                            <ul class="dropdown"></ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layout__item u-1/1 u-1/1-tablet u-2/5-desktop lm__form">
+                                        <div class="layout">
+                                            <div class="layout__item u-1/1 u-1/1-tablet u-4/5-desktop lm__row-margin">
+                                                <span>Artikel*</span>
+                                                <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                    <ul class="lm__form-dropdown type-3">
+                                                        <li class="showcase searchSlotRequired" id="articlesDrp" data-value="">
+                                                            <a href="#">Välj artikel</a>
+                                                            <ul class="dropdown"></ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop lm__row-margin">
+                                                <span>Kvantitet*</span>
+                                                <input type="text" class="lm__element-margin-top searchSlotRequired" id="quantityTxt" placeholder="" value="">
+                                                <span class="error-item" id="Quantity-error" hidden="hidden">Ange ett numeriskt värde</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (Model.Customer != null)
+                                    {
+                                        <input type="hidden" class="searchSlotRequired" id="customerNo" value="@Model.Customer.CustomerNo" />
+                                        <input type="hidden" class="searchSlotRequired" id="customerName" value="@Model.Customer.CustomerName" />
+                                    }
+                                    <select id="agrementDriedUnDried" hidden>
+                                        <option value="Torkad" selected="selected">Torkad</option>
+                                        <option value="Otorkad">Otorkad</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="layout__item u-1/1 lm__row-margin">
+                                <div class="layout">
+                                    <div class="layout__item u-1/1 u-1/1-tablet u-1/2-desktop">
+                                        <div class="">
+                                            <span>Lasta/Lossa*</span>
+                                        </div>
+                                        <div class="u-1/1-tablet u-1/1-desktop u-1/1">
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="loadOrUnlodRad" id="loadRadio" value="1" />
+                                                <p><label for="loadRadio">Lassa</label></p>
+                                            </div>
+                                            <div class="lm__radio type-2 width-30">
+                                                <input type="radio" name="loadOrUnlodRad" id="unloadradio" value="2" checked="checked" />
+                                                <p><label for="unloadradio">Lossa</label></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop">
+                                        <span>Datum*</span>
+                                        <div class="datepicker-container">
+                                            <input type="text" id="selectedDate" class="datepicker-blank-default calculate_deliveryDate lm__element-margin-top searchSlotRequired" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layout__item u-1/1 lm__row-margin">
+                                <div class="u-1/1 lm__blue-btn-block disabled-btn">
+                                    <a href="#" class="lm__blue-btn" id="searchAvailbleSlotsBtn">Visa tider</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lm__block lm__mina-avtal has-separator no-margin">
+                        <div class="layout layout--large" id="resultTable-box">
+                            <div class="layout__item u-1/1">
+                                <div class="layout__item u-1/1 lm__block-box gray-background" id="showReservationStopps" style="display: none;">
+                                    <p class="exclamation-btn">Bokningsstopp</p>
+                                    <ul></ul>
+                                </div>
+                            </div>
+                            <div class="layout__item u-1/1 lm__row-margin">
+                                <div class="lm__table-wrapper margin-top__mobile-btn" id="resultTable" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lm__block" id="SaveTable" hidden="hidden">
+                            <div class="layout layout--large">
+                                <div class="layout__item u-1/1 lm__row-margin">
+                                    <strong id="dispalyMessageHeader"></strong>
+                                    <p class="no-margin" id="myDisplayMessage">
+                                    </p>
+                                </div>
+                                <div class="layout__item u-1/1">
+                                    <div class="layout layout--large">
+                                        <div>
+                                            <input type="hidden" id="newCustomerNo" class="fieldToClearWithClearForm" />
+                                            <input type="hidden" id="newCustomerName" class="fieldToClearWithClearForm" />
+                                            <input type="hidden" id="newCustomerHeading" value="Kundnr" />
+                                        </div>
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-1/3-desktop lm__row-margin">
+                                            <span>Lev.försäkran/Sändningsnr*</span>
+                                            <input type="text" id="IDLevnr" class="fieldToClearWithClearForm lm__element-margin-top" value="" placeholder="">
+                                            <input type="hidden" id="IDLevnr_StartValue" value="" />
+                                            <span class="error-item" id="IDLevnr-error" hidden="hidden">Ange en giltig levnr</span>
+                                        </div>
+
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop lm__row-margin">
+                                            <span>Regnr*</span>
+                                            <input type="text" id="IDReg" class="lm__element-margin-top fieldToClearWithClearForm updateRequiered" maxlength="15" value="" placeholder="">
+                                            <span class="error-item" id="IDReg-error" hidden="hidden">Ange en giltig regnr</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layout__item u-1/1">
+                                    <div class="layout layout--large">
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-2/5-desktop lm__row-margin">
+                                            <span>Skicka påminnelse</span>
+                                            <div class="u-1/1-tablet u-1/1-desktop u-1/1 lm__element-margin-top">
+                                                <ul class="lm__form-dropdown type-3">
+                                                    <li class="showcase" id="IDReminder" data-value="0">
+                                                        <a href="#">Ingen påminnelse</a>
+                                                        <ul class="dropdown">
+                                                            <li data-value="0"><a href="#">Ingen påminnelse</a></li>
+                                                            <li data-value="60"><a href="#">En timme innan</a></li>
+                                                            <li data-value="120"><a href="#">Två timmar innan</a></li>
+                                                            <li data-value="1440"><a href="#">En dag innan</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-2/5-desktop lm__row-margin">
+                                            <span>E-post</span>
+                                            <input type="text" id="IDEpost" class="lm__element-margin-top" value="@Model.Customer.OwnerEmail" placeholder="">
+                                            <input type="hidden" id="IDEpost_StartValue" value="@Model.Customer.OwnerEmail" />
+                                            <span class="error-item" id="IDEpost-error" hidden="hidden">Ange en giltig e-postadress</span>
+                                        </div>
+
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-1/5-desktop lm__row-margin ">
+                                            <span>Mobilnr</span>
+                                            <input type="text" id="IDMobil" class="lm__element-margin-top" value="@Model.Customer.PhoneNumber" placeholder="">
+                                            <input type="hidden" id="IDMobil_StartValue" value="@Model.Customer.PhoneNumber" />
+                                            <span class="error-item" id="IDMobil-error" hidden="hidden">Ange ett giltigt mobilnummer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layout__item u-1/1">
+                                    <div class="layout layout--large">
+                                        <div class="layout__item u-1/1 u-1/1-tablet u-4/5-desktop lm__row-margin ">
+                                            <span>Övrig information</span>
+                                            <textarea id="IDOvrigt" class="fieldToClearWithClearForm"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lm__block lm__row-margin author-inform-form__column-full clearfix block-button-on-mobile full-width">
+                            <div class="author-inform-form__column author-inform-form__column-half lm__float-right-element align-right-text">
+                                <button id="updateBtn" type="button" class="lm__form-btn reverse-state makeToButton" style="display: none;">Uppdatera bokning</button>
+                                <button id="saveBtn" type="button" class="lm__form-btn reverse-state disabled-btn makeToButton" style="display: none;">Spara bokning</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loader-wrapper" id="loader" style="display: none;">
+                        <div class="loader"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet ">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+                @Html.PropertyFor(x => x.CurrentPage.RightContent, new { Tag = ColumnLayout.OneColumnTag })
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="hidden" id="saveAction" value="New" />
+        <input type="hidden" id="ReservationID" class="fieldToClearWithClearForm" value="" />
+
+        <input type="hidden" id="SpeditorNo_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="ContactTelephone_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="CustomerNo_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="CustomerName_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="TransportOrderNo_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="ContractNo_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="ReminderEmail_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="ReminderSMS_ForUpdate" value="" class="fieldToClearWithClearForm" />
+        <input type="hidden" id="Owner" value="" class="fieldToClearWithClearForm" />
+    </div>
+    <div class="lm__modal__wrapper hidden" id="dialogArea">
+        <div class="mask"></div>
+        <div class="lm__wide-modal author-inform-form">
+            <h3 class="lm__wide-modal__title"></h3>
+            <p>
+            </p>
+            <div class="lm__wide-modal__close-btn">
+                <a href=""></a>
+            </div>
+            <div class="author-inform-form__input lm__wide-modal__action-btn">
+                <button class="author-inform-form__btn width-40 lm__form-btn reverse-state btn-ok">Ok</button>
+            </div>
+        </div>
+    </div>
+    <div class="lm__modal-alert" id="deleteDialog">
+        <div class="lm__modal-dialog no-overflow">
+            <div class="modal-content-inform">
+                <span class="alert-icon warning"></span>
+                <h3 class="success-header-title"></h3>
+                <p></p>
+                <div class="button-confirm align-right-text no-padding">
+                    <button class="success-confirm-inform btn-cancel width-40 lm__float-left-element small-distance-top no-margin">Avbryt</button>
+                    <button class="success-confirm-inform btn-ok width-40 lm__float-right-element left-button reverse-state type-2 small-distance-top no-margin">Ta bort</button>
+                </div>
+                <div class="lm__information-modal__close-btn">
+                    <a href=""></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div> 
+    </div>
+</section>
+
+
+

@@ -1,0 +1,46 @@
+﻿@using EPiServer.Editor
+@using Gro.Core.ContentTypes.Utils
+@model string
+@if (!PageEditing.PageIsInEditMode && TempData["Saved"] != null && (bool)TempData["Saved"])
+{
+     <div class="lm__modal__wrapper">
+        <div class="mask"></div>
+        <div class="lm__wide-modal author-inform-form large">
+                @if (Model.Equals(AgreementType.Depaavtal) || Model.Equals(AgreementType.Poolavtal))
+                {
+                    <h3 class="lm__wide-modal__title only-header success-modal">Ditt avtal är nu tecknat</h3>
+                }
+                else
+                {
+                    <h3 class="lm__wide-modal__title only-header success-modal">Din prisbevakning har nu skapats</h3>
+                }
+
+            <p>
+            </p>
+            
+            <div class="author-inform-form__input lm__wide-modal__action-btn">
+                <button class="author-inform-form__btn width-40 lm__form-btn reverse-state lm__btn-close">Stäng</button>
+            </div>
+        </div>
+        <div class="lm__wide-modal__close-btn">
+            <a href="javascript:void(0)"></a>
+        </div>
+    </div>
+}
+else if (!PageEditing.PageIsInEditMode && TempData["Saved"] != null)
+{
+    <div class="lm__modal__wrapper">
+        <div class="mask"></div>
+        <div class="lm__wide-modal author-inform-form large">
+            <h3 class="lm__wide-modal__title only-header">Ett fel har uppstått</h3>
+
+            <div class="author-inform-form__input lm__wide-modal__action-btn">
+                <button class="author-inform-form__btn width-40 lm__form-btn reverse-state lm__btn-close">Stäng</button>
+            </div>
+        </div>
+        <div class="lm__wide-modal__close-btn">
+            <a href="javascript:void(0)"></a>
+        </div>
+    </div>
+}
+

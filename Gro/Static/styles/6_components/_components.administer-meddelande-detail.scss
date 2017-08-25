@@ -1,0 +1,100 @@
+﻿/// <reference path="../_references.scss" />
+
+.lm__administrera-meddelanden.lm__administrera-meddelanden-detail {
+
+    .listing-link {
+        @extend .lm__back-link;
+        display: block;
+        padding: 10px;
+
+        &:hover {
+            border: 1px solid #ececec;
+        }
+    }
+
+    .meddelanden-metadata {
+        position: relative;
+
+        .meddelanden-cate {
+            list-style: none;
+            display: inline-block;
+            white-space: normal;
+
+            li {
+                @include set-responsive-property("mobile", display, block, inline-block);
+
+                a {
+                    display: block;
+                    padding: 15px;
+                    white-space: normal;
+                }
+            }
+        }
+
+        .meddelanden-date {
+            @include set-absolute-position(50%, 15px, auto, auto);
+            @include set-responsive-property("mobile", position, initial, absolute);
+            @include set-responsive-property("mobile", padding, 15px, 0);
+            display: block;
+            font-size: 12px;
+
+            @include media-query("mobile") {
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+            }
+        }
+    }
+
+    .meddelande-box {
+        border: 1px solid #ececec;
+        margin-bottom: 20px;
+
+        .detail-main-content {
+            padding: 15px;
+        }
+    }
+
+    .meddelande-title {
+        margin: 0;
+        padding: 15px 30px 15px 15px;
+        background-color: #5a9b25;
+        color: $color-white;
+        font-family: $font-clarendonurw-reg;
+        font-size: 16px;
+
+        @include media-query("tablet") {
+            font-size: 20px;
+        }
+    }
+
+    .epost-header {
+        position: relative;
+
+        .lm__tooltip {
+            @include create-popup("\f0c0", "Visa mottagare", 0, $color-white, true);
+
+            .user-emails {
+                max-height: 250px;
+                min-width: 250px;
+                overflow: hidden;
+                overflow-y: visible;
+            }
+
+            .reciever-info {
+                display: block;
+                padding: 10px 15px;
+                border-bottom: 1px solid #ececec;
+                margin: 0;
+
+                .email {
+                    font-size: 11px;
+                    color: #808080;
+                }
+            }
+        }
+    }
+}
+
+.detail-main-content {
+    position: relative;
+}

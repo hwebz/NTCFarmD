@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>News detail</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- News detail stylesheet -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+</head>
+<body>
+
+    <!-- MAIN CONTENT OF WEBPAGE IS HERE -->
+    <header class="lm__header">
+        <div class="lm__top-header">
+            <div class="wrapper">
+                <div class="layout  layout--small">
+                    <div class="layout__item u-1/3 u-1/2-laptop lm__logo">
+                        <a href="#"><img src="images/logo.png" alt="LM2 Logo" class="lm__logo-item"></a>
+                        <span class="lm__slogan">Verktyget för jordens entreprenörer</span>
+                    </div>
+                    <div class="layout__item u-2/3 u-1/2-laptop lm__utility">
+                        <nav class="lm__user-settings">
+                            <ul>
+                                <li class="lm__star"><a href="#"></a></li>
+                                <li class="lm__messages"><a href="#"><span class="lm__messages-count">2</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="lm__user-profile">
+                            <div class="user-info-wrapper">
+                                <a class="lm__user-info" href="#">
+                                    <h4 class="lm__user-id">32008145</h4>
+                                    <p class="lm__user-summary">Nilsson Lantbruk AB</p>
+                                </a>
+                                <div class="sub__user-profile">
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" checked />
+                                        <div class="user-id__label">
+                                            <h4>32008145</h4>
+                                            <p>Nilsson Lantbruk AB</p>
+                                        </div>
+                                    </div>
+                                    <div class="user-id__wrapper lm__radio">
+                                        <input type="radio" name="user_id" />
+                                        <div class="user-id__label">
+                                            <h4>3208007</h4>
+                                            <p>Karlssons Gård</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lm__user-avatar-wrapper">
+                                <a href="#" class="lm__user-avatar"><img src="images/user-avatar.jpg" alt="User Avatar"></a>
+                                <!--<div class="sub-settings">
+                                    <h3>Mina inställningar</h3>
+                                    <ul class="nav-bar">
+                                        <li><a href="#">Min profil</a></li>
+                                        <li><a href="#">Företaget</a></li>
+                                        <li><a href="#">Hantera användare</a></li>
+                                    </ul>
+                                    <a href="#" class="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i>Logga ut</a>
+                                </div>-->
+                                <div class="sub-settings-panel">
+                                    <div class="inform-panel">
+                                        <img src="images/user-avatar.jpg" alt="User Avatar">
+                                        <div class="inform-detail">
+                                            <h3>Lars Karlsson</h3>
+                                            <p>Administratör vid Nilsson lantbruk AB</p>
+                                        </div>
+                                        <a href="#" class="mitt-konto__btn">Mitt konto</a>
+                                    </div>
+                                    <div class="logout-btn__wrapper">
+                                        <a href="#" class="logout-btn">Logga ut</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lm__navigation-wrapper">
+            <div class="lm__navigation">
+                <div class="wrapper">
+                    <div class="layout  layout--small">
+                        <div class="layout__item u-1/1">
+                            <div class="lm__active-page">
+                                <nav class="lm__user-settings">
+                                    <ul>
+                                        <li class="lm__settings">
+                                            <a href="#"></a>
+                                            <nav class="lm_sub-settings">
+                                                <ul>
+                                                    <li class="spannmal"><a href="#">Spannmål</a></li>
+                                                    <li class="odling"><a href="#">Odling</a></li>
+                                                    <li class="foder"><a href="#">Foder</a></li>
+                                                    <li class="maskiner"><a href="#">Maskiner</a></li>
+                                                    <li class="ekonomi"><a href="#">Ekonomi</a></li>
+                                                    <div class="cleafix"></div>
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <h1 class="lm__page-title">Spannmål</h1>
+                            </div>
+                            <nav class="lm__main-navigation">
+                                <a class="lm_toggle-menu" href="#" alt="Humberger Icon">
+                                    <span class="text">Menu</span>
+                                    <span class="humb">
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                        <span class="humb-icon"></span>
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li><a href="#">Sälja fysisk spannmål</a></li>
+                                    <li>
+                                        <a href="#">Lämna spannmål</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">Marknadsinformation</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blanketter</a>
+                                        <ul class="lm__sub-navigation">
+                                            <li><a href="#">Nivå2 donec consequat</a></li>
+                                            <li><a href="#">Nivå2 amet euismod</a></li>
+                                            <li><a href="#">Nivå2 tempus</a></li>
+                                            <li><a href="#">Nivå2 vulputate</a></li>
+                                            <li><a href="#">Nivå2 auctor ipsum</a></li>
+                                            <li><a href="#">Nivå2 quan eget</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End of header -->
+    <!-- END OF HEADER -->
+
+    <!-- START MAIN CONTENT -->
+    <section class="lm__contents">
+        <div class="wrapper">
+            <div class="layout  layout--large">
+                <div class="layout__item u-1/1">
+                    <a href="#" class="lm__back-link small-distance-bottom"><i class="fa fa-arrow-left" aria-hidden="true"></i>Till Mitt konto</a>
+                </div>
+                <div class="layout__item u-1/1 u-2/3-tablet">
+                    <div class="lm__block redigera-block ">
+                        <div class="lm__block-box has-separator">
+                            <h1 class="lm__page-title">Redigera Verksamhetsprofil</h1>
+                            <div class="bankid-block">
+                                <img src="images/bank_id.svg" alt="BankID Logo" class="bank-id__logo" />
+                                <p>Du måste vara inloggad med BankID för att kunna använda tjänsten.</p>
+                                <a href="#" class="bank-id__btn lm__form-btn reverse-state">Logga in med BankID</a>
+                            </div>
+                        </div>
+                        <div class="lm__block-box has-separator">
+                            <p>Om du uppdaterar informationen nedan skickas detta till Lantmännens kundtjänst vilka sedan validerar uppgifterna och ändrar dessa manuellt.</p>
+                            <ul class="errors-list">
+                                <li class="errors-list__header">Du måste se över</li>
+                                <li>Verksamhetsprofil</li>
+                            </ul>
+                        </div>
+                        <form class="author-inform-form" action="#" method="post">
+                            <div class="author-inform-form__input">
+                                <h3 class="author-inform-form__input-title lm__bold-title">Verksamhetsprofil</h3>
+                                <div class="author-inform-form__column author-inform-form__column-half">
+                                    <input type="text" name="verksamhetsprofil" class="verksamhetsprofil disabled-input error" placeholder="Lorem ipsum" />
+                                    <span class="error-item">Du måste ange Företag/namn</span>
+                                </div>
+                            </div>
+
+                            <div class="author-inform-form__input">
+                                <h3 class="author-inform-form__input-title lm__bold-title">Produktionsprofil</h3>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="akerareal-total">Åkerareal total</label>
+                                    <input type="text" name="akerareal-total" class="akerareal-total" placeholder="Lorem ipsum"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="uttagen-areal">Uttagen areal</label>
+                                    <input type="text" name="uttagen-areal" class="uttagen-areal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="eko-areal">Eko-areal</label>
+                                    <input type="text" name="eko-areal" class="eko-areal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3 no-padding">
+                                    <label for="vallareal">Vallareal</label>
+                                    <input type="text" name="vallareal" class="vallareal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="fruktodlingsareal">Fruktodlingsareal</label>
+                                    <input type="text" name="fruktodlingsareal" class="fruktodlingsareal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="skogsareal">Skogsareal</label>
+                                    <input type="text" name="skogsareal" class="skogsareal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="potatis-areal">Potatis areal</label>
+                                    <input type="text" name="potatis-areal" class="potatis-areal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3 no-padding">
+                                    <label for="sockerbetsareal">Sockerbetsareal</label>
+                                    <input type="text" name="sockerbetsareal" class="sockerbetsareal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="gronsaktsodling-areal">Grönsaktsodling areal</label>
+                                    <input type="text" name="gronsaktsodling-areal" class="gronsaktsodling-areal"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="salix">Salix</label>
+                                    <input type="text" name="salix" class="salix"/>
+                                </div>
+                            </div>
+                            <div class="author-inform-form__input">
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="mjokkor-total">Mjökkor total</label>
+                                    <input type="text" name="mjokkor-total" class="mjokkor-total"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="greater-than-16">Köttdjur extensiv &gt;16 mån</label>
+                                    <input type="text" name="greater-than-16" class="greater-than-16"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="less-than-16">Köttdjur intensiv &lt;16 mån</label>
+                                    <input type="text" name="less-than-16" class="less-than-16"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3 no-padding">
+                                    <label for="slaktsvin-total">Slaktsvin total</label>
+                                    <input type="text" name="slaktsvin-total" class="slaktsvin-total"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="suggor-total">Suggor total</label>
+                                    <input type="text" name="suggor-total" class="suggor-total"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="livkyckling-total">Livkyckling total</label>
+                                    <input type="text" name="livkyckling-total" class="livkyckling-total"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="varphons-total">Värphöns total</label>
+                                    <input type="text" name="varphons-total" class="varphons-total"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3 no-padding">
+                                    <label for="far-extensiv">Får extensiv</label>
+                                    <input type="text" name="far-extensiv" class="far-extensiv"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="far-intensiv">Får intensiv</label>
+                                    <input type="text" name="far-intensiv" class="far-intensiv"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="salkoner">Kalkoner</label>
+                                    <input type="text" name="salkoner" class="salkoner"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="strutsar">Strutsar</label>
+                                    <input type="text" name="strutsar" class="strutsar"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3 no-padding">
+                                    <label for="renar">Renar</label>
+                                    <input type="text" name="renar" class="renar"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="hastar">Hästar</label>
+                                    <input type="text" name="hastar" class="hastar"/>
+                                </div>
+                                <div class="author-inform-form__column author-inform-form__column-custom-3">
+                                    <label for="ekologisk-djurproduktion">Ekologisk djurproduktion</label>
+                                    <input type="text" name="ekologisk-djurproduktion" class="ekologisk-djurproduktion"/>
+                                </div>
+                            </div>
+                            <div class="author-inform-form__input align-right-text">
+                                <input type="reset" class="lm__form-btn" value="Avbryt"/>
+                                <input type="submit" class="lm__form-btn reverse-state" value="Uppdatera" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="layout__item u-1/1 u-1/3-tablet">
+                    <div class="lm__block">
+                        <div class="lm__block-header gray-background-header">
+                            <h1>Mitt företag</h1>
+                        </div>
+                        <section class="lm__news with-animation">
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title right-icon-pos">Redigera kundinformation <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                </a>
+                            </article>
+                            <article class="lm__news-item active">
+                                <a href="#">
+                                    <h4 class="article-title right-icon-pos">Redigera verksamhetsprofil <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                </a>
+                            </article>
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title right-icon-pos">Lägg till leveransadress <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                </a>
+                            </article>
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title right-icon-pos">Hantera leveransadress <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                </a>
+                            </article>
+                            <article class="lm__news-item">
+                                <a href="#">
+                                    <h4 class="article-title right-icon-pos">Meddelandeinställnignar <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h4>
+                                </a>
+                            </article>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF MAIN CONTENT OF WEBPAGE -->
+
+    <!-- START FOOTER -->
+    <footer class="lm__footer">
+        <div class="wrapper">
+            <div class="layout layout--large">
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="lm__intro">
+                        <p>Lantmännen är ett lantbrukskooperativ och norra Eropas ledande aktör inom lantbruk, maskin, bionergi och livsmedel. Vi ägs av 27 000 svenska lantbrukare, har 10 000 anställda, verksamhet i ett 20-tal länder och omsätter 37 miljarder kronor.</p>
+                    </div>
+                </div>
+
+                <div class="layout__item u-1/1 u-1/2-mobile">
+                    <div class="layout layout--large">
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Kontakt</h3>
+                                <ul>
+                                    <li><a href="#">Lantmännen.ek.för</a></li>
+                                    <li><a href="#">Lantmännen Lantbruk</a></li>
+                                    <li><a href="#">Lantmännen Maskin</a></li>
+                                    <li><a href="#">Lantmännen Finans</a></li>
+                                    <li><a href="#">Växtråd</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                    <li><a href="#">Medlemsavdelningen</a><i class="fa fa-external-link" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Hjälp</h3>
+                                <ul>
+                                    <li><a href="#">Kundtjänst och support</a></li>
+                                    <li><a href="#">Vanliga frågor</a></li>
+                                </ul>
+                            </div>
+                            <div class="lm__more-info">
+                                <h3>Hitta säljare</h3>
+                                <ul>
+                                    <li><a href="#">Växtodling</a></li>
+                                    <li><a href="#">Maskin</a></li>
+                                    <li><a href="#">Nötfor</a></li>
+                                    <li><a href="#">Piggfor</a></li>
+                                    <li><a href="#">Pullfor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="layout__item u-1/1 u-1/2-mobile u-1/3-tablet">
+                            <div class="lm__more-info">
+                                <h3>Anläggningar</h3>
+                                <ul>
+                                    <li><a href="#">Verkstäder och serviceställen</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="scripts/scripts.min.js"></script>
+</body>
+</html>

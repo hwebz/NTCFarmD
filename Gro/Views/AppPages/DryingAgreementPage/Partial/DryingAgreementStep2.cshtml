@@ -1,0 +1,97 @@
+﻿@model Gro.ViewModels.Pages.AppPages.DryingAgreement.DryingAgreementViewModel
+
+<div class="lm__breadcrums">
+    <div class="lm__step-inform">
+        <h2 class="heading-title">Steg 2</h2>
+        <h3 class="heading-title-2">Godkännande</h3>
+    </div>
+    <ul class="lm__form-progress">
+        <span class="lm__form-progress__line"></span>
+        <li class="done"><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+    </ul>
+</div>
+<form action="#" method="post" class="lm__add-user-form author-inform-form">
+    <div class="author-inform-form__input">
+        <div class="layout">
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <h2 class="heading-title-2">Översikt - Torkavtal</h2>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Avtalstyp</span><span>@Model.Agreement.Description</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Skördeår</span><span>@Model.Agreement.HarvestYear</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Giltigt</span><span>@string.Format("{0}-07-01 till {0}-10-14", Model.Agreement.HarvestYear)</span>
+                </div>
+
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Avgift</span><span>@Model.Agreement.Price</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Max vh</span><span>@Model.Agreement.MaxMoisture</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <h2 class="heading-title-2">Leverantör</h2>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class=" lm__float-left-element">
+                    <span class="lm__control-label">Leverantör</span><span>@Model.Customer.CustomerName</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Leverantörsnummer</span><span>@Model.Customer.CustomerId</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Mobilnummer</span><span>@Model.Customer.PhoneNumber</span>
+                </div>
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">E-postadress</span> <span>@Model.Customer.Email</span>
+                </div>
+
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/1-desktop lm__float-left-element lm__row-margin">
+                <div class="lm__float-left-element">
+                    <span class="lm__control-label">Avtalsdatum</span> <span>@string.Format("{0:yyyy-MM-dd}", DateTime.Now)</span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="lm__block lm__mina-avtal layout__item has-separator">
+        <div class="lm__checkbox lm__tick disabled">
+            <input type="checkbox" id="approveDryingAgreementTermInStep2"/>
+            <label></label>
+        </div>
+        <span class="middle-vertical" data-id="4229496" href="#">Villkoren har godkänts</span>
+    </div>
+    <div class="author-inform-form__input align-right-text block-button-on-mobile author-inform-form__column-full">
+        <div class="layout">
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/4-desktop lm__float-left-element ">
+                <input type="button" id="dryingBtnBackToStep1" class="author-inform-form__btn width-100" value="Avbryt" />
+            </div>
+            <div class="layout__item u-1/1 u-1/1-tablet  u-1/3-desktop lm__float-right-element ">
+                <input type="submit" id="dryingBtnMoveToStep3" class="author-inform-form__btn width-100" value="Registrera avtal" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>

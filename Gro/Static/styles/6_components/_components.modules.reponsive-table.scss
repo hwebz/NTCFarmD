@@ -1,0 +1,117 @@
+﻿/// <reference path="../_references.scss" />
+
+@media only all {
+    /* Unchecked manually: Always hide */
+
+    .tablesaw-columntoggle th.tablesaw-cell-hidden,
+    .tablesaw-columntoggle td.tablesaw-cell-hidden {
+        display: none;
+    }
+
+    /* Checked manually: Always show */
+
+    .tablesaw-columntoggle th.tablesaw-cell-visible,
+    .tablesaw-columntoggle td.tablesaw-cell-visible {
+        display: table-cell;
+    }
+}
+/*==========================================*/
+
+.tablesaw-bar {
+    display: block;
+    position: absolute;
+    right: 15px;
+    //margin-top: -10px;
+    @include media-query("tablet") {
+        right: 30px;
+    }
+
+    @include media-query("tablet") {
+        display: none;
+    }
+
+    .tablesaw-columntoggle-btnwrap {
+        position: relative;
+
+        .btn {
+            text-indent: -9999px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #f2f2f2 url(../images/chevron-down.png) no-repeat center center;
+            background-size: 60%;
+            float: right;
+        }
+
+        .tablesaw-columntoggle-popup {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            display: none;
+            @extend %shadow-box;
+            background-color: $color-white;
+            z-index: 4;
+
+            .btn-group {
+                padding: 5px 0;
+                min-width: 220px;
+
+                label {
+                    display: block;
+                    padding: 15px 20px 15px 50px;
+                    color: $body-text-color;
+                    cursor: pointer;
+                    position: relative;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+
+                    input[type="checkbox"] {
+                        position: absolute;
+                        top: 50%;
+                        left: 17px;
+                        -webkit-transform: translate(0, -50%);
+                        transform: translate(0, -50%);
+                        margin: 0;
+
+                        &:before {
+                            content: "";
+                            width: 20px;
+                            height: 20px;
+                            display: inline-block;
+                            border: 1px solid #ddd9d1;
+                            border-radius: 3px;
+                            background-color: $color-white;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            -webkit-transform: translate(0, -50%);
+                            transform: translate(0, -50%);
+                        }
+
+                        &:checked {
+                            &:before {
+                                background: #f6f6f6 url(../images/table-toggle-tick.png) no-repeat center center;
+                                background-size: 70%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.visible {
+            .btn {
+                background: $color-dark-green url(../images/chevron-down-active.png) no-repeat center center;
+                background-size: 60%;
+            }
+
+            .tablesaw-columntoggle-popup {
+                display: block;
+            }
+        }
+    }
+}

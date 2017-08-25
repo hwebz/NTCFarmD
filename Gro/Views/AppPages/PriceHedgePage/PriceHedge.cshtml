@@ -1,0 +1,67 @@
+@using EPiServer.Editor
+@using Gro.Core.ContentTypes.Utils
+@model Gro.ViewModels.Pages.AppPages.PurchasingAgreement.PriceHedgeViewModel
+
+<section class="lm__contents">
+    <div class="wrapper">
+        <div class="layout  layout--large">
+            <div class="layout__item u-1/1-tablet u-2/3-desktop">
+                <div class="lm__block redigera-block">
+                    @using (Html.BeginForm("Index", "PriceHedgePage", FormMethod.Post, new {id = "priceHegeForm", name = "priceHegeForm", @class = "lm__add-user-form author-inform-form", enctype = "multipart/form-data"}))
+                    {
+                        <input type="hidden" id="PriceLow" value="@Model.PriceLow"/>
+                        <input type="hidden" id="CommitQuantityMin" value="@Model.CommitQuantityMin"/>
+                        <input type="hidden" id="CommitQuantityMax" value="@Model.CommitQuantityMax"/>
+
+                        <input type="hidden" name="PriceArea" value="@Model.PriceHedgeForm.PriceArea"/>
+                        <input type="hidden" name="ProductItemId" value="@Model.PriceHedgeForm.ProductItemId"/>
+                        <input type="hidden" name="GrainType" value="@Model.PriceHedgeForm.GrainType"/>
+                        <input type="hidden" name="PriceType" value="@Model.PriceHedgeForm.PriceType"/>
+                        <input type="hidden" name="ValidTo" value="@Model.PriceHedgeForm.ValidTo"/>
+                        <input type="hidden" name="ValidFrom" value="@Model.PriceHedgeForm.ValidFrom"/>
+                        <input type="hidden" name="purchaseAgreementUrl" value="@Model.PurchaseAgreementUrl"/>
+                        <input type="hidden" name="AgreementType" id="AgreementType" value="@Model.PriceHedgeForm.AgreementType"/>
+                        <input type="hidden" name="AgreementId" value="@Model.PriceHedgeForm.AgreementId"/>
+
+                        if (PageEditing.PageIsInEditMode ||
+                            ((ViewData["NotLoggedIn"] == null || !(bool)ViewData["NotLoggedIn"]) &&
+                             (ViewData["IncorrectParams"] == null || !(bool)ViewData["IncorrectParams"])))
+                        {
+
+                            <div class="lm__add-user__wrapper" id="pStep1">
+                                @Html.Partial("Partial/PriceWatchStep1", Model)
+                            </div>
+                            <div class="lm__add-user__wrapper hidden" id="pStep2">
+                                @Html.Partial("Partial/PriceWatchStep2", Model)
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+            <div class="layout__item u-1/1 u-1/3-tablet">
+                @if (Model.CurrentPage.GetLevel() >= 3)
+                {
+                    Html.RenderAction("GetRightNav", "Navigation", new { page = Model.CurrentPage });
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (!PageEditing.PageIsInEditMode && ViewData["NotLoggedIn"] != null && (bool)ViewData["NotLoggedIn"])
+            {
+    <div class="lm__modal__wrapper" id="errorDialog">
+        <div class="mask"></div>
+        <div class="lm__wide-modal">
+            <h3 class="lm__wide-modal__title">@Html.Translate("/lantBruk/leveransForsakran/errorMessages/error")</h3>
+            <div class="author-inform-form__column author-inform-form__column-full lm__row-margin">
+                @Html.Translate("/lantBruk/leveransForsakran/errorMessages/notLoggedIn")
+            </div>
+            <div class="lm__wide-modal__close-btn">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+}
+

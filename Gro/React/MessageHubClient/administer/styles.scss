@@ -1,0 +1,71 @@
+.create-message-form{
+    .accordion-control{
+        color: red;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .error-message{
+        li{
+            list-style-type: circle;
+            color: red;
+        }
+    }
+
+    .lm__form-dropdown{
+        cursor: pointer;
+    }
+
+    #editor{
+        p{
+            margin-bottom: 5px;
+        }
+
+        padding-top: 0;
+    }
+
+    .richtext-display{
+        ul{
+            li{
+                list-style-type: disc;
+            }
+        }
+
+        ol{
+            li{
+                list-style-type: inherit;
+            }
+        }
+    }
+
+    .fieldset{
+        .submit-spinner{
+            display: none;
+            margin-left: 10px;
+            transform: translateY(25%);
+        }
+
+        &[data-disabled="true"]{
+            .submit-spinner{
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.message-item-row a{
+    &:hover{
+        text-decoration: underline !important;
+    }
+}
+
+.showcase a{
+    cursor: pointer;
+}
+
+.trumbowyg{
+    input{
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+}

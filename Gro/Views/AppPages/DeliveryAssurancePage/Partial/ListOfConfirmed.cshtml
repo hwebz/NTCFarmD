@@ -1,0 +1,111 @@
+@using System.Globalization
+@model Gro.ViewModels.Pages.AppPages.DeliveryAssurance.DeliveryAssuranceListViewModel
+
+<div class="lm__block">
+    <div class="u-1/1 lm__blue-btn-block">
+        <h3>@Html.Translate("/lantBruk/leveransForsakran/sentButNotDeliverd")</h3>
+        <a href="@Model.BookDeliveryUrl" class="lm__blue-btn">@Html.Translate("/lantBruk/leveransForsakran/bookDeliveryButton")</a>
+    </div>
+    <div class="lm__table-wrapper">
+        <table class="responsive-table no-width">
+            <thead>
+            <tr>
+                <th class="header-desktop-only">@Html.Translate("/lantBruk/leveransForsakran/List/deliveryAssurance")</th>
+                <th class="header-desktop-only">@Html.Translate("/lantBruk/leveransForsakran/itemName")</th>
+                <th >@Html.Translate("/lantBruk/leveransForsakran/List/deliveryDate")</th>
+                <th class="collapsed-row">@Html.Translate("/lantBruk/leveransForsakran/List/bookTime")</th>
+                <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/print")</th>
+                <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/edit")</th>
+                @if (Model.IsShowCreateDelAssFromOtherLink)
+                {
+                    <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/useToCreateNew")</th>
+                }
+                @if (Model.IsInternal)
+                {
+                    <th class="action-control">@Html.Translate("/lantBruk/leveransForsakran/delete")</th>
+                }
+                <th class="action-control">Boka</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.ListOfConfirmed != null && Model.ListOfConfirmed.Any())
+            {
+                foreach (var rowItem in Model.ListOfConfirmed)
+                {
+                    <tr>
+                        <td>
+                            <a href="@rowItem.OverviewDeliveryAssuranceUrl">
+                                @rowItem.DeliveryAssurance.IONumber.ToString(CultureInfo.InvariantCulture)
+                            </a>
+                        </td>
+                        <td>
+                            @rowItem.DeliveryAssurance.Item
+                        </td>
+                        <td class="min__width-100">@string.Format("{0:yyyy-MM-dd}", rowItem.DeliveryAssurance.DeliveryDate)</td>
+                        <td class="collapsed-row">@rowItem.DeliveryAssurance.BookedTime.ToString(CultureInfo.InvariantCulture)</td>
+                        <td class="share-row collapsed-row">
+                            <div class="lm__checkbox lm__tick">
+                                <input type="checkbox" class="cbxToPrintConfirmed" value="@string.Format("{0};{1}", rowItem.DeliveryAssurance.IONumber, rowItem.DeliveryAssurance.LineNumber)"/>
+                                <label></label>
+                            </div>
+                            <a href="@string.Format("/api/pdfhandler/generatepdf?a={0}&l={1}&resync=true", rowItem.DeliveryAssurance.IONumber, rowItem.DeliveryAssurance.LineNumber)" target="_blank"  class="lm__block-btn mobile-only">Skriv ut</a>
+                        </td>
+                        <td class="share-row collapsed-row">
+                            @if (string.IsNullOrWhiteSpace(rowItem.ChangeDeliveryAssuranceUrl))
+                            {
+                                <a href="javascript:void(0)" onclick="DeliveryAssuranceModule.showChangeNotAvailableDiglog();" class="lm__inline-edit-btn">
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@rowItem.ChangeDeliveryAssuranceUrl" class="lm__inline-edit-btn"/>
+                            }
+
+                        </td>
+                        @if (Model.IsShowCreateDelAssFromOtherLink)
+                        {
+                            <td class="share-row collapsed-row">
+                                <a href="@rowItem.CreateDeliveryAssuranceFromExistingUrl" class="lm__inline-coppy-btn">
+                                </a>
+                            </td>
+                        }
+
+                        @if (Model.IsInternal)
+                        {
+                            <td class="share-row collapsed-row">
+                                @if (rowItem.DeliveryAssurance.Status < 45)
+                                {
+                                    <a href="javascript:void(0)" class="lm__inline-delete-btn" onclick="DeliveryAssuranceModule.deleteDeliveryAssurance(this, '#ConfirmedCount', '@rowItem.DeliveryAssurance.IONumber', @rowItem.DeliveryAssurance.LineNumber)">
+
+                                    </a>
+                                }
+                            </td>
+                        }
+                        <td class="share-row collapsed-row">
+                            @if (rowItem.DeliveryAssurance.HasBooking)
+                            {
+                                <a href="@string.Format("{0}?ion={1}", Model.BookDeliveryUrl, rowItem.DeliveryAssurance.IONumber)" class="lm__block-btn">Boka</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+            <tfoot style="display: none;">
+            <tr>
+                <td colspan="7">
+                    Totalt: <span id="ConfirmedCount">@Model.ConfirmedCount</span> rader
+                    @*@string.Format(Html.Translate("/lantBruk/leveransForsakran/numberOfRows"), Model.ConfirmedCount)*@
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+@if (Model.ListOfConfirmed != null && Model.ListOfConfirmed.Any())
+{
+    <div class="lm__meddelanden-actions">
+        <a href="javascript:void(0)" id="btnToPrintConfirmed" onclick="DeliveryAssuranceModule.printMultiLines('cbxToPrintConfirmed');" class="lm__meddelanden-action-btn"><i class="fa fa-print"></i>@Html.Translate("/lantBruk/leveransForsakran/print")</a>
+    </div>
+}
+

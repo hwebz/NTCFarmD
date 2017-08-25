@@ -1,0 +1,102 @@
+﻿@model List<Gro.Core.DataModels.Boka.ResourceGroupItemDto>
+
+@if (Model != null && Model.Count > 0)
+{
+    var hasSloteEditable = Model.Any(tb => tb.UserCanChange);
+    <table border="0" class="tablesaw" data-tablesaw-mode="columntoggle">
+        <thead>
+            <tr>
+                <th scope="col" data-tablesaw-priority="persist">Välj Tid</th>
+                <th scope="col" data-tablesaw-priority="1">Regnr</th>
+                <th scope="col" data-tablesaw-priority="2">Kund</th>
+                <th scope="col" data-tablesaw-priority="3">Artikel</th>
+                <th scope="col" data-tablesaw-priority="4">Kvant</th>
+                <th scope="col" data-tablesaw-priority="5">Enhet</th>
+                @if (hasSloteEditable)
+                {
+                    <th scope="col" data-tablesaw-priority="6">Ändra</th>
+                    <th scope="col" data-tablesaw-priority="7">Avboka</th>
+                }
+                
+            </tr>
+        </thead>
+        <colgroup>
+            <col width="150px">
+            <col width="auto">
+            <col width="auto">
+            <col width="20%">
+            <col width="10%">
+            <col width="10%">
+            @if (hasSloteEditable)
+            {
+                <col width="50px">
+                <col width="50px">
+            }
+          
+        </colgroup>
+        <tbody>
+            @for (var i = 0; i < Model.Count; i++)
+            {
+                <tr class="tb-row">
+                    <td id='@("time_" + i)'>
+                        @if (Model[i].IsBooked)
+                        {
+                            <div class="lm__checkbox lm__tick">
+                                <input type="checkbox" disabled="disabled" checked="checked" />
+                                <label></label>
+                            </div>@(Model[i].FromDateTime + " - " + Model[i].ToDateTime)
+
+                        }
+                        else
+                        {
+                            <div class="lm__checkbox lm__tick">
+                                <input type="checkbox" id='@("slotRow_" + i)' resursid="@Model[i].ResourceId" fromtime="@Model[i].FromDateTime" class="bookingRows"/>
+                                <label></label>
+                            </div>@(Model[i].FromDateTime + " - " + Model[i].ToDateTime)
+                        }
+                    </td>
+                    <td>@Model[i].LicensePlateNo</td>
+                    <td>@Model[i].CustomerName</td>
+                    <td class="tb-item">@Model[i].ItemNo @Model[i].ItemName @Model[i].Sort</td>
+                    <td class="tb-quantity">@Model[i].Qty</td>
+                    <td class="tb-unit">@Model[i].Unit</td>
+                    @if (Model[i].IsBooked && Model[i].UserCanChange)
+                    {
+                        <td>
+                            <a href="#" class="lm__inline-edit-btn lm__float-left-element tb-editBtn"></a>
+                        </td>
+                        <td>
+                            <a href="#" class="lm__inline-delete-btn lm__float-right-element tb-deleteBtn"></a>
+                        </td>
+                        <td style="display: none;">
+                            <input type="hidden" class="tb-reservationId" value="@Model[i].ReservationId"/>
+                            <input type="hidden" class="tb-fromDateTime" value="@Model[i].FromDateTime" />
+                            <input type="hidden" class="tb-owner" value="@Model[i].Owner" />
+                            <input type="hidden" class="tb-customerNo" value="@Model[i].CustomerNo" />
+                            <input type="hidden" class="tb-dateRegistered" value="@(Model[i].FromDate + " " + Model[i].FromDateTime)" />
+                            <input type="hidden" class="tb-idLevnr" value="@Model[i].Leveransforsakransnr" />
+                            <input type="hidden" class="tb-idReg" value="@Model[i].LicensePlateNo" />
+                            <input type="hidden" class="tb-idOvrigt" value="@Model[i].Note" />
+                            <input type="hidden" class="tb-idReminder" value="@Model[i].ReminderMinutesBefore" />
+                            <input type="hidden" class="tb-idEpost" value="@Model[i].EmailAdress" />
+                            <input type="hidden" class="tb-idMobil" value="@Model[i].MobileNo" />
+                            <input type="hidden" class="tb-speditorNo" value="@Model[i].SpeditorNo" />
+                            <input type="hidden" class="tb-customerName" value="@Model[i].CustomerName" />
+                            <input type="hidden" class="tb-transportOrderNo" value="@Model[i].TransportOrderNo" />
+                            <input type="hidden" class="tb-contractNo" value="@Model[i].ContractNo" />
+                            <input type="hidden" class="tb-reminderEmail" value="@Model[i].ReminderEmail" />
+                            <input type="hidden" class="tb-reminderSms" value="@Model[i].ReminderSMS" />
+                            <input type="hidden" class="tb-resourceName" value="@Model[i].ResourceName"/>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    }
+                </tr>
+            } 
+        </tbody>
+    </table>
+
+}

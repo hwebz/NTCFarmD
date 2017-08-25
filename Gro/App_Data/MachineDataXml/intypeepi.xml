@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Output>
+  <Object>
+    <Attribute name="PARENTID"><![CDATA[25111]]></Attribute>
+    <Attribute name="SMDID"><![CDATA[25112]]></Attribute>
+    <Attribute name="ACTIVE"><![CDATA[1]]></Attribute>
+    <Attribute name="MODIFIED"><![CDATA[20161020140848]]></Attribute>
+    <Attribute name="NAME"><![CDATA[Redskap]]></Attribute>
+    <Attribute name="KEY"><![CDATA[Tool]]></Attribute>
+  </Object>
+  <Object>
+    <Attribute name="PARENTID"><![CDATA[25111]]></Attribute>
+    <Attribute name="SMDID"><![CDATA[25113]]></Attribute>
+    <Attribute name="ACTIVE"><![CDATA[1]]></Attribute>
+    <Attribute name="MODIFIED"><![CDATA[20161020140910]]></Attribute>
+    <Attribute name="NAME"><![CDATA[Traktorer]]></Attribute>
+    <Attribute name="KEY"><![CDATA[Tractor]]></Attribute>
+  </Object>
+  <Object>
+    <Attribute name="PARENTID"><![CDATA[25111]]></Attribute>
+    <Attribute name="SMDID"><![CDATA[25114]]></Attribute>
+    <Attribute name="ACTIVE"><![CDATA[1]]></Attribute>
+    <Attribute name="MODIFIED"><![CDATA[20161020140929]]></Attribute>
+    <Attribute name="NAME"><![CDATA[Tröska]]></Attribute>
+    <Attribute name="KEY"><![CDATA[Tresch]]></Attribute>
+  </Object>
+  <Object>
+    <Attribute name="PARENTID"><![CDATA[25111]]></Attribute>
+    <Attribute name="SMDID"><![CDATA[26391]]></Attribute>
+    <Attribute name="ACTIVE"><![CDATA[1]]></Attribute>
+    <Attribute name="MODIFIED"><![CDATA[20161031204527]]></Attribute>
+    <Attribute name="NAME"><![CDATA[Övrigt]]></Attribute>
+    <Attribute name="KEY"><![CDATA[Other]]></Attribute>
+  </Object>
+</Output>

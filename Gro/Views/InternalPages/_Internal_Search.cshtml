@@ -1,0 +1,74 @@
+﻿@using Gro.Constants
+@using Gro.Core.ContentTypes.Utils
+@using Gro.Core.DataModels.Security
+@{
+    var savedCustomer = TempData["internalCustomer"];
+    var isWorkingOnCustomer = savedCustomer is CustomerBasicInfo;
+    string customerCardUrl = string.Empty, customerName = string.Empty, customerNo = string.Empty;
+    if (isWorkingOnCustomer)
+    {
+        var customer = (CustomerBasicInfo)savedCustomer;
+        customerCardUrl = string.Format("{0}?customerNumber={1}", ContentExtensions.GetCustomerCardUrl(), customer.CustomerNo);
+        customerName = customer.CustomerName;
+        customerNo = customer.CustomerNo;
+    }
+
+
+}
+
+<div class="lm__top-header">
+    <div class="wrapper">
+        <div class="layout  layout--small">
+            <div class="layout__item lm__logo">
+                <label>Välj kund</label>
+            </div>
+            <div class="layout__item u-1/1 u-4/5-mobile">
+                <div class="author-inform-form__input layout layout--large">
+                    <form id="internalSearchForm" method="post" action="/api/internal-portal/search">
+                        <div class="author-inform-form__column layout__item u-1/1 u-1/5-mobile">
+                            <ul class="lm__form-dropdown type-3" id="header-internal-search">
+                                <li class="showcase">
+                                    <a href="#" id="search-Option" data-search-option="@SearchOptions.CustomerNumber">Sök kundnummer</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#" data-value="@SearchOptions.CustomerNumber">Sök kundnummer</a></li>
+                                        <li><a href="#" data-value="@SearchOptions.CompanyName">Sök företagsnamn</a></li>
+                                        <li><a href="#" data-value="@SearchOptions.OrganizationNumber">Sök organisationsummer</a></li>
+                                        <li><a href="#" ddata-value="@SearchOptions.UserName">Sök användarens namn</a></li>
+                                        <li><a href="#" data-value="@SearchOptions.UserId">Sök användar-ID (e-post)</a></li>
+                                        <li><a href="#" data-value="@SearchOptions.PersonalNumber">Sök personnummer</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <input name="searchOption" type="hidden" hidden id="searchOption" value="@SearchOptions.CustomerNumber" />
+                        </div>
+                        <div class="author-inform-form__column layout__item u-1/1 u-2/5-mobile second no-padding">
+                            @*<input type="text" id="input-key-search" name="searchText" class="searchText no-margin" placeholder="Sök.." />*@
+                            <input type="text" id="input-key-search" name="searchKey" class="searchText no-margin" placeholder="Sök.." />
+                            <button class="search-btn no-margin submit trigger-on-enter" id="internal-search">Sök</button>
+                        </div>
+                    </form>
+
+                    @*<form id="internalSearchForm" hidden method="post" action="/api/internal-portal/search">
+                            <input name="searchOption" type="hidden" hidden id="searchOption" value="@SearchOptions.CustomerNumber" />
+                            <input name="searchKey" type="hidden" hidden id="searchKey" value="@SearchOptions.CustomerNumber" />
+                        </form>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overflow-message @(isWorkingOnCustomer?"open":string.Empty)" id="customer-popup">
+    <div class="lm__top-header message-popup">
+        <div class="respond-message">
+            <div class="wrapper">
+                <div class="layout  layout--small">
+                    <div class="layout__item u-1/1">
+                        <h3 class="heading-title-3 akzidenz-reg-font"><span>@customerName. @customerNo</span></h3>
+                        <p class="no-margin"><a href="@customerCardUrl"><span>Se kundkort</span> <i class="fa fa-arrow-right"></i></a></p>
+                        <a class="close-btn" href="#">Avsluta <i></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

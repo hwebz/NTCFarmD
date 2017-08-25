@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "";
+}
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+<main class="main-content container" role="main">
+    <section class="lm__contents">
+        <div class="wrapper">
+            <div class="layout  layout--large">
+                <div class="layout__item u-1/1 u-2/3-tablet">
+                    <h3>Sign in with password</h3>
+                    <form action="/login" method="post" id="aspnetForm">
+                        <input id="LoginControl_UserName" name="userName" placeholder="User Name" />
+                        <input id="LoginControl_Password" type="password" name="password" placeholder="Password" />
+                        @if (ViewData["error"] != null)
+                        {
+                            <p style="color: red">@ViewData["error"]</p>
+                        }
+                        <input type="submit" name="submit" value="Submit" id="LoginControl_Button1" />
+                    </form>
+                    <a href="p/LostPassword">Lost password</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
